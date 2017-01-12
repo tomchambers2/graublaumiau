@@ -6,6 +6,7 @@ import {
   StyleSheet,
   TouchableHighlight,
   Image,
+  Animated,
 } from 'react-native'
 
 import Video from 'react-native-video'
@@ -17,6 +18,94 @@ import Play from '../assets/story/story_icon_read.png'
 import Pause from '../assets/story/story_icon_read_pause.png'
 import NavigateLeft from '../assets/story/story_icon_link.png'
 import NavigateRight from '../assets/story/story_icon_rechts.png'
+
+class Story extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      menuOpen: false,
+      narrationPlaying: false,
+    }
+  }
+
+  componentWillMount() {
+    this._slideValue = new Animated.Value(0)
+  }
+
+  _toggleMenu() {
+    Animated.timing(this._slideValue, {
+      toValue: this.state.menuOpen ? -200 : 0,
+      duration: 500,
+    }).start()
+    this.setState({
+      menuOpen: !this.state.menuOpen
+    })
+  }
+
+  _toggleNarration() {
+    this.setState({
+      narrationPlaying: !this.state.narrationPlaying
+    })
+  }
+
+  renderNarrationButton() {
+    const button = this.state.narrationPlaying ?
+    (<TouchableHighlight onPress={this._toggleNarration.bind(this)}  style={styles.playButton}>
+    <Image style={styles.playToggleImage} resizeMode={Image.resizeMode.contain} source={Pause}></Image>
+    </TouchableHighlight>)
+    : (<TouchableHighlight onPress={this._toggleNarration.bind(this)}  style={styles.playButton}>
+      <Image style={styles.playToggleImage} onPress={this._toggleNarration.bind(this)} resizeMode={Image.resizeMode.contain} source={Play}></Image>
+    </TouchableHighlight>)
+    return button;
+  }
+
+  renderMenu() {
+    // const menu = //this.state.menuOpen ?
+    //             (<TouchableHighlight onPress={this._toggleMenu.bind(this)} style={styles.menuToggle}>
+    //               <Image style={styles.menuOpen} resizeMode={Image.resizeMode.contain} source={MenuOpen}></Image>
+    //             </TouchableHighlight>)
+    //              (<Animated.View style={{ transform: [{ translateX: this._slideValue }] }}>
+    //               <TouchableHighlight onPress={this._toggleMenu.bind(this)} style={styles.menuToggle}>
+    //                 <Image style={styles.menuToggleImage} resizeMode={Image.resizeMode.contain} source={MenuOn}></Image>
+    //               </TouchableHighlight></Animated.View>)
+    // return menu
+    return                 (<View>
+                      <TouchableHighlight onPress={this._toggleMenu.bind(this)} style={styles.menuToggle}>
+                        <Image style={styles.menuToggleImage} resizeMode={Image.resizeMode.contain} source={MenuOn}></Image>
+                      </TouchableHighlight>
+                      <Animated.View style={[styles.openedMenu, { transform: [{ translateX: this._slideValue }] }]}>
+                        <TouchableHighlight onPress={this._toggleMenu.bind(this)} style={styles.menuToggle}>
+                          <Image style={styles.menuOpen} resizeMode={Image.resizeMode.contain} source={MenuOpen}></Image>
+                        </TouchableHighlight>
+                      </Animated.View>
+                      </View>)
+  }
+
+  render() {
+    return (
+
+        <View style={styles.interactionContainer}>
+          <View style={styles.topMenu}>
+            {this.renderMenu.bind(this)()}
+            {this.renderNarrationButton.bind(this)()}
+          </View>
+
+          <View style={styles.spacer}></View>
+
+          <View style={styles.navigationBar}>
+            <TouchableHighlight style={styles.navigateLeft}>
+              <Image style={styles.navigateLeftImage} resizeMode={Image.resizeMode.contain} source={NavigateLeft}></Image>
+            </TouchableHighlight>
+            <TouchableHighlight style={styles.navigateRight}>
+              <Image style={styles.navigateRightImage} resizeMode={Image.resizeMode.contain} source={NavigateRight}></Image>
+            </TouchableHighlight>
+          </View>
+        </View>
+
+    )
+  }
+}
 
 const styles = StyleSheet.create({
   backgroundVideo: {
@@ -94,43 +183,17 @@ const styles = StyleSheet.create({
     width: 49,
     height: 49,
   },
+  menuOpen: {
+    height: 49,
+    width: 220,
+  },
+  openedMenu: {
+    position: 'absolute',
+    zIndex: -10,
+  },
   playButton: {
 
   },
 })
-
-class Story extends Component {
-  render() {
-    return (
-      <Video
-          style={styles.backgroundVideo}
-          source={TestVideo}
-          resizeMode="cover"
-          repeat={true}>
-      <View style={styles.interactionContainer}>
-        <View style={styles.topMenu}>
-          <TouchableHighlight style={styles.menuToggle}>
-           <Image style={styles.menuToggleImage} resizeMode={Image.resizeMode.contain} source={MenuOn}></Image>
-          </TouchableHighlight>
-          <TouchableHighlight style={styles.playButton}>
-            <Image style={styles.playToggleImage} resizeMode={Image.resizeMode.contain} source={Play}></Image>
-          </TouchableHighlight>
-        </View>
-
-        <View style={styles.spacer}></View>
-
-        <View style={styles.navigationBar}>
-          <TouchableHighlight style={styles.navigateLeft}>
-            <Image style={styles.navigateLeftImage} resizeMode={Image.resizeMode.contain} source={NavigateLeft}></Image>
-          </TouchableHighlight>
-          <TouchableHighlight style={styles.navigateRight}>
-            <Image style={styles.navigateRightImage} resizeMode={Image.resizeMode.contain} source={NavigateRight}></Image>
-          </TouchableHighlight>
-        </View>
-      </View>
-      </Video>
-    )
-  }
-}
 
 export default Story
