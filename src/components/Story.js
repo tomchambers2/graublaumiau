@@ -12,6 +12,17 @@ import {
 import Video from 'react-native-video'
 import TestVideo from '../assets/video/1_Stadt_Grau.mp4'
 
+import Sound from 'react-native-sound';
+import bgSound from '../assets/sounds/bg1.mp3'
+
+const bg = new Sound('bg1.mp3', Sound.MAIN_BUNDLE, (error) => {
+  if (error) return console.log(error)
+})
+
+const reader = new Sound('reader1.mp3', Sound.MAIN_BUNDLE, (error) => {
+  if (error) return console.log(error)
+})
+
 import MenuOn from '../assets/story/story_icon_menu.png'
 import MenuOpen from '../assets/story/story_icon_menu1.png'
 import Play from '../assets/story/story_icon_read.png'
@@ -33,6 +44,15 @@ class Story extends Component {
     this._slideValue = new Animated.Value(0)
   }
 
+  componentDidMount() {
+    bg.play(() => {
+      console.log('success finish')
+      bg.setNumberOfLoops(-1);
+    }, () => {
+      console.log('error finish')
+    })
+  }
+
   _toggleMenu() {
     Animated.timing(this._slideValue, {
       toValue: this.state.menuOpen ? -200 : 0,
@@ -44,6 +64,15 @@ class Story extends Component {
   }
 
   _toggleNarration() {
+    if (this.state.narrationPlaying) {
+      reader.pause();
+    } else {
+      reader.play(() => {
+        console.log('success finish')
+      }, () => {
+        console.log('error finish')
+      })
+    }
     this.setState({
       narrationPlaying: !this.state.narrationPlaying
     })
@@ -127,7 +156,7 @@ const styles = StyleSheet.create({
 
     flex: 1,
     flexGrow: 5,
-       flexBasis: 20,
+    flexBasis: 20,
 
     paddingLeft: 30,
     paddingTop: 20,
@@ -190,6 +219,7 @@ const styles = StyleSheet.create({
   openedMenu: {
     position: 'absolute',
     zIndex: -10,
+    marginLeft: -50,
   },
   playButton: {
 

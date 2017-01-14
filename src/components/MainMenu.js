@@ -10,53 +10,20 @@ import {
 } from 'react-native'
 
 import Background from '../assets/background.png'
-import SoundOn from '../assets/main_icon_sound.png'
-import SoundOff from '../assets/main_icon_soundoff.png'
-import imprintButton from '../assets/main_icon_imprint.png'
-import storyButton from '../assets/main_icon_story.png'
-import gameButton from '../assets/main_icon_game.png'
+import SoundBackground from '../assets/menu/main_sound_back.png'
+import SoundOn from '../assets/menu/main_sound_top_on.png'
+import SoundOff from '../assets/menu/main_sound_top_off.png'
+import imprintButtonBackground from '../assets/menu/main_imprint_back.png'
+import imprintButton from '../assets/menu/main_imprint_top.png'
+import storyButtonBackground from '../assets/menu/main_story_back.png'
+import gameButtonBackground from '../assets/menu/main_game_back.png'
+import storyButton from '../assets/menu/main_story_top.png'
+import gameButton from '../assets/menu/main_game_top.png'
 
 import Game from './Game'
 import Imprint from './Imprint'
 import Story from './Story'
 import Sound from './Sound'
-
-const styles = StyleSheet.create({
-  background: {
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    right: 0,
-    left: 0,
-    width: null,
-    height: null,
-  },
-
-  buttonRow: {
-    flexDirection: 'row',
-    flex: 1,
-    marginTop: 20,
-    marginRight: 30,
-    marginLeft: 30,
-    justifyContent: 'space-between'
-  },
-
-  soundButton: {
-    width: 49,
-    height: 49,
-  },
-  soundButtonImage: {
-    flex: 1,
-  },
-
-  imprintButton: {
-    height: 49,
-    width: 164
-  },
-  imprintButtonImage: {
-    flex: 1
-  }
-})
 
 class MainMenu extends Component {
   static propTypes = {
@@ -93,24 +60,40 @@ class MainMenu extends Component {
 
     return (
         <Image source={Background} resizeMode={Image.resizeMode.cover} style={styles.background}>
-          <View style={styles.buttonRow}>
-            <TouchableHighlight onPress={this._toggleSound.bind(this)} style={styles.soundButton}>
-              <Image source={soundToggle} style={styles.soundButtonImage} resizeMode={Image.resizeMode.contain}></Image>
-            </TouchableHighlight>
+          <View style={styles.interactionContainer}>
+            <View style={styles.buttonRow}>
+              <TouchableHighlight
+                onPress={this._toggleSound.bind(this)}
+                underlayColor="rgba(255,255,255,0.5)"
+                activeOpacity={0.7}
+                style={styles.soundButton}>
+                <Image source={SoundBackground} style={styles.soundButtonImage} resizeMode={Image.resizeMode.contain}>
+                  <Image source={soundToggle} style={styles.soundButtonImage} resizeMode={Image.resizeMode.contain}></Image>
+                </Image>
+              </TouchableHighlight>
 
-            <TouchableHighlight onPress={this._goToPage.bind(this, Imprint)} style={styles.imprintButton}>
-              <Image style={styles.imprintButtonImage} source={imprintButton}></Image>
-            </TouchableHighlight>
-          </View>
+              <TouchableHighlight onPress={this._goToPage.bind(this, Imprint)} style={styles.imprintButton}>
+                <Image style={styles.imprintButtonImage} source={imprintButtonBackground}>
+                  <Image style={styles.imprintButtonImage} source={imprintButton}></Image>
+                </Image>
+              </TouchableHighlight>
+            </View>
 
-          <View style={styles.buttonRow}>
-            <TouchableHighlight onPress={this._goToPage.bind(this, Story)} style={styles.storyButton}>
-              <Image source={storyButton}></Image>
-            </TouchableHighlight>
+            <View style={styles.spacer}></View>
 
-            <TouchableHighlight onPress={this._goToPage.bind(this, Game)} style={styles.gameButton}>
-              <Image source={gameButton}></Image>
-            </TouchableHighlight>
+            <View style={[styles.buttonRow, styles.bottomButtons]}>
+              <TouchableHighlight onPress={this._goToPage.bind(this, Story)} style={styles.storyButton}>
+                <Image source={storyButtonBackground}>
+                  <Image source={storyButton}></Image>
+                </Image>
+              </TouchableHighlight>
+
+              <TouchableHighlight onPress={this._goToPage.bind(this, Game)} style={styles.gameButton}>
+                <Image source={gameButtonBackground}>
+                  <Image source={gameButton}></Image>
+                </Image>
+              </TouchableHighlight>
+            </View>
           </View>
         </Image>
     )
@@ -118,3 +101,50 @@ class MainMenu extends Component {
 }
 
 export default MainMenu
+
+const styles = StyleSheet.create({
+  interactionContainer: {
+    flex: 1,
+  },
+
+  background: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    right: 0,
+    left: 0,
+    width: null,
+    height: null,
+  },
+
+  buttonRow: {
+    flexDirection: 'row',
+    flex: 1,
+    marginTop: 20,
+    marginRight: 30,
+    marginLeft: 30,
+    justifyContent: 'space-between',
+    paddingBottom: 44,
+  },
+
+  bottomButtons: {
+    alignItems: 'flex-end',
+  },
+
+  soundButton: {
+    width: 49,
+    height: 49,
+    borderRadius: 100
+  },
+  soundButtonImage: {
+    flex: 1,
+  },
+
+  imprintButton: {
+    height: 49,
+    width: 164
+  },
+  imprintButtonImage: {
+    flex: 1
+  }
+})
