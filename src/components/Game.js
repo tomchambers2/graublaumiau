@@ -1,21 +1,16 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import {
   Text,
   View,
-  Button,
   StyleSheet,
-  TouchableHighlight,
   PanResponder,
   Animated,
   Dimensions,
   Image,
-  ScrollView
+  ScrollView,
 } from 'react-native'
 
-import GameMenu from './GameMenu'
-
-import Video from 'react-native-video'
-import TestVideo from '../assets/video/7_Kauz.mp4'
+import NavigationMenu from './NavigationMenu'
 
 import Gif from '../assets/video/giphy3.gif'
 
@@ -30,13 +25,13 @@ class Game extends Component {
     super();
 
     const pans = []
-    gameObjects.forEach((gameObject) => {
+    gameObjects.forEach(() => {
       pans.push(new Animated.ValueXY())
     })
 
     this.state = {
       pans,
-      scrollEnabled: true
+      scrollEnabled: true,
     }
 
     this.panResponders = []
@@ -46,21 +41,19 @@ class Game extends Component {
         onStartShouldSetPanResponder: () => true,
         onPanResponderMove: Animated.event([null, {
           dx: this.state.pans[i].x,
-          dy: this.state.pans[i].y
+          dy: this.state.pans[i].y,
         }]),
         onPanResponderGrant: () => {
-          console.log('grant activated')
           this.setState({
-            scrollEnabled: false
+            scrollEnabled: false,
           })
           return true
         },
-        onPanResponderRelease: (e, gesture) => {
-          console.log('lifted')
+        onPanResponderRelease: () => {
           this.setState({
-            scrollEnabled: true
+            scrollEnabled: true,
           })
-        }
+        },
       })
     });
   }
@@ -89,10 +82,9 @@ class Game extends Component {
           style={styles.divider}
           source={Divider}
           height={Window.height}>
-
         </Image>
         <View style={styles.playArea}>
-          <GameMenu></GameMenu>
+          <NavigationMenu full></NavigationMenu>
           {this.renderVideos()}
         </View>
       </View>
@@ -130,33 +122,33 @@ const styles = StyleSheet.create({
     maxWidth: 150,
     backgroundColor: '#f2f2f2',
     flex: 1,
-    alignItems: 'center'
+    alignItems: 'center',
   },
   playArea: {
     backgroundColor: '#fff',
     flexGrow: 1,
     flex: 1,
     flexDirection: 'row',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
   },
 
   gameObjectIcon: {
     marginTop: 15,
-    marginBottom: 15
+    marginBottom: 15,
   },
 
   divider: {
-    marginLeft: -10
+    marginLeft: -10,
   },
 
-  placeholder      : {
-      backgroundColor     : 'white',
-      width               : 120,
-      height              : 150,
+  placeholder: {
+      backgroundColor: 'white',
+      width: 120,
+      height: 150,
       borderColor: 'black',
       borderWidth: 1,
       flex: 1,
       alignItems: 'center',
-      justifyContent: 'center'
-  }
+      justifyContent: 'center',
+  },
 })

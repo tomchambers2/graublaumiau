@@ -1,32 +1,29 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import {
-  Text,
   View,
-  Button,
   StyleSheet,
-  TouchableHighlight,
-  PanResponder,
   Animated,
-  Dimensions,
   Image,
-  ScrollView
 } from 'react-native'
+
+import NavigationButton from './NavigationButton'
 
 import menuToggle from '../assets/game/game_menu_close-open_top.png'
 import menuBackgroundClosed from '../assets/game/game_menu_close_back.png'
-import menuBackgroundOpen from '../assets/game/game_menu_open_back.png'
+import menuBackgroundOpenLarge from '../assets/game/game_menu_open_back.png'
+import menuBackgroundOpenSmall from '../assets/story/story_menu_open_back.png'
 
 import menuIcon from '../assets/game/game_menu_open_toMain_top.png'
 import soundOffIcon from '../assets/game/game_menu_open_sound_off_top.png'
 import soundOnIcon from '../assets/game/game_menu_open_sound_on_top.png'
 import mailIcon from '../assets/game/game_menu_open_send.png'
 
-class GameMenu extends Component {
+class NavigationMenu extends Component {
   constructor() {
     super()
 
     this.state = {
-      menuOpen: true,
+      menuOpen: false,
       soundOn: true,
     }
   }
@@ -52,20 +49,23 @@ class GameMenu extends Component {
   }
 
   render() {
+    const menuBackgroundOpen = this.props.full ? menuBackgroundOpenLarge : menuBackgroundOpenSmall
     const menuBackgroundSelected = this.state.menuOpen ? menuBackgroundOpen : menuBackgroundClosed
-    const soundToggleIcon = this.state.soundOn ? soundOffIcon : soundOnIcon
-console.log(menuOpenIcons)
+    const soundToggleIcon = this.state.soundOn ? soundOnIcon : soundOffIcon
+    const mailButton = (
+    <NavigationButton style={styles.mailIcon}>
+      <Image source={mailIcon} />
+    </NavigationButton>
+    )
     const menuIcons = (
       <View style={styles.innerMenu}>
-        <TouchableHighlight onPress={this._toggleSound.bind(this)} style={styles.soundToggleIcon}>
+        <NavigationButton onPress={this._toggleSound.bind(this)} style={styles.soundToggleIcon}>
           <Image source={soundToggleIcon} />
-        </TouchableHighlight>
-        <TouchableHighlight style={styles.mailIcon}>
-          <Image source={mailIcon} />
-        </TouchableHighlight>
-        <TouchableHighlight style={styles.menuIcon}>
+        </NavigationButton>
+        {this.props.full && mailButton}
+        <NavigationButton style={styles.menuIcon}>
           <Image source={menuIcon} />
-        </TouchableHighlight>
+        </NavigationButton>
       </View>
     )
 
@@ -75,11 +75,11 @@ console.log(menuOpenIcons)
       <View style={styles.menuContainer}>
         <Image source={menuBackgroundSelected}>
           <View style={styles.menuBackground}>
-            <TouchableHighlight onPress={this._toggleMenu.bind(this)}>
+            <NavigationButton onPress={this._toggleMenu.bind(this)}>
               <Image
                 source={menuToggle}>
               </Image>
-            </TouchableHighlight>
+            </NavigationButton>
             {menuOpenIcons}
           </View>
         </Image>
@@ -88,16 +88,16 @@ console.log(menuOpenIcons)
   }
 }
 
-export default GameMenu
+export default NavigationMenu
 
 const styles = StyleSheet.create({
   menuContainer: {
-
+    height: 49,
   },
   menuBackground: {
     flexDirection: 'row',
     flex: 1,
-    height: 300
+    height: 300,
   },
   innerMenu: {
     paddingLeft: 30,
@@ -107,7 +107,4 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  soundIcon: {
-    marginTop: 20
-  }
 })
