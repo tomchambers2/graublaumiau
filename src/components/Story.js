@@ -113,7 +113,9 @@ class Story extends Component {
 
   render() {
     return (
-
+      <Video
+        source={TestVideo}
+        style={styles.backgroundVideo}>
         <View style={styles.interactionContainer}>
           <View style={styles.topMenu}>
             {this.renderMenu.bind(this)()}
@@ -131,7 +133,7 @@ class Story extends Component {
             </TouchableHighlight>
           </View>
         </View>
-
+      </Video>
     )
   }
 }

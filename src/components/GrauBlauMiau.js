@@ -11,14 +11,6 @@ import MainMenu from './MainMenu'
 import Game from './Game'
 
 class GrauBlauMiau extends Component {
-  _renderScene(route) {
-    return <Text>hi</Text>
-    switch (route.name) {
-      case 'start':
-        return <MainMenu></MainMenu>
-    }
-  }
-
   render() {
     return (
       <View style={{ flex: 1 }}>
