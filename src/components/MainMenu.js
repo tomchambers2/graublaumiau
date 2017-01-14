@@ -38,7 +38,6 @@ class MainMenu extends Component {
       sound: true
     }
 
-    console.log(PixelRatio)
   }
 
   _goToPage(component) {
@@ -56,7 +55,6 @@ class MainMenu extends Component {
   }
 
   render() {
-    console.log(PixelRatio.get(60))
 
     const soundToggle = this.state.sound ? SoundOn : SoundOff
 

@@ -63,7 +63,7 @@ class NavigationMenu extends Component {
           <Image source={soundToggleIcon} />
         </NavigationButton>
         {this.props.full && mailButton}
-        <NavigationButton style={styles.menuIcon}>
+        <NavigationButton onPress={this.props.goToMenu} style={styles.menuIcon}>
           <Image source={menuIcon} />
         </NavigationButton>
       </View>

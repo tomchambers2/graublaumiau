@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import {
   View,
   StyleSheet,
@@ -39,6 +39,10 @@ class Story extends Component {
     }
   }
 
+  static propTypes = {
+    navigator: PropTypes.object.isRequired
+  }
+
   componentWillMount() {
     this._slideValue = new Animated.Value(0)
   }
@@ -50,6 +54,10 @@ class Story extends Component {
     }, () => {
 
     })
+  }
+
+  componentWillUnmount() {
+    bg.pause()
   }
 
   _toggleMenu() {
@@ -77,6 +85,10 @@ class Story extends Component {
     })
   }
 
+  _goToMenu() {
+    this.props.navigator.pop()
+  }
+
   renderNarrationButton() {
     const button = this.state.narrationPlaying ?
     (<NavigationButton onPress={this._toggleNarration.bind(this)}  style={styles.playButton}>
@@ -97,7 +109,7 @@ class Story extends Component {
         style={styles.backgroundVideo}></Video>
         <View style={styles.interactionContainer}>
           <View style={styles.topMenu}>
-            <NavigationMenu style={styles.menu}></NavigationMenu>
+            <NavigationMenu goToMenu={this._goToMenu.bind(this)} style={styles.menu}></NavigationMenu>
             {this.renderNarrationButton.bind(this)()}
           </View>
           <View style={styles.spacer}></View>
@@ -128,7 +140,6 @@ const styles = StyleSheet.create({
     bottom: 0,
     right: 0,
     flex: 1,
-    backgroundColor: 'blue',
   },
 
   interactionContainer: {

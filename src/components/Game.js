@@ -58,6 +58,10 @@ class Game extends Component {
     });
   }
 
+  _goToMenu() {
+    this.props.navigator.pop()
+  }
+
   render() {
     const gameObjectsRender = gameObjects.map((gameObject, i) => {
       return (
@@ -84,7 +88,7 @@ class Game extends Component {
           height={Window.height}>
         </Image>
         <View style={styles.playArea}>
-          <NavigationMenu full></NavigationMenu>
+          <NavigationMenu full goToMenu={this._goToMenu.bind(this)}></NavigationMenu>
           {this.renderVideos()}
         </View>
       </View>
