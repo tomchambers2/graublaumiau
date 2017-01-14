@@ -5,6 +5,8 @@ import {
   TouchableHighlight,
   Image,
   Animated,
+  Text,
+  Dimensions,
 } from 'react-native'
 
 import NavigationMenu from './NavigationMenu'
@@ -23,6 +25,11 @@ const bg = new Sound('bg1.mp3', Sound.MAIN_BUNDLE, () => {
 const reader = new Sound('reader1.mp3', Sound.MAIN_BUNDLE, () => {
 
 })
+
+const dummy = "Schlitz flannel plaid raw denim glossier seitan vegan gentrify fingerstache iceland cardigan. Cliche meggings food truck pickled drinking vinegar master cleanse. Umami shoreditch pug, PBR&B tousled pitchfork truffaut.\n" +
+"\n\nUmami af keffiyeh raw denim +1 gent 90's banh mi 8-bit synth polaroid irony banjo tumblr."
+
+const Window = Dimensions.get('window')
 
 import Play from '../assets/story2/story_icon_read.png'
 import Pause from '../assets/story2/story_icon_read_pause.png'
@@ -103,24 +110,33 @@ class Story extends Component {
   render() {
     return (
       <View style={styles.mainWrapper}>
-        <Video
-        source={TestVideo}
-        repeat={true}
-        style={styles.backgroundVideo}></Video>
+        <Video source={TestVideo} repeat={true} style={styles.backgroundVideo}></Video>
+
         <View style={styles.interactionContainer}>
-          <View style={styles.topMenu}>
-            <NavigationMenu goToMenu={this._goToMenu.bind(this)} style={styles.menu}></NavigationMenu>
-            {this.renderNarrationButton.bind(this)()}
+
+          <View style={{ flexGrow: 1, flexDirection: 'row' }}>
+            <View style={styles.topMenu}>
+              <NavigationMenu goToMenu={this._goToMenu.bind(this)} style={styles.menu}></NavigationMenu>
+              {this.renderNarrationButton.bind(this)()}
+            </View>
+            <View style={styles.textContainer}>
+              <Text style={styles.textBox}>{dummy}</Text>
+            </View>
           </View>
+
           <View style={styles.spacer}></View>
+
           <View style={styles.navigationBar}>
-            <TouchableHighlight style={styles.navigateLeft}>
+
+            <TouchableHighlight>
               <Image style={styles.navigateLeftImage} resizeMode={Image.resizeMode.contain} source={NavigateLeft}></Image>
             </TouchableHighlight>
-            <TouchableHighlight style={styles.navigateRight}>
+            <TouchableHighlight>
               <Image style={styles.navigateRightImage} resizeMode={Image.resizeMode.contain} source={NavigateRight}></Image>
             </TouchableHighlight>
+
           </View>
+
         </View>
 
       </View>
@@ -132,52 +148,45 @@ const styles = StyleSheet.create({
   mainWrapper: {
     flex: 1,
   },
+
   backgroundVideo: {
     position: 'absolute',
-    zIndex: -50,
     top: 0,
     left: 0,
     bottom: 0,
     right: 0,
-    flex: 1,
   },
-
   interactionContainer: {
     flex: 1,
-    position: 'relative',
-    zIndex: 10,
   },
 
   topMenu: {
-    flex: 1,
-    flexGrow: 5,
-    flexBasis: 20,
-
     paddingLeft: 30,
     paddingTop: 20,
+    paddingRight: 30,
+
+    backgroundColor: 'blue'
   },
-  menu: {
-    maxHeight: 50,
+  textContainer: {
+    width: (Window.width / 2) - 109,
+    backgroundColor: 'gray',
+    padding: 30,
+  },
+  textBox: {
+    fontSize: 30
   },
   navigationBar: {
-    flex: 1,
-    flexBasis: 100,
     flexDirection: 'row',
     justifyContent: 'space-between',
-
     paddingLeft: 30,
     paddingRight: 30,
     paddingBottom: 20,
-    alignItems: 'flex-end',
+
+    backgroundColor: 'green'
   },
-  navigateLeft: {
-    height: 49,
-    width: 49,
-  },
-  navigateRight: {
-    height: 49,
-    width: 49,
-  },
+
+
+
   navigateLeftImage: {
     width: 49,
     height: 49,

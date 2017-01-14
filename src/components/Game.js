@@ -84,13 +84,15 @@ class Game extends Component {
         </View>
         <View style={styles.divider}>
           <Image
+            style={{flex: 1}}
             resizeMode={Image.resizeMode.contain}
             source={Divider}>
           </Image>
         </View>
         <View style={styles.playArea}>
-          <NavigationMenu full goToMenu={this._goToMenu.bind(this)}></NavigationMenu>
-          {this.renderVideos()}
+          <View style={styles.navBar}>
+            <NavigationMenu full goToMenu={this._goToMenu.bind(this)} />
+          </View>
         </View>
       </View>
     )
@@ -118,6 +120,10 @@ class Game extends Component {
 export default Game
 
 const styles = StyleSheet.create({
+  navBar: {
+    paddingTop: 20,
+    marginLeft: 17,
+  },
   gameContainer: {
     flex: 1,
     flexDirection: 'row',
@@ -131,10 +137,6 @@ const styles = StyleSheet.create({
   },
   playArea: {
     backgroundColor: '#fff',
-    flexGrow: 1,
-    flex: 1,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
   },
 
   gameObjectIcon: {
