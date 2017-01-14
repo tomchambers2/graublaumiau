@@ -13,9 +13,7 @@ class Imprint extends Component {
   }
 
   _goBack() {
-    this.props.navigator.push({
-      component: MainMenu
-    })
+    this.props.navigator.pop()
   }
 
   render() {

@@ -82,11 +82,12 @@ class Game extends Component {
             {gameObjectsRender}
           </ScrollView>
         </View>
-        <Image
-          style={styles.divider}
-          source={Divider}
-          height={Window.height}>
-        </Image>
+        <View style={styles.divider}>
+          <Image
+            resizeMode={Image.resizeMode.contain}
+            source={Divider}>
+          </Image>
+        </View>
         <View style={styles.playArea}>
           <NavigationMenu full goToMenu={this._goToMenu.bind(this)}></NavigationMenu>
           {this.renderVideos()}
@@ -142,7 +143,9 @@ const styles = StyleSheet.create({
   },
 
   divider: {
-    marginLeft: -10,
+    flex: 1,
+    maxWidth: 26,
+    marginLeft: -13
   },
 
   placeholder: {
