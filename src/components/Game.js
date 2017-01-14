@@ -12,6 +12,8 @@ import {
   ScrollView
 } from 'react-native'
 
+import GameMenu from './GameMenu'
+
 import Video from 'react-native-video'
 import TestVideo from '../assets/video/7_Kauz.mp4'
 
@@ -19,7 +21,8 @@ import Gif from '../assets/video/giphy3.gif'
 
 import gameObjects from '../data/gameObjects'
 
-const CIRCLE_RADIUS = 36
+import Divider from '../assets/game/game_line.png'
+
 const Window = Dimensions.get('window')
 
 class Game extends Component {
@@ -65,11 +68,11 @@ class Game extends Component {
   render() {
     const gameObjectsRender = gameObjects.map((gameObject, i) => {
       return (
-        <View style={styles.draggableContainer}>
+        <View style={[styles.gameObjectIcon, styles.draggableContainer]}>
           <Animated.View
             {...this.panResponders[i].panHandlers}
             style={[this.state.pans[i].getLayout(), styles.placeholder]}>
-            <Text style={styles.text}>Drag me</Text>
+            <Text style={styles.text}>Placeholder</Text>
           </Animated.View>
         </View>
       )
@@ -82,7 +85,14 @@ class Game extends Component {
             {gameObjectsRender}
           </ScrollView>
         </View>
+        <Image
+          style={styles.divider}
+          source={Divider}
+          height={Window.height}>
+
+        </Image>
         <View style={styles.playArea}>
+          <GameMenu></GameMenu>
           {this.renderVideos()}
         </View>
       </View>
@@ -116,8 +126,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   objectMenu: {
-    width: 180,
-    backgroundColor: '#f2f2f2'
+    width: 150,
+    maxWidth: 150,
+    backgroundColor: '#f2f2f2',
+    flex: 1,
+    alignItems: 'center'
   },
   playArea: {
     backgroundColor: '#fff',
@@ -126,31 +139,24 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap'
   },
-  testSquare: {
-    // width: 200,
-    // height: 200,
+
+  gameObjectIcon: {
+    marginTop: 15,
+    marginBottom: 15
   },
 
-  gameObject: {
-
+  divider: {
+    marginLeft: -10
   },
 
-  text        : {
-      marginTop   : 25,
-      marginLeft  : 5,
-      marginRight : 5,
-      textAlign   : 'center',
-      color       : '#fff'
-  },
-  draggableContainer: {
-      // position    : 'absolute',
-      // top         : Window.height/2 - CIRCLE_RADIUS,
-      // left        : 100
-  },
   placeholder      : {
-      backgroundColor     : 'black',
-      width               : CIRCLE_RADIUS*2,
-      height              : CIRCLE_RADIUS*2,
-      borderColor: 'black'
+      backgroundColor     : 'white',
+      width               : 120,
+      height              : 150,
+      borderColor: 'black',
+      borderWidth: 1,
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center'
   }
 })
