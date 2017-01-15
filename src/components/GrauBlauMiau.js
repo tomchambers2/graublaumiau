@@ -35,7 +35,7 @@ class GrauBlauMiau extends Component {
 
   _toggleSound = () => {
     this.setState({
-      soundOn: !this.state.soundOn
+      soundOn: !this.state.soundOn,
     })
   }
 

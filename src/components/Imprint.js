@@ -5,11 +5,11 @@ import {
   Button,
 } from 'react-native'
 
-import MainMenu from './MainMenu'
+import globalStyles from '../globalStyles'
 
 class Imprint extends Component {
   static propTypes = {
-    navigator: PropTypes.object.isRequired
+    navigator: PropTypes.object.isRequired,
   }
 
   _goBack() {
@@ -18,7 +18,7 @@ class Imprint extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1 }}>
+      <View style={globalStyles.wrapper}>
         <Button onPress={this._goBack.bind(this)} title="Back" />
         <Text>Impressum</Text>
       </View>

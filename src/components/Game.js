@@ -5,12 +5,11 @@ import {
   StyleSheet,
   PanResponder,
   Animated,
-  Dimensions,
   Image,
   ScrollView,
 } from 'react-native'
 
-import MainMenu from './MainMenu'
+import colors from '../colors'
 
 import NavigationMenu from './NavigationMenu'
 
@@ -20,9 +19,13 @@ import gameObjects from '../data/gameObjects'
 
 import Divider from '../assets/game/game_line.png'
 
-const Window = Dimensions.get('window')
-
 class Game extends Component {
+  static propTypes = {
+    toggleSound: React.PropTypes.func.isRequired,
+    navigator: React.PropTypes.object.isRequired,
+    soundOn: React.PropTypes.bool.isRequired,
+  }
+
   constructor() {
     super();
 
@@ -99,7 +102,7 @@ class Game extends Component {
         </View>
         <View style={styles.divider}>
           <Image
-            style={{flex: 1}}
+            style={styles.wrapper}
             resizeMode={Image.resizeMode.contain}
             source={Divider}>
           </Image>
@@ -139,6 +142,9 @@ class Game extends Component {
 export default Game
 
 const styles = StyleSheet.create({
+  wrapper: {
+    flex: 1,
+  },
   navBar: {
     paddingTop: 20,
     marginLeft: 17,
@@ -150,12 +156,12 @@ const styles = StyleSheet.create({
   objectMenu: {
     width: 150,
     maxWidth: 150,
-    backgroundColor: '#f2f2f2',
+    backgroundColor: colors.objectMenu,
     flex: 1,
     alignItems: 'center',
   },
   playArea: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.playArea,
   },
 
   gameObjectIcon: {
@@ -166,14 +172,14 @@ const styles = StyleSheet.create({
   divider: {
     flex: 1,
     maxWidth: 26,
-    marginLeft: -13
+    marginLeft: -13,
   },
 
   placeholder: {
-      backgroundColor: 'white',
+      backgroundColor: colors.placeholder,
       width: 120,
       height: 150,
-      borderColor: 'black',
+      borderColor: colors.border,
       borderWidth: 1,
       flex: 1,
       alignItems: 'center',

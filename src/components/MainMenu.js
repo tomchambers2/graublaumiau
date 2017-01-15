@@ -1,11 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import {
-  Text,
   View,
-  Button,
   Image,
-  TouchableHighlight,
-  PixelRatio,
   StyleSheet,
 } from 'react-native'
 
@@ -27,6 +23,8 @@ import Sound from 'react-native-sound';
 class MainMenu extends Component {
   static propTypes = {
     navigator: PropTypes.object.isRequired,
+    toggleSound: PropTypes.func.isRequired,
+    soundOn: PropTypes.bool.isRequired,
   }
 
   constructor(props) {
@@ -35,14 +33,10 @@ class MainMenu extends Component {
 
   _goToPage(id) {
     const route = {
-      id
+      id,
     }
     this.bg.pause();
     this.props.navigator.push(route);
-  }
-
-  _toggleSound() {
-    this.props.toggleSound()
   }
 
   componentDidMount() {
@@ -72,7 +66,7 @@ class MainMenu extends Component {
           <View style={styles.interactionContainer}>
             <View style={styles.buttonRow}>
               <NavigationButton
-                onPress={this._toggleSound.bind(this)}
+                onPress={this.props.toggleSound}
                 underlayColor="rgba(255,255,255,0)"
                 activeOpacity={0.7}
                 style={styles.soundButton}>
@@ -82,6 +76,7 @@ class MainMenu extends Component {
               </NavigationButton>
 
               <NavigationButton
+                f="1"
                 onPress={this._goToPage.bind(this, 'Imprint')}
                 style={styles.imprintButton}>
                 <Image style={styles.imprintButtonImage} source={imprintButtonBackground}>
@@ -94,16 +89,14 @@ class MainMenu extends Component {
 
             <View style={[styles.buttonRow, styles.bottomButtons]}>
               <NavigationButton
-                onPress={this._goToPage.bind(this, 'Story')}
-                style={styles.storyButton}>
+                onPress={this._goToPage.bind(this, 'Story')}>
                 <Image source={storyButtonBackground}>
                   <Image source={storyButton}></Image>
                 </Image>
               </NavigationButton>
 
               <NavigationButton
-                onPress={this._goToPage.bind(this, 'Game')}
-                style={styles.gameButton}>
+                onPress={this._goToPage.bind(this, 'Game')}>
                 <Image source={gameButtonBackground}>
                   <Image source={gameButton}></Image>
                 </Image>
@@ -145,22 +138,22 @@ const styles = StyleSheet.create({
   soundButton: {
     width: 49,
     height: 49,
-    borderRadius: 9999
+    borderRadius: 9999,
   },
   soundButtonBackground: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   soundButtonImage: {
     height: 38,
-    width: 38
+    width: 38,
+  },
+  imprintButtonImage: {
+    flex: 1,
   },
   imprintButton: {
     height: 49,
-    width: 164
+    width: 164,
   },
-  imprintButtonImage: {
-    flex: 1
-  }
 })

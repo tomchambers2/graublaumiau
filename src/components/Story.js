@@ -2,10 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import {
   View,
   StyleSheet,
-  TouchableHighlight,
   Image,
   Animated,
-  Text,
   Dimensions,
   Easing,
 } from 'react-native'
@@ -19,7 +17,6 @@ import Video from 'react-native-video'
 import TestVideo from '../assets/video/1_Stadt_Grau.mp4'
 
 import Sound from 'react-native-sound';
-import bgSound from '../assets/sounds/bg1.mp3'
 
 const bg = new Sound('bg1.mp3', Sound.MAIN_BUNDLE, () => {})
 
@@ -48,7 +45,9 @@ class Story extends Component {
   }
 
   static propTypes = {
-    navigator: PropTypes.object.isRequired
+    navigator: PropTypes.object.isRequired,
+    soundOn: PropTypes.bool.isRequired,
+    toggleSound: PropTypes.func.isRequired,
   }
 
   _pauseNarration(options={}) {
@@ -91,7 +90,7 @@ class Story extends Component {
       this._goToMenu()
     } else {
       this.setState({
-        page: this.state.page - 1
+        page: this.state.page - 1,
       })
     }
   }
@@ -99,7 +98,7 @@ class Story extends Component {
   _navigateRight = () => {
     if ((this.state.page + 1) < this.state.totalPages) {
       this.setState({
-        page: this.state.page + 1
+        page: this.state.page + 1,
       })
     }
   }
@@ -153,7 +152,7 @@ class Story extends Component {
 
         <View style={styles.interactionContainer}>
 
-          <View style={{ flexGrow: 1, flexDirection: 'row' }}>
+          <View style={styles.menuAndContent}>
             <View style={styles.topMenu}>
               <NavigationMenu
                 toggleSound={this._toggleSound}
@@ -209,6 +208,10 @@ const styles = StyleSheet.create({
   },
   interactionContainer: {
     flex: 1,
+  },
+  menuAndContent: {
+    flexGrow: 1,
+    flexDirection: 'row',
   },
   topMenu: {
     paddingLeft: 30,

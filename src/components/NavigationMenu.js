@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import {
   View,
   StyleSheet,
@@ -19,16 +19,18 @@ import soundOnIcon from '../assets/game/game_menu_open_sound_on_top.png'
 import mailIcon from '../assets/game/game_menu_open_send.png'
 
 class NavigationMenu extends Component {
+  static propTypes = {
+    toggleSound: PropTypes.func.isRequired,
+    soundOn: PropTypes.bool.isRequired,
+    goToMenu: PropTypes.func.isRequired,
+    full: PropTypes.bool,
+  }
+
   constructor() {
     super()
-
     this.state = {
       menuOpen: false,
     }
-  }
-
-  componentWillMount() {
-    this._slideValue = new Animated.Value(0)
   }
 
   _toggleMenu() {
@@ -41,8 +43,8 @@ class NavigationMenu extends Component {
     })
   }
 
-  _toggleSound = () => {
-    this.props.toggleSound()
+  componentWillMount() {
+    this._slideValue = new Animated.Value(0)
   }
 
   render() {
@@ -56,7 +58,7 @@ class NavigationMenu extends Component {
     )
     const menuIcons = (
       <View style={styles.innerMenu}>
-        <NavigationButton onPress={this._toggleSound} style={styles.soundToggleIcon}>
+        <NavigationButton onPress={this.props.toggleSound} style={styles.soundToggleIcon}>
           <Image source={soundToggleIcon} />
         </NavigationButton>
         {this.props.full && mailButton}
@@ -70,17 +72,17 @@ class NavigationMenu extends Component {
 
     return (
       <View style={styles.menuContainer}>
-        <View style={{ position: 'absolute' }}>
-        <Image source={menuBackgroundSelected}>
-          <View style={styles.menuBackground}>
-            <NavigationButton onPress={this._toggleMenu.bind(this)}>
-              <Image
-                source={menuToggle}>
-              </Image>
-            </NavigationButton>
-            {menuOpenIcons}
-          </View>
-        </Image>
+        <View style={styles.absolute}>
+          <Image source={menuBackgroundSelected}>
+            <View style={styles.menuBackground}>
+              <NavigationButton onPress={this._toggleMenu.bind(this)}>
+                <Image
+                  source={menuToggle}>
+                </Image>
+              </NavigationButton>
+              {menuOpenIcons}
+            </View>
+          </Image>
         </View>
       </View>
     )
@@ -94,6 +96,9 @@ const styles = StyleSheet.create({
     height: 49,
     zIndex: 50,
     position: 'relative',
+  },
+  absolute: {
+    position: 'absolute',
   },
   menuBackground: {
     flexDirection: 'row',

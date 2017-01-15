@@ -4,6 +4,11 @@ import {
 } from 'react-native'
 
 class NavigationButton extends Component {
+  static propTypes = {
+    style: PropTypes.number,
+    onPress: PropTypes.func.isRequired,
+    children: PropTypes.element.isRequired,
+  }
   render() {
     return (
       <TouchableHighlight
