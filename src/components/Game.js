@@ -60,9 +60,21 @@ class Game extends Component {
     });
   }
 
+  _toggleSound = () => {
+    this.props.toggleSound()
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (!newProps.soundOn) {
+      // turn sound off
+    } else {
+      // turn sound on
+    }
+  }
+
   _goToMenu() {
     // bg.pause()
-    this.props.navigator.replace({ component: MainMenu })
+    this.props.navigator.resetTo({ id: 'MainMenu' })
   }
 
   render() {
@@ -94,7 +106,11 @@ class Game extends Component {
         </View>
         <View style={styles.playArea}>
           <View style={styles.navBar}>
-            <NavigationMenu full goToMenu={this._goToMenu.bind(this)} />
+            <NavigationMenu
+              full
+              toggleSound={this._toggleSound}
+              soundOn={this.props.soundOn}
+              goToMenu={this._goToMenu.bind(this)} />
           </View>
         </View>
       </View>

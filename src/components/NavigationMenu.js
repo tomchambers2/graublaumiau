@@ -24,7 +24,6 @@ class NavigationMenu extends Component {
 
     this.state = {
       menuOpen: false,
-      soundOn: true,
     }
   }
 
@@ -42,16 +41,14 @@ class NavigationMenu extends Component {
     })
   }
 
-  _toggleSound() {
-    this.setState({
-      soundOn: !this.state.soundOn,
-    })
+  _toggleSound = () => {
+    this.props.toggleSound()
   }
 
   render() {
     const menuBackgroundOpen = this.props.full ? menuBackgroundOpenLarge : menuBackgroundOpenSmall
     const menuBackgroundSelected = this.state.menuOpen ? menuBackgroundOpen : menuBackgroundClosed
-    const soundToggleIcon = this.state.soundOn ? soundOnIcon : soundOffIcon
+    const soundToggleIcon = this.props.soundOn ? soundOnIcon : soundOffIcon
     const mailButton = (
     <NavigationButton style={styles.mailIcon}>
       <Image source={mailIcon} />
@@ -59,7 +56,7 @@ class NavigationMenu extends Component {
     )
     const menuIcons = (
       <View style={styles.innerMenu}>
-        <NavigationButton onPress={this._toggleSound.bind(this)} style={styles.soundToggleIcon}>
+        <NavigationButton onPress={this._toggleSound} style={styles.soundToggleIcon}>
           <Image source={soundToggleIcon} />
         </NavigationButton>
         {this.props.full && mailButton}

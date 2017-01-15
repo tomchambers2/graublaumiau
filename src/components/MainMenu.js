@@ -22,10 +22,6 @@ import gameButton from '../assets/menu/main_game_top.png'
 
 import NavigationButton from './NavigationButton'
 
-import Game from './Game'
-import Imprint from './Imprint'
-import Story from './Story'
-
 import Sound from 'react-native-sound';
 // const bg = new Sound('main_sound.mp3', Sound.MAIN_BUNDLE, () => {
 //   console.log('loaded sound')
@@ -39,43 +35,38 @@ class MainMenu extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {
-      sound: true
-    }
-
   }
 
-  componentWillMount() {
+  componentDidMount() {
     console.log('did mount')
-    this.bg = new Sound('main_sound.mp3', Sound.MAIN_BUNDLE, (e) => {
-      console.log('was loaded')
-      if (e) {
-        console.log('error', e);
-      } else {
-        console.log('duration', this.bg.getDuration());
-        this.bg.play();
-      }
-    });
   }
 
-  _goToPage(component) {
+  _goToPage(id) {
     const route = {
-      component: component,
+      id
     }
     this.bg.pause();
+    this.bg.setVolume(0);
     this.props.navigator.push(route);
   }
 
   _toggleSound() {
-    this.setState({
-      sound: !this.state.sound
-    })
+    this.props.toggleSound()
+  }
 
+  componentWillReceiveProps(newProps) {
+    if (!newProps.soundOn) {
+      console.log('off in main')
+      this.bg.pause();
+    } else {
+      console.log('on in main')
+      this.bg.play();
+    }
   }
 
   render() {
 
-    const soundToggle = this.state.sound ? SoundOn : SoundOff
+    const soundToggle = this.props.soundOn ? SoundOn : SoundOff
 
     return (
         <Image source={Background} resizeMode={Image.resizeMode.cover} style={styles.background}>
@@ -92,7 +83,7 @@ class MainMenu extends Component {
               </NavigationButton>
 
               <NavigationButton
-                onPress={this._goToPage.bind(this, Imprint)}
+                onPress={this._goToPage.bind(this, 'Imprint')}
                 style={styles.imprintButton}>
                 <Image style={styles.imprintButtonImage} source={imprintButtonBackground}>
                   <Image style={styles.imprintButtonImage} source={imprintButton}></Image>
@@ -104,7 +95,7 @@ class MainMenu extends Component {
 
             <View style={[styles.buttonRow, styles.bottomButtons]}>
               <NavigationButton
-                onPress={this._goToPage.bind(this, Story)}
+                onPress={this._goToPage.bind(this, 'Story')}
                 style={styles.storyButton}>
                 <Image source={storyButtonBackground}>
                   <Image source={storyButton}></Image>
@@ -112,7 +103,7 @@ class MainMenu extends Component {
               </NavigationButton>
 
               <NavigationButton
-                onPress={this._goToPage.bind(this, Game)}
+                onPress={this._goToPage.bind(this, 'Game')}
                 style={styles.gameButton}>
                 <Image source={gameButtonBackground}>
                   <Image source={gameButton}></Image>

@@ -12,8 +12,6 @@ import {
 
 const TEXT_FADE_TIME = 1000
 
-import MainMenu from './MainMenu'
-
 import NavigationMenu from './NavigationMenu'
 import NavigationButton from './NavigationButton'
 
@@ -23,7 +21,7 @@ import TestVideo from '../assets/video/1_Stadt_Grau.mp4'
 import Sound from 'react-native-sound';
 import bgSound from '../assets/sounds/bg1.mp3'
 
-const bg = new Sound('bg1.mp3', Sound.MAIN_BUNDLE, () => {
+const bg = new Sound('clap-808.wav', Sound.MAIN_BUNDLE, () => {
 
 })
 
@@ -65,13 +63,15 @@ class Story extends Component {
   }
 
   componentDidMount() {
-    bg.play(() => {
 
-      bg.setNumberOfLoops(-1);
-      bg.play();
-    }, () => {
+    bg.setNumberOfLoops(-1);
+    if (this.props.soundOn) {
+      bg.play(() => {
+        bg.play();
+      }, () => {
 
-    })
+      })
+    }
 
     Animated.timing(this.state._textFade, {
       toValue: 1,
@@ -109,6 +109,21 @@ class Story extends Component {
     })
   }
 
+  componentWillReceiveProps(newProps) {
+    if (!newProps.soundOn) {
+      console.log('stop all in story')
+      bg.pause()
+      reader.pause()
+    } else {
+      console.log('start bg in story')
+      bg.play();
+    }
+  }
+
+  _toggleSound = () => {
+    this.props.toggleSound()
+  }
+
   renderNarrationButton() {
     const button = this.state.narrationPlaying ?
     (<NavigationButton onPress={this._toggleNarration.bind(this)}  style={styles.playButton}>
@@ -122,7 +137,7 @@ class Story extends Component {
 
   _goToMenu() {
     bg.pause()
-    this.props.navigator.replace({ component: MainMenu })
+    this.props.navigator.resetTo({ id: 'MainMenu' })
   }
 
   navigateLeft() {
@@ -155,7 +170,11 @@ class Story extends Component {
 
           <View style={{ flexGrow: 1, flexDirection: 'row' }}>
             <View style={styles.topMenu}>
-              <NavigationMenu goToMenu={this._goToMenu.bind(this)} style={styles.menu}></NavigationMenu>
+              <NavigationMenu
+                toggleSound={this._toggleSound}
+                soundOn={this.props.soundOn}
+                goToMenu={this._goToMenu.bind(this)}
+                style={styles.menu} />
               {this.renderNarrationButton.bind(this)()}
             </View>
             <View style={styles.textContainer}>
