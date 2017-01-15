@@ -8,21 +8,30 @@ import {
   Easing,
 } from 'react-native'
 
+import page0 from '../story/0'
+import page1 from '../story/1'
+import page2 from '../story/2'
+import page3 from '../story/3'
+
+const pages = {
+  0: page0,
+  1: page1,
+  2: page2,
+  3: page3,
+}
+
 const TEXT_FADE_TIME = 1000
 
 import NavigationMenu from './NavigationMenu'
 import NavigationButton from './NavigationButton'
 
 import Video from 'react-native-video'
-import TestVideo from '../assets/video/1_Stadt_Grau.mp4'
 
 import Sound from 'react-native-sound';
 
 const bg = new Sound('bg1.mp3', Sound.MAIN_BUNDLE, () => {})
 
 const reader = new Sound('clap-808.wav', Sound.MAIN_BUNDLE, () => {})
-
-import textImage from '../assets/page1.png'
 
 const Window = Dimensions.get('window')
 
@@ -40,7 +49,7 @@ class Story extends Component {
       narrationPlaying: false,
       _textFade: new Animated.Value(0),
       page: 0,
-      totalPages: 1,
+      totalPages: 4,
     }
   }
 
@@ -120,6 +129,11 @@ class Story extends Component {
     bg.play()
   }
 
+  componentDidMount() {
+    this._startSound()
+    this._fadeInText()
+  }
+
   componentWillReceiveProps(newProps) {
     if (!newProps.soundOn) {
       bg.setVolume(0)
@@ -129,11 +143,6 @@ class Story extends Component {
       bg.setVolume(1)
       reader.setVolume(1)
     }
-  }
-
-  componentDidMount() {
-    this._startSound()
-    this._fadeInText()
   }
 
   componentWillUnmount() {
@@ -148,7 +157,7 @@ class Story extends Component {
 
     return (
       <View style={styles.mainWrapper}>
-        <Video source={TestVideo} repeat={true} style={styles.backgroundVideo}></Video>
+        <Video source={pages[this.state.page].video} repeat={true} style={styles.backgroundVideo}></Video>
 
         <View style={styles.interactionContainer}>
 
@@ -164,7 +173,7 @@ class Story extends Component {
               </NavigationButton>
             </View>
             <View style={styles.textContainer}>
-              <Animated.Image source={textImage} style={[styles.textBox, { opacity: this.state._textFade }]} resizeMode={Image.resizeMode.contain}></Animated.Image>
+              <Animated.Image source={pages[this.state.page].text} style={[styles.textBox, { opacity: this.state._textFade }]} resizeMode={Image.resizeMode.contain}></Animated.Image>
             </View>
           </View>
 
