@@ -25,7 +25,12 @@ import NavigationButton from './NavigationButton'
 import Game from './Game'
 import Imprint from './Imprint'
 import Story from './Story'
-import Sound from './Sound'
+
+import Sound from 'react-native-sound';
+// const bg = new Sound('main_sound.mp3', Sound.MAIN_BUNDLE, () => {
+//   console.log('loaded sound')
+//   console.log(bg.isLoaded())
+// })
 
 class MainMenu extends Component {
   static propTypes = {
@@ -40,10 +45,24 @@ class MainMenu extends Component {
 
   }
 
+  componentWillMount() {
+    console.log('did mount')
+    this.bg = new Sound('main_sound.mp3', Sound.MAIN_BUNDLE, (e) => {
+      console.log('was loaded')
+      if (e) {
+        console.log('error', e);
+      } else {
+        console.log('duration', this.bg.getDuration());
+        this.bg.play();
+      }
+    });
+  }
+
   _goToPage(component) {
     const route = {
       component: component,
     }
+    this.bg.pause();
     this.props.navigator.push(route);
   }
 

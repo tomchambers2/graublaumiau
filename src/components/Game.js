@@ -10,6 +10,8 @@ import {
   ScrollView,
 } from 'react-native'
 
+import MainMenu from './MainMenu'
+
 import NavigationMenu from './NavigationMenu'
 
 import Gif from '../assets/video/giphy3.gif'
@@ -59,7 +61,8 @@ class Game extends Component {
   }
 
   _goToMenu() {
-    this.props.navigator.pop()
+    // bg.pause()
+    this.props.navigator.replace({ component: MainMenu })
   }
 
   render() {

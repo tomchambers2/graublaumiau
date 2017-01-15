@@ -73,6 +73,7 @@ class NavigationMenu extends Component {
 
     return (
       <View style={styles.menuContainer}>
+        <View style={{ position: 'absolute' }}>
         <Image source={menuBackgroundSelected}>
           <View style={styles.menuBackground}>
             <NavigationButton onPress={this._toggleMenu.bind(this)}>
@@ -83,6 +84,7 @@ class NavigationMenu extends Component {
             {menuOpenIcons}
           </View>
         </Image>
+        </View>
       </View>
     )
   }
@@ -93,6 +95,8 @@ export default NavigationMenu
 const styles = StyleSheet.create({
   menuContainer: {
     height: 49,
+    zIndex: 50,
+    position: 'relative',
   },
   menuBackground: {
     flexDirection: 'row',

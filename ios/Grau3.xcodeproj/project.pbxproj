@@ -28,6 +28,7 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		F62892581E2A47E000081545 /* bg1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F62892571E2A47E000081545 /* bg1.mp3 */; };
 		F628926F1E2A4AEA00081545 /* reader1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F628926E1E2A4AEA00081545 /* reader1.mp3 */; };
+		F62892711E2B879900081545 /* main_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F62892701E2B879900081545 /* main_sound.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -216,6 +217,7 @@
 		D6B6C21E81694005A12DD420 /* RCTVideo.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTVideo.xcodeproj; path = "../node_modules/react-native-video/RCTVideo.xcodeproj"; sourceTree = "<group>"; };
 		F62892571E2A47E000081545 /* bg1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bg1.mp3; sourceTree = "<group>"; };
 		F628926E1E2A4AEA00081545 /* reader1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = reader1.mp3; sourceTree = "<group>"; };
+		F62892701E2B879900081545 /* main_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = main_sound.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -400,6 +402,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				F62892701E2B879900081545 /* main_sound.mp3 */,
 				F628926E1E2A4AEA00081545 /* reader1.mp3 */,
 				F62892571E2A47E000081545 /* bg1.mp3 */,
 				13B07FAE1A68108700A75B9A /* Grau3 */,
@@ -731,6 +734,7 @@
 				F62892581E2A47E000081545 /* bg1.mp3 in Resources */,
 				F628926F1E2A4AEA00081545 /* reader1.mp3 in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				F62892711E2B879900081545 /* main_sound.mp3 in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,12 @@ import {
   Animated,
   Text,
   Dimensions,
+  Easing,
 } from 'react-native'
+
+const TEXT_FADE_TIME = 1000
+
+import MainMenu from './MainMenu'
 
 import NavigationMenu from './NavigationMenu'
 import NavigationButton from './NavigationButton'
@@ -26,8 +31,7 @@ const reader = new Sound('reader1.mp3', Sound.MAIN_BUNDLE, () => {
 
 })
 
-const dummy = "Schlitz flannel plaid raw denim glossier seitan vegan gentrify fingerstache iceland cardigan. Cliche meggings food truck pickled drinking vinegar master cleanse. Umami shoreditch pug, PBR&B tousled pitchfork truffaut.\n" +
-"\n\nUmami af keffiyeh raw denim +1 gent 90's banh mi 8-bit synth polaroid irony banjo tumblr."
+import textImage from '../assets/page1.png'
 
 const Window = Dimensions.get('window')
 
@@ -43,6 +47,7 @@ class Story extends Component {
     this.state = {
       menuOpen: false,
       narrationPlaying: false,
+      _textFade: new Animated.Value(0),
     }
   }
 
@@ -52,15 +57,24 @@ class Story extends Component {
 
   componentWillMount() {
     this._slideValue = new Animated.Value(0)
+
+
   }
 
   componentDidMount() {
     bg.play(() => {
 
       bg.setNumberOfLoops(-1);
+      bg.play();
     }, () => {
 
     })
+
+    Animated.timing(this.state._textFade, {
+      toValue: 1,
+      duration: TEXT_FADE_TIME,
+      easing: Easing.linear,
+    }).start()
   }
 
   componentWillUnmount() {
@@ -93,7 +107,8 @@ class Story extends Component {
   }
 
   _goToMenu() {
-    this.props.navigator.pop()
+    bg.pause()
+    this.props.navigator.replace({ component: MainMenu })
   }
 
   renderNarrationButton() {
@@ -120,7 +135,7 @@ class Story extends Component {
               {this.renderNarrationButton.bind(this)()}
             </View>
             <View style={styles.textContainer}>
-              <Text style={styles.textBox}>{dummy}</Text>
+              <Animated.Image source={textImage} style={[styles.textBox, { opacity: this.state._textFade }]} resizeMode={Image.resizeMode.contain}></Animated.Image>
             </View>
           </View>
 
@@ -165,15 +180,19 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingRight: 30,
 
-    backgroundColor: 'blue'
+    position: 'relative',
+    zIndex: 10,
+    // backgroundColor: 'blue'
   },
   textContainer: {
     width: (Window.width / 2) - 109,
-    backgroundColor: 'gray',
     padding: 30,
+    // backgroundColor: 'gray',
   },
   textBox: {
-    fontSize: 30
+    // width: (Window.width / 2) - 109,
+    width: 300,
+    height: 200,
   },
   navigationBar: {
     flexDirection: 'row',
@@ -182,7 +201,7 @@ const styles = StyleSheet.create({
     paddingRight: 30,
     paddingBottom: 20,
 
-    backgroundColor: 'green'
+    // backgroundColor: 'green'
   },
 
 
