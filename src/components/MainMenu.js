@@ -63,11 +63,9 @@ class MainMenu extends Component {
 
   componentWillReceiveProps(newProps) {
     if (!newProps.soundOn) {
-      console.log('off in main')
-      this.bg.setVolume(0);
+      this.bg.setVolume(0)
     } else {
-      console.log('on in main')
-      this.bg.setVolume(1);
+      this.bg.setVolume(1)
     }
   }
 

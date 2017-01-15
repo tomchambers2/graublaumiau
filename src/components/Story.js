@@ -21,13 +21,9 @@ import TestVideo from '../assets/video/1_Stadt_Grau.mp4'
 import Sound from 'react-native-sound';
 import bgSound from '../assets/sounds/bg1.mp3'
 
-const bg = new Sound('bg1.mp3', Sound.MAIN_BUNDLE, () => {
+const bg = new Sound('bg1.mp3', Sound.MAIN_BUNDLE, () => {})
 
-})
-
-const reader = new Sound('reader1.mp3', Sound.MAIN_BUNDLE, () => {
-
-})
+const reader = new Sound('clap-808.wav', Sound.MAIN_BUNDLE, () => {})
 
 import textImage from '../assets/page1.png'
 
@@ -56,12 +52,6 @@ class Story extends Component {
     navigator: PropTypes.object.isRequired
   }
 
-  componentWillMount() {
-    this._slideValue = new Animated.Value(0)
-
-
-  }
-
   componentDidMount() {
     if (!this.props.soundOn) {
       bg.setVolume(0)
@@ -77,44 +67,55 @@ class Story extends Component {
 
   componentWillUnmount() {
     bg.pause()
+    _pauseNarration({ reset: true })
   }
 
-  _toggleMenu() {
-    Animated.timing(this._slideValue, {
-      toValue: this.state.menuOpen ? -200 : 0,
-      duration: 500,
-    }).start()
+  _pauseNarration(options={}) {
     this.setState({
-      menuOpen: !this.state.menuOpen,
+      narrationPlaying: false,
+    })
+    reader.pause()
+    if (options.reset) {
+      reader.setCurrentTime(0)
+    }
+  }
+
+  _playNarration() {
+    console.log('play NOW')
+    if (!this.props.soundOn) {
+      this.props.toggleSound()
+    }
+    this.setState({
+      narrationPlaying: true,
+    })
+    reader.play((result) => {
+      if (result) {
+        this._pauseNarration()
+      } else {
+        console.error(success)
+      }
     })
   }
 
   _toggleNarration() {
     if (this.state.narrationPlaying) {
-      reader.pause();
+      this._pauseNarration()
     } else {
-      reader.play(() => {
-
-      }, () => {
-
-      })
+      this._playNarration()
     }
-    this.setState({
-      narrationPlaying: !this.state.narrationPlaying,
-    })
   }
 
   componentWillReceiveProps(newProps) {
     if (!newProps.soundOn) {
-      console.log('stop all in story')
       bg.setVolume(0)
       reader.setVolume(0)
+      reader.pause()
       this.setState({
         narrationPlaying: false
       })
     } else {
-      console.log('start bg in story')
-      bg.setVolume(1);
+      bg.setVolume(1)
+      reader.setVolume(1)
     }
   }
 
@@ -211,7 +212,6 @@ const styles = StyleSheet.create({
   mainWrapper: {
     flex: 1,
   },
-
   backgroundVideo: {
     position: 'absolute',
     top: 0,
@@ -222,23 +222,18 @@ const styles = StyleSheet.create({
   interactionContainer: {
     flex: 1,
   },
-
   topMenu: {
     paddingLeft: 30,
     paddingTop: 20,
     paddingRight: 30,
-
     position: 'relative',
     zIndex: 10,
-    // backgroundColor: 'blue'
   },
   textContainer: {
     width: (Window.width / 2) - 109,
     padding: 30,
-    // backgroundColor: 'gray',
   },
   textBox: {
-    // width: (Window.width / 2) - 109,
     width: 300,
     height: 200,
   },
@@ -248,12 +243,7 @@ const styles = StyleSheet.create({
     paddingLeft: 30,
     paddingRight: 30,
     paddingBottom: 20,
-
-    // backgroundColor: 'green'
   },
-
-
-
   navigateLeftImage: {
     width: 49,
     height: 49,
@@ -262,7 +252,6 @@ const styles = StyleSheet.create({
     width: 49,
     height: 49,
   },
-
   playToggleImage: {
     width: 49,
     height: 49,
