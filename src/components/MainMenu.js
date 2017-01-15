@@ -23,10 +23,6 @@ import gameButton from '../assets/menu/main_game_top.png'
 import NavigationButton from './NavigationButton'
 
 import Sound from 'react-native-sound';
-// const bg = new Sound('main_sound.mp3', Sound.MAIN_BUNDLE, () => {
-//   console.log('loaded sound')
-//   console.log(bg.isLoaded())
-// })
 
 class MainMenu extends Component {
   static propTypes = {
@@ -52,10 +48,8 @@ class MainMenu extends Component {
   componentDidMount() {
     this.bg = new Sound('main_sound.mp3', Sound.MAIN_BUNDLE, () => {
       if (!this.props.soundOn) {
-        console.log('TURN MAIN OFF')
         this.bg.setVolume(0)
       }
-      console.log('start it')
       this.bg.setNumberOfLoops(-1)
       this.bg.play()
     })
@@ -127,7 +121,6 @@ const styles = StyleSheet.create({
   interactionContainer: {
     flex: 1,
   },
-
   background: {
     position: 'absolute',
     top: 0,
@@ -137,7 +130,6 @@ const styles = StyleSheet.create({
     width: null,
     height: null,
   },
-
   buttonRow: {
     flexDirection: 'row',
     flex: 1,
@@ -147,11 +139,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingBottom: 44,
   },
-
   bottomButtons: {
     alignItems: 'flex-end',
   },
-
   soundButton: {
     width: 49,
     height: 49,
@@ -166,7 +156,6 @@ const styles = StyleSheet.create({
     height: 38,
     width: 38
   },
-
   imprintButton: {
     height: 49,
     width: 164

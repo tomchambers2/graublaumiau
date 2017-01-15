@@ -29,18 +29,17 @@ import textImage from '../assets/page1.png'
 
 const Window = Dimensions.get('window')
 
-import Play from '../assets/story2/story_icon_read.png'
-import Pause from '../assets/story2/story_icon_read_pause.png'
+import playIcon from '../assets/story2/story_icon_read.png'
+import pauseIcon from '../assets/story2/story_icon_read_pause.png'
 import NavigateLeft from '../assets/story2/story_icon_link.png'
 import NavigateRight from '../assets/story2/story_icon_rechts.png'
 import endButton from '../assets/story2/story_icon_ende.png'
 
 class Story extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
 
     this.state = {
-      menuOpen: false,
       narrationPlaying: false,
       _textFade: new Animated.Value(0),
       page: 0,
@@ -50,24 +49,6 @@ class Story extends Component {
 
   static propTypes = {
     navigator: PropTypes.object.isRequired
-  }
-
-  componentDidMount() {
-    if (!this.props.soundOn) {
-      bg.setVolume(0)
-    }
-    bg.setNumberOfLoops(-1);
-    bg.play()
-    Animated.timing(this.state._textFade, {
-      toValue: 1,
-      duration: TEXT_FADE_TIME,
-      easing: Easing.linear,
-    }).start()
-  }
-
-  componentWillUnmount() {
-    bg.pause()
-    _pauseNarration({ reset: true })
   }
 
   _pauseNarration(options={}) {
@@ -81,23 +62,14 @@ class Story extends Component {
   }
 
   _playNarration() {
-    console.log('play NOW')
-    if (!this.props.soundOn) {
-      this.props.toggleSound()
-    }
-    this.setState({
-      narrationPlaying: true,
-    })
+    if (!this.props.soundOn) this.props.toggleSound()
+    this.setState({ narrationPlaying: true })
     reader.play((result) => {
-      if (result) {
-        this._pauseNarration()
-      } else {
-        console.error(success)
-      }
+      if (result) this._pauseNarration()
     })
   }
 
-  _toggleNarration() {
+  _toggleNarration = () => {
     if (this.state.narrationPlaying) {
       this._pauseNarration()
     } else {
@@ -105,33 +77,8 @@ class Story extends Component {
     }
   }
 
-  componentWillReceiveProps(newProps) {
-    if (!newProps.soundOn) {
-      bg.setVolume(0)
-      reader.setVolume(0)
-      reader.pause()
-      this.setState({
-        narrationPlaying: false
-      })
-    } else {
-      bg.setVolume(1)
-      reader.setVolume(1)
-    }
-  }
-
   _toggleSound = () => {
     this.props.toggleSound()
-  }
-
-  renderNarrationButton() {
-    const button = this.state.narrationPlaying ?
-    (<NavigationButton onPress={this._toggleNarration.bind(this)}  style={styles.playButton}>
-    <Image style={styles.playToggleImage} resizeMode={Image.resizeMode.contain} source={Pause}></Image>
-    </NavigationButton>)
-    : (<NavigationButton onPress={this._toggleNarration.bind(this)}  style={styles.playButton}>
-      <Image style={styles.playToggleImage} onPress={this._toggleNarration.bind(this)} resizeMode={Image.resizeMode.contain} source={Play}></Image>
-    </NavigationButton>)
-    return button;
   }
 
   _goToMenu() {
@@ -139,7 +86,7 @@ class Story extends Component {
     this.props.navigator.resetTo({ id: 'MainMenu' })
   }
 
-  navigateLeft() {
+  _navigateLeft = () => {
     if (this.state.page === 0) {
       this._goToMenu()
     } else {
@@ -149,7 +96,7 @@ class Story extends Component {
     }
   }
 
-  navigateRight() {
+  _navigateRight = () => {
     if ((this.state.page + 1) < this.state.totalPages) {
       this.setState({
         page: this.state.page + 1
@@ -157,9 +104,48 @@ class Story extends Component {
     }
   }
 
+  _fadeInText() {
+    Animated.timing(this.state._textFade, {
+      toValue: 1,
+      duration: TEXT_FADE_TIME,
+      easing: Easing.linear,
+    }).start()
+  }
+
+  _startSound() {
+    if (!this.props.soundOn) {
+      bg.setVolume(0)
+      reader.setVolume(0)
+    }
+    bg.setNumberOfLoops(-1);
+    bg.play()
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (!newProps.soundOn) {
+      bg.setVolume(0)
+      reader.setVolume(0)
+      this._pauseNarration()
+    } else {
+      bg.setVolume(1)
+      reader.setVolume(1)
+    }
+  }
+
+  componentDidMount() {
+    this._startSound()
+    this._fadeInText()
+  }
+
+  componentWillUnmount() {
+    bg.pause()
+    this._pauseNarration({ reset: true })
+  }
+
   render() {
     const atEnd = (this.state.page + 1) === this.state.totalPages
     const navigateRight = atEnd ? endButton : NavigateRight
+    const narrationButtonIcon = this.state.narrationPlaying ? pauseIcon : playIcon
 
     return (
       <View style={styles.mainWrapper}>
@@ -174,7 +160,9 @@ class Story extends Component {
                 soundOn={this.props.soundOn}
                 goToMenu={this._goToMenu.bind(this)}
                 style={styles.menu} />
-              {this.renderNarrationButton.bind(this)()}
+              <NavigationButton onPress={this._toggleNarration}  style={styles.playButton}>
+                <Image style={styles.playToggleImage} resizeMode={Image.resizeMode.contain} source={narrationButtonIcon}></Image>
+              </NavigationButton>
             </View>
             <View style={styles.textContainer}>
               <Animated.Image source={textImage} style={[styles.textBox, { opacity: this.state._textFade }]} resizeMode={Image.resizeMode.contain}></Animated.Image>
@@ -186,14 +174,14 @@ class Story extends Component {
           <View style={styles.navigationBar}>
 
             <NavigationButton
-              onPress={this.navigateLeft.bind(this)}>
+              onPress={this._navigateLeft}>
               <Image
                 style={styles.navigateLeftImage}
                 resizeMode={Image.resizeMode.contain}
                 source={NavigateLeft}></Image>
             </NavigationButton>
             <NavigationButton
-              onPress={this.navigateRight.bind(this)}>
+              onPress={this._navigateRight}>
               <Image style={styles.navigateRightImage}
                 resizeMode={Image.resizeMode.contain}
                 source={navigateRight}></Image>
