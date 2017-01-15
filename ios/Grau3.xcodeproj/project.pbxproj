@@ -30,6 +30,7 @@
 		F628926F1E2A4AEA00081545 /* reader1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F628926E1E2A4AEA00081545 /* reader1.mp3 */; };
 		F62892711E2B879900081545 /* main_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F62892701E2B879900081545 /* main_sound.mp3 */; };
 		F62892731E2BBB9800081545 /* clap-808.wav in Resources */ = {isa = PBXBuildFile; fileRef = F62892721E2BBB9800081545 /* clap-808.wav */; };
+		F62892751E2BC2D100081545 /* samp2.wav in Resources */ = {isa = PBXBuildFile; fileRef = F62892741E2BC2D100081545 /* samp2.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -220,6 +221,7 @@
 		F628926E1E2A4AEA00081545 /* reader1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = reader1.mp3; sourceTree = "<group>"; };
 		F62892701E2B879900081545 /* main_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = main_sound.mp3; sourceTree = "<group>"; };
 		F62892721E2BBB9800081545 /* clap-808.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "clap-808.wav"; sourceTree = "<group>"; };
+		F62892741E2BC2D100081545 /* samp2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = samp2.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -406,6 +408,7 @@
 			children = (
 				F62892701E2B879900081545 /* main_sound.mp3 */,
 				F62892721E2BBB9800081545 /* clap-808.wav */,
+				F62892741E2BC2D100081545 /* samp2.wav */,
 				F628926E1E2A4AEA00081545 /* reader1.mp3 */,
 				F62892571E2A47E000081545 /* bg1.mp3 */,
 				13B07FAE1A68108700A75B9A /* Grau3 */,
@@ -738,6 +741,7 @@
 				F628926F1E2A4AEA00081545 /* reader1.mp3 in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				F62892731E2BBB9800081545 /* clap-808.wav in Resources */,
+				F62892751E2BC2D100081545 /* samp2.wav in Resources */,
 				F62892711E2B879900081545 /* main_sound.mp3 in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);

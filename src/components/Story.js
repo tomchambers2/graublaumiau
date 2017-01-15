@@ -21,7 +21,7 @@ import TestVideo from '../assets/video/1_Stadt_Grau.mp4'
 import Sound from 'react-native-sound';
 import bgSound from '../assets/sounds/bg1.mp3'
 
-const bg = new Sound('clap-808.wav', Sound.MAIN_BUNDLE, () => {
+const bg = new Sound('samp2.wav', Sound.MAIN_BUNDLE, () => {
 
 })
 
@@ -63,16 +63,11 @@ class Story extends Component {
   }
 
   componentDidMount() {
-
-    bg.setNumberOfLoops(-1);
-    if (this.props.soundOn) {
-      bg.play(() => {
-        bg.play();
-      }, () => {
-
-      })
+    if (!this.props.soundOn) {
+      bg.setVolume(0)
     }
-
+    bg.setNumberOfLoops(-1);
+    bg.play()
     Animated.timing(this.state._textFade, {
       toValue: 1,
       duration: TEXT_FADE_TIME,
@@ -112,11 +107,14 @@ class Story extends Component {
   componentWillReceiveProps(newProps) {
     if (!newProps.soundOn) {
       console.log('stop all in story')
-      bg.pause()
-      reader.pause()
+      bg.setVolume(0)
+      reader.setVolume(0)
+      this.setState({
+        narrationPlaying: false
+      })
     } else {
       console.log('start bg in story')
-      bg.play();
+      bg.setVolume(1);
     }
   }
 

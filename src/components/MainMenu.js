@@ -37,16 +37,11 @@ class MainMenu extends Component {
     super(props)
   }
 
-  componentDidMount() {
-    console.log('did mount')
-  }
-
   _goToPage(id) {
     const route = {
       id
     }
     this.bg.pause();
-    this.bg.setVolume(0);
     this.props.navigator.push(route);
   }
 
@@ -54,13 +49,25 @@ class MainMenu extends Component {
     this.props.toggleSound()
   }
 
+  componentDidMount() {
+    this.bg = new Sound('clap-808.wav', Sound.MAIN_BUNDLE, () => {
+      if (!this.props.soundOn) {
+        console.log('TURN MAIN OFF')
+        this.bg.setVolume(0)
+      }
+      console.log('start it')
+      this.bg.setNumberOfLoops(-1)
+      this.bg.play()
+    })
+  }
+
   componentWillReceiveProps(newProps) {
     if (!newProps.soundOn) {
       console.log('off in main')
-      this.bg.pause();
+      this.bg.setVolume(0);
     } else {
       console.log('on in main')
-      this.bg.play();
+      this.bg.setVolume(1);
     }
   }
 
