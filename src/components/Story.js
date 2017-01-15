@@ -39,6 +39,7 @@ import Play from '../assets/story2/story_icon_read.png'
 import Pause from '../assets/story2/story_icon_read_pause.png'
 import NavigateLeft from '../assets/story2/story_icon_link.png'
 import NavigateRight from '../assets/story2/story_icon_rechts.png'
+import endButton from '../assets/story2/story_icon_ende.png'
 
 class Story extends Component {
   constructor(props) {
@@ -48,6 +49,8 @@ class Story extends Component {
       menuOpen: false,
       narrationPlaying: false,
       _textFade: new Animated.Value(0),
+      page: 0,
+      totalPages: 1,
     }
   }
 
@@ -106,11 +109,6 @@ class Story extends Component {
     })
   }
 
-  _goToMenu() {
-    bg.pause()
-    this.props.navigator.replace({ component: MainMenu })
-  }
-
   renderNarrationButton() {
     const button = this.state.narrationPlaying ?
     (<NavigationButton onPress={this._toggleNarration.bind(this)}  style={styles.playButton}>
@@ -122,7 +120,33 @@ class Story extends Component {
     return button;
   }
 
+  _goToMenu() {
+    bg.pause()
+    this.props.navigator.replace({ component: MainMenu })
+  }
+
+  navigateLeft() {
+    if (this.state.page === 0) {
+      this._goToMenu()
+    } else {
+      this.setState({
+        page: this.state.page - 1
+      })
+    }
+  }
+
+  navigateRight() {
+    if ((this.state.page + 1) < this.state.totalPages) {
+      this.setState({
+        page: this.state.page + 1
+      })
+    }
+  }
+
   render() {
+    const atEnd = (this.state.page + 1) === this.state.totalPages
+    const navigateRight = atEnd ? endButton : NavigateRight
+
     return (
       <View style={styles.mainWrapper}>
         <Video source={TestVideo} repeat={true} style={styles.backgroundVideo}></Video>
@@ -143,12 +167,19 @@ class Story extends Component {
 
           <View style={styles.navigationBar}>
 
-            <TouchableHighlight>
-              <Image style={styles.navigateLeftImage} resizeMode={Image.resizeMode.contain} source={NavigateLeft}></Image>
-            </TouchableHighlight>
-            <TouchableHighlight>
-              <Image style={styles.navigateRightImage} resizeMode={Image.resizeMode.contain} source={NavigateRight}></Image>
-            </TouchableHighlight>
+            <NavigationButton
+              onPress={this.navigateLeft.bind(this)}>
+              <Image
+                style={styles.navigateLeftImage}
+                resizeMode={Image.resizeMode.contain}
+                source={NavigateLeft}></Image>
+            </NavigationButton>
+            <NavigationButton
+              onPress={this.navigateRight.bind(this)}>
+              <Image style={styles.navigateRightImage}
+                resizeMode={Image.resizeMode.contain}
+                source={navigateRight}></Image>
+            </NavigationButton>
 
           </View>
 
@@ -214,6 +245,7 @@ const styles = StyleSheet.create({
     width: 49,
     height: 49,
   },
+
   playToggleImage: {
     width: 49,
     height: 49,
