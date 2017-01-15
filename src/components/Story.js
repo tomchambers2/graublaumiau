@@ -31,8 +31,6 @@ import Sound from 'react-native-sound';
 
 const bg = new Sound('bg1.mp3', Sound.MAIN_BUNDLE, () => {})
 
-const reader = new Sound('clap-808.wav', Sound.MAIN_BUNDLE, () => {})
-
 const Window = Dimensions.get('window')
 
 import playIcon from '../assets/story2/story_icon_read.png'
@@ -63,16 +61,17 @@ class Story extends Component {
     this.setState({
       narrationPlaying: false,
     })
-    reader.pause()
+    this.narration.pause()
     if (options.reset) {
-      reader.setCurrentTime(0)
+      this.narration.setCurrentTime(0)
     }
   }
 
   _playNarration() {
     if (!this.props.soundOn) this.props.toggleSound()
     this.setState({ narrationPlaying: true })
-    reader.play((result) => {
+
+    this.narration.play((result) => {
       if (result) this._pauseNarration()
     })
   }
@@ -123,13 +122,15 @@ class Story extends Component {
   _startSound() {
     if (!this.props.soundOn) {
       bg.setVolume(0)
-      reader.setVolume(0)
+      this.narration.setVolume(0)
     }
     bg.setNumberOfLoops(-1);
     bg.play()
   }
 
   componentDidMount() {
+    this.narration = new Sound(`narration-${this.state.page}.mp3`, Sound.MAIN_BUNDLE)
+
     this._startSound()
     this._fadeInText()
   }
@@ -137,11 +138,18 @@ class Story extends Component {
   componentWillReceiveProps(newProps) {
     if (!newProps.soundOn) {
       bg.setVolume(0)
-      reader.setVolume(0)
+      this.narration.setVolume(0)
       this._pauseNarration()
     } else {
       bg.setVolume(1)
-      reader.setVolume(1)
+      this.narration.setVolume(1)
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.page !== this.state.page) {
+      this._pauseNarration()
+      this.narration = new Sound(`narration-${this.state.page}.mp3`, Sound.MAIN_BUNDLE)
     }
   }
 
