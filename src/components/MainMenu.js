@@ -50,7 +50,7 @@ class MainMenu extends Component {
   }
 
   componentDidMount() {
-    this.bg = new Sound('clap-808.wav', Sound.MAIN_BUNDLE, () => {
+    this.bg = new Sound('main_sound.mp3', Sound.MAIN_BUNDLE, () => {
       if (!this.props.soundOn) {
         console.log('TURN MAIN OFF')
         this.bg.setVolume(0)

@@ -13,7 +13,7 @@ class Imprint extends Component {
   }
 
   _goBack() {
-    this.props.navigator.pop()
+    this.props.navigator.resetTo({ id: 'MainMenu' })
   }
 
   render() {

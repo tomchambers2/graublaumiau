@@ -21,7 +21,7 @@ import TestVideo from '../assets/video/1_Stadt_Grau.mp4'
 import Sound from 'react-native-sound';
 import bgSound from '../assets/sounds/bg1.mp3'
 
-const bg = new Sound('samp2.wav', Sound.MAIN_BUNDLE, () => {
+const bg = new Sound('bg1.mp3', Sound.MAIN_BUNDLE, () => {
 
 })
 
