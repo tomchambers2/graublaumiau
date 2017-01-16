@@ -17,7 +17,6 @@
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
-		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
@@ -35,6 +34,9 @@
 		F628927B1E2C1DA000081545 /* narration-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F62892771E2C1DA000081545 /* narration-2.mp3 */; };
 		F628927C1E2C1DA000081545 /* narration-0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F62892781E2C1DA000081545 /* narration-0.mp3 */; };
 		F628927D1E2C1DA000081545 /* narration-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F62892791E2C1DA000081545 /* narration-1.mp3 */; };
+		F628927F1E2CEFCB00081545 /* loading 2048.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F628927E1E2CEFCB00081545 /* loading 2048.mp4 */; };
+		F62892811E2CF00B00081545 /* loading-2048.gif in Resources */ = {isa = PBXBuildFile; fileRef = F62892801E2CF00B00081545 /* loading-2048.gif */; };
+		F62892851E2CF67800081545 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F62892841E2CF67800081545 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -209,7 +211,6 @@
 		13B07F961A680F5B00A75B9A /* Grau3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grau3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Grau3/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Grau3/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Grau3/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Grau3/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Grau3/main.m; sourceTree = "<group>"; };
@@ -230,6 +231,9 @@
 		F62892771E2C1DA000081545 /* narration-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "narration-2.mp3"; sourceTree = "<group>"; };
 		F62892781E2C1DA000081545 /* narration-0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "narration-0.mp3"; sourceTree = "<group>"; };
 		F62892791E2C1DA000081545 /* narration-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "narration-1.mp3"; sourceTree = "<group>"; };
+		F628927E1E2CEFCB00081545 /* loading 2048.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "loading 2048.mp4"; sourceTree = "<group>"; };
+		F62892801E2CF00B00081545 /* loading-2048.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "loading-2048.gif"; sourceTree = "<group>"; };
+		F62892841E2CF67800081545 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "Grau3/Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -349,7 +353,9 @@
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
-				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
+				F62892841E2CF67800081545 /* Launch Screen.storyboard */,
+				F62892801E2CF00B00081545 /* loading-2048.gif */,
+				F628927E1E2CEFCB00081545 /* loading 2048.mp4 */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
 			name = Grau3;
@@ -755,11 +761,13 @@
 				F628926F1E2A4AEA00081545 /* reader1.mp3 in Resources */,
 				F628927D1E2C1DA000081545 /* narration-1.mp3 in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				F62892851E2CF67800081545 /* Launch Screen.storyboard in Resources */,
 				F628927A1E2C1DA000081545 /* narration-3.mp3 in Resources */,
+				F628927F1E2CEFCB00081545 /* loading 2048.mp4 in Resources */,
 				F62892731E2BBB9800081545 /* clap-808.wav in Resources */,
 				F62892751E2BC2D100081545 /* samp2.wav in Resources */,
 				F62892711E2B879900081545 /* main_sound.mp3 in Resources */,
-				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				F62892811E2CF00B00081545 /* loading-2048.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -809,18 +817,6 @@
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		13B07FB11A68108700A75B9A /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				13B07FB21A68108700A75B9A /* Base */,
-			);
-			name = LaunchScreen.xib;
-			path = Grau3;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
