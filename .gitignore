@@ -2,6 +2,9 @@
 #
 .DS_Store
 
+# tasks
+*.todo
+
 # Xcode
 #
 build/

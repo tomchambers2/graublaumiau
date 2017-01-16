@@ -20,6 +20,8 @@ import NavigationButton from './NavigationButton'
 
 import Sound from 'react-native-sound';
 
+import globalStyles from '../globalStyles'
+
 class MainMenu extends Component {
   static propTypes = {
     navigator: PropTypes.object.isRequired,
@@ -62,7 +64,7 @@ class MainMenu extends Component {
     const soundToggle = this.props.soundOn ? SoundOn : SoundOff
 
     return (
-        <Image source={Background} resizeMode={Image.resizeMode.cover} style={styles.background}>
+        <Image source={Background} resizeMode={Image.resizeMode.cover} style={globalStyles.fullscreen}>
           <View style={styles.interactionContainer}>
             <View style={styles.buttonRow}>
               <NavigationButton
@@ -113,15 +115,6 @@ export default MainMenu
 const styles = StyleSheet.create({
   interactionContainer: {
     flex: 1,
-  },
-  background: {
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    right: 0,
-    left: 0,
-    width: null,
-    height: null,
   },
   buttonRow: {
     flexDirection: 'row',

@@ -7,6 +7,7 @@ import {
   Animated,
   Image,
   ScrollView,
+  TextInput,
 } from 'react-native'
 
 import colors from '../colors'
@@ -18,6 +19,8 @@ import Gif from '../assets/video/giphy3.gif'
 import gameObjects from '../data/gameObjects'
 
 import Divider from '../assets/game/game_line.png'
+
+import mailDialogBackground from '../assets/game/spiel_icon_senden.png'
 
 class Game extends Component {
   static propTypes = {
@@ -80,6 +83,12 @@ class Game extends Component {
     this.props.navigator.resetTo({ id: 'MainMenu' })
   }
 
+  _showMailDialog = () => {
+    this.setState({
+      showMailDialog: true,
+    })
+  }
+
   render() {
     const gameObjectsRender = gameObjects.map((gameObject, i) => {
       return (
@@ -93,8 +102,22 @@ class Game extends Component {
       )
     })
 
+    const mailDialog = (
+      <View style={styles.mailDialogContainer}>
+        <Image source={mailDialogBackground} style={styles.mailDialogInner}>
+          <TextInput style={{ width: 200, height: 50, marginTop: 70, marginLeft: 110}}>
+
+          </TextInput>
+          <TextInput></TextInput>
+          <TextInput></TextInput>
+        </Image>
+      </View>
+    )
+
     return (
       <View style={styles.gameContainer}>
+        {this.state.showMailDialog && mailDialog}
+
         <View style={styles.objectMenu}>
           <ScrollView scrollEnabled={this.state.scrollEnabled}>
             {gameObjectsRender}
@@ -113,6 +136,7 @@ class Game extends Component {
               full
               toggleSound={this._toggleSound}
               soundOn={this.props.soundOn}
+              showMailDialog={this._showMailDialog}
               goToMenu={this._goToMenu.bind(this)} />
           </View>
         </View>
@@ -142,11 +166,25 @@ class Game extends Component {
 export default Game
 
 const styles = StyleSheet.create({
+  mailDialogContainer: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 150,
+    right: 0,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  mailDialogInner: {
+    width: 350,
+    height: 450,
+  },
+
   wrapper: {
     flex: 1,
   },
   navBar: {
-    paddingTop: 20,
+    marginTop: 20,
     marginLeft: 17,
   },
   gameContainer: {
@@ -163,23 +201,19 @@ const styles = StyleSheet.create({
   playArea: {
     backgroundColor: colors.playArea,
   },
-
   gameObjectIcon: {
     marginTop: 15,
     marginBottom: 15,
   },
-
   divider: {
     flex: 1,
     maxWidth: 26,
     marginLeft: -13,
   },
-
   placeholder: {
       backgroundColor: colors.placeholder,
       width: 120,
       height: 150,
-      borderColor: colors.border,
       borderWidth: 1,
       flex: 1,
       alignItems: 'center',

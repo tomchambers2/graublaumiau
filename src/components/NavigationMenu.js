@@ -23,6 +23,7 @@ class NavigationMenu extends Component {
     toggleSound: PropTypes.func.isRequired,
     soundOn: PropTypes.bool.isRequired,
     goToMenu: PropTypes.func.isRequired,
+    showMailDialog: PropTypes.func.isRequired,
     full: PropTypes.bool,
   }
 
@@ -43,6 +44,10 @@ class NavigationMenu extends Component {
     })
   }
 
+  _openMailDialog() {
+
+  }
+
   componentWillMount() {
     this._slideValue = new Animated.Value(0)
   }
@@ -52,7 +57,7 @@ class NavigationMenu extends Component {
     const menuBackgroundSelected = this.state.menuOpen ? menuBackgroundOpen : menuBackgroundClosed
     const soundToggleIcon = this.props.soundOn ? soundOnIcon : soundOffIcon
     const mailButton = (
-    <NavigationButton style={styles.mailIcon}>
+    <NavigationButton style={styles.mailIcon} onPress={this.props.showMailDialog}>
       <Image source={mailIcon} />
     </NavigationButton>
     )
@@ -71,18 +76,20 @@ class NavigationMenu extends Component {
     const menuOpenIcons = this.state.menuOpen ? menuIcons : null
 
     return (
-      <View style={styles.menuContainer}>
-        <View style={styles.absolute}>
-          <Image source={menuBackgroundSelected}>
-            <View style={styles.menuBackground}>
-              <NavigationButton onPress={this._toggleMenu.bind(this)}>
-                <Image
-                  source={menuToggle}>
-                </Image>
-              </NavigationButton>
-              {menuOpenIcons}
-            </View>
-          </Image>
+      <View style={{flex: 1}}>
+        <View style={styles.menuContainer}>
+          <View style={styles.absolute}>
+            <Image source={menuBackgroundSelected}>
+              <View style={styles.menuBackground}>
+                <NavigationButton onPress={this._toggleMenu.bind(this)}>
+                  <Image
+                    source={menuToggle}>
+                  </Image>
+                </NavigationButton>
+                {menuOpenIcons}
+              </View>
+            </Image>
+          </View>
         </View>
       </View>
     )
