@@ -7,20 +7,26 @@ import {
   Animated,
   Image,
   ScrollView,
-  TextInput,
+  Alert,
+  Dimensions,
 } from 'react-native'
+
+const window = Dimensions.get('window')
+
+import update from 'immutability-helper';
+
+import { takeSnapshot } from 'react-native-view-shot'
+import { NativeModules } from "react-native";
+const { RNMail } = NativeModules;
+
+import NavigationMenu from './NavigationMenu'
+import GameObject from './GameObject'
 
 import colors from '../colors'
 
-import NavigationMenu from './NavigationMenu'
-
-import Gif from '../assets/video/giphy3.gif'
-
 import gameObjects from '../data/gameObjects'
 
-import Divider from '../assets/game/game_line.png'
-
-import mailDialogBackground from '../assets/game/spiel_icon_senden.png'
+import dividerImage from '../assets/game/game_line.png'
 
 class Game extends Component {
   static propTypes = {
@@ -40,6 +46,7 @@ class Game extends Component {
     this.state = {
       pans,
       scrollEnabled: true,
+      gameObjectInstances: [],
     }
 
     this.panResponders = []
@@ -66,8 +73,73 @@ class Game extends Component {
     });
   }
 
-  _toggleSound = () => {
-    this.props.toggleSound()
+  _goToMenu() {
+    // bg.pause()
+    this.props.navigator.resetTo({ id: 'MainMenu' })
+  }
+
+  _showMailDialog() {
+    // TODO: move to an api
+    takeSnapshot(this._playArea, {
+      format: "jpeg",
+      quality: 0.8,
+    })
+    .then(
+      uri => {
+        console.log(uri)
+        RNMail.mail({
+          subject: 'Ein Bild für Sie',
+          recipients: [],
+          ccRecipients: ['post@alicekolb.ch'],
+          body: '',
+          attachment: {
+            path: '',  // The absolute path of the file from which to read data.
+            type: '',   // Mime Type: jpg, png, doc, ppt, html, pdf
+            name: '',   // Optional: Custom filename for attachment
+          }
+        }, (error, event) => {
+            if(error === 'not_available') {
+              Alert.alert('Error', 'Your mail client is not setup, you must do this to send email');
+              console.error(error)
+            } else if (error) {
+              Alert.alert('Error', 'Unknown error occurred while attempting to send email')
+            } else {
+              Alert.alert('Mail sent', 'Your picture has been sent!')
+            }
+        })
+      },
+      error => console.error("Oops, snapshot failed", error),
+    );
+  }
+
+  _constrainToGrid(x, y, shapeDimensions) {
+    if (x < 0) x = 0
+    if (x + shapeDimensions.width > window.width) x = window.width
+    if (y < 0) y = 0
+    if (y + shapeDimensions.height > window.height) y = window.height
+    return [x, y]
+  }
+
+  _moveObject = (x, y) => {
+    const data = this.state.gameObjectInstances
+    const newY = data[0].y + y
+    let newX = data[0].x + x
+    // newX -= 180
+    let constrainedX, constrainedY
+    [constrainedX, constrainedY] = this._constrainToGrid(newX, newY, { x: 300, y: 300 })
+    const updatedData = update(data[0], { x: { $set: constrainedX }, y: { $set: constrainedY } })
+    const newData = update(data, {
+      $splice: [[0, 1, updatedData]],
+    })
+    this.setState({
+      gameObjectInstances: newData,
+    })
+  }
+
+  componentWillMount() {
+    this.setState({
+      gameObjectInstances: this.state.gameObjectInstances.concat({ id: 0, x: 0, y: 0 })
+    })
   }
 
   componentWillReceiveProps(newProps) {
@@ -78,19 +150,8 @@ class Game extends Component {
     }
   }
 
-  _goToMenu() {
-    // bg.pause()
-    this.props.navigator.resetTo({ id: 'MainMenu' })
-  }
-
-  _showMailDialog = () => {
-    this.setState({
-      showMailDialog: true,
-    })
-  }
-
   render() {
-    const gameObjectsRender = gameObjects.map((gameObject, i) => {
+    const renderGameObjects = gameObjects.map((gameObject, i) => {
       return (
         <View style={[styles.gameObjectIcon, styles.draggableContainer]}>
           <Animated.View
@@ -102,41 +163,35 @@ class Game extends Component {
       )
     })
 
-    const mailDialog = (
-      <View style={styles.mailDialogContainer}>
-        <Image source={mailDialogBackground} style={styles.mailDialogInner}>
-          <TextInput style={{ width: 200, height: 50, marginTop: 70, marginLeft: 110}}>
-
-          </TextInput>
-          <TextInput></TextInput>
-          <TextInput></TextInput>
-        </Image>
-      </View>
-    )
+    const renderGameObjectInstances = this.state.gameObjectInstances.map((gameObject) => {
+        return (<GameObject
+          {...gameObject}
+          moveObject={this._moveObject}
+          />)
+    })
 
     return (
       <View style={styles.gameContainer}>
-        {this.state.showMailDialog && mailDialog}
-
         <View style={styles.objectMenu}>
           <ScrollView scrollEnabled={this.state.scrollEnabled}>
-            {gameObjectsRender}
+            {renderGameObjects}
           </ScrollView>
         </View>
         <View style={styles.divider}>
           <Image
             style={styles.wrapper}
             resizeMode={Image.resizeMode.contain}
-            source={Divider}>
+            source={dividerImage}>
           </Image>
         </View>
-        <View style={styles.playArea}>
+        <View style={styles.playArea} ref={component => this._playArea = component}>
+          {renderGameObjectInstances}
           <View style={styles.navBar}>
             <NavigationMenu
               full
-              toggleSound={this._toggleSound}
+              toggleSound={this.props.toggleSound}
               soundOn={this.props.soundOn}
-              showMailDialog={this._showMailDialog}
+              showMailDialog={this._showMailDialog.bind(this)}
               goToMenu={this._goToMenu.bind(this)} />
           </View>
         </View>
@@ -166,20 +221,6 @@ class Game extends Component {
 export default Game
 
 const styles = StyleSheet.create({
-  mailDialogContainer: {
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 150,
-    right: 0,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  mailDialogInner: {
-    width: 350,
-    height: 450,
-  },
-
   wrapper: {
     flex: 1,
   },

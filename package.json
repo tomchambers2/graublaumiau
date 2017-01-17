@@ -7,10 +7,13 @@
     "test": "jest"
   },
   "dependencies": {
+    "immutability-helper": "^2.1.1",
     "react": "~15.4.0-rc.4",
     "react-native": "0.39.0",
+    "react-native-mail": "^2.0.0",
     "react-native-sound": "^0.8.3",
-    "react-native-video": "^0.9.0"
+    "react-native-video": "^0.9.0",
+    "react-native-view-shot": "^1.5.1"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
