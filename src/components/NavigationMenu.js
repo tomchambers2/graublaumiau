@@ -7,6 +7,7 @@ import {
 } from 'react-native'
 
 import NavigationButton from './NavigationButton'
+import MenuDialog from './MenuDialog'
 
 import menuToggle from '../assets/game/game_menu_close-open_top.png'
 import menuBackgroundClosed from '../assets/game/game_menu_close_back.png'
@@ -31,14 +32,11 @@ class NavigationMenu extends Component {
     super()
     this.state = {
       menuOpen: false,
+      menuDialogOpen: false,
     }
   }
 
-  _toggleMenu() {
-    Animated.timing(this._slideValue, {
-      toValue: this.state.menuOpen ? -200 : 0,
-      duration: 500,
-    }).start()
+  _toggleMenu = () => {
     this.setState({
       menuOpen: !this.state.menuOpen,
     })
@@ -46,6 +44,18 @@ class NavigationMenu extends Component {
 
   _openMailDialog() {
 
+  }
+
+  _openMenuDialog = () => {
+    this.setState({
+      menuDialogOpen: true,
+    })
+  }
+
+  _cancelMenuDialog = () => {
+    this.setState({
+      menuDialogOpen: false,
+    })
   }
 
   componentWillMount() {
@@ -67,20 +77,29 @@ class NavigationMenu extends Component {
           <Image source={soundToggleIcon} />
         </NavigationButton>
         {this.props.full && mailButton}
-        <NavigationButton onPress={this.props.goToMenu} style={styles.menuIcon}>
+        <NavigationButton onPress={this._openMenuDialog} style={styles.menuIcon}>
           <Image source={menuIcon} />
         </NavigationButton>
       </View>
     )
 
     const menuOpenIcons = this.state.menuOpen ? menuIcons : null
+    const menuDialogContent = (
+      <MenuDialog
+        goToMenu={this.props.goToMenu}
+        cancelDialog={this._cancelMenuDialog}
+        />
+    )
+    const menuDialog = this.state.menuDialogOpen ? menuDialogContent : null
 
     return (
+      <View>
+        {menuDialog}
         <View style={styles.menuContainer}>
           <View style={styles.absolute}>
             <Image source={menuBackgroundSelected}>
               <View style={styles.menuBackground}>
-                <NavigationButton onPress={this._toggleMenu.bind(this)}>
+                <NavigationButton onPress={this._toggleMenu}>
                   <Image
                     source={menuToggle}>
                   </Image>
@@ -90,6 +109,7 @@ class NavigationMenu extends Component {
             </Image>
           </View>
         </View>
+      </View>
     )
   }
 }
