@@ -6,6 +6,8 @@ import {
   Animated,
   Easing,
   Alert,
+  TouchableHighlight,
+  Text,
 } from 'react-native'
 
 import page0 from '../story/0'
@@ -191,6 +193,28 @@ class Story extends Component {
     this._pauseNarration({ reset: true })
   }
 
+  _playSoundClip = (soundName) => {
+    return () => {
+      console.log('play sound', soundName)
+      const sound = new Sound(soundName, Sound.MAIN_BUNDLE, (error) => {
+        sound.play()
+        console.log(error)
+      })
+    }
+  }
+
+  renderClickMaps() {
+    return pages[this.state.page].clickMap.map((area) => {
+      return (
+        <TouchableHighlight
+          onPress={this._playSoundClip(area.soundName)}
+          style={[styles.clickArea, { width: area.width, height: area.height, top: area.top, right: area.right }]}>
+            <Text>clickable area</Text>
+        </TouchableHighlight>
+      )
+    })
+  }
+
   render() {
     const atEnd = (this.state.page + 1) === this.state.totalPages
     const navigateRight = atEnd ? endButton : NavigateRight
@@ -198,6 +222,8 @@ class Story extends Component {
 
     return (
       <View style={styles.mainWrapper}>
+        {this.renderClickMaps()}
+
         <Video
           source={pages[this.state.page].video}
           repeat={true}
@@ -259,6 +285,11 @@ const styles = StyleSheet.create({
   endButton: {
     width: 94,
     height: 51,
+  },
+  clickArea: {
+    position: 'absolute',
+    zIndex: 100,
+    backgroundColor: 'yellow'
   },
   spacer: {
     flex: 1,
