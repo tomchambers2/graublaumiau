@@ -8,6 +8,7 @@ import {
   Image,
   ScrollView,
   Alert,
+  TouchableHighlight,
   Dimensions,
 } from 'react-native'
 
@@ -51,26 +52,59 @@ class Game extends Component {
 
     this.panResponders = []
 
-    gameObjects.forEach((gameObject, i) => {
-      this.panResponders[i] = PanResponder.create({
-        onStartShouldSetPanResponder: () => true,
-        onPanResponderMove: Animated.event([null, {
-          dx: this.state.pans[i].x,
-          dy: this.state.pans[i].y,
-        }]),
-        onPanResponderGrant: () => {
-          this.setState({
-            scrollEnabled: false,
-          })
-          return true
-        },
-        onPanResponderRelease: () => {
-          this.setState({
-            scrollEnabled: true,
-          })
-        },
-      })
-    });
+    this.lastMovement = {
+      x: 0,
+      y: 0,
+    }
+
+    this.createResponder = PanResponder.create({
+      onStartShouldSetPanResponder: () => true,
+      onPanResponderMove: (event, gestureState) => {
+        console.log('now move it')
+        this._moveObject(0, gestureState.dx - this.lastMovement.x, gestureState.dy - this.lastMovement.y)
+        this.lastMovement = {
+          x: gestureState.dx,
+          y: gestureState.dy,
+        }
+      },
+      onPanResponderGrant: (event) => {
+        console.log('create something')
+
+        const x = event.nativeEvent.pageX
+        const y = event.nativeEvent.pageY
+        this.setState({
+          gameObjectInstances: this.state.gameObjectInstances.concat({ id: 0, x: x - 200, y: y - 50 }),
+          scrollEnabled: false,
+        })
+        return true
+      },
+      onPanResponderRelease: () => {
+        this.setState({
+          scrollEnabled: true,
+        })
+      },
+    })
+
+    // gameObjects.forEach((gameObject, i) => {
+    //   this.panResponders[i] = PanResponder.create({
+    //     onStartShouldSetPanResponder: () => true,
+    //     onPanResponderMove: Animated.event([null, {
+    //       dx: this.state.pans[i].x,
+    //       dy: this.state.pans[i].y,
+    //     }]),
+    //     onPanResponderGrant: () => {
+    //       this.setState({
+    //         scrollEnabled: false,
+    //       })
+    //       return true
+    //     },
+    //     onPanResponderRelease: () => {
+    //       this.setState({
+    //         scrollEnabled: true,
+    //       })
+    //     },
+    //   })
+    // });
   }
 
   _goToMenu() {
@@ -120,14 +154,14 @@ class Game extends Component {
     return [x, y]
   }
 
-  _moveObject = (x, y) => {
+  _moveObject = (index, x, y) => {
     const data = this.state.gameObjectInstances
-    const newY = data[0].y + y
-    let newX = data[0].x + x
+    const newY = data[index].y + y
+    let newX = data[index].x + x
     // newX -= 180
     let constrainedX, constrainedY
     [constrainedX, constrainedY] = this._constrainToGrid(newX, newY, { width: 300, height: 300 })
-    const updatedData = update(data[0], { x: { $set: constrainedX }, y: { $set: constrainedY } })
+    const updatedData = update(data[index], { x: { $set: constrainedX }, y: { $set: constrainedY } })
     const newData = update(data, {
       $splice: [[0, 1, updatedData]],
     })
@@ -136,11 +170,11 @@ class Game extends Component {
     })
   }
 
-  componentWillMount() {
-    this.setState({
-      gameObjectInstances: this.state.gameObjectInstances.concat({ id: 0, x: 0, y: 0 })
-    })
-  }
+  // componentWillMount() {
+  //   this.setState({
+  //     gameObjectInstances: this.state.gameObjectInstances.concat({ id: 0, x: 0, y: 0 })
+  //   })
+  // }
 
   componentWillReceiveProps(newProps) {
     if (!newProps.soundOn) {
@@ -149,16 +183,30 @@ class Game extends Component {
       // turn sound on
     }
   }
+  // 
+  // _createNewGameObject = (event) => {
+  //   console.log(event.nativeEvent)
+  //   const x = event.nativeEvent.pageX
+  //   const y = event.nativeEvent.pageY
+  //   this.setState({
+  //     gameObjectInstances: this.state.gameObjectInstances.concat({ id: 0, x: x -200, y: y - 50 })
+  //   })
+  // }
 
   render() {
     const renderGameObjects = gameObjects.map((gameObject, i) => {
       return (
-        <View style={[styles.gameObjectIcon, styles.draggableContainer]}>
-          <Animated.View
+        <View  style={[styles.gameObjectIcon, styles.draggableContainer]}>
+          <View
+            {...this.createResponder.panHandlers}
+            style={styles.placeholder}>
+              <Text style={styles.text}>Placeholder</Text>
+          </View>
+          {/* <Animated.View
             {...this.panResponders[i].panHandlers}
             style={[this.state.pans[i].getLayout(), styles.placeholder]}>
             <Text style={styles.text}>Placeholder</Text>
-          </Animated.View>
+          </Animated.View> */}
         </View>
       )
     })

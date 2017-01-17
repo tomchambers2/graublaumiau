@@ -49,7 +49,8 @@ class Game extends Component {
         // console.log('movement total', gestureState.moveX , gestureState.moveY)
         // console.log('acutal move from corner', e.nativeEvent.locationX,e.nativeEvent.locationY)
 
-        this.props.moveObject(gestureState.dx - this.lastMovement.x, gestureState.dy - this.lastMovement.y)
+        // first param should be this.props.id
+        this.props.moveObject(0, gestureState.dx - this.lastMovement.x, gestureState.dy - this.lastMovement.y)
         this.lastMovement = {
           x: gestureState.dx,
           y: gestureState.dy,
