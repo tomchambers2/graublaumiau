@@ -204,6 +204,7 @@ class Story extends Component {
   }
 
   renderClickMaps() {
+    if (!this.state.page.clickMap) return
     return pages[this.state.page].clickMap.map((area) => {
       return (
         <TouchableHighlight
