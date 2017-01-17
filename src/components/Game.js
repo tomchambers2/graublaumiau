@@ -4,21 +4,16 @@ import {
   View,
   StyleSheet,
   PanResponder,
-  Animated,
   Image,
   ScrollView,
-  Alert,
-  TouchableHighlight,
   Dimensions,
 } from 'react-native'
+
+import email from '../api/email'
 
 const window = Dimensions.get('window')
 
 import update from 'immutability-helper';
-
-import { takeSnapshot } from 'react-native-view-shot'
-import { NativeModules } from "react-native";
-const { RNMail } = NativeModules;
 
 import NavigationMenu from './NavigationMenu'
 import GameObject from './GameObject'
@@ -39,18 +34,10 @@ class Game extends Component {
   constructor() {
     super();
 
-    const pans = []
-    gameObjects.forEach(() => {
-      pans.push(new Animated.ValueXY())
-    })
-
     this.state = {
-      pans,
       scrollEnabled: true,
       gameObjectInstances: [],
     }
-
-    this.panResponders = []
 
     this.lastMovement = {
       x: 0,
@@ -59,17 +46,7 @@ class Game extends Component {
 
     this.createResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
-      onPanResponderMove: (event, gestureState) => {
-        console.log('now move it')
-        this._moveObject(0, gestureState.dx - this.lastMovement.x, gestureState.dy - this.lastMovement.y)
-        this.lastMovement = {
-          x: gestureState.dx,
-          y: gestureState.dy,
-        }
-      },
       onPanResponderGrant: (event) => {
-        console.log('create something')
-
         const x = event.nativeEvent.pageX
         const y = event.nativeEvent.pageY
         this.setState({
@@ -78,33 +55,20 @@ class Game extends Component {
         })
         return true
       },
+      onPanResponderMove: (event, gestureState) => {
+        const index = this.state.gameObjectInstances.length - 1
+        this._moveObject(index, gestureState.dx - this.lastMovement.x, gestureState.dy - this.lastMovement.y)
+        this.lastMovement = {
+          x: gestureState.dx,
+          y: gestureState.dy,
+        }
+      },
       onPanResponderRelease: () => {
         this.setState({
           scrollEnabled: true,
         })
       },
     })
-
-    // gameObjects.forEach((gameObject, i) => {
-    //   this.panResponders[i] = PanResponder.create({
-    //     onStartShouldSetPanResponder: () => true,
-    //     onPanResponderMove: Animated.event([null, {
-    //       dx: this.state.pans[i].x,
-    //       dy: this.state.pans[i].y,
-    //     }]),
-    //     onPanResponderGrant: () => {
-    //       this.setState({
-    //         scrollEnabled: false,
-    //       })
-    //       return true
-    //     },
-    //     onPanResponderRelease: () => {
-    //       this.setState({
-    //         scrollEnabled: true,
-    //       })
-    //     },
-    //   })
-    // });
   }
 
   _goToMenu() {
@@ -112,38 +76,8 @@ class Game extends Component {
     this.props.navigator.resetTo({ id: 'MainMenu' })
   }
 
-  _showMailDialog() {
-    // TODO: move to an api
-    takeSnapshot(this._playArea, {
-      format: "jpeg",
-      quality: 0.8,
-    })
-    .then(
-      uri => {
-        console.log(uri)
-        RNMail.mail({
-          subject: 'Ein Bild für Sie',
-          recipients: [],
-          ccRecipients: ['post@alicekolb.ch'],
-          body: '',
-          attachment: {
-            path: '',  // The absolute path of the file from which to read data.
-            type: '',   // Mime Type: jpg, png, doc, ppt, html, pdf
-            name: '',   // Optional: Custom filename for attachment
-          }
-        }, (error, event) => {
-            if(error === 'not_available') {
-              Alert.alert('Error', 'Your mail client is not setup, you must do this to send email');
-              console.error(error)
-            } else if (error) {
-              Alert.alert('Error', 'Unknown error occurred while attempting to send email')
-            } else {
-              Alert.alert('Mail sent', 'Your picture has been sent!')
-            }
-        })
-      },
-      error => console.error("Oops, snapshot failed", error),
-    );
+  _sendEmail() {
+    email.send(this._playArea)
   }
 
   _constrainToGrid(x, y, shapeDimensions) {
@@ -163,18 +97,12 @@ class Game extends Component {
     [constrainedX, constrainedY] = this._constrainToGrid(newX, newY, { width: 300, height: 300 })
     const updatedData = update(data[index], { x: { $set: constrainedX }, y: { $set: constrainedY } })
     const newData = update(data, {
-      $splice: [[0, 1, updatedData]],
+      $splice: [[index, 1, updatedData]],
     })
     this.setState({
       gameObjectInstances: newData,
     })
   }
-
-  // componentWillMount() {
-  //   this.setState({
-  //     gameObjectInstances: this.state.gameObjectInstances.concat({ id: 0, x: 0, y: 0 })
-  //   })
-  // }
 
   componentWillReceiveProps(newProps) {
     if (!newProps.soundOn) {
@@ -183,15 +111,6 @@ class Game extends Component {
       // turn sound on
     }
   }
-  // 
-  // _createNewGameObject = (event) => {
-  //   console.log(event.nativeEvent)
-  //   const x = event.nativeEvent.pageX
-  //   const y = event.nativeEvent.pageY
-  //   this.setState({
-  //     gameObjectInstances: this.state.gameObjectInstances.concat({ id: 0, x: x -200, y: y - 50 })
-  //   })
-  // }
 
   render() {
     const renderGameObjects = gameObjects.map((gameObject, i) => {
@@ -202,17 +121,13 @@ class Game extends Component {
             style={styles.placeholder}>
               <Text style={styles.text}>Placeholder</Text>
           </View>
-          {/* <Animated.View
-            {...this.panResponders[i].panHandlers}
-            style={[this.state.pans[i].getLayout(), styles.placeholder]}>
-            <Text style={styles.text}>Placeholder</Text>
-          </Animated.View> */}
         </View>
       )
     })
 
-    const renderGameObjectInstances = this.state.gameObjectInstances.map((gameObject) => {
+    const renderGameObjectInstances = this.state.gameObjectInstances.map((gameObject, i) => {
         return (<GameObject
+          index={i}
           {...gameObject}
           moveObject={this._moveObject}
           />)
@@ -239,31 +154,13 @@ class Game extends Component {
               full
               toggleSound={this.props.toggleSound}
               soundOn={this.props.soundOn}
-              showMailDialog={this._showMailDialog.bind(this)}
+              showMailDialog={this._sendEmail.bind(this)}
               goToMenu={this._goToMenu.bind(this)} />
           </View>
         </View>
       </View>
     )
   }
-
-  renderVideos() {
-    const videos = []
-    for (var i = 0; i < 0; i++) {
-      // const video =           (<Video
-      //               style={styles.testSquare}
-      //               source={TestVideo}
-      //               repeat={true}></Video>)
-
-      const video = (<Image
-      style={styles.testSquare}
-      source={Gif}></Image>)
-
-      videos.push(video);
-    }
-    return videos
-  }
-
 }
 
 export default Game

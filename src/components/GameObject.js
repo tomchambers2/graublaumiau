@@ -4,7 +4,6 @@ import {
   Image,
   TouchableHighlight,
   StyleSheet,
-  Dimensions,
   PanResponder,
 } from 'react-native'
 
@@ -17,10 +16,9 @@ import upIcon from '../assets/game/game_move_up_top.png'
 import deleteIcon from '../assets/game/game_move_delet_top.png'
 import downIcon from '../assets/game/game_move_down_top.png'
 
-const window = Dimensions.get('window')
-
 class Game extends Component {
   static propTypes = {
+    index: PropTypes.number.required,
     getZIndexRange: PropTypes.func.required,
     moveObject: PropTypes.func.required,
     deleteObject: PropTypes.func.required,
@@ -33,10 +31,6 @@ class Game extends Component {
   constructor() {
     super()
 
-    const didMove = ({ moveX, moveY, dx, dy }) => {
-      return (dx > 30 || dy > 30)
-    }
-
     this.lastMovement = {
       x: 0,
       y: 0,
@@ -46,11 +40,7 @@ class Game extends Component {
       onStartShouldSetPanResponder: () => true,
       onMoveShouldSetPanResponder: () => (e, gestureState) => true,
       onPanResponderMove: (e, gestureState) => {
-        // console.log('movement total', gestureState.moveX , gestureState.moveY)
-        // console.log('acutal move from corner', e.nativeEvent.locationX,e.nativeEvent.locationY)
-
-        // first param should be this.props.id
-        this.props.moveObject(0, gestureState.dx - this.lastMovement.x, gestureState.dy - this.lastMovement.y)
+        this.props.moveObject(this.props.index, gestureState.dx - this.lastMovement.x, gestureState.dy - this.lastMovement.y)
         this.lastMovement = {
           x: gestureState.dx,
           y: gestureState.dy,
@@ -61,7 +51,7 @@ class Game extends Component {
           x: 0,
           y: 0,
         }
-      }
+      },
     })
 
     this.state = {
@@ -80,7 +70,6 @@ class Game extends Component {
   }
 
   _toggleMenu = () => {
-    console.log('toggling menu')
     this.setState({
       menuOpen: !this.state.menuOpen,
     })
@@ -127,9 +116,6 @@ class Game extends Component {
 }
 
 const styles = StyleSheet.create({
-  pan: {
-    backgroundColor: 'blue'
-  },
   gameObject: {
     position: 'absolute',
     backgroundColor: 'black',
@@ -137,12 +123,12 @@ const styles = StyleSheet.create({
     height: 100,
   },
   inner: {
-    backgroundColor: 'green'
+    backgroundColor: 'green',
   },
   menu: {
     position: 'absolute',
     zIndex: 10,
-  }
+  },
 })
 
 export default Game
