@@ -76,8 +76,7 @@ class NavigationMenu extends Component {
     const menuOpenIcons = this.state.menuOpen ? menuIcons : null
 
     return (
-
-        <View style={[styles.menuContainer,{ backgroundColor: 'white'}]}>
+        <View style={styles.menuContainer}>
           <View style={styles.absolute}>
             <Image source={menuBackgroundSelected}>
               <View style={styles.menuBackground}>
