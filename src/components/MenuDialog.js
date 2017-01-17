@@ -22,7 +22,7 @@ class MenuDialog extends Component {
   render() {
     return (
       <View
-        style={styles.menuDialogContainer}>
+        style={[styles.menuDialogContainer, this.props.game && styles.gameShift]}>
         <Image
           style={styles.menuDialog}
           source={dialogBackground}>
@@ -54,11 +54,13 @@ const styles = StyleSheet.create({
     bottom: 0,
     height: window.height,
     width: window.width,
-    zIndex: 9999999,
     marginLeft: -30,
     marginTop: -20,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  gameShift: {
+    width: window.width - 150,
   },
   menuDialog: {
     alignItems: 'center',

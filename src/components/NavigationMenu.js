@@ -86,6 +86,7 @@ class NavigationMenu extends Component {
     const menuOpenIcons = this.state.menuOpen ? menuIcons : null
     const menuDialogContent = (
       <MenuDialog
+        game={this.props.full}
         goToMenu={this.props.goToMenu}
         cancelDialog={this._cancelMenuDialog}
         />
