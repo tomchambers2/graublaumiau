@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-  Text,
   View,
   StyleSheet,
   PanResponder,
@@ -114,6 +113,32 @@ class Game extends Component {
     })
   }
 
+  _sendToBack = (index) => {
+    const data = this.state.gameObjectInstances
+    let newData = update(data, {
+      $splice: [[index, 1]],
+    })
+    newData = update(newData, {
+      $unshift: [data[index]],
+    })
+    this.setState({
+      gameObjectInstances: newData,
+    })
+  }
+
+  _sendToFront = (index) => {
+    const data = this.state.gameObjectInstances
+    let newData = update(data, {
+      $splice: [[index, 1]],
+    })
+    newData = update(newData, {
+      $push: [data[index]],
+    })
+    this.setState({
+      gameObjectInstances: newData,
+    })
+  }
+
   componentWillReceiveProps(newProps) {
     if (!newProps.soundOn) {
       // turn sound off
@@ -129,7 +154,7 @@ class Game extends Component {
           <View
             {...this.createResponder.panHandlers}
             style={styles.placeholder}>
-              <Text style={styles.text}>Placeholder</Text>
+              <Image source={gameObject.image} />
           </View>
         </View>
       )
@@ -139,6 +164,8 @@ class Game extends Component {
         return (<GameObject
           index={i}
           {...gameObject}
+          sendToFront={this._sendToFront}
+          sendToBack={this._sendToBack}
           deleteObject={this._deleteObject}
           moveObject={this._moveObject}
           />)

@@ -73,23 +73,20 @@ class Game extends Component {
   }
 
   _toggleMenu = () => {
+    console.log('menu toggled for ', this.props.index)
     this.setState({
       menuOpen: !this.state.menuOpen,
     })
   }
 
-  _sendToFront() {
-      const zIndexRange = this.props.getZIndexRange()
-      this.setState({
-        zIndex: zIndexRange[1] + 1,
-      })
+  _sendToFront = () => {
+    console.log('front self')
+    this.props.sendToFront(this.props.index)
   }
 
-  _sendToBack() {
-      const zIndexRange = this.props.getZIndexRange()
-      this.setState({
-        zIndex: zIndexRange[0] - 1,
-      })
+  _sendToBack = () => {
+    console.log('back self')
+    this.props.sendToBack(this.props.index)
   }
 
   _moveSelf = () => {
