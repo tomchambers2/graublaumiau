@@ -10,6 +10,8 @@ import {
 
 import email from '../api/email'
 
+import EmailDialog from './EmailDialog'
+
 const window = Dimensions.get('window')
 
 import update from 'immutability-helper';
@@ -36,6 +38,7 @@ class Game extends Component {
     this.state = {
       scrollEnabled: true,
       gameObjectInstances: [],
+      sendDialogOpen: false,
     }
 
     this.lastMovement = {
@@ -147,6 +150,18 @@ class Game extends Component {
     }
   }
 
+  _openEmailDialog = () => {
+    this.setState({
+      sendDialogOpen: true,
+    })
+  }
+
+  _cancelEmailDialog = () => {
+    this.setState({
+      sendDialogOpen: false,
+    })
+  }
+
   render() {
     const renderGameObjects = gameObjects.map((gameObject, i) => {
       return (
@@ -170,8 +185,15 @@ class Game extends Component {
           />)
     })
 
+    const sendEmailDialog = this.state.sendDialogOpen ? (
+      <EmailDialog
+        sendEmail={this._sendEmail}
+        cancelDialog={this._cancelEmailDialog} />)
+      : null
+
     return (
       <View style={styles.gameContainer}>
+        {sendEmailDialog}
         <View style={styles.objectMenu}>
           <ScrollView scrollEnabled={this.state.scrollEnabled}>
             {renderGameObjects}
@@ -191,7 +213,7 @@ class Game extends Component {
               full
               toggleSound={this.props.toggleSound}
               soundOn={this.props.soundOn}
-              showMailDialog={this._sendEmail.bind(this)}
+              showMailDialog={this._openEmailDialog}
               goToMenu={this._goToMenu.bind(this)} />
           </View>
         </View>
