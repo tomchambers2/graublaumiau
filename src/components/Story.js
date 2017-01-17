@@ -172,6 +172,11 @@ class Story extends Component {
           repeat={true}
           style={styles.backgroundVideo} />
 
+        <Animated.Image
+          source={pages[this.state.page].text}
+          style={[styles.textBox, { opacity: this.state._textFade }]}
+          resizeMode={Image.resizeMode.contain} />
+
         <View style={styles.interactionContainer}>
 
           <View style={styles.menuAndContent}>
@@ -189,13 +194,6 @@ class Story extends Component {
                   resizeMode={Image.resizeMode.contain}
                   source={narrationButtonIcon} />
               </NavigationButton>
-            </View>
-            <View
-              style={styles.textContainer}>
-              <Animated.Image
-                source={pages[this.state.page].text}
-                style={[styles.textBox, { opacity: this.state._textFade }]}
-                resizeMode={Image.resizeMode.contain} />
             </View>
           </View>
 
@@ -258,13 +256,14 @@ const styles = StyleSheet.create({
     position: 'relative',
     zIndex: 10,
   },
-  textContainer: {
-    width: (Window.width / 2) - 109,
-    padding: 30,
-  },
   textBox: {
-    width: 300,
-    height: 200,
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    top: 0,
+    width: null,
+    height: null,
   },
   navigationBar: {
     flexDirection: 'row',
