@@ -114,14 +114,15 @@ class Story extends Component {
       this.setState({
         page: this.state.page + 1,
       })
-      this._updateBackgroundSound(this.state.page + 1)
+      const newPage = this.state.page + 1
+      this._updateBackgroundSound(newPage)
     } else {
       this._goToMenu()
     }
   }
 
-  _updateBackgroundSound(newPage) {
-    if (newPage >= BACKGROUND_SOUND_CHANGE_PAGE) {
+  _updateBackgroundSound(page) {
+    if (page >= BACKGROUND_SOUND_CHANGE_PAGE) {
       if (soundFilenames[1] !== this.state.currentBackgroundSound) {
         this.backgroundSound.pause()
         this.backgroundSound = sounds[soundFilenames[1]]
