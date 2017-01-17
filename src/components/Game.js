@@ -114,9 +114,9 @@ class Game extends Component {
 
   _constrainToGrid(x, y, shapeDimensions) {
     if (x < 0) x = 0
-    if (x + shapeDimensions.width > window.width) x = window.width
+    if (x + (shapeDimensions.width + 180) > window.width) x = window.width - shapeDimensions.width - 180
     if (y < 0) y = 0
-    if (y + shapeDimensions.height > window.height) y = window.height
+    if (y + shapeDimensions.height > window.height) y = window.height - shapeDimensions.height
     return [x, y]
   }
 
@@ -126,7 +126,7 @@ class Game extends Component {
     let newX = data[0].x + x
     // newX -= 180
     let constrainedX, constrainedY
-    [constrainedX, constrainedY] = this._constrainToGrid(newX, newY, { x: 300, y: 300 })
+    [constrainedX, constrainedY] = this._constrainToGrid(newX, newY, { width: 300, height: 300 })
     const updatedData = update(data[0], { x: { $set: constrainedX }, y: { $set: constrainedY } })
     const newData = update(data, {
       $splice: [[0, 1, updatedData]],
