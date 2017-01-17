@@ -108,6 +108,8 @@ class Story extends Component {
       this.setState({
         page: this.state.page + 1,
       })
+    } else {
+      this._goToMenu()
     }
   }
 
@@ -210,7 +212,7 @@ class Story extends Component {
             </NavigationButton>
             <NavigationButton
               onPress={this._navigateRight}>
-              <Image style={styles.navigateRightImage}
+              <Image style={[styles.navigateRightImage, atEnd && styles.endButton]}
                 resizeMode={Image.resizeMode.contain}
                 source={navigateRight}></Image>
             </NavigationButton>
@@ -225,6 +227,10 @@ class Story extends Component {
 }
 
 const styles = StyleSheet.create({
+  endButton: {
+    width: 94,
+    height: 51,
+  },
   spacer: {
     flex: 1,
   },
