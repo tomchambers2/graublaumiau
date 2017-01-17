@@ -4,8 +4,8 @@ import {
   StyleSheet,
   Image,
   Animated,
-  Dimensions,
   Easing,
+  Alert,
 } from 'react-native'
 
 import page0 from '../story/0'
@@ -20,7 +20,15 @@ const pages = {
   3: page3,
 }
 
+const startingNarration = new Sound('narration-0.mp3', Sound.MAIN_BUNDLE)
+const soundFilenames = ['story_background_1.mp3', 'story_background_2.mp3']
+
+const sounds = {}
+sounds[soundFilenames[0]] = new Sound(soundFilenames[0], Sound.MAIN_BUNDLE)
+sounds[soundFilenames[1]] = new Sound(soundFilenames[1], Sound.MAIN_BUNDLE)
+
 const TEXT_FADE_TIME = 1000
+const BACKGROUND_SOUND_CHANGE_PAGE = 2
 
 import NavigationMenu from './NavigationMenu'
 import NavigationButton from './NavigationButton'
@@ -28,10 +36,6 @@ import NavigationButton from './NavigationButton'
 import Video from 'react-native-video'
 
 import Sound from 'react-native-sound';
-
-const bg = new Sound('bg1.mp3', Sound.MAIN_BUNDLE, () => {})
-
-const Window = Dimensions.get('window')
 
 import playIcon from '../assets/story2/story_icon_read.png'
 import pauseIcon from '../assets/story2/story_icon_read_pause.png'
@@ -48,6 +52,7 @@ class Story extends Component {
       _textFade: new Animated.Value(0),
       page: 0,
       totalPages: 4,
+      currentBackgroundSound: soundFilenames[0],
     }
   }
 
@@ -89,7 +94,7 @@ class Story extends Component {
   }
 
   _goToMenu() {
-    bg.pause()
+    this.backgroundSound.pause()
     this.props.navigator.resetTo({ id: 'MainMenu' })
   }
 
@@ -100,6 +105,7 @@ class Story extends Component {
       this.setState({
         page: this.state.page - 1,
       })
+      this._updateBackgroundSound(this.state.page - 1)
     }
   }
 
@@ -108,8 +114,31 @@ class Story extends Component {
       this.setState({
         page: this.state.page + 1,
       })
+      this._updateBackgroundSound(this.state.page + 1)
     } else {
       this._goToMenu()
+    }
+  }
+
+  _updateBackgroundSound(newPage) {
+    if (newPage >= BACKGROUND_SOUND_CHANGE_PAGE) {
+      if (soundFilenames[1] !== this.state.currentBackgroundSound) {
+        this.backgroundSound.pause()
+        this.backgroundSound = sounds[soundFilenames[1]]
+        this.backgroundSound.play()
+        this.setState({
+          currentBackgroundSound: soundFilenames[1],
+        })
+      }
+    } else {
+      if (soundFilenames[0] !== this.state.currentBackgroundSound) {
+        this.backgroundSound.pause()
+        this.backgroundSound = sounds[soundFilenames[0]]
+        this.backgroundSound.play()
+        this.setState({
+          currentBackgroundSound: soundFilenames[0],
+        })
+      }
     }
   }
 
@@ -123,15 +152,16 @@ class Story extends Component {
 
   _startSound() {
     if (!this.props.soundOn) {
-      bg.setVolume(0)
+      this.backgroundSound.setVolume(0)
       this.narration.setVolume(0)
     }
-    bg.setNumberOfLoops(-1);
-    bg.play()
+    this.backgroundSound.setNumberOfLoops(-1);
+    this.backgroundSound.play()
   }
 
   componentDidMount() {
-    this.narration = new Sound(`narration-${this.state.page}.mp3`, Sound.MAIN_BUNDLE)
+    this.backgroundSound = sounds[soundFilenames[0]]
+    this.narration = startingNarration
 
     this._startSound()
     this._fadeInText()
@@ -139,11 +169,11 @@ class Story extends Component {
 
   componentWillReceiveProps(newProps) {
     if (!newProps.soundOn) {
-      bg.setVolume(0)
+      this.backgroundSound.setVolume(0)
       this.narration.setVolume(0)
       this._pauseNarration()
     } else {
-      bg.setVolume(1)
+      this.backgroundSound.setVolume(1)
       this.narration.setVolume(1)
     }
   }
@@ -156,7 +186,7 @@ class Story extends Component {
   }
 
   componentWillUnmount() {
-    bg.pause()
+    this.backgroundSound.pause()
     this._pauseNarration({ reset: true })
   }
 
