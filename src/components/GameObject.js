@@ -7,7 +7,7 @@ import {
   PanResponder,
 } from 'react-native'
 
-import gameObjects from '../data/gameObjects'
+import gameObjects from '../assets/game_objects/'
 
 import gameObjectImage from '../assets/game/game_move_back.png'
 
@@ -94,7 +94,8 @@ class Game extends Component {
   }
 
   render() {
-    // const gameObjectImage = gameObjects[this.props.id].image
+    const gameObject = gameObjects.find((gameObject) => gameObject.id === this.props.id)
+    const gameObjectImage = gameObject.animation || gameObject.image
 
     const menu = this.state.menuOpen ? (
       <Image source={menuBackground} style={styles.menu}>
@@ -111,10 +112,16 @@ class Game extends Component {
     ) : null
 
     return (
-      <View {...this.panResponder.panHandlers} style={[ styles.gameObject, { top: this.props.y, left: this.props.x } ]}>
+      <View
+        {...this.panResponder.panHandlers}
+        style={[ styles.gameObject, { top: this.props.y, left: this.props.x } ]}>
         {menu}
-        <TouchableHighlight onLongPress={this._toggleMenu}>
-          <Image source={gameObjectImage} style={[styles.inner, { width: this.state.width, height: this.state.height }]} />
+        <TouchableHighlight
+          onLongPress={this._toggleMenu}>
+          <Image
+            resizeMode={Image.resizeMode.contain}
+            source={gameObjectImage}
+            style={[styles.inner, { width: this.state.width, height: this.state.height }]} />
         </TouchableHighlight>
       </View>
     )
@@ -124,12 +131,8 @@ class Game extends Component {
 const styles = StyleSheet.create({
   gameObject: {
     position: 'absolute',
-    backgroundColor: 'black',
     width: 100,
     height: 100,
-  },
-  inner: {
-    backgroundColor: 'green',
   },
   menu: {
     position: 'absolute',

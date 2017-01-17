@@ -19,7 +19,7 @@ import GameObject from './GameObject'
 
 import colors from '../colors'
 
-import gameObjects from '../data/gameObjects'
+import gameObjects from '../assets/game_objects/'
 
 import dividerImage from '../assets/game/game_line.png'
 
@@ -150,18 +150,17 @@ class Game extends Component {
   render() {
     const renderGameObjects = gameObjects.map((gameObject, i) => {
       return (
-        <View  style={[styles.gameObjectIcon, styles.draggableContainer]}>
-          <View
-            {...this.createResponder.panHandlers}
-            style={styles.placeholder}>
-              <Image source={gameObject.image} />
-          </View>
+        <View
+          style={styles.placeholder}
+          {...this.createResponder.panHandlers}>
+            <Image style={{width: 150}} resizeMode={Image.resizeMode.contain} source={gameObject.image} />
         </View>
       )
     })
 
     const renderGameObjectInstances = this.state.gameObjectInstances.map((gameObject, i) => {
         return (<GameObject
+          id={gameObject.id}
           index={i}
           {...gameObject}
           sendToFront={this._sendToFront}
@@ -225,22 +224,18 @@ const styles = StyleSheet.create({
   playArea: {
     backgroundColor: colors.playArea,
   },
-  gameObjectIcon: {
-    marginTop: 15,
-    marginBottom: 15,
-  },
   divider: {
     flex: 1,
     maxWidth: 26,
     marginLeft: -13,
   },
   placeholder: {
-      backgroundColor: colors.placeholder,
-      width: 120,
-      height: 150,
-      borderWidth: 1,
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
+    marginTop: 15,
+    marginBottom: 15,
+    width: 120,
+    height: 150,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 })
