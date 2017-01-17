@@ -104,6 +104,16 @@ class Game extends Component {
     })
   }
 
+  _deleteObject = (index) => {
+    const data = this.state.gameObjectInstances
+    const newData = update(data, {
+      $splice: [[index, 1]],
+    })
+    this.setState({
+      gameObjectInstances: newData,
+    })
+  }
+
   componentWillReceiveProps(newProps) {
     if (!newProps.soundOn) {
       // turn sound off
@@ -129,6 +139,7 @@ class Game extends Component {
         return (<GameObject
           index={i}
           {...gameObject}
+          deleteObject={this._deleteObject}
           moveObject={this._moveObject}
           />)
     })

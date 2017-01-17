@@ -11,6 +11,8 @@ import gameObjects from '../data/gameObjects'
 
 import gameObjectImage from '../assets/game/game_move_back.png'
 
+import NavigationButton from './NavigationButton'
+
 import menuBackground from '../assets/game/game_move_back.png'
 import upIcon from '../assets/game/game_move_up_top.png'
 import deleteIcon from '../assets/game/game_move_delet_top.png'
@@ -65,8 +67,9 @@ class Game extends Component {
 
   }
 
-  _deleteSelf() {
-    this.props.deleteObject(this.props.id)
+  _deleteSelf = () => {
+    console.log('deleting self')
+    this.props.deleteObject(this.props.index)
   }
 
   _toggleMenu = () => {
@@ -98,9 +101,15 @@ class Game extends Component {
 
     const menu = this.state.menuOpen ? (
       <Image source={menuBackground} style={styles.menu}>
-        <Image source={upIcon} onPress={this._sendToFront}></Image>
-        <Image source={deleteIcon} onPress={this._deleteSelf}></Image>
-        <Image source={downIcon} onPress={this._sendToBack}></Image>
+        <NavigationButton onPress={this._sendToFront}>
+          <Image source={upIcon}></Image>
+        </NavigationButton>
+        <NavigationButton onPress={this._deleteSelf}>
+          <Image source={deleteIcon}></Image>
+        </NavigationButton>
+        <NavigationButton onPress={this._sendToBack}>
+          <Image source={downIcon}></Image>
+        </NavigationButton>
       </Image>
     ) : null
 
@@ -127,7 +136,7 @@ const styles = StyleSheet.create({
   },
   menu: {
     position: 'absolute',
-    zIndex: 10,
+    zIndex: 1000,
   },
 })
 
