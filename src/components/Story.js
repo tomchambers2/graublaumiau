@@ -165,7 +165,10 @@ class Story extends Component {
 
     return (
       <View style={styles.mainWrapper}>
-        <Video source={pages[this.state.page].video} repeat={true} style={styles.backgroundVideo}></Video>
+        <Video
+          source={pages[this.state.page].video}
+          repeat={true}
+          style={styles.backgroundVideo} />
 
         <View style={styles.interactionContainer}>
 
@@ -176,16 +179,25 @@ class Story extends Component {
                 soundOn={this.props.soundOn}
                 goToMenu={this._goToMenu.bind(this)}
                 style={styles.menu} />
-              <NavigationButton onPress={this._toggleNarration}  style={styles.playButton}>
-                <Image style={styles.playToggleImage} resizeMode={Image.resizeMode.contain} source={narrationButtonIcon}></Image>
+              <NavigationButton
+                onPress={this._toggleNarration}
+                style={styles.playButton}>
+                <Image
+                  style={styles.playToggleImage}
+                  resizeMode={Image.resizeMode.contain}
+                  source={narrationButtonIcon} />
               </NavigationButton>
             </View>
-            <View style={styles.textContainer}>
-              <Animated.Image source={pages[this.state.page].text} style={[styles.textBox, { opacity: this.state._textFade }]} resizeMode={Image.resizeMode.contain}></Animated.Image>
+            <View
+              style={styles.textContainer}>
+              <Animated.Image
+                source={pages[this.state.page].text}
+                style={[styles.textBox, { opacity: this.state._textFade }]}
+                resizeMode={Image.resizeMode.contain} />
             </View>
           </View>
 
-          <View style={styles.spacer}></View>
+          <View style={styles.spacer} />
 
           <View style={styles.navigationBar}>
 
@@ -213,6 +225,9 @@ class Story extends Component {
 }
 
 const styles = StyleSheet.create({
+  spacer: {
+    flex: 1,
+  },
   mainWrapper: {
     flex: 1,
   },
