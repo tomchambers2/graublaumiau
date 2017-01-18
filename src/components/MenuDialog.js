@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
     top: 0,
     right: 0,
     bottom: 0,
+    zIndex: 1000,
     height: window.height,
     width: window.width,
     marginLeft: -30,
