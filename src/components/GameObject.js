@@ -9,8 +9,6 @@ import {
 
 import gameObjects from '../assets/game_objects/'
 
-import gameObjectImage from '../assets/game/game_move_back.png'
-
 import NavigationButton from './NavigationButton'
 
 import menuBackground from '../assets/game/game_move_back.png'
@@ -94,7 +92,8 @@ class Game extends Component {
   }
 
   render() {
-    const gameObject = gameObjects.find((gameObject) => gameObject.id === this.props.id)
+    const gameObject = gameObjects.find((gameObject) => gameObject.gid === this.props.id)
+    console.log(gameObject, this.props.id)
     const gameObjectImage = gameObject.animation || gameObject.image
 
     const menu = this.state.menuOpen ? (

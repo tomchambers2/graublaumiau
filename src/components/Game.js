@@ -8,6 +8,8 @@ import {
   Dimensions,
 } from 'react-native'
 
+import { createResponder as customResponder } from 'react-native-gesture-responder';
+
 import email from '../api/email'
 
 import EmailDialog from './EmailDialog'
@@ -46,6 +48,7 @@ class Game extends Component {
       y: 0,
     }
 
+    // this.createResponder = PanResponder.create({
     this.createResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onPanResponderGrant: (event) => {
@@ -174,6 +177,7 @@ class Game extends Component {
     })
 
     const renderGameObjectInstances = this.state.gameObjectInstances.map((gameObject, i) => {
+      console.log(gameObject)
         return (<GameObject
           id={gameObject.id}
           index={i}
