@@ -7,27 +7,27 @@
     "test": "jest"
   },
   "dependencies": {
-    "immutability-helper": "^2.1.1",
-    "react": "~15.4.0-rc.4",
+    "immutability-helper": "2.1.1",
+    "react": "15.4.0-rc.4",
     "react-native": "0.39.0",
-    "react-native-gesture-responder": "^0.1.1",
-    "react-native-mail": "^2.0.0",
-    "react-native-sound": "^0.8.3",
-    "react-native-video": "^0.9.0",
-    "react-native-view-shot": "^1.5.1"
+    "react-native-gesture-responder": "0.1.1",
+    "react-native-mail": "2.0.0",
+    "react-native-sound": "0.8.3",
+    "react-native-video": "0.9.0",
+    "react-native-view-shot": "1.5.1"
   },
   "devDependencies": {
-    "babel-eslint": "^7.1.1",
+    "babel-eslint": "7.1.1",
     "babel-jest": "18.0.0",
     "babel-preset-react-native": "1.9.1",
-    "eslint": "^3.13.1",
-    "eslint-config-standard": "^6.2.1",
-    "eslint-plugin-promise": "^3.4.0",
-    "eslint-plugin-react": "^6.9.0",
-    "eslint-plugin-react-native": "^2.2.1",
-    "eslint-plugin-standard": "^2.0.1",
+    "eslint": "3.13.1",
+    "eslint-config-standard": "6.2.1",
+    "eslint-plugin-promise": "3.4.0",
+    "eslint-plugin-react": "6.9.0",
+    "eslint-plugin-react-native": "2.2.1",
+    "eslint-plugin-standard": "2.0.1",
     "jest": "18.1.0",
-    "react-test-renderer": "~15.4.0-rc.4"
+    "react-test-renderer": "15.4.0-rc.4"
   },
   "jest": {
     "preset": "react-native"
