@@ -27,16 +27,9 @@
 
   rootView.backgroundColor = [UIColor clearColor];
   
-//  UIView* loadingView = [UIView new];
-//  loadingView.backgroundColor = [UIColor greenColor];
-//  rootView.loadingView = loadingView;
-  
-  UIImage *image = [UIImage imageNamed:@"loader"];
-  UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"loader"]];
-  imageView.frame = CGRectMake(0, 0, 100, 100);
-  imageView.contentMode = UIViewContentModeBottom;
-  imageView.image = image;
-  rootView.loadingView = imageView;
+  UIView* launchScreenView = [[[NSBundle mainBundle] loadNibNamed:@"LoadVideoView" owner:self options:nil] objectAtIndex:0];
+  launchScreenView.frame = self.window.bounds;
+  rootView.loadingView = launchScreenView;
   
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];

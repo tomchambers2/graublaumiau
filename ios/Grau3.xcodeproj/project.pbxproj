@@ -42,8 +42,9 @@
 		F6A97E8C1E2EBAE600C0372F /* story_background_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6A97E8A1E2EBAE600C0372F /* story_background_2.mp3 */; };
 		F6A97E8D1E2EBAE600C0372F /* story_background_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6A97E8B1E2EBAE600C0372F /* story_background_1.mp3 */; };
 		F6B6EC731E38EFD700C190F7 /* loader.png in Resources */ = {isa = PBXBuildFile; fileRef = F6B6EC721E38EFD700C190F7 /* loader.png */; };
-		F6B6EC751E38F4BD00C190F7 /* LoadVideo.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6B6EC741E38F4BD00C190F7 /* LoadVideo.xib */; };
-		F6B6EC7B1E38F8FC00C190F7 /* LoadVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B6EC7A1E38F8FC00C190F7 /* LoadVideo.m */; };
+		F6B6EC801E38FF4200C190F7 /* 7_Kauz_Vorschau.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F6B6EC7F1E38FF4200C190F7 /* 7_Kauz_Vorschau.mp4 */; };
+		F6B6ECBF1E39124C00C190F7 /* LoadVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B6ECBD1E39124C00C190F7 /* LoadVideo.swift */; };
+		F6B6ECC21E39135000C190F7 /* LoadVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6B6ECC11E39135000C190F7 /* LoadVideoView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -268,9 +269,10 @@
 		F6A97E8A1E2EBAE600C0372F /* story_background_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = story_background_2.mp3; path = ../src/assets/sounds/story_background/story_background_2.mp3; sourceTree = "<group>"; };
 		F6A97E8B1E2EBAE600C0372F /* story_background_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = story_background_1.mp3; path = ../src/assets/sounds/story_background/story_background_1.mp3; sourceTree = "<group>"; };
 		F6B6EC721E38EFD700C190F7 /* loader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loader.png; sourceTree = "<group>"; };
-		F6B6EC741E38F4BD00C190F7 /* LoadVideo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoadVideo.xib; path = Grau3/LoadVideo.xib; sourceTree = "<group>"; };
-		F6B6EC791E38F8FC00C190F7 /* LoadVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoadVideo.h; path = Grau3/LoadVideo.h; sourceTree = "<group>"; };
-		F6B6EC7A1E38F8FC00C190F7 /* LoadVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoadVideo.m; path = Grau3/LoadVideo.m; sourceTree = "<group>"; };
+		F6B6EC7C1E38FD8300C190F7 /* Grau3-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Grau3-Bridging-Header.h"; sourceTree = "<group>"; };
+		F6B6EC7F1E38FF4200C190F7 /* 7_Kauz_Vorschau.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 7_Kauz_Vorschau.mp4; sourceTree = "<group>"; };
+		F6B6ECBD1E39124C00C190F7 /* LoadVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadVideo.swift; path = Grau3/LoadVideo.swift; sourceTree = "<group>"; };
+		F6B6ECC11E39135000C190F7 /* LoadVideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoadVideoView.xib; path = Grau3/LoadVideoView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -387,9 +389,8 @@
 		13B07FAE1A68108700A75B9A /* Grau3 */ = {
 			isa = PBXGroup;
 			children = (
-				F6B6EC791E38F8FC00C190F7 /* LoadVideo.h */,
-				F6B6EC7A1E38F8FC00C190F7 /* LoadVideo.m */,
-				F6B6EC741E38F4BD00C190F7 /* LoadVideo.xib */,
+				F6B6ECBD1E39124C00C190F7 /* LoadVideo.swift */,
+				F6B6ECC11E39135000C190F7 /* LoadVideoView.xib */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -399,6 +400,7 @@
 				F62892801E2CF00B00081545 /* loading-2048.gif */,
 				F628927E1E2CEFCB00081545 /* loading 2048.mp4 */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				F6B6EC7C1E38FD8300C190F7 /* Grau3-Bridging-Header.h */,
 			);
 			name = Grau3;
 			sourceTree = "<group>";
@@ -476,6 +478,7 @@
 				F62892781E2C1DA000081545 /* narration-0.mp3 */,
 				F62892791E2C1DA000081545 /* narration-1.mp3 */,
 				F62892571E2A47E000081545 /* bg1.mp3 */,
+				F6B6EC7F1E38FF4200C190F7 /* 7_Kauz_Vorschau.mp4 */,
 				13B07FAE1A68108700A75B9A /* Grau3 */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* Grau3Tests */,
@@ -581,6 +584,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = HQB8J2B78P;
+						LastSwiftMigration = 0820;
 					};
 				};
 			};
@@ -850,6 +854,7 @@
 			files = (
 				F62892581E2A47E000081545 /* bg1.mp3 in Resources */,
 				F6A97E8D1E2EBAE600C0372F /* story_background_1.mp3 in Resources */,
+				F6B6ECC21E39135000C190F7 /* LoadVideoView.xib in Resources */,
 				F628927B1E2C1DA000081545 /* narration-2.mp3 in Resources */,
 				F628927C1E2C1DA000081545 /* narration-0.mp3 in Resources */,
 				F6B6EC731E38EFD700C190F7 /* loader.png in Resources */,
@@ -861,8 +866,8 @@
 				F628927A1E2C1DA000081545 /* narration-3.mp3 in Resources */,
 				F628927F1E2CEFCB00081545 /* loading 2048.mp4 in Resources */,
 				F62892731E2BBB9800081545 /* clap-808.wav in Resources */,
-				F6B6EC751E38F4BD00C190F7 /* LoadVideo.xib in Resources */,
 				F62892751E2BC2D100081545 /* samp2.wav in Resources */,
+				F6B6EC801E38FF4200C190F7 /* 7_Kauz_Vorschau.mp4 in Resources */,
 				F62892711E2B879900081545 /* main_sound.mp3 in Resources */,
 				F62892811E2CF00B00081545 /* loading-2048.gif in Resources */,
 			);
@@ -900,9 +905,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6B6EC7B1E38F8FC00C190F7 /* LoadVideo.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				F6B6ECBF1E39124C00C190F7 /* LoadVideo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -920,6 +925,7 @@
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -940,6 +946,7 @@
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = Grau3Tests/Info.plist;
@@ -958,6 +965,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = HQB8J2B78P;
@@ -969,6 +977,9 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = Grau3;
+				SWIFT_OBJC_BRIDGING_HEADER = "Grau3-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 2;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -978,6 +989,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HQB8J2B78P;
 				INFOPLIST_FILE = Grau3/Info.plist;
@@ -988,6 +1000,8 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = Grau3;
+				SWIFT_OBJC_BRIDGING_HEADER = "Grau3-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 2;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
