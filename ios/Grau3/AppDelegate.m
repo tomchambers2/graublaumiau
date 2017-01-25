@@ -24,8 +24,20 @@
                                                       moduleName:@"Grau3"
                                                initialProperties:nil
                                                    launchOptions:launchOptions];
-  rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
 
+  rootView.backgroundColor = [UIColor clearColor];
+  
+//  UIView* loadingView = [UIView new];
+//  loadingView.backgroundColor = [UIColor greenColor];
+//  rootView.loadingView = loadingView;
+  
+  UIImage *image = [UIImage imageNamed:@"loader"];
+  UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"loader"]];
+  imageView.frame = CGRectMake(0, 0, 100, 100);
+  imageView.contentMode = UIViewContentModeBottom;
+  imageView.image = image;
+  rootView.loadingView = imageView;
+  
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];
   rootViewController.view = rootView;

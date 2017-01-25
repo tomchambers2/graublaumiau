@@ -6,6 +6,7 @@ import {
   Navigator,
   StatusBar,
   StyleSheet,
+  Text,
 } from 'react-native'
 
 import MainMenu from './MainMenu'
@@ -50,6 +51,7 @@ class GrauBlauMiau extends Component {
           renderScene={this._renderScene}
           style={styles.wrapper}>
         </Navigator>
+        {/* <Text style={styles.text}>hello world</Text> */}
       </View>
     )
   }
@@ -58,6 +60,9 @@ class GrauBlauMiau extends Component {
 export default GrauBlauMiau
 
 const styles = StyleSheet.create({
+  text: {
+    fontSize: 100,
+  },
   wrapper: {
     flex: 1,
   },
