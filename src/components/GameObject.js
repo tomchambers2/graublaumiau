@@ -66,24 +66,20 @@ class Game extends Component {
   }
 
   _deleteSelf = () => {
-    console.log('deleting self')
     this.props.deleteObject(this.props.index)
   }
 
   _toggleMenu = () => {
-    console.log('menu toggled for ', this.props.index)
     this.setState({
       menuOpen: !this.state.menuOpen,
     })
   }
 
   _sendToFront = () => {
-    console.log('front self')
     this.props.sendToFront(this.props.index)
   }
 
   _sendToBack = () => {
-    console.log('back self')
     this.props.sendToBack(this.props.index)
   }
 
@@ -93,7 +89,6 @@ class Game extends Component {
 
   render() {
     const gameObject = gameObjects.find((gameObject) => gameObject.gid === this.props.id)
-    console.log(gameObject, this.props.id)
     const gameObjectImage = gameObject.animation || gameObject.image
 
     const menu = this.state.menuOpen ? (

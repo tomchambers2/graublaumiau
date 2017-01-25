@@ -177,7 +177,6 @@ class Game extends Component {
     })
 
     const renderGameObjectInstances = this.state.gameObjectInstances.map((gameObject, i) => {
-      console.log(gameObject)
         return (<GameObject
           id={gameObject.id}
           index={i}

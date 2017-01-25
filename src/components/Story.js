@@ -195,10 +195,8 @@ class Story extends Component {
 
   _playSoundClip = (soundName) => {
     return () => {
-      console.log('play sound', soundName)
       const sound = new Sound(soundName, Sound.MAIN_BUNDLE, (error) => {
         sound.play()
-        console.log(error)
       })
     }
   }
