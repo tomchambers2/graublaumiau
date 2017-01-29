@@ -9,6 +9,7 @@ import {
   Text,
 } from 'react-native'
 
+import SplashScreen from './SplashScreen'
 import MainMenu from './MainMenu'
 import Story from './Story'
 import Game from './Game'
@@ -19,10 +20,22 @@ class GrauBlauMiau extends Component {
     super()
     this.state = {
       soundOn: true,
+      splashScreenDisplayed: false,
     }
   }
 
+  _hideSplashScreen = () => {
+    this.setState({
+      splashScreenDisplayed: true,
+    })
+  }
+
   _renderScene = (route, navigator) => {
+    if (!this.state.splashScreenDisplayed) {
+      return (<SplashScreen
+        hideSplashScreen={this._hideSplashScreen}></SplashScreen>)
+    }
+
     const props = {
       navigator,
       soundOn: this.state.soundOn,
