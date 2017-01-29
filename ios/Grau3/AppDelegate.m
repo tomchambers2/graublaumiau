@@ -30,6 +30,7 @@
   UIView* launchScreenView = [[[NSBundle mainBundle] loadNibNamed:@"LoadVideoView" owner:self options:nil] objectAtIndex:0];
   launchScreenView.frame = self.window.bounds;
   rootView.loadingView = launchScreenView;
+  rootView.loadingViewFadeDelay = 5;
   
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];

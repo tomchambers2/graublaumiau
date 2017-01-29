@@ -11,7 +11,8 @@ import AVKit
 import AVFoundation
 
 class LoadVideo: UIViewController {
-
+    @IBOutlet weak var label1: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
       
