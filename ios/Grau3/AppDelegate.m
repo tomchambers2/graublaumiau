@@ -12,6 +12,8 @@
 #import "RCTBundleURLProvider.h"
 #import "RCTRootView.h"
 
+#import "Grau3-swift.h"
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -27,7 +29,9 @@
 
   rootView.backgroundColor = [UIColor clearColor];
   
-  UIView* launchScreenView = [[[NSBundle mainBundle] loadNibNamed:@"LoadVideoView" owner:self options:nil] objectAtIndex:0];
+  LoadVideo* loadVideo = [[LoadVideo alloc] init];
+  
+  UIView* launchScreenView = [[[NSBundle mainBundle] loadNibNamed:@"LoadVideoView" owner:loadVideo options:nil] objectAtIndex:0];
   launchScreenView.frame = self.window.bounds;
   rootView.loadingView = launchScreenView;
   rootView.loadingViewFadeDelay = 5;

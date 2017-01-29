@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D12b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="ipad12_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -12,20 +12,24 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoadVideo" customModule="Grau3"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPt-Qh-Afj">
-                    <rect key="frame" x="60" y="239" width="233" height="188"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.10849628611688178" green="1" blue="0.11981079003966677" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading-2048.gif" translatesAutoresizingMaskIntoConstraints="NO" id="twD-NV-9lK">
+                    <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="twD-NV-9lK" secondAttribute="bottom" id="6hY-tY-C6h"/>
+                <constraint firstItem="twD-NV-9lK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6ql-Ta-Q6F"/>
+                <constraint firstAttribute="trailing" secondItem="twD-NV-9lK" secondAttribute="trailing" id="SEB-oU-S3K"/>
+                <constraint firstItem="twD-NV-9lK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gvc-kv-5jp"/>
+            </constraints>
             <point key="canvasLocation" x="34.5" y="167.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="loading-2048.gif" width="2048" height="2048"/>
+    </resources>
 </document>
