@@ -5,6 +5,7 @@ import {
   TouchableHighlight,
   StyleSheet,
   PanResponder,
+  Text,
 } from 'react-native'
 
 import gameObjects from '../assets/game_objects/'
@@ -18,14 +19,10 @@ import downIcon from '../assets/game/down.png'
 
 class Game extends Component {
   static propTypes = {
-    index: PropTypes.number.required,
-    getZIndexRange: PropTypes.func.required,
-    moveObject: PropTypes.func.required,
-    deleteObject: PropTypes.func.required,
-    id: PropTypes.number.isRequired,
-    gameObjectId: PropTypes.number.isRequired,
-    x: PropTypes.number.isRequired,
-    y: PropTypes.number.isRequired,
+    // id: PropTypes.number.isRequired,
+    // gameObjectId: PropTypes.number.isRequired,
+    // x: PropTypes.number.isRequired,
+    // y: PropTypes.number.isRequired,
   }
 
   constructor() {
@@ -87,30 +84,43 @@ class Game extends Component {
 
   }
 
+  // _cacheViewDimensions = (event) => {
+  //   const {width, height} = event.nativeEvent.layout
+  //   console.log(width, height)
+  //   this.setState({
+  //     width: width,
+  //     height: height,
+  //   })
+  // }
+
   render() {
     const gameObject = gameObjects.find((gameObject) => gameObject.gid === this.props.id)
     const gameObjectImage = gameObject.animation || gameObject.image
 
     const menu = this.state.menuOpen ? (
-      <Image source={menuBackground} style={styles.menu}>
-        <NavigationButton onPress={this._sendToFront}>
-          <Image source={upIcon}></Image>
-        </NavigationButton>
-        <NavigationButton onPress={this._deleteSelf}>
-          <Image source={deleteIcon}></Image>
-        </NavigationButton>
-        <NavigationButton onPress={this._sendToBack}>
-          <Image source={downIcon}></Image>
-        </NavigationButton>
-      </Image>
+      <View style={[styles.menuContainer, { width: this.state.width, height: this.state.height }]}>
+        <Image source={menuBackground} style={styles.menuInner}>
+          <NavigationButton style={styles.icon} onPress={this._sendToFront}>
+            <Image source={upIcon}></Image>
+          </NavigationButton>
+          <NavigationButton style={styles.delete} onPress={this._deleteSelf}>
+            <Image source={deleteIcon}></Image>
+          </NavigationButton>
+          <NavigationButton style={styles.icon} onPress={this._sendToBack}>
+            <Image source={downIcon}></Image>
+          </NavigationButton>
+        </Image>
+      </View>
     ) : null
 
     return (
       <View
         {...this.panResponder.panHandlers}
+        onLayout={this._cacheViewDimensions}
         style={[ styles.gameObject, { top: this.props.y, left: this.props.x } ]}>
         {menu}
         <TouchableHighlight
+          underlayColor="rgba(255,255,255,0)"
           onLongPress={this._toggleMenu}>
           <Image
             resizeMode={Image.resizeMode.contain}
@@ -123,14 +133,29 @@ class Game extends Component {
 }
 
 const styles = StyleSheet.create({
+  icon: {
+    marginTop: 18,
+    marginLeft: 12,
+  },
+  menuInner: {
+    zIndex: 1000,
+    position: 'absolute',
+  },
+  menuContainer: {
+    position: 'absolute',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    // backgroundColor: 'green'
+  },
+  delete: {
+    marginTop: 18,
+    marginLeft: 14,
+  },
   gameObject: {
     position: 'absolute',
     width: 100,
     height: 100,
-  },
-  menu: {
-    position: 'absolute',
-    zIndex: 1000,
   },
 })
 

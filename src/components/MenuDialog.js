@@ -27,14 +27,10 @@ class MenuDialog extends Component {
           <Image source={dialogText} />
           <View style={styles.buttonRow}>
             <NavigationButton onPress={this.props.goToMenu}>
-              <Image source={dialogConfirmBackground}>
-                <Image source={dialogConfirm}></Image>
-              </Image>
+              <Image source={dialogConfirm}></Image>
             </NavigationButton>
             <NavigationButton onPress={this.props.cancelDialog}>
-              <Image source={dialogCancelBackground}>
-                <Image source={dialogCancel}></Image>
-              </Image>
+              <Image source={dialogCancel}></Image>
             </NavigationButton>
           </View>
         </Image>

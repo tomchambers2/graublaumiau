@@ -5,7 +5,7 @@ const gameObjects = [
   {
     gid: 0,
     image: miloWalking,
-    animation: miloWalking_animation,
+    // animation: miloWalking_animation,
   },
   {
     gid: 1,

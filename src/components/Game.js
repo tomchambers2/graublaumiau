@@ -35,7 +35,7 @@ class Game extends Component {
   }
 
   constructor() {
-    super();
+    super()
 
     this.state = {
       scrollEnabled: true,
@@ -52,6 +52,7 @@ class Game extends Component {
     this.createResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onPanResponderGrant: (event) => {
+        console.log(event.nativeEvent)
         const x = event.nativeEvent.pageX
         const y = event.nativeEvent.pageY
         this.setState({
@@ -145,14 +146,6 @@ class Game extends Component {
     })
   }
 
-  componentWillReceiveProps(newProps) {
-    if (!newProps.soundOn) {
-      // turn sound off
-    } else {
-      // turn sound on
-    }
-  }
-
   _openEmailDialog = () => {
     this.setState({
       sendDialogOpen: true,
@@ -163,6 +156,14 @@ class Game extends Component {
     this.setState({
       sendDialogOpen: false,
     })
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (!newProps.soundOn) {
+      // turn sound off
+    } else {
+      // turn sound on
+    }
   }
 
   render() {
@@ -204,7 +205,7 @@ class Game extends Component {
         </View>
         <View style={styles.divider}>
           <Image
-            style={styles.wrapper}
+            style={styles.dividerImage}
             resizeMode={Image.resizeMode.contain}
             source={dividerImage}>
           </Image>
@@ -228,10 +229,6 @@ class Game extends Component {
 export default Game
 
 const styles = StyleSheet.create({
-  wrapper: {
-    flex: 1,
-    backgroundColor: 'white',
-  },
   navBar: {
     marginTop: 20,
     marginLeft: 17,
@@ -239,6 +236,7 @@ const styles = StyleSheet.create({
   gameContainer: {
     flex: 1,
     flexDirection: 'row',
+    backgroundColor: 'white',
   },
   objectMenu: {
     width: 150,
@@ -254,7 +252,10 @@ const styles = StyleSheet.create({
   divider: {
     flex: 1,
     maxWidth: 26,
-    marginLeft: -13,
+    marginLeft: -12,
+  },
+  dividerImage: {
+    flex: 1,
   },
   placeholder: {
     marginTop: 15,
