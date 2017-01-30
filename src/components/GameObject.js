@@ -98,19 +98,21 @@ class Game extends Component {
     const gameObjectImage = gameObject.animation || gameObject.image
 
     const menu = this.state.menuOpen ? (
-      <View style={[styles.menuContainer, { width: this.state.width, height: this.state.height }]}>
-        <Image source={menuBackground} style={styles.menuInner}>
-          <NavigationButton style={styles.icon} onPress={this._sendToFront}>
-            <Image source={upIcon}></Image>
-          </NavigationButton>
-          <NavigationButton style={styles.delete} onPress={this._deleteSelf}>
-            <Image source={deleteIcon}></Image>
-          </NavigationButton>
-          <NavigationButton style={styles.icon} onPress={this._sendToBack}>
-            <Image source={downIcon}></Image>
-          </NavigationButton>
-        </Image>
-      </View>
+      <NavigationButton
+        onPress={this._toggleMenu}
+        style={[styles.menuContainer, { width: this.state.width, height: this.state.height }]}>
+          <Image source={menuBackground} style={styles.menuInner}>
+            <NavigationButton style={styles.icon} onPress={this._sendToFront}>
+              <Image source={upIcon}></Image>
+            </NavigationButton>
+            <NavigationButton style={styles.delete} onPress={this._deleteSelf}>
+              <Image source={deleteIcon}></Image>
+            </NavigationButton>
+            <NavigationButton style={styles.icon} onPress={this._sendToBack}>
+              <Image source={downIcon}></Image>
+            </NavigationButton>
+          </Image>
+      </NavigationButton>
     ) : null
 
     return (
@@ -138,15 +140,15 @@ const styles = StyleSheet.create({
     marginLeft: 12,
   },
   menuInner: {
-    zIndex: 1000,
-    position: 'absolute',
+    zIndex: 1000000000,
+    position: 'relative',
   },
   menuContainer: {
     position: 'absolute',
+    zIndex: 1000,
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    // backgroundColor: 'green'
   },
   delete: {
     marginTop: 18,
