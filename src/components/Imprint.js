@@ -6,9 +6,8 @@ import {
 
 import NavigationButton from './NavigationButton'
 
-import background from '../assets/imprint/imprint_text_picture.png'
-import buttonBackground from '../assets/imprint/story_end_back.png'
-import buttonText from '../assets/imprint/story_end_top.png'
+import background from '../assets/imprint/background.png'
+import backButton from '../assets/imprint/back.png'
 
 import globalStyles from '../globalStyles'
 
@@ -25,9 +24,7 @@ class Imprint extends Component {
     return (
       <Image source={background} style={globalStyles.fullscreen} resizeMode={Image.resizeMode.cover}>
         <NavigationButton style={styles.backButton} onPress={this._goBack}>
-          <Image source={buttonBackground}>
-            <Image source={buttonText}></Image>
-          </Image>
+          <Image source={backButton}></Image>
         </NavigationButton>
       </Image>
     )
