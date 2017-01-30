@@ -53,6 +53,9 @@ class Game extends Component {
     this.createResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onPanResponderGrant: (event) => {
+        console.log(event.nativeEvent)
+        // ReactNativeComponentTree.getInstanceFromNode(event.native);
+
         const x = event.nativeEvent.pageX
         const y = event.nativeEvent.pageY
         this.setState({
@@ -203,7 +206,7 @@ class Game extends Component {
         <View
           style={styles.placeholder}
           {...this.createResponder.panHandlers}>
-            <Image style={{height: 150}} resizeMode={Image.resizeMode.contain} source={gameObject.image} />
+            <Image style={{ height: 150 }} resizeMode={Image.resizeMode.contain} source={gameObject.image} />
         </View>
       )
     })

@@ -19,6 +19,14 @@ const gameObjects = [
     gid: 3,
     image: miloWalking,
   },
+  {
+    gid: 4,
+    image: miloWalking,
+  },
+  {
+    gid: 5,
+    image: miloWalking,
+  },
 ]
 
 export default gameObjects
