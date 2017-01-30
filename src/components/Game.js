@@ -230,6 +230,7 @@ export default Game
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
+    backgroundColor: 'white',
   },
   navBar: {
     marginTop: 20,
@@ -247,7 +248,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   playArea: {
-    backgroundColor: colors.playArea,
+    flex: 1,
+    backgroundColor: 'white',
   },
   divider: {
     flex: 1,
