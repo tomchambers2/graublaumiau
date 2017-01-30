@@ -84,15 +84,6 @@ class Game extends Component {
 
   }
 
-  // _cacheViewDimensions = (event) => {
-  //   const {width, height} = event.nativeEvent.layout
-  //   console.log(width, height)
-  //   this.setState({
-  //     width: width,
-  //     height: height,
-  //   })
-  // }
-
   render() {
     const gameObject = gameObjects.find((gameObject) => gameObject.gid === this.props.id)
     const gameObjectImage = gameObject.animation || gameObject.image
@@ -118,9 +109,9 @@ class Game extends Component {
     return (
       <View
         {...this.panResponder.panHandlers}
-        onLayout={this._cacheViewDimensions}
-        style={[ styles.gameObject, { top: this.props.y, left: this.props.x } ]}>
+        style={[ styles.gameObject, { top: this.props.y, left: this.props.x, width: this.state.width, height: this.state.height } ]}>
         {menu}
+        <Text>{this.props.x},{this.props.y}</Text>
         <TouchableHighlight
           underlayColor="rgba(255,255,255,0)"
           onLongPress={this._toggleMenu}>
