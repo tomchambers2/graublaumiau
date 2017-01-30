@@ -139,13 +139,9 @@ const styles = StyleSheet.create({
     marginTop: 18,
     marginLeft: 12,
   },
-  menuInner: {
-    zIndex: 1000000000,
-    position: 'relative',
-  },
   menuContainer: {
     position: 'absolute',
-    zIndex: 1000,
+    zIndex: 10,
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',

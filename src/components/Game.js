@@ -172,7 +172,7 @@ class Game extends Component {
         <View
           style={styles.placeholder}
           {...this.createResponder.panHandlers}>
-            <Image style={{width: 150}} resizeMode={Image.resizeMode.contain} source={gameObject.image} />
+            <Image style={{height: 150}} resizeMode={Image.resizeMode.contain} source={gameObject.image} />
         </View>
       )
     })
