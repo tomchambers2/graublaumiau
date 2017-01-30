@@ -332,12 +332,12 @@ const styles = StyleSheet.create({
 
     // width: 1366,
     // height: 1024,
-    
+
     // width: 1024,
     // height: 768,
 
 
-    backgroundColor: 'yellow'
+    // backgroundColor: 'yellow'
   },
   navigationBar: {
     flexDirection: 'row',
