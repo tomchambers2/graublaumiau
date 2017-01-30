@@ -326,12 +326,18 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     top: 0,
+
     width: window.width,
     height: window.height,
 
-    width: 1366,
-    height: 1024,
-    // backgroundColor: 'yellow'
+    // width: 1366,
+    // height: 1024,
+    
+    // width: 1024,
+    // height: 768,
+
+
+    backgroundColor: 'yellow'
   },
   navigationBar: {
     flexDirection: 'row',

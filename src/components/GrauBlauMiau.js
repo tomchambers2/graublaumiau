@@ -20,7 +20,7 @@ class GrauBlauMiau extends Component {
     super()
     this.state = {
       soundOn: true,
-      splashScreenDisplayed: true,
+      splashScreenDisplayed: false,
     }
   }
 
