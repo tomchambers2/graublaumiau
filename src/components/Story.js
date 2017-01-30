@@ -39,11 +39,11 @@ import Video from 'react-native-video'
 
 import Sound from 'react-native-sound';
 
-import playIcon from '../assets/story2/story_icon_read.png'
-import pauseIcon from '../assets/story2/story_icon_read_pause.png'
-import NavigateLeft from '../assets/story2/story_icon_link.png'
-import NavigateRight from '../assets/story2/story_icon_rechts.png'
-import endButton from '../assets/story2/story_icon_ende.png'
+import playIcon from '../assets/story/reader_play.png'
+import pauseIcon from '../assets/story/reader_pause.png'
+import NavigateLeft from '../assets/story/arrow_left.png'
+import NavigateRight from '../assets/story/arrow_right.png'
+import endButton from '../assets/story/finish.png'
 
 class Story extends Component {
   constructor() {

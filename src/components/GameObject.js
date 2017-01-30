@@ -11,10 +11,10 @@ import gameObjects from '../assets/game_objects/'
 
 import NavigationButton from './NavigationButton'
 
-import menuBackground from '../assets/game/game_move_back.png'
-import upIcon from '../assets/game/game_move_up_top.png'
-import deleteIcon from '../assets/game/game_move_delet_top.png'
-import downIcon from '../assets/game/game_move_down_top.png'
+import menuBackground from '../assets/game/menu_background.png'
+import upIcon from '../assets/game/up.png'
+import deleteIcon from '../assets/game/delete.png'
+import downIcon from '../assets/game/down.png'
 
 class Game extends Component {
   static propTypes = {

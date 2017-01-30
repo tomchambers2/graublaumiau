@@ -39,8 +39,6 @@
 		F62892811E2CF00B00081545 /* loading-2048.gif in Resources */ = {isa = PBXBuildFile; fileRef = F62892801E2CF00B00081545 /* loading-2048.gif */; };
 		F62892851E2CF67800081545 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F62892841E2CF67800081545 /* LaunchScreen.storyboard */; };
 		F6A97E891E2D214300C0372F /* libRNMail.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6A97E841E2D212E00C0372F /* libRNMail.a */; };
-		F6A97E8C1E2EBAE600C0372F /* story_background_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6A97E8A1E2EBAE600C0372F /* story_background_2.mp3 */; };
-		F6A97E8D1E2EBAE600C0372F /* story_background_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6A97E8B1E2EBAE600C0372F /* story_background_1.mp3 */; };
 		F6B6EC731E38EFD700C190F7 /* loader.png in Resources */ = {isa = PBXBuildFile; fileRef = F6B6EC721E38EFD700C190F7 /* loader.png */; };
 		F6B6EC801E38FF4200C190F7 /* 7_Kauz_Vorschau.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F6B6EC7F1E38FF4200C190F7 /* 7_Kauz_Vorschau.mp4 */; };
 		F6B6ECBF1E39124C00C190F7 /* LoadVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B6ECBD1E39124C00C190F7 /* LoadVideo.swift */; };
@@ -266,8 +264,6 @@
 		F62892801E2CF00B00081545 /* loading-2048.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "loading-2048.gif"; sourceTree = "<group>"; };
 		F62892841E2CF67800081545 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Grau3/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F6A97E6A1E2D212E00C0372F /* RNMail.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNMail.xcodeproj; path = "../node_modules/react-native-mail/RNMail.xcodeproj"; sourceTree = "<group>"; };
-		F6A97E8A1E2EBAE600C0372F /* story_background_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = story_background_2.mp3; path = ../src/assets/sounds/story_background/story_background_2.mp3; sourceTree = "<group>"; };
-		F6A97E8B1E2EBAE600C0372F /* story_background_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = story_background_1.mp3; path = ../src/assets/sounds/story_background/story_background_1.mp3; sourceTree = "<group>"; };
 		F6B6EC721E38EFD700C190F7 /* loader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loader.png; sourceTree = "<group>"; };
 		F6B6EC7C1E38FD8300C190F7 /* Grau3-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Grau3-Bridging-Header.h"; sourceTree = "<group>"; };
 		F6B6EC7F1E38FF4200C190F7 /* 7_Kauz_Vorschau.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 7_Kauz_Vorschau.mp4; sourceTree = "<group>"; };
@@ -467,8 +463,6 @@
 			isa = PBXGroup;
 			children = (
 				F6B6EC721E38EFD700C190F7 /* loader.png */,
-				F6A97E8A1E2EBAE600C0372F /* story_background_2.mp3 */,
-				F6A97E8B1E2EBAE600C0372F /* story_background_1.mp3 */,
 				F62892701E2B879900081545 /* main_sound.mp3 */,
 				F62892721E2BBB9800081545 /* clap-808.wav */,
 				F62892741E2BC2D100081545 /* samp2.wav */,
@@ -853,14 +847,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F62892581E2A47E000081545 /* bg1.mp3 in Resources */,
-				F6A97E8D1E2EBAE600C0372F /* story_background_1.mp3 in Resources */,
 				F6B6ECC21E39135000C190F7 /* LoadVideoView.xib in Resources */,
 				F628927B1E2C1DA000081545 /* narration-2.mp3 in Resources */,
 				F628927C1E2C1DA000081545 /* narration-0.mp3 in Resources */,
 				F6B6EC731E38EFD700C190F7 /* loader.png in Resources */,
 				F628926F1E2A4AEA00081545 /* reader1.mp3 in Resources */,
 				F628927D1E2C1DA000081545 /* narration-1.mp3 in Resources */,
-				F6A97E8C1E2EBAE600C0372F /* story_background_2.mp3 in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				F62892851E2CF67800081545 /* LaunchScreen.storyboard in Resources */,
 				F628927A1E2C1DA000081545 /* narration-3.mp3 in Resources */,

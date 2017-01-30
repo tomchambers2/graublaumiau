@@ -9,12 +9,10 @@ import {
 
 import NavigationButton from './NavigationButton'
 
-import dialogBackground from '../assets/story/story_warning_back.png'
-import dialogText from '../assets/story/story_warning_text_top.png'
-import dialogConfirmBackground from '../assets/story/story_warning_yes_back.png'
-import dialogConfirm from '../assets/story/story_warning_yes_top.png'
-import dialogCancelBackground from '../assets/story/story_warning_no_back.png'
-import dialogCancel from '../assets/story/story_warning_no_top.png'
+import dialogBackground from '../assets/navigation/warning_background.png'
+import dialogText from '../assets/story/warning_text.png'
+import dialogConfirm from '../assets/navigation/warning_yes.png'
+import dialogCancel from '../assets/navigation/warning_no.png'
 
 const window = Dimensions.get('window')
 

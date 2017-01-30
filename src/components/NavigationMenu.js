@@ -9,15 +9,15 @@ import {
 import NavigationButton from './NavigationButton'
 import MenuDialog from './MenuDialog'
 
-import menuToggle from '../assets/game/game_menu_close-open_top.png'
-import menuBackgroundClosed from '../assets/game/game_menu_close_back.png'
-import menuBackgroundOpenLarge from '../assets/game/game_menu_open_back.png'
-import menuBackgroundOpenSmall from '../assets/story/story_menu_open_back.png'
+import hamburger from '../assets/navigation/hamburger.png'
+import menuBackgroundClosed from '../assets/navigation/hamburger_closed.png'
+import menuBackgroundOpenLarge from '../assets/navigation/background_large.png'
+import menuBackgroundOpenSmall from '../assets/navigation/background.png'
 
-import menuIcon from '../assets/game/game_menu_open_toMain_top.png'
-import soundOffIcon from '../assets/game/game_menu_open_sound_off_top.png'
-import soundOnIcon from '../assets/game/game_menu_open_sound_on_top.png'
-import mailIcon from '../assets/game/game_menu_open_send.png'
+import menuIcon from '../assets/navigation/menu.png'
+import soundOffIcon from '../assets/navigation/sound_off.png'
+import soundOnIcon from '../assets/navigation/sound_on.png'
+import mailIcon from '../assets/navigation/mail.png'
 
 class NavigationMenu extends Component {
   static propTypes = {
@@ -91,18 +91,19 @@ class NavigationMenu extends Component {
         cancelDialog={this._cancelMenuDialog}
         />
     )
-    const menuDialog = this.state.menuDialogOpen ? menuDialogContent : null
+    const closeDialog = this.state.menuDialogOpen ? menuDialogContent : null
 
     return (
       <View>
-        {menuDialog}
+        {closeDialog}
         <View style={styles.menuContainer}>
           <View style={styles.absolute}>
             <Image source={menuBackgroundSelected}>
               <View style={styles.menuBackground}>
                 <NavigationButton onPress={this._toggleMenu}>
                   <Image
-                    source={menuToggle}>
+                    style={styles.hamburger}
+                    source={hamburger}>
                   </Image>
                 </NavigationButton>
                 {menuOpenIcons}
@@ -118,6 +119,10 @@ class NavigationMenu extends Component {
 export default NavigationMenu
 
 const styles = StyleSheet.create({
+  hamburger: {
+    marginTop: 15,
+    marginLeft: 9,
+  },
   menuContainer: {
     height: 49,
     zIndex: 50,

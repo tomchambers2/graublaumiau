@@ -5,16 +5,12 @@ import {
   StyleSheet,
 } from 'react-native'
 
-import Background from '../assets/background.png'
-import SoundBackground from '../assets/menu/main_sound_back.png'
-import SoundOn from '../assets/menu/main_sound_top_on.png'
-import SoundOff from '../assets/menu/main_sound_top_off.png'
-import imprintButtonBackground from '../assets/menu/main_imprint_back.png'
-import imprintButton from '../assets/menu/main_imprint_top.png'
-import storyButtonBackground from '../assets/menu/main_story_back.png'
-import gameButtonBackground from '../assets/menu/main_game_back.png'
-import storyButton from '../assets/menu/main_story_top.png'
-import gameButton from '../assets/menu/main_game_top.png'
+import SoundOn from '../assets/navigation/sound_on.png'
+import SoundOff from '../assets/navigation/sound_off.png'
+import Background from '../assets/menu/background.png'
+import imprintButton from '../assets/menu/imprint.png'
+import storyButton from '../assets/menu/story.png'
+import gameButton from '../assets/menu/game.png'
 
 import NavigationButton from './NavigationButton'
 
@@ -72,18 +68,14 @@ class MainMenu extends Component {
                 underlayColor="rgba(255,255,255,0)"
                 activeOpacity={0.7}
                 style={styles.soundButton}>
-                <Image source={SoundBackground} style={styles.soundButtonBackground} resizeMode={Image.resizeMode.contain}>
-                  <Image source={soundToggle} style={styles.soundButtonImage} resizeMode={Image.resizeMode.contain}></Image>
-                </Image>
+                <Image source={soundToggle} style={styles.soundButtonImage} resizeMode={Image.resizeMode.contain}></Image>
               </NavigationButton>
 
               <NavigationButton
                 f="1"
                 onPress={this._goToPage.bind(this, 'Imprint')}
                 style={styles.imprintButton}>
-                <Image style={styles.imprintButtonImage} source={imprintButtonBackground}>
-                  <Image style={styles.imprintButtonImage} source={imprintButton}></Image>
-                </Image>
+                <Image style={styles.imprintButtonImage} source={imprintButton}></Image>
               </NavigationButton>
             </View>
 
@@ -92,16 +84,12 @@ class MainMenu extends Component {
             <View style={[styles.buttonRow, styles.bottomButtons]}>
               <NavigationButton
                 onPress={this._goToPage.bind(this, 'Story')}>
-                <Image source={storyButtonBackground}>
-                  <Image source={storyButton}></Image>
-                </Image>
+                <Image source={storyButton}></Image>
               </NavigationButton>
 
               <NavigationButton
                 onPress={this._goToPage.bind(this, 'Game')}>
-                <Image source={gameButtonBackground}>
-                  <Image source={gameButton}></Image>
-                </Image>
+                <Image source={gameButton}></Image>
               </NavigationButton>
             </View>
           </View>
