@@ -48,16 +48,19 @@ class Game extends Component {
       y: 0,
     }
 
+    this.instanceCounter = 0
+
     this.createResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onPanResponderGrant: (event) => {
         const x = event.nativeEvent.pageX
         const y = event.nativeEvent.pageY
         this.setState({
-          gameObjectInstances: this.state.gameObjectInstances.concat({ id: 0, x: x - 300, y: y - 100, width: 300, height: 300, dragging: true }),
+          gameObjectInstances: this.state.gameObjectInstances.concat({ id: this.instanceCounter, gameObjectId: 0, x: x - 300, y: y - 100, width: 300, height: 300, dragging: true }),
           // gameObjectInstances: this.state.gameObjectInstances.concat({ id: 0, x, y }),
           scrollEnabled: false,
         })
+        this.instanceCounter++
         this.lastMovement = {
           x: 0,
           y: 0,
@@ -138,9 +141,11 @@ class Game extends Component {
 
   _deleteObject = (index) => {
     const data = this.state.gameObjectInstances
+    console.log('old data',data)
     const newData = update(data, {
       $splice: [[index, 1]],
     })
+    console.log('new data', newData)
     this.setState({
       gameObjectInstances: newData,
     })
@@ -205,7 +210,8 @@ class Game extends Component {
 
     const renderGameObjectInstances = this.state.gameObjectInstances.map((gameObject, i) => {
         return (<GameObject
-          id={gameObject.id}
+          gameObjectId={gameObject.gameObjectId}
+          key={gameObject.id}
           index={i}
           {...gameObject}
           constrainObject={this._constrainObject}

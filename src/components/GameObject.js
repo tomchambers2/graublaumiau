@@ -150,6 +150,7 @@ class Game extends Component {
         {...this.panResponder.panHandlers}
         style={[ styles.gameObject, { top: this.state.top, left: this.state.left, width: this.state.width, height: this.state.height } ]}>
         {menu}
+        <Text>key: {this.props.key}, index: {this.props.index}, id: {this.props.id}, gid: {this.props.gameObjectId}</Text>
         <TouchableHighlight
           underlayColor="rgba(255,255,255,0)"
           onLongPress={this._toggleMenu}>
