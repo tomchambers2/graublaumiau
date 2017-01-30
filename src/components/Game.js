@@ -48,16 +48,13 @@ class Game extends Component {
       y: 0,
     }
 
-    // this.createResponder = PanResponder.create({
     this.createResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onPanResponderGrant: (event) => {
-        console.log(event.nativeEvent)
         const x = event.nativeEvent.pageX
         const y = event.nativeEvent.pageY
-        console.log("CREATE AT", x, y)
         this.setState({
-          gameObjectInstances: this.state.gameObjectInstances.concat({ id: 0, x: x - 300, y: y - 100 }),
+          gameObjectInstances: this.state.gameObjectInstances.concat({ id: 0, x: x - 300, y: y - 100, width: 300, height: 300, dragging: true }),
           // gameObjectInstances: this.state.gameObjectInstances.concat({ id: 0, x, y }),
           scrollEnabled: false,
         })
@@ -68,9 +65,8 @@ class Game extends Component {
         return true
       },
       onPanResponderMove: (event, gestureState) => {
-        console.log('DO MOVE')
         const index = this.state.gameObjectInstances.length - 1
-        this._moveObject(index, gestureState.dx - this.lastMovement.x, gestureState.dy - this.lastMovement.y, false)
+        this._moveObject(index, gestureState.dx - this.lastMovement.x, gestureState.dy - this.lastMovement.y)
         this.lastMovement = {
           x: gestureState.dx,
           y: gestureState.dy,
@@ -80,6 +76,8 @@ class Game extends Component {
         this.setState({
           scrollEnabled: true,
         })
+        const index = this.state.gameObjectInstances.length - 1
+        this._constrainObject(index)
       },
     })
   }
@@ -101,11 +99,22 @@ class Game extends Component {
     return [x, y]
   }
 
-  _constrainObject(index) {
+  _stopDragging = (index) => {
+    const data = this.state.gameObjectInstances
+    const updatedData = update(data[index], { dragging: { $set: false } })
+    const newData = update(data, {
+      $splice: [[index, 1, updatedData]],
+    })
+    this.setState({
+      gameObjectInstances: newData,
+    })
+  }
+
+  _constrainObject = (index) => {
     const data = this.state.gameObjectInstances
     let {x, y, width, height} = data[index]
-    let [constrainedX, constrainedY] = this._constrainToGrid(x, y, width, height)
-    const updatedData = update(data[index], { x: { $set: constrainedX }, y: { $set: constrainedY } })
+    let [constrainedX, constrainedY] = this._constrainToGrid(x, y, { width, height })
+    const updatedData = update(data[index], { x: { $set: constrainedX }, y: { $set: constrainedY }, dragging: { $set: false } })
     const newData = update(data, {
       $splice: [[index, 1, updatedData]],
     })
@@ -115,13 +124,9 @@ class Game extends Component {
   }
 
   _moveObject = (index, x, y) => {
-    console.log("DO MOVE (2)")
     const data = this.state.gameObjectInstances
     const newX = data[index].x + x
     const newY = data[index].y + y
-    console.log('old coords',index,'were', data[index].x, data[index].y)
-    console.log('shift by',index,x,y)
-    console.log('move object',index,'to',newX,newY)
     const updatedData = update(data[index], { x: { $set: newX }, y: { $set: newY } })
     const newData = update(data, {
       $splice: [[index, 1, updatedData]],
@@ -203,6 +208,7 @@ class Game extends Component {
           id={gameObject.id}
           index={i}
           {...gameObject}
+          constrainObject={this._constrainObject}
           sendToFront={this._sendToFront}
           sendToBack={this._sendToBack}
           deleteObject={this._deleteObject}

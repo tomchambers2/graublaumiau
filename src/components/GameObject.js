@@ -6,6 +6,7 @@ import {
   StyleSheet,
   PanResponder,
   Text,
+  Animated,
 } from 'react-native'
 
 import gameObjects from '../assets/game_objects/'
@@ -33,9 +34,15 @@ class Game extends Component {
       y: 0,
     }
 
+    this.dragging = true
+
     this.panResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onMoveShouldSetPanResponder: () => (e, gestureState) => true,
+      onPanResponderGrant: () => {
+        this.dragging = true
+        return true
+      },
       onPanResponderMove: (e, gestureState) => {
         this.props.moveObject(this.props.index, gestureState.dx - this.lastMovement.x, gestureState.dy - this.lastMovement.y)
         this.lastMovement = {
@@ -44,6 +51,11 @@ class Game extends Component {
         }
       },
       onPanResponderRelease: () => {
+        this.setState({
+          dragging: false,
+        })
+        this.dragging = false
+        this.props.constrainObject(this.props.index)
         this.lastMovement = {
           x: 0,
           y: 0,
@@ -84,6 +96,33 @@ class Game extends Component {
 
   }
 
+  componentWillMount() {
+    this.setState({
+      top: new Animated.Value(this.props.y),
+      left: new Animated.Value(this.props.x),
+    })
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (!this.init && !newProps.dragging) {
+      this.dragging = newProps.dragging
+      this.init = true
+    }
+    if (this.dragging) {
+      this.state.top.setValue(newProps.y)
+      this.state.left.setValue(newProps.x)
+    } else {
+      Animated.timing(
+        this.state.top,
+        { toValue: newProps.y, duration: 350 }
+      ).start()
+      Animated.timing(
+        this.state.left,
+        { toValue: newProps.x, duration: 350 }
+      ).start()
+    }
+  }
+
   render() {
     const gameObject = gameObjects.find((gameObject) => gameObject.gid === this.props.id)
     const gameObjectImage = gameObject.animation || gameObject.image
@@ -107,11 +146,10 @@ class Game extends Component {
     ) : null
 
     return (
-      <View
+      <Animated.View
         {...this.panResponder.panHandlers}
-        style={[ styles.gameObject, { top: this.props.y, left: this.props.x, width: this.state.width, height: this.state.height } ]}>
+        style={[ styles.gameObject, { top: this.state.top, left: this.state.left, width: this.state.width, height: this.state.height } ]}>
         {menu}
-        <Text>{this.props.x},{this.props.y}</Text>
         <TouchableHighlight
           underlayColor="rgba(255,255,255,0)"
           onLongPress={this._toggleMenu}>
@@ -120,7 +158,7 @@ class Game extends Component {
             source={gameObjectImage}
             style={[styles.inner, { width: this.state.width, height: this.state.height }]} />
         </TouchableHighlight>
-      </View>
+      </Animated.View>
     )
   }
 }
