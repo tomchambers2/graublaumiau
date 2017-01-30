@@ -8,7 +8,10 @@ import {
   Alert,
   TouchableHighlight,
   Text,
+  Dimensions,
 } from 'react-native'
+
+const window = Dimensions.get('window')
 
 import page0 from '../story/0'
 import page1 from '../story/1'
@@ -213,8 +216,8 @@ class Story extends Component {
       )
     })
   }
-
   render() {
+    // alert(window.height)
     const atEnd = (this.state.page + 1) === this.state.totalPages
     const navigateRight = atEnd ? endButton : NavigateRight
     const narrationButtonIcon = this.state.narrationPlaying ? pauseIcon : playIcon
@@ -231,7 +234,7 @@ class Story extends Component {
         <Animated.Image
           source={pages[this.state.page].text}
           style={[styles.textBox, { opacity: this.state._textFade }]}
-          resizeMode={Image.resizeMode.contain} />
+          resizeMode={Image.resizeMode.cover} />
 
         <View style={styles.interactionContainer}>
 
@@ -323,8 +326,12 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     top: 0,
-    width: null,
-    height: null,
+    width: window.width,
+    height: window.height,
+
+    width: 1366,
+    height: 1024,
+    // backgroundColor: 'yellow'
   },
   navigationBar: {
     flexDirection: 'row',

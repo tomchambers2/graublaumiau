@@ -53,14 +53,10 @@ class Game extends Component {
     this.createResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onPanResponderGrant: (event) => {
-        console.log(event.nativeEvent)
-        // ReactNativeComponentTree.getInstanceFromNode(event.native);
-
         const x = event.nativeEvent.pageX
         const y = event.nativeEvent.pageY
         this.setState({
-          gameObjectInstances: this.state.gameObjectInstances.concat({ id: this.instanceCounter, gameObjectId: 0, x: x - 300, y: y - 100, width: 300, height: 300, dragging: true }),
-          // gameObjectInstances: this.state.gameObjectInstances.concat({ id: 0, x, y }),
+          gameObjectInstances: this.state.gameObjectInstances.concat({ id: this.instanceCounter, gameObjectId: 0, x: x - 300, y: y - 100, width: 201, height: 300, dragging: true }),
           scrollEnabled: false,
         })
         this.instanceCounter++
@@ -144,11 +140,9 @@ class Game extends Component {
 
   _deleteObject = (index) => {
     const data = this.state.gameObjectInstances
-    console.log('old data',data)
     const newData = update(data, {
       $splice: [[index, 1]],
     })
-    console.log('new data', newData)
     this.setState({
       gameObjectInstances: newData,
     })
