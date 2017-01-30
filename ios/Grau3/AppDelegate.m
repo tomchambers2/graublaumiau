@@ -13,11 +13,14 @@
 #import "RCTRootView.h"
 
 #import "Grau3-swift.h"
+#import <BuddyBuildSDK/BuddyBuildSDK.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  [BuddyBuildSDK setup];
+  
   NSURL *jsCodeLocation;
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
