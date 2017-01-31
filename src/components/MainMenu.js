@@ -117,18 +117,13 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   soundButton: {
-    width: 49,
-    height: 49,
+    width: 50,
+    height: 50,
     borderRadius: 9999,
   },
-  soundButtonBackground: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   soundButtonImage: {
-    height: 38,
-    width: 38,
+    height: 50,
+    width: 50,
   },
   imprintButtonImage: {
     flex: 1,
