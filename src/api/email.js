@@ -4,6 +4,14 @@ import { takeSnapshot } from 'react-native-view-shot'
 import { NativeModules } from "react-native";
 const { RNMail } = NativeModules;
 
+const body = `Hallo!
+Ich habe dieses Bild mit der App "grau blau miau" erstellt.
+
+Auf Milos Blog werden alle Bilder hochgeladen www.graublaumiau.ch. Du kannst die Emailadresse im Feld "CC" aber auch löschen, dann wird das Bild nur an deine Emailadresse versendet.
+
+Grüsse
+von`
+
 const email = {
   send(componentRef) {
     takeSnapshot(componentRef, {
@@ -16,11 +24,11 @@ const email = {
           subject: 'Ein Bild für Sie',
           recipients: [],
           ccRecipients: ['post@alicekolb.ch'],
-          body: '',
+          body: body,
           attachment: {
             path: uri,  // The absolute path of the file from which to read data.
-            type: '',   // Mime Type: jpg, png, doc, ppt, html, pdf
-            name: '',   // Optional: Custom filename for attachment
+            type: 'jpg',   // Mime Type: jpg, png, doc, ppt, html, pdf
+            name: 'my-drawing.jpg',   // Optional: Custom filename for attachment
           },
         }, (error, event) => {
             if(error === 'not_available') {
@@ -31,8 +39,9 @@ const email = {
               Alert.alert('Mail sent', 'Your picture has been sent!')
             }
         })
-      },
-      error => Alert.alert('Error', 'Unknown error occurred while attempting to send email')
+      }, (error) => {
+        Alert.alert('Error', 'Unknown error occurred while attempting to send email')
+      }
     )
   },
 }

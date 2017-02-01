@@ -4,7 +4,7 @@ import {
 } from 'react-native'
 
 import Video from 'react-native-video'
-import loadingVideo from '../assets/video.mp4'
+import loadingVideo from '../assets/loadingVideo.mp4'
 
 class SplashScreen extends Component {
   render() {

@@ -87,7 +87,8 @@ class Game extends Component {
     this.props.navigator.resetTo({ id: 'MainMenu' })
   }
 
-  _sendEmail() {
+  _sendEmail = () => {
+    console.log('sending email')
     email.send(this._playArea)
   }
 
@@ -238,8 +239,10 @@ class Game extends Component {
             source={dividerImage}>
           </Image>
         </View>
-        <View style={styles.playArea} ref={component => this._playArea = component}>
-          {renderGameObjectInstances}
+        <View style={styles.playArea}>
+          <View ref={(component) => { this._playArea = component }} style={styles.playArea}>
+            {renderGameObjectInstances}
+          </View>
           <View style={styles.navBar}>
             <NavigationMenu
               full
@@ -260,6 +263,7 @@ const styles = StyleSheet.create({
   navBar: {
     marginTop: 20,
     marginLeft: 17,
+    position: 'absolute',
   },
   gameContainer: {
     flex: 1,

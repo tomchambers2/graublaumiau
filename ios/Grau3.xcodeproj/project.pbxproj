@@ -45,7 +45,6 @@
 		F628927B1E2C1DA000081545 /* narration-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F62892771E2C1DA000081545 /* narration-2.mp3 */; };
 		F628927C1E2C1DA000081545 /* narration-0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F62892781E2C1DA000081545 /* narration-0.mp3 */; };
 		F628927D1E2C1DA000081545 /* narration-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F62892791E2C1DA000081545 /* narration-1.mp3 */; };
-		F628927F1E2CEFCB00081545 /* loading 2048.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F628927E1E2CEFCB00081545 /* loading 2048.mp4 */; };
 		F62892811E2CF00B00081545 /* loading-2048.gif in Resources */ = {isa = PBXBuildFile; fileRef = F62892801E2CF00B00081545 /* loading-2048.gif */; };
 		F62892851E2CF67800081545 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F62892841E2CF67800081545 /* LaunchScreen.storyboard */; };
 		F6A97E891E2D214300C0372F /* libRNMail.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6A97E841E2D212E00C0372F /* libRNMail.a */; };
@@ -288,7 +287,6 @@
 		F62892771E2C1DA000081545 /* narration-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "narration-2.mp3"; sourceTree = "<group>"; };
 		F62892781E2C1DA000081545 /* narration-0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "narration-0.mp3"; sourceTree = "<group>"; };
 		F62892791E2C1DA000081545 /* narration-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "narration-1.mp3"; sourceTree = "<group>"; };
-		F628927E1E2CEFCB00081545 /* loading 2048.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "loading 2048.mp4"; sourceTree = "<group>"; };
 		F62892801E2CF00B00081545 /* loading-2048.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "loading-2048.gif"; sourceTree = "<group>"; };
 		F62892841E2CF67800081545 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Grau3/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F6A97E6A1E2D212E00C0372F /* RNMail.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNMail.xcodeproj; path = "../node_modules/react-native-mail/RNMail.xcodeproj"; sourceTree = "<group>"; };
@@ -432,7 +430,6 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				F62892841E2CF67800081545 /* LaunchScreen.storyboard */,
 				F62892801E2CF00B00081545 /* loading-2048.gif */,
-				F628927E1E2CEFCB00081545 /* loading 2048.mp4 */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				F6B6EC7C1E38FD8300C190F7 /* Grau3-Bridging-Header.h */,
 			);
@@ -931,7 +928,6 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				F62892851E2CF67800081545 /* LaunchScreen.storyboard in Resources */,
 				F628927A1E2C1DA000081545 /* narration-3.mp3 in Resources */,
-				F628927F1E2CEFCB00081545 /* loading 2048.mp4 in Resources */,
 				F62892731E2BBB9800081545 /* clap-808.wav in Resources */,
 				F62892751E2BC2D100081545 /* samp2.wav in Resources */,
 				F6B6EC801E38FF4200C190F7 /* 7_Kauz_Vorschau.mp4 in Resources */,
