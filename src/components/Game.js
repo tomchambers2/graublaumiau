@@ -8,8 +8,6 @@ import {
   Dimensions,
 } from 'react-native'
 
-import { createResponder as customResponder } from 'react-native-gesture-responder';
-
 import email from '../api/email'
 
 import EmailDialog from './EmailDialog'
@@ -94,8 +92,8 @@ class Game extends Component {
   }
 
   _constrainToGrid(x, y, shapeDimensions) {
-    if (x < 0) x = 0
-    if (x + (shapeDimensions.width + 180) > window.width) x = window.width - shapeDimensions.width - 180
+    if (x < -10) x = -10
+    if (x + (shapeDimensions.width + 165) > window.width) x = window.width - shapeDimensions.width - 165
     if (y < 0) y = 0
     if (y + shapeDimensions.height > window.height) y = window.height - shapeDimensions.height
     return [x, y]

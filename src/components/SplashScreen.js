@@ -1,18 +1,12 @@
 import React, { Component } from 'react'
 import {
   StyleSheet,
-  View,
 } from 'react-native'
 
 import Video from 'react-native-video'
-import loadingVideo from '../assets/loadingVideo.mp4'
+import loadingVideo from '../assets/video.mp4'
 
 class SplashScreen extends Component {
-  _onVideoEnd = () => {
-    console.log('video ended now')
-    alert('video over')
-  }
-
   render() {
     return (
       <Video
@@ -21,10 +15,9 @@ class SplashScreen extends Component {
           this.player = ref
         }}
         muted
-        repeat={false}
+        repeat={true}
         source={loadingVideo}
         resizeMode="cover"
-        onEnd={this._onVideoEnd}
       />
     )
   }
@@ -32,9 +25,7 @@ class SplashScreen extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.props.hideSplashScreen()
-    }, 6000)
-    // this.player.presentFullscreenPlayer()
-    // setTimeout(() => this.player.seek(99999), 50)
+    }, 5000)
   }
 }
 
