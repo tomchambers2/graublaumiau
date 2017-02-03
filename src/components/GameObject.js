@@ -40,23 +40,14 @@ class Game extends Component {
     this.dragging = true
 
     this.panResponder = PanResponder.create({
-      onStartShouldSetPanResponder: (evt) => {
-        if (evt.nativeEvent.touches.length > 1) {
-          console.log('cancel top')
-          return false
-        }
-        return true
-      },
       onMoveShouldSetPanResponder: (evt) => {
         if (evt.nativeEvent.touches.length > 1) {
-          console.log('cancel top')
           return false
         }
         return true
       },
       // onMoveShouldSetPanResponder: () => (e, gestureState) => true,
       onPanResponderGrant: () => {
-        console.log('is granted on top')
         this.dragging = true
         return true
       },
@@ -166,16 +157,16 @@ class Game extends Component {
         style={[ styles.gameObject, { top: this.state.top, left: this.state.left, width: this.state.width, height: this.state.height } ]}>
         {menu}
         {/* <Text>width: {this.state.width}, height: {this.state.height}</Text> */}
-        {/* <TouchableHighlight
+        <TouchableHighlight
           underlayColor="rgba(255,255,255,0)"
-          onLongPress={this._toggleMenu}> */}
+          onLongPress={this._toggleMenu}>
 
           <View>
             <ZoomableImage
               source={this.gameObject.image}
               imageWidth={200}
               imageHeight={300}
-              ></ZoomableImage>
+              style={[styles.inner, { width: this.state.width, height: this.state.height }]} />
           </View>
 
           {/* <Image
@@ -188,7 +179,7 @@ class Game extends Component {
             images={this.gameObject.sequence}
             style={[styles.inner, { width: this.state.width, height: this.state.height }]} />
           </View> */}
-        {/* </TouchableHighlight> */}
+        </TouchableHighlight>
       </Animated.View>
     )
   }
@@ -215,7 +206,7 @@ const styles = StyleSheet.create({
   },
   gameObject: {
     position: 'absolute',
-    // backgroundColor: 'yellow'
+    backgroundColor: 'yellow'
   },
 })
 

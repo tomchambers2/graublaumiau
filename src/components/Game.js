@@ -88,7 +88,7 @@ class Game extends Component {
   }
 
   _sendEmail = () => {
-    email.send(this._playArea)
+    email.send(this._playArea, this._cancelEmailDialog)
   }
 
   _constrainToGrid(x, y, shapeDimensions) {

@@ -13,7 +13,7 @@ Grüsse
 von`
 
 const email = {
-  send(componentRef) {
+  send(componentRef, callback) {
     takeSnapshot(componentRef, {
       format: "jpeg",
       quality: 0.8,
@@ -38,9 +38,11 @@ const email = {
             } else {
               Alert.alert('Mail sent', 'Your picture has been sent!')
             }
+            callback()
         })
       }, (error) => {
         Alert.alert('Error', 'Unknown error occurred while attempting to send email')
+        callback()
       }
     )
   },
