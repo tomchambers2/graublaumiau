@@ -8,6 +8,8 @@ import {
   Dimensions,
 } from 'react-native'
 
+import Sound from 'react-native-sound';
+
 import email from '../api/email'
 
 import EmailDialog from './EmailDialog'
@@ -92,10 +94,17 @@ class Game extends Component {
   }
 
   _constrainToGrid(x, y, shapeDimensions) {
-    if (x < -10) x = -10
-    if (x + (shapeDimensions.width + 165) > window.width) x = window.width - shapeDimensions.width - 165
-    if (y < 0) y = 0
-    if (y + shapeDimensions.height > window.height) y = window.height - shapeDimensions.height
+    const keepInMargin = 80
+    const minX = -10 - shapeDimensions.width + keepInMargin
+    const maxX = shapeDimensions.width + 165 - keepInMargin
+
+    const minY = -shapeDimensions.height + keepInMargin
+    const maxY = keepInMargin
+
+    if (x < minX) x = minX
+    if (x + maxX > window.width) x = window.width - maxX
+    if (y < minY) y = minY
+    if (y + maxY > window.height) y = window.height - maxY
     return [x, y]
   }
 
@@ -184,20 +193,21 @@ class Game extends Component {
     })
   }
 
-  // componentWillMount() {
-  //   setInterval(() => {
-  //     if (this.state.gameObjectInstances.length > 5) return
-  //     this.setState({
-  //       gameObjectInstances: this.state.gameObjectInstances.concat({ id: this.instanceCounter, gameObjectId: 0, x: 300, y: 300, width: 201, height: 300, dragging: true }),
-  //     })
-  //   }, 2000)
-  // }
+  componentDidMount() {
+    this.bg = new Sound('main_sound.mp3', Sound.MAIN_BUNDLE, () => {
+      if (!this.props.soundOn) {
+        this.bg.setVolume(0)
+      }
+      this.bg.setNumberOfLoops(-1)
+      this.bg.play()
+    })
+  }
 
   componentWillReceiveProps(newProps) {
     if (!newProps.soundOn) {
-      // turn sound off
+      this.bg.setVolume(0)
     } else {
-      // turn sound on
+      this.bg.setVolume(1)
     }
   }
 
