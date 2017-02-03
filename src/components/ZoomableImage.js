@@ -1,6 +1,8 @@
 import React, {Component, PropTypes} from 'react';
 import { Text, View, PanResponder, Image } from 'react-native';
 
+import ImageSequence from 'react-native-image-sequence';
+
 function calcDistance(x1, y1, x2, y2) {
     let dx = Math.abs(x1 - x2)
     let dy = Math.abs(y1 - y2)
@@ -193,19 +195,34 @@ class ZoomableImage extends Component {
     }
 
     render() {
+      // console.log(this.props.sequ)
+        const settings = {
+          style: {
+            position: 'absolute',
+            top: this.state.offsetTop + this.state.top,
+            left: this.state.offsetLeft + this.state.left,
+            width: this.props.imageWidth * this.state.zoom,
+            height: this.props.imageHeight * this.state.zoom
+          }
+        }
+
+        const sequence = (<ImageSequence
+          resizeMode={Image.resizeMode.contain}
+          images={this.props.sequence}
+          {...settings} />)
+
+        const image = (<Image
+          {...settings}
+          source={this.props.source} />)
+
+        const renderedImage = this.props.sequence && !this.props.sequenceDisabled ? sequence : image
+
         return (
           <View
             style={this.props.style}
             {...this._panResponder.panHandlers}
             onLayout={this._onLayout}>
-             <Image style={{
-                    position: 'absolute',
-                    top: this.state.offsetTop + this.state.top,
-                    left: this.state.offsetLeft + this.state.left,
-                    width: this.props.imageWidth * this.state.zoom,
-                    height: this.props.imageHeight * this.state.zoom
-             }}
-             source={this.props.source} />
+              {renderedImage}
           </View>
         );
     }

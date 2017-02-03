@@ -164,21 +164,12 @@ class Game extends Component {
           <View>
             <ZoomableImage
               source={this.gameObject.image}
+              sequence={this.gameObject.sequence}
+              sequenceDisabled={this.props.dragging}
               imageWidth={200}
               imageHeight={300}
               style={[styles.inner, { width: this.state.width, height: this.state.height }]} />
           </View>
-
-          {/* <Image
-            resizeMode={Image.resizeMode.contain}
-            source={gameObjectImage}
-            style={[styles.inner, { width: this.state.width, height: this.state.height }]} /> */}
-          {/* <View>
-          <ImageSequence
-            resizeMode={Image.resizeMode.contain}
-            images={this.gameObject.sequence}
-            style={[styles.inner, { width: this.state.width, height: this.state.height }]} />
-          </View> */}
         </TouchableHighlight>
       </Animated.View>
     )
