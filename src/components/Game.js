@@ -8,6 +8,8 @@ import {
   Dimensions,
 } from 'react-native'
 
+import { Alert } from 'react-native'
+
 import Sound from 'react-native-sound';
 
 import email from '../api/email'
@@ -55,6 +57,10 @@ class Game extends Component {
       onPanResponderGrant: (event) => {
         const x = event.nativeEvent.pageX
         const y = event.nativeEvent.pageY
+        if (this.state.gameObjectInstances.length >= 9) {
+          Alert.alert('Animation limit', 'The maximum number of animations in the game is 9')
+          return
+        }
         this.setState({
           gameObjectInstances: this.state.gameObjectInstances.concat({ id: this.instanceCounter, gameObjectId: 0, x: x - 300, y: y - 100, width: 201, height: 300, dragging: true }),
           scrollEnabled: false,
