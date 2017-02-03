@@ -18,8 +18,6 @@ import upIcon from '../assets/game/up.png'
 import deleteIcon from '../assets/game/delete.png'
 import downIcon from '../assets/game/down.png'
 
-var AImage = require('react-native-image-animation');
-
 class Game extends Component {
   static propTypes = {
     // id: PropTypes.number.isRequired,
@@ -161,18 +159,10 @@ class Game extends Component {
             source={gameObjectImage}
             style={[styles.inner, { width: this.state.width, height: this.state.height }]} /> */}
           <View>
-          {/* <ImageSequence
+          <ImageSequence
             resizeMode={Image.resizeMode.contain}
             images={this.gameObject.sequence}
-            style={[styles.inner, { width: this.state.width, height: this.state.height }]} /> */}
-
-            <AImage
-              resizeMode={Image.resizeMode.contain}
-              animationRepeatCount={1000}
-              animationDuration={200}
-              animationImages={this.gameObject.sequence}
-              style={{ width: this.state.width, height: this.state.height }} />
-
+            style={[styles.inner, { width: this.state.width, height: this.state.height }]} />
           </View>
         </TouchableHighlight>
       </Animated.View>
