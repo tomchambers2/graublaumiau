@@ -7,10 +7,12 @@ import {
   PanResponder,
   Text,
   Animated,
+  ScrollView,
 } from 'react-native'
 
 import ImageSequence from 'react-native-image-sequence';
 
+import ZoomableImage from './ZoomableImage'
 import NavigationButton from './NavigationButton'
 
 import menuBackground from '../assets/game/menu_background.png'
@@ -38,9 +40,23 @@ class Game extends Component {
     this.dragging = true
 
     this.panResponder = PanResponder.create({
-      onStartShouldSetPanResponder: () => true,
-      onMoveShouldSetPanResponder: () => (e, gestureState) => true,
+      onStartShouldSetPanResponder: (evt) => {
+        if (evt.nativeEvent.touches.length > 1) {
+          console.log('cancel top')
+          return false
+        }
+        return true
+      },
+      onMoveShouldSetPanResponder: (evt) => {
+        if (evt.nativeEvent.touches.length > 1) {
+          console.log('cancel top')
+          return false
+        }
+        return true
+      },
+      // onMoveShouldSetPanResponder: () => (e, gestureState) => true,
       onPanResponderGrant: () => {
+        console.log('is granted on top')
         this.dragging = true
         return true
       },
@@ -102,7 +118,7 @@ class Game extends Component {
     })
 
     this.gameObject = this.props.gameObjects.find((gameObject) => gameObject.gid === this.props.gameObjectId)
-    this.gameObjectImage = this.gameObject.animation || this.gameObject.image
+    this.gameObjectImage = this.gameObject.image
   }
 
   componentWillReceiveProps(newProps) {
@@ -144,27 +160,35 @@ class Game extends Component {
       </NavigationButton>
     ) : null
 
-
     return (
       <Animated.View
         {...this.panResponder.panHandlers}
         style={[ styles.gameObject, { top: this.state.top, left: this.state.left, width: this.state.width, height: this.state.height } ]}>
         {menu}
         {/* <Text>width: {this.state.width}, height: {this.state.height}</Text> */}
-        <TouchableHighlight
+        {/* <TouchableHighlight
           underlayColor="rgba(255,255,255,0)"
-          onLongPress={this._toggleMenu}>
+          onLongPress={this._toggleMenu}> */}
+
+          <View>
+            <ZoomableImage
+              source={this.gameObject.image}
+              imageWidth={200}
+              imageHeight={300}
+              ></ZoomableImage>
+          </View>
+
           {/* <Image
             resizeMode={Image.resizeMode.contain}
             source={gameObjectImage}
             style={[styles.inner, { width: this.state.width, height: this.state.height }]} /> */}
-          <View>
+          {/* <View>
           <ImageSequence
             resizeMode={Image.resizeMode.contain}
             images={this.gameObject.sequence}
             style={[styles.inner, { width: this.state.width, height: this.state.height }]} />
-          </View>
-        </TouchableHighlight>
+          </View> */}
+        {/* </TouchableHighlight> */}
       </Animated.View>
     )
   }
