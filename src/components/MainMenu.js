@@ -5,8 +5,8 @@ import {
   StyleSheet,
 } from 'react-native'
 
-import SoundOn from '../assets/navigation/sound_on.png'
-import SoundOff from '../assets/navigation/sound_off.png'
+import SoundOn from '../assets/menu/sound_on.png'
+import SoundOff from '../assets/menu/sound_off.png'
 import Background from '../assets/menu/background.png'
 import imprintButton from '../assets/menu/imprint.png'
 import storyButton from '../assets/menu/story.png'

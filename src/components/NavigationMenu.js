@@ -119,6 +119,9 @@ class NavigationMenu extends Component {
 export default NavigationMenu
 
 const styles = StyleSheet.create({
+  soundToggleIcon: {
+    width: 50,
+  },
   hamburger: {
     marginTop: 15,
     marginLeft: 9,
