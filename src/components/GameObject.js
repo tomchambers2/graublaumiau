@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
   },
   gameObject: {
     position: 'absolute',
-    backgroundColor: 'yellow'
+    // backgroundColor: 'yellow'
   },
 })
 
