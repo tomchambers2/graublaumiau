@@ -88,7 +88,6 @@ class Game extends Component {
   }
 
   _sendEmail = () => {
-    console.log('sending email')
     email.send(this._playArea)
   }
 
@@ -185,6 +184,15 @@ class Game extends Component {
     })
   }
 
+  // componentWillMount() {
+  //   setInterval(() => {
+  //     if (this.state.gameObjectInstances.length > 5) return
+  //     this.setState({
+  //       gameObjectInstances: this.state.gameObjectInstances.concat({ id: this.instanceCounter, gameObjectId: 0, x: 300, y: 300, width: 201, height: 300, dragging: true }),
+  //     })
+  //   }, 2000)
+  // }
+
   componentWillReceiveProps(newProps) {
     if (!newProps.soundOn) {
       // turn sound off
@@ -209,6 +217,7 @@ class Game extends Component {
           gameObjectId={gameObject.gameObjectId}
           key={gameObject.id}
           index={i}
+          gameObjects={gameObjects}
           {...gameObject}
           constrainObject={this._constrainObject}
           sendToFront={this._sendToFront}

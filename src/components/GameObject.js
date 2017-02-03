@@ -11,14 +11,14 @@ import {
 
 import ImageSequence from 'react-native-image-sequence';
 
-import gameObjects from '../assets/game_objects/'
-
 import NavigationButton from './NavigationButton'
 
 import menuBackground from '../assets/game/menu_background.png'
 import upIcon from '../assets/game/up.png'
 import deleteIcon from '../assets/game/delete.png'
 import downIcon from '../assets/game/down.png'
+
+var AImage = require('react-native-image-animation');
 
 class Game extends Component {
   static propTypes = {
@@ -30,6 +30,7 @@ class Game extends Component {
 
   constructor() {
     super()
+
 
     this.lastMovement = {
       x: 0,
@@ -101,6 +102,9 @@ class Game extends Component {
       top: new Animated.Value(this.props.y),
       left: new Animated.Value(this.props.x),
     })
+
+    this.gameObject = this.props.gameObjects.find((gameObject) => gameObject.gid === this.props.gameObjectId)
+    this.gameObjectImage = this.gameObject.animation || this.gameObject.image
   }
 
   componentWillReceiveProps(newProps) {
@@ -124,10 +128,6 @@ class Game extends Component {
   }
 
   render() {
-    const gameObject = gameObjects.find((gameObject) => gameObject.gid === this.props.gameObjectId)
-    // console.log('searched for ',this.props.id,'found',gameObject)
-    const gameObjectImage = gameObject.animation || gameObject.image
-
     const menu = this.state.menuOpen ? (
       <NavigationButton
         onPress={this._toggleMenu}
@@ -146,7 +146,6 @@ class Game extends Component {
       </NavigationButton>
     ) : null
 
-    // console.log(gameObject.sequence)
 
     return (
       <Animated.View
@@ -162,10 +161,18 @@ class Game extends Component {
             source={gameObjectImage}
             style={[styles.inner, { width: this.state.width, height: this.state.height }]} /> */}
           <View>
-          <ImageSequence
+          {/* <ImageSequence
             resizeMode={Image.resizeMode.contain}
-            images={gameObject.sequence}
-            style={[styles.inner, { width: this.state.width, height: this.state.height }]} />
+            images={this.gameObject.sequence}
+            style={[styles.inner, { width: this.state.width, height: this.state.height }]} /> */}
+
+            <AImage
+              resizeMode={Image.resizeMode.contain}
+              animationRepeatCount={1000}
+              animationDuration={200}
+              animationImages={this.gameObject.sequence}
+              style={{ width: this.state.width, height: this.state.height }} />
+
           </View>
         </TouchableHighlight>
       </Animated.View>
@@ -194,7 +201,7 @@ const styles = StyleSheet.create({
   },
   gameObject: {
     position: 'absolute',
-    backgroundColor: 'yellow'
+    // backgroundColor: 'yellow'
   },
 })
 
