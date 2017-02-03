@@ -57,10 +57,15 @@ class Game extends Component {
       onPanResponderGrant: (event) => {
         const x = event.nativeEvent.pageX
         const y = event.nativeEvent.pageY
+
+        // todo: set width and height from data
+
+        // todo: set limit correctly
         if (this.state.gameObjectInstances.length >= 9) {
           Alert.alert('Animation limit', 'The maximum number of animations in the game is 9')
           return
         }
+
         this.setState({
           gameObjectInstances: this.state.gameObjectInstances.concat({ id: this.instanceCounter, gameObjectId: 0, x: x - 300, y: y - 100, width: 201, height: 300, dragging: true }),
           scrollEnabled: false,

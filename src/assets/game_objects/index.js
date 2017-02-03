@@ -5,6 +5,10 @@ const gameObjects = [
   {
     gid: 0,
     image: miloWalking,
+    size: {
+      width: 201,
+      height: 300,
+    },
     sequence: [
       require('../png_test/Milo_walking_00000.png'),
       require('../png_test/Milo_walking_00001.png'),
