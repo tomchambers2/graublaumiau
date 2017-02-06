@@ -237,6 +237,10 @@ class Game extends Component {
     })
   }
 
+  _closeAllMenus = () => {
+    console.log('close all menus, not implemented')
+  }
+
   componentDidMount() {
     this.bg = new Sound('main_sound.mp3', Sound.MAIN_BUNDLE, () => {
       if (!this.props.soundOn) {
@@ -274,6 +278,7 @@ class Game extends Component {
           gameObjects={gameObjects}
           {...gameObject}
           constrainObject={this._constrainObject}
+          closeAllMenus={this._closeAllMenus}
           sendToFront={this._sendToFront}
           sendToBack={this._sendToBack}
           deleteObject={this._deleteObject}

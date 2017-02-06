@@ -40,22 +40,24 @@ class Game extends Component {
     this.dragging = true
 
     this.panResponder = PanResponder.create({
-      onMoveShouldSetPanResponderCapture: () => {
-        console.log('capturing')
-      },
+      onStartShouldSetPanResponderCapture: () => true,
       onMoveShouldSetPanResponder: (evt) => {
-        console.log("MOVE ME")
         if (evt.nativeEvent.touches.length > 1) {
           return false
         }
         return true
       },
-      // onMoveShouldSetPanResponder: () => (e, gestureState) => true,
       onPanResponderGrant: () => {
+        this.props.closeAllMenus()
+        this.wasLongPresssed = false
+        this.objectPressTimer = setTimeout(() => {
+          this.wasLongPresssed = true
+          this._toggleMenu()
+        }, 400)
         this.dragging = true
-        return true
       },
       onPanResponderMove: (e, gestureState) => {
+        clearTimeout(this.objectPressTimer)
         this.props.moveObject(this.props.index, gestureState.dx - this.lastMovement.x, gestureState.dy - this.lastMovement.y)
         this.lastMovement = {
           x: gestureState.dx,
@@ -63,6 +65,7 @@ class Game extends Component {
         }
       },
       onPanResponderRelease: () => {
+        clearTimeout(this.objectPressTimer)
         this.setState({
           dragging: false,
         })
@@ -180,24 +183,17 @@ class Game extends Component {
         {...this.panResponder.panHandlers}
         style={[ styles.gameObject, { top: this.state.top, left: this.state.left, width: this.state.width, height: this.state.height } ]}>
         {menu}
-        {/* <Text>width: {this.state.width}, height: {this.state.height}</Text> */}
-        <TouchableHighlight
-          underlayColor="rgba(255,255,255,0)"
-          onLongPress={this._toggleMenu}>
-
-          <View>
-            {/* <Text>Paused: {this.state.disabled && 'true' || 'false'}</Text> */}
-            <ZoomableImage
-              source={this.gameObject.image}
-              sequence={this.gameObject.sequence}
-              sequencePaused={this.state.disabled}
-              sequenceDisabled={!this.init}
-              // was this.props.dragging
-              imageWidth={200}
-              imageHeight={300}
-              style={[styles.inner, { width: this.state.width, height: this.state.height }]} />
-          </View>
-        </TouchableHighlight>
+        <View>
+          <ZoomableImage
+            source={this.gameObject.image}
+            sequence={this.gameObject.sequence}
+            sequencePaused={this.state.disabled}
+            sequenceDisabled={!this.init}
+            // was this.props.dragging
+            imageWidth={200}
+            imageHeight={300}
+            style={[styles.inner, { width: this.state.width, height: this.state.height }]} />
+        </View>
       </Animated.View>
     )
   }
