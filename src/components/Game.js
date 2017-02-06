@@ -63,7 +63,7 @@ class Game extends Component {
         // todo: set limit correctly
         if (this.state.gameObjectInstances.length >= 9) {
           // run this properly to check that instances are actually animations
-          Alert.alert('Animation limit', 'The maximum number of animations in the game is 9')
+          Alert.alert('Stopp!', 'Die Anzahl bewegter Bilder ist beschränkt auf maximal 9 Animationen.')
           return
         }
 
