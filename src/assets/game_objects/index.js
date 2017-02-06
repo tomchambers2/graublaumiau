@@ -9,6 +9,8 @@ const gameObjects = [
       width: 201,
       height: 300,
     },
+    isAnimation: true,
+    soundName: 'samp2.mp3',
     sequence: [
       require('../png_test/Milo_walking_00000.png'),
       require('../png_test/Milo_walking_00001.png'),

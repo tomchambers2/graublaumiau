@@ -59,10 +59,13 @@ class Game extends Component {
         const y = event.nativeEvent.pageY
 
         // todo: set width and height from data
+        // todo: set isAnimation properly
 
-        // todo: set limit correctly
-        if (this.state.gameObjectInstances.length >= 9) {
-          // run this properly to check that instances are actually animations
+        let animationsCount = 0;
+        for (var i = 0; i < this.state.gameObjectInstances.length; i++) {
+          if (this.state.gameObjectInstances[i].isAnimation) animationsCount++
+        }
+        if (animationsCount >= 9) {
           Alert.alert('Stopp!', 'Die Anzahl bewegter Bilder ist beschränkt auf maximal 9 Animationen.')
           return
         }
