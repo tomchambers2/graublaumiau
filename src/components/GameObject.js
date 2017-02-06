@@ -182,7 +182,7 @@ class Game extends Component {
           onLongPress={this._toggleMenu}>
 
           <View>
-            <Text>Paused: {this.state.disabled && 'true' || 'false'}</Text>
+            {/* <Text>Paused: {this.state.disabled && 'true' || 'false'}</Text> */}
             <ZoomableImage
               source={this.gameObject.image}
               sequence={this.gameObject.sequence}
