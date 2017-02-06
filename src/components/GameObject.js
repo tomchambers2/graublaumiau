@@ -40,7 +40,11 @@ class Game extends Component {
     this.dragging = true
 
     this.panResponder = PanResponder.create({
+      onMoveShouldSetPanResponderCapture: () => {
+        console.log('capturing')
+      },
       onMoveShouldSetPanResponder: (evt) => {
+        console.log("MOVE ME")
         if (evt.nativeEvent.touches.length > 1) {
           return false
         }

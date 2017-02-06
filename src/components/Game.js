@@ -52,55 +52,84 @@ class Game extends Component {
 
     this.instanceCounter = 0
 
-    this.createResponder = PanResponder.create({
-      onStartShouldSetPanResponder: () => true,
-      onPanResponderGrant: (event) => {
-        const x = event.nativeEvent.pageX
-        const y = event.nativeEvent.pageY
+    this.instanceCreated = false
 
-        // todo: set width and height from data
-        // todo: set isAnimation properly
+    this.panResponders = []
 
-        let animationsCount = 0;
-        for (var i = 0; i < this.state.gameObjectInstances.length; i++) {
-          if (this.state.gameObjectInstances[i].isAnimation) animationsCount++
-        }
-        if (animationsCount >= 9) {
-          Alert.alert('Stopp!', 'Die Anzahl bewegter Bilder ist beschränkt auf maximal 9 Animationen.')
-          return
-        }
+    const panResponderStartHandler = () => true
+    const panResponderGrantHandler = (gameObjectIndex) => {
+      return (event) => {
+        event.persist()
+        this.objectPressTimer = setTimeout(() => {
+          this.instanceCreated = true
+          const x = event.nativeEvent.pageX
+          const y = event.nativeEvent.pageY
 
-        this.setState({
-          gameObjectInstances: this.state.gameObjectInstances.concat({ id: this.instanceCounter, gameObjectId: 0, x: x - 300, y: y - 100, width: 201, height: 300, dragging: true }),
-          scrollEnabled: false,
-        })
-        this.instanceCounter++
-        this.lastMovement = {
-          x: 0,
-          y: 0,
-        }
-        return true
-      },
-      onPanResponderMove: (event, gestureState) => {
-        const index = this.state.gameObjectInstances.length - 1
-        this._moveObject(index, gestureState.dx - this.lastMovement.x, gestureState.dy - this.lastMovement.y)
-        this.lastMovement = {
-          x: gestureState.dx,
-          y: gestureState.dy,
-        }
-      },
-      onPanResponderRelease: () => {
-        this.setState({
-          scrollEnabled: true,
-        })
-        const index = this.state.gameObjectInstances.length - 1
-        this._constrainObject(index)
-      },
-    })
+          let animationsCount = 0;
+          for (var i = 0; i < this.state.gameObjectInstances.length; i++) {
+            if (this.state.gameObjectInstances[i].data.isAnimation) animationsCount++
+          }
+          if (animationsCount >= 9) {
+            Alert.alert('Stopp!', 'Die Anzahl bewegter Bilder ist beschränkt auf maximal 9 Animationen.')
+            return
+          }
+
+          const newGameObject = {
+            id: this.instanceCounter,
+            gameObjectId: 0,
+            x: x - 300,
+            y: y - 100,
+            width: gameObjects[gameObjectIndex].size.width,
+            height: gameObjects[gameObjectIndex].size.height,
+            dragging: true,
+            data: gameObjects[gameObjectIndex],
+          }
+          this.setState({
+            gameObjectInstances: this.state.gameObjectInstances.concat(newGameObject),
+            scrollEnabled: false,
+          })
+          this.instanceCounter++
+          this.lastMovement = {
+            x: 0,
+            y: 0,
+          }
+        }, 400)
+      }
+    }
+    const panResponderMoveHandler = (event, gestureState) => {
+      if (!this.instanceCreated) {
+        clearTimeout(this.objectPressTimer)
+        return false
+      }
+      const index = this.state.gameObjectInstances.length - 1
+      this._moveObject(index, gestureState.dx - this.lastMovement.x, gestureState.dy - this.lastMovement.y)
+      this.lastMovement = {
+        x: gestureState.dx,
+        y: gestureState.dy,
+      }
+    }
+    const panResponderReleaseHandler = () => {
+      this.instanceCreated = false
+      clearTimeout(this.objectPressTimer)
+      this.setState({
+        scrollEnabled: true,
+      })
+      const index = this.state.gameObjectInstances.length - 1
+      this._constrainObject(index)
+    }
+
+    for (var i = 0; i < gameObjects.length; i++) {
+      this.panResponders[i] = PanResponder.create({
+        onStartShouldSetPanResponder: panResponderStartHandler,
+        onPanResponderGrant: panResponderGrantHandler(i),
+        onPanResponderMove: panResponderMoveHandler,
+        onPanResponderRelease: panResponderReleaseHandler,
+      })
+    }
   }
 
   _goToMenu() {
-    // bg.pause()
+    this.bg.pause()
     this.props.navigator.resetTo({ id: 'MainMenu' })
   }
 
@@ -231,8 +260,8 @@ class Game extends Component {
       return (
         <View
           style={styles.placeholder}
-          {...this.createResponder.panHandlers}>
-            <Image style={{ height: 150 }} resizeMode={Image.resizeMode.contain} source={gameObject.image} />
+          {...this.panResponders[i].panHandlers}>
+            <Image style={{ width: 120 }} resizeMode={Image.resizeMode.contain} source={gameObject.image} />
         </View>
       )
     })
