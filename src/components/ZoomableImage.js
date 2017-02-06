@@ -62,7 +62,7 @@ class ZoomableImage extends Component {
             initialLeftWithoutZoom: 0,
             initialZoom: 1,
             top: 0,
-            left: 0
+            left: 0,
         }
     }
 

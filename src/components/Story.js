@@ -243,7 +243,6 @@ class Story extends Component {
     })
   }
   render() {
-    // alert(window.height)
     const atEnd = (this.state.page + 1) === this.state.totalPages
     const navigateRight = atEnd ? endButton : NavigateRight
     const narrationButtonIcon = this.state.narrationPlaying ? pauseIcon : playIcon
