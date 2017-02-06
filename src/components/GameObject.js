@@ -75,7 +75,7 @@ class Game extends Component {
       menuOpen: false,
       width: 201,
       height: 300,
-      disabled: false,
+      disabled: true,
     }
   }
 
@@ -111,18 +111,23 @@ class Game extends Component {
 
     this.gameObject = this.props.gameObjects.find((gameObject) => gameObject.gid === this.props.gameObjectId)
     this.gameObjectImage = this.gameObject.image
-
-    setTimeout(() => {
-      this._toggleDisabled()
-    }, 3000)
   }
 
-  _toggleDisabled = () => {
+  _playAnimation = () => {
     this.setState({
-      disabled: !this.state.disabled,
+      disabled: false,
     })
+
+    //play sound here
+
     setTimeout(() => {
-      this._toggleDisabled()
+      this.setState({
+        disabled: true,
+      })
+
+      setTimeout(() => {
+        this._playAnimation()
+      }, 12000)
     }, 3000)
   }
 
@@ -130,6 +135,7 @@ class Game extends Component {
     if (!this.init && !newProps.dragging) {
       this.dragging = newProps.dragging
       this.init = true
+      this._playAnimation()
     }
     if (this.dragging) {
       this.state.top.setValue(newProps.y)
@@ -176,11 +182,12 @@ class Game extends Component {
           onLongPress={this._toggleMenu}>
 
           <View>
-            <Text>Disabled: {this.state.disabled && 'true' || 'false'}</Text>
+            <Text>Paused: {this.state.disabled && 'true' || 'false'}</Text>
             <ZoomableImage
               source={this.gameObject.image}
               sequence={this.gameObject.sequence}
-              sequenceDisabled={this.state.disabled}
+              sequencePaused={this.state.disabled}
+              sequenceDisabled={!this.init}
               // was this.props.dragging
               imageWidth={200}
               imageHeight={300}

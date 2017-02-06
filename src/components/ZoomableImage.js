@@ -197,32 +197,40 @@ class ZoomableImage extends Component {
     render() {
       // console.log(this.props.sequ)
         const settings = {
-          style: {
-            position: 'absolute',
-            top: this.state.offsetTop + this.state.top,
-            left: this.state.offsetLeft + this.state.left,
-            width: this.props.imageWidth * this.state.zoom,
-            height: this.props.imageHeight * this.state.zoom
-          }
+          position: 'absolute',
+          top: this.state.offsetTop + this.state.top,
+          left: this.state.offsetLeft + this.state.left,
+          width: this.props.imageWidth * this.state.zoom,
+          height: this.props.imageHeight * this.state.zoom
         }
 
-        const sequence = (<ImageSequence
+        const sequenceOpacity = this.props.sequencePaused ? 0 : 1
+        const imageOpacity = this.props.sequencePaused ? 1 : 0
+
+        let sequence = (<ImageSequence
           resizeMode={Image.resizeMode.contain}
           images={this.props.sequence}
-          {...settings} />)
+          style={[settings, { opacity: sequenceOpacity }]}
+          />)
 
         const image = (<Image
-          {...settings}
+          style={[settings, { opacity: imageOpacity }]}
           source={this.props.source} />)
 
-        const renderedImage = this.props.sequence && !this.props.sequenceDisabled ? sequence : image
+        // const renderedImage = this.props.sequence && !this.props.sequenceDisabled ? sequence : image
+
+        sequence = this.props.sequence && !this.props.sequenceDisabled ? sequence : null
 
         return (
           <View
-            style={this.props.style}
+            style={[this.props.style, { backgroundColor: 'yellow'}]}
             {...this._panResponder.panHandlers}
             onLayout={this._onLayout}>
-              {renderedImage}
+              {image}
+              {sequence}
+              {/* <View
+                style={[settings, { opacity: sequenceOpacity }]}>
+              </View> */}
           </View>
         );
     }
