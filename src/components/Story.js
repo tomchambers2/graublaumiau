@@ -17,12 +17,38 @@ import page0 from '../story/0'
 import page1 from '../story/1'
 import page2 from '../story/2'
 import page3 from '../story/3'
+// import page4 from '../story/4'
+// import page5 from '../story/5'
+// import page6 from '../story/6'
+// import page7 from '../story/7'
+// import page8 from '../story/8'
+// import page9 from '../story/9'
+// import page10 from '../story/10'
+// import page11 from '../story/11'
+// import page12 from '../story/12'
+// import page13 from '../story/13'
+// import page14 from '../story/14'
+// import page15 from '../story/15'
+// import page16 from '../story/16'
 
 const pages = {
   0: page0,
   1: page1,
   2: page2,
   3: page3,
+  // 4: page4,
+  // 5: page5,
+  // 6: page6,
+  // 7: page7,
+  // 8: page8,
+  // 9: page9,
+  // 10: page10,
+  // 11: page11,
+  // 12: page12,
+  // 13: page13,
+  // 14: page14,
+  // 15: page15,
+  // 16: page16,
 }
 
 const startingNarration = new Sound('narration-0.mp3', Sound.MAIN_BUNDLE)
@@ -56,7 +82,7 @@ class Story extends Component {
       narrationPlaying: false,
       _textFade: new Animated.Value(0),
       page: 0,
-      totalPages: 4,
+      totalPages: 17,
       currentBackgroundSound: soundFilenames[0],
     }
   }
@@ -222,17 +248,21 @@ class Story extends Component {
     const navigateRight = atEnd ? endButton : NavigateRight
     const narrationButtonIcon = this.state.narrationPlaying ? pauseIcon : playIcon
 
+    const video = pages[this.state.page] && pages[this.state.page].video ? (
+      <Video
+        source={pages[this.state.page].video}
+        repeat={true}
+        style={styles.backgroundVideo} />
+    ) : null
+
     return (
       <View style={styles.mainWrapper}>
         {this.renderClickMaps()}
 
-        <Video
-          source={pages[this.state.page].video}
-          repeat={true}
-          style={styles.backgroundVideo} />
+        {video}
 
         <Animated.Image
-          source={pages[this.state.page].text}
+          source={{ uri: `text${this.state.page}`, isStatic: true }}
           style={[styles.textBox, { opacity: this.state._textFade }]}
           resizeMode={Image.resizeMode.cover} />
 
