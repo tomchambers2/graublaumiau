@@ -46,7 +46,7 @@ class ZoomableImage extends Component {
         sequenceDisabled: PropTypes.bool,
         sequencePaused: PropTypes.bool,
         source: PropTypes.node.isRequired,
-        style: PropTypes.object.isRequired,
+        style: PropTypes.array.isRequired,
     }
 
     static defaultProps = {

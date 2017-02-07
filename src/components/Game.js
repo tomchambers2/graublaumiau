@@ -28,8 +28,12 @@ const window = Dimensions.get('window')
 class Game extends Component {
   static propTypes = {
     navigator: React.PropTypes.object.isRequired,
-    soundOn: React.PropTypes.bool.isRequired,
+    soundOn: React.PropTypes.bool,
     toggleSound: React.PropTypes.func.isRequired,
+  }
+
+  static defaultProps = {
+      soundOn: true,
   }
 
   constructor() {
@@ -326,7 +330,7 @@ class Game extends Component {
                 sendToBack={this._sendToBack}
                 sendToFront={this._sendToFront}
                 shouldCloseMenu={this.state.closeAllMenus}
-                soundOn={this.state.soundOn}
+                soundOn={this.props.soundOn}
             />
         )
     })
@@ -348,7 +352,7 @@ class Game extends Component {
                 sendToBack={this._sendToBack}
                 sendToFront={this._sendToFront}
                 shouldCloseMenu={this.state.closeAllMenus}
-                soundOn={this.state.soundOn}
+                soundOn={this.props.soundOn}
             />
         )
       }

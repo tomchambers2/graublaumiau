@@ -20,7 +20,7 @@ import Sound from 'react-native-sound';
 
 class Game extends Component {
   static propTypes = {
-    allowOpen: PropTypes.bool,
+    allowOpen: PropTypes.func.isRequired,
     closeAllMenus: PropTypes.func.isRequired,
     constrainObject: PropTypes.func.isRequired,
     data: PropTypes.object.isRequired,
