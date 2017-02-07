@@ -52,6 +52,7 @@ class Game extends Component {
         return true
       },
       onPanResponderGrant: () => {
+        console.log("HIT OBJECT")
         this.props.allowOpen()
         this.wasLongPresssed = false
         if (!this.state.menuOpen) {
@@ -100,6 +101,7 @@ class Game extends Component {
   }
 
   _deleteSelf = () => {
+    console.log('delete self')
     this.props.deleteObject(this.props.index)
   }
 
@@ -184,29 +186,30 @@ class Game extends Component {
 
   render() {
     const menu = this.state.menuOpen ? (
-      <NavigationButton
-        onPress={this._toggleMenu}
+      <TouchableHighlight onPress={this._toggleMenu}
         style={[styles.menuContainer, { width: this.state.width, height: this.state.height }]}>
-          <Image source={menuBackground} style={styles.menuInner}>
-            <NavigationButton style={styles.icon} onPress={this._sendToFront}>
-              <Image source={upIcon}></Image>
-            </NavigationButton>
-            <NavigationButton style={styles.delete} onPress={this._deleteSelf}>
-              <Image source={deleteIcon}></Image>
-            </NavigationButton>
-            <NavigationButton style={styles.icon} onPress={this._sendToBack}>
-              <Image source={downIcon}></Image>
-            </NavigationButton>
-          </Image>
-      </NavigationButton>
+          <View>
+            <Image source={menuBackground} style={styles.menuInner}>
+              <NavigationButton style={styles.icon} onPress={this._sendToFront}>
+                <Image source={upIcon}></Image>
+              </NavigationButton>
+              <NavigationButton style={styles.delete} onPress={this._deleteSelf}>
+                <Image source={deleteIcon}></Image>
+              </NavigationButton>
+              <NavigationButton style={styles.icon} onPress={this._sendToBack}>
+                <Image source={downIcon}></Image>
+              </NavigationButton>
+            </Image>
+          </View>
+      </TouchableHighlight>
     ) : null
 
     return (
       <Animated.View
-        {...this.panResponder.panHandlers}
         style={[ styles.gameObject, { top: this.state.top, left: this.state.left, width: this.state.width, height: this.state.height } ]}>
         {menu}
-        <View>
+        <View
+          {...this.panResponder.panHandlers}>
           <ZoomableImage
             source={this.gameObject.image}
             sequence={this.gameObject.sequence}
@@ -236,6 +239,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    // backgroundColor: 'blue'
   },
   delete: {
     marginTop: 18,

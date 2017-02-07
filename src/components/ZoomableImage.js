@@ -224,7 +224,7 @@ class ZoomableImage extends Component {
         return (
           <View
             style={[this.props.style]}
-            {...this._panResponder.panHandlers}
+            // {...this._panResponder.panHandlers}
             onLayout={this._onLayout}>
               {image}
               {sequence}
