@@ -79,6 +79,7 @@ class Game extends Component {
 
           const newGameObject = {
             id: this.instanceCounter,
+            beingCreated: true,
             gameObjectId: 0,
             x: x - 300,
             y: y - 100,
@@ -119,6 +120,7 @@ class Game extends Component {
       })
       const index = this.state.gameObjectInstances.length - 1
       this._constrainObject(index)
+      this._cancelBeingCreated()
     }
 
     for (var i = 0; i < gameObjects.length; i++) {
@@ -158,6 +160,21 @@ class Game extends Component {
   _stopDragging = (index) => {
     const data = this.state.gameObjectInstances
     const updatedData = update(data[index], { dragging: { $set: false } })
+    const newData = update(data, {
+      $splice: [[index, 1, updatedData]],
+    })
+    this.setState({
+      gameObjectInstances: newData,
+    })
+  }
+
+  _cancelBeingCreated = () => {
+    const index = this.state.gameObjectInstances.length - 1
+    const data = this.state.gameObjectInstances
+    const updatedProperties = {
+      beingCreated: { $set: false },
+    }
+    const updatedData = update(data[index], updatedProperties)
     const newData = update(data, {
       $splice: [[index, 1, updatedData]],
     })
@@ -293,6 +310,7 @@ class Game extends Component {
     })
 
     const renderGameObjectInstances = this.state.gameObjectInstances.map((gameObject, i) => {
+        if (gameObject.beingCreated) return
         return (<GameObject
           gameObjectId={gameObject.gameObjectId}
           key={gameObject.id}
@@ -311,6 +329,33 @@ class Game extends Component {
           />)
     })
 
+    const renderCurrentGameObject = this.state.gameObjectInstances.map((gameObject, i) => {
+      if (gameObject.beingCreated) {
+        return (<GameObject
+          gameObjectId={gameObject.gameObjectId}
+          key={gameObject.id}
+          index={i}
+          gameObjects={gameObjects}
+          {...gameObject}
+          constrainObject={this._constrainObject}
+          closeAllMenus={this._closeAllMenus}
+          shouldCloseMenu={this.state.closeAllMenus}
+          allowOpen={this._allowOpen}
+          sendToFront={this._sendToFront}
+          sendToBack={this._sendToBack}
+          deleteObject={this._deleteObject}
+          moveObject={this._moveObject}
+          soundOn={this.state.soundOn}
+          />)
+      }
+    })
+
+    const objectBeingCreated = renderCurrentGameObject ? (
+      <View style={styles.creatingPlayArea}>
+        {renderCurrentGameObject}
+      </View>
+    ) : null
+
     const sendEmailDialog = this.state.sendDialogOpen ? (
       <EmailDialog
         sendEmail={this._sendEmail}
@@ -320,6 +365,9 @@ class Game extends Component {
     return (
       <View style={styles.gameContainer}>
         {sendEmailDialog}
+
+        {objectBeingCreated}
+
         <View style={styles.objectMenu}>
           <ScrollView scrollEnabled={this.state.scrollEnabled}>
             {renderGameObjects}
@@ -368,15 +416,25 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   objectMenu: {
+    zIndex: 10,
     width: 150,
     maxWidth: 150,
     backgroundColor: colors.objectMenu,
     flex: 1,
     alignItems: 'center',
   },
+  creatingPlayArea: {
+    position: 'absolute',
+    zIndex: 100,
+    marginLeft: 165,
+    // width: window.width,
+    // height: window.height,
+    // backgroundColor: 'yellow'
+  },
   playArea: {
     flex: 1,
     backgroundColor: 'white',
+    // backgroundColor: 'blue'
   },
   divider: {
     flex: 1,

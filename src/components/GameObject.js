@@ -233,7 +233,7 @@ class Game extends Component {
 
 const styles = StyleSheet.create({
   inner: {
-    backgroundColor: 'green'
+    // backgroundColor: 'green'
   },
   icon: {
     marginTop: 18,
