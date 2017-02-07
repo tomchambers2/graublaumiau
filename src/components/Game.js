@@ -7,6 +7,7 @@ import {
   ScrollView,
   Dimensions,
   TouchableWithoutFeedback,
+  TouchableHighlight,
 } from 'react-native'
 
 import { Alert } from 'react-native'
@@ -332,6 +333,7 @@ class Game extends Component {
           </Image>
         </View>
         <TouchableWithoutFeedback onPress={this._closeAllMenus}>
+        {/* <TouchableHighlight onPress={this._closeAllMenus}> */}
           <View style={styles.playArea}>
             <View ref={(component) => { this._playArea = component }} style={styles.playArea}>
               {renderGameObjectInstances}
@@ -345,6 +347,7 @@ class Game extends Component {
                 goToMenu={this._goToMenu.bind(this)} />
             </View>
           </View>
+        {/* </TouchableHighlight> */}
         </TouchableWithoutFeedback>
       </View>
     )

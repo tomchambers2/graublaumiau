@@ -151,47 +151,54 @@ class ZoomableImage extends Component {
     }
 
     componentWillMount() {
-        this._panResponder = PanResponder.create({
-            onStartShouldSetPanResponder: (evt, gestureState) => {
-              return
-              if (evt.nativeEvent.touches.length < 2) {
-                return
+      this._panResponder = PanResponder.create({
+          onStartShouldSetPanResponder: (evt, gestureState) => {
+            if (evt.nativeEvent.touches.length > 1) {
+              console.log('caught by zoom start')
+              return true
+            }
+            console.log('ignored by zoom start')
+          },
+          // onStartShouldSetPanResponderCapture: (evt, gestureState) => true,
+          onMoveShouldSetPanResponder: (evt, gestureState) => {
+            if (evt.nativeEvent.touches.length > 1) {
+              console.log('caught by move start')
+              return true
+            }
+            console.log('ignored by move start')
+          },
+          // onMoveShouldSetPanResponderCapture: (evt, gestureState) => true,
+          onPanResponderGrant: (evt, gestureState) => {
+            console.log('grant')
+          },
+          onPanResponderMove: (evt, gestureState) => {
+            console.log('move')
+              let touches = evt.nativeEvent.touches;
+              if (touches.length == 2) {
+                  let touch1 = touches[0];
+                  let touch2 = touches[1];
+
+                  this.processPinch(touches[0].pageX, touches[0].pageY,
+                      touches[1].pageX, touches[1].pageY);
               }
-            },
-            onStartShouldSetPanResponderCapture: (evt, gestureState) => true,
+          },
 
-            onMoveShouldSetPanResponder: (evt, gestureState) => {
-              if (evt.nativeEvent.touches.length < 2) {
-                return
-              }
-            },
-
-            onMoveShouldSetPanResponderCapture: (evt, gestureState) => true,
-            onPanResponderGrant: (evt, gestureState) => {},
-            onPanResponderMove: (evt, gestureState) => {
-                let touches = evt.nativeEvent.touches;
-                if (touches.length == 2) {
-                    let touch1 = touches[0];
-                    let touch2 = touches[1];
-
-                    this.processPinch(touches[0].pageX, touches[0].pageY,
-                        touches[1].pageX, touches[1].pageY);
-                } else if (touches.length == 1 && !this.state.isZooming) {
-                    // turn off zoom
-                    // this.processTouch(touches[0].pageX, touches[0].pageY);
-                }
-            },
-
-            onPanResponderTerminationRequest: (evt, gestureState) => true,
-            onPanResponderRelease: (evt, gestureState) => {
-                this.setState({
-                    isZooming: false,
-                    isMoving: false
-                });
-            },
-            onPanResponderTerminate: (evt, gestureState) => {},
-            // onShouldBlockNativeResponder: (evt, gestureState) => true,
-        });
+          onPanResponderTerminationRequest: (evt, gestureState) => {
+            console.log('termination request DENIED')
+          },
+          onPanResponderRelease: (evt, gestureState) => {
+            console.log('released')
+              this.setState({
+                  isZooming: false,
+                  isMoving: false
+              });
+          },
+          onPanResponderTerminate: (evt, gestureState) => {
+            console.log('terminated')
+            return true
+          },
+          onShouldBlockNativeResponder: (evt, gestureState) => true,
+      });
     }
 
     render() {
@@ -224,7 +231,7 @@ class ZoomableImage extends Component {
         return (
           <View
             style={[this.props.style]}
-            // {...this._panResponder.panHandlers}
+            {...this._panResponder.panHandlers}
             onLayout={this._onLayout}>
               {image}
               {sequence}

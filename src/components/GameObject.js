@@ -44,11 +44,18 @@ class Game extends Component {
     this.lastShouldCloseMenu = false
 
     this.panResponder = PanResponder.create({
-      onStartShouldSetPanResponderCapture: () => true,
+      onStartShouldSetPanResponderCapture: (evt) => {
+        if (evt.nativeEvent.touches.length > 1) {
+          return false
+        }
+        console.log('stealing hit touch')
+        return true
+      },
       onMoveShouldSetPanResponder: (evt) => {
         if (evt.nativeEvent.touches.length > 1) {
           return false
         }
+        console.log('stealing move touch')
         return true
       },
       onPanResponderGrant: () => {
@@ -208,8 +215,7 @@ class Game extends Component {
       <Animated.View
         style={[ styles.gameObject, { top: this.state.top, left: this.state.left, width: this.state.width, height: this.state.height } ]}>
         {menu}
-        <View
-          {...this.panResponder.panHandlers}>
+        <View {...this.panResponder.panHandlers}>
           <ZoomableImage
             source={this.gameObject.image}
             sequence={this.gameObject.sequence}
@@ -227,7 +233,7 @@ class Game extends Component {
 
 const styles = StyleSheet.create({
   inner: {
-    // backgroundColor: 'green'
+    backgroundColor: 'green'
   },
   icon: {
     marginTop: 18,
