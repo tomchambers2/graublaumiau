@@ -10,10 +10,11 @@
     "immutability-helper": "2.1.1",
     "react": "15.4.0-rc.4",
     "react-native": "0.41.1",
+    "react-native-image-sequence": "^0.1.8",
     "react-native-mail": "3.0.1",
+    "react-native-sound": "github:veddermatic/react-native-sound",
     "react-native-video": "1.0.0",
-    "react-native-view-shot": "1.6.0",
-    "react-native-sound": "github:veddermatic/react-native-sound"
+    "react-native-view-shot": "1.6.0"
   },
   "devDependencies": {
     "babel-eslint": "7.1.1",
