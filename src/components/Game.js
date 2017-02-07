@@ -238,7 +238,17 @@ class Game extends Component {
   }
 
   _closeAllMenus = () => {
-    console.log('close all menus, not implemented')
+    console.log("ACTIVATE")
+    this.setState({
+      closeAllMenus: true,
+    })
+  }
+
+  _allowOpen = () => {
+    console.log('allow open')
+    this.setState({
+      closeAllMenus: false,
+    })
   }
 
   componentDidMount() {
@@ -262,6 +272,17 @@ class Game extends Component {
     }
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.closeAllMenus) {
+      console.log('DEACTIVATE')
+      this.setState({
+        closeAllMenus: false,
+      })
+    } else {
+      console.log('no action')
+    }
+  }
+
   render() {
     const renderGameObjects = gameObjects.map((gameObject, i) => {
       return (
@@ -282,6 +303,8 @@ class Game extends Component {
           {...gameObject}
           constrainObject={this._constrainObject}
           closeAllMenus={this._closeAllMenus}
+          shouldCloseMenu={this.state.closeAllMenus}
+          allowOpen={this._allowOpen}
           sendToFront={this._sendToFront}
           sendToBack={this._sendToBack}
           deleteObject={this._deleteObject}

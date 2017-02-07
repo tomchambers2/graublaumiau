@@ -41,6 +41,8 @@ class Game extends Component {
 
     this.dragging = true
 
+    this.lastShouldCloseMenu = false
+
     this.panResponder = PanResponder.create({
       onStartShouldSetPanResponderCapture: () => true,
       onMoveShouldSetPanResponder: (evt) => {
@@ -50,13 +52,13 @@ class Game extends Component {
         return true
       },
       onPanResponderGrant: () => {
-        this.props.closeAllMenus()
+        this.props.allowOpen()
         this.wasLongPresssed = false
         if (!this.state.menuOpen) {
           this.objectPressTimer = setTimeout(() => {
             this.wasLongPresssed = true
             this._toggleMenu()
-          }, 400)          
+          }, 400)
         }
         this.dragging = true
       },
@@ -69,6 +71,9 @@ class Game extends Component {
         }
       },
       onPanResponderRelease: () => {
+        if (!this.wasLongPresssed) {
+          this.props.closeAllMenus()
+        }
         clearTimeout(this.objectPressTimer)
         this.setState({
           dragging: false,
@@ -123,7 +128,6 @@ class Game extends Component {
     this.gameObject = this.props.gameObjects.find((gameObject) => gameObject.gid === this.props.gameObjectId)
     this.gameObjectImage = this.gameObject.image
 
-    console.log('data', this.props.data.soundName)
     this.sound = new Sound(this.props.data.soundName, Sound.MAIN_BUNDLE, (err) => {
       console.log(err)
     })
@@ -134,7 +138,6 @@ class Game extends Component {
       disabled: false,
     })
 
-    console.log('play sound')
     if (this.props.soundOn) {
       this.sound.play()
     }
@@ -151,6 +154,14 @@ class Game extends Component {
   }
 
   componentWillReceiveProps(newProps) {
+    if (newProps.shouldCloseMenu) {
+      console.log('do close')
+      this.setState({
+        menuOpen: false,
+      })
+      this.lastShouldCloseMenu = true
+    }
+
     if (!this.init && !newProps.dragging) {
       this.dragging = newProps.dragging
       this.init = true
