@@ -331,7 +331,7 @@ class Game extends Component {
             source={dividerImage}>
           </Image>
         </View>
-        {/* <TouchableWithoutFeedback onPress={this._closeAllMenus}> */}
+        <TouchableWithoutFeedback onPress={this._closeAllMenus}>
           <View style={styles.playArea}>
             <View ref={(component) => { this._playArea = component }} style={styles.playArea}>
               {renderGameObjectInstances}
@@ -345,7 +345,7 @@ class Game extends Component {
                 goToMenu={this._goToMenu.bind(this)} />
             </View>
           </View>
-        {/* </TouchableWithoutFeedback> */}
+        </TouchableWithoutFeedback>
       </View>
     )
   }
