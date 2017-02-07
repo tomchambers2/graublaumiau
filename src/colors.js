@@ -1,7 +1,7 @@
 const colors = {
   placeholder: 'white',
   border: 'black',
-  playArea: 'white',
+  background: 'white',
   objectMenu: '#f2f2f2',
 }
 

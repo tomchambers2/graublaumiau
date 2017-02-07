@@ -16,17 +16,24 @@ class Imprint extends Component {
     navigator: PropTypes.object.isRequired,
   }
 
-  _goBack = () => {
+  handleGoBack = () => {
     this.props.navigator.resetTo({ id: 'MainMenu' })
   }
 
   render() {
     return (
-      <Image source={background} style={globalStyles.fullscreen} resizeMode={Image.resizeMode.cover}>
-        <NavigationButton style={styles.backButton} onPress={this._goBack}>
-          <Image source={backButton}></Image>
-        </NavigationButton>
-      </Image>
+        <Image
+            resizeMode={Image.resizeMode.cover}
+            source={background}
+            style={globalStyles.fullscreen}
+        >
+            <NavigationButton
+                onPress={this.handleGoBack}
+                style={styles.backButton}
+            >
+                <Image source={backButton} />
+            </NavigationButton>
+        </Image>
     )
   }
 }

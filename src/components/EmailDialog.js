@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {PropTypes} from 'react'
 import {
   View,
   StyleSheet,
@@ -15,27 +15,32 @@ import dialogCancel from '../assets/navigation/warning_no.png'
 
 const window = Dimensions.get('window')
 
-class EmailDialog extends Component {
-  render() {
+const EmailDialog = ({sendEmail, cancelDialog}) => {
     return (
-      <View
-        style={[styles.menuDialogContainer]}>
-        <Image
-          style={styles.menuDialog}
-          source={dialogBackground}>
-          <Image source={dialogText} />
-          <View style={styles.buttonRow}>
-            <NavigationButton onPress={this.props.sendEmail}>
-              <Image source={dialogConfirm}></Image>
-            </NavigationButton>
-            <NavigationButton onPress={this.props.cancelDialog}>
-              <Image source={dialogCancel}></Image>
-            </NavigationButton>
-          </View>
-        </Image>
-      </View>
+        <View
+            style={styles.menuDialogContainer}
+        >
+            <Image
+                source={dialogBackground}
+                style={styles.menuDialog}
+            >
+                <Image source={dialogText} />
+                <View style={styles.buttonRow}>
+                    <NavigationButton onPress={sendEmail}>
+                        <Image source={dialogConfirm} />
+                    </NavigationButton>
+                    <NavigationButton onPress={cancelDialog}>
+                        <Image source={dialogCancel} />
+                    </NavigationButton>
+                </View>
+            </Image>
+        </View>
     )
-  }
+}
+
+EmailDialog.propTypes = {
+    cancelDialog: PropTypes.func.isRequired,
+    sendEmail: PropTypes.func.isRequired,
 }
 
 const styles = StyleSheet.create({

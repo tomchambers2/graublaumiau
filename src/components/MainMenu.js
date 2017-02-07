@@ -21,20 +21,12 @@ import globalStyles from '../globalStyles'
 class MainMenu extends Component {
   static propTypes = {
     navigator: PropTypes.object.isRequired,
-    toggleSound: PropTypes.func.isRequired,
     soundOn: PropTypes.bool.isRequired,
+    toggleSound: PropTypes.func.isRequired,
   }
 
   constructor(props) {
     super(props)
-  }
-
-  _goToPage(id) {
-    const route = {
-      id,
-    }
-    this.bg.pause();
-    this.props.navigator.push(route);
   }
 
   componentDidMount() {
@@ -55,44 +47,71 @@ class MainMenu extends Component {
     }
   }
 
-  render() {
+  goToPage = (id) => {
+    return () => {
+        const route = {
+            id,
+        }
+        this.bg.pause();
+        this.props.navigator.push(route);
+    }
+  }
 
+  goToImprint = this.goToPage('Imprint')
+  goToStory = this.goToPage('Story')
+  goToGame = this.goToPage('Game')
+
+  render() {
     const soundToggle = this.props.soundOn ? SoundOn : SoundOff
 
     return (
-        <Image source={Background} resizeMode={Image.resizeMode.cover} style={globalStyles.fullscreen}>
-          <View style={styles.interactionContainer}>
-            <View style={styles.buttonRow}>
-              <NavigationButton
-                onPress={this.props.toggleSound}
-                underlayColor="rgba(255,255,255,0)"
-                activeOpacity={0.7}
-                style={styles.soundButton}>
-                <Image source={soundToggle} style={styles.soundButtonImage} resizeMode={Image.resizeMode.contain}></Image>
-              </NavigationButton>
+        <Image
+            resizeMode={Image.resizeMode.cover}
+            source={Background}
+            style={globalStyles.fullscreen}
+        >
+            <View style={styles.interactionContainer}>
+                <View style={styles.buttonRow}>
+                    <NavigationButton
+                        activeOpacity={0.7}
+                        onPress={this.props.toggleSound}
+                        style={styles.soundButton}
+                        underlayColor="rgba(255,255,255,0)"
+                    >
+                        <Image
+                            resizeMode={Image.resizeMode.contain}
+                            source={soundToggle}
+                            style={styles.soundButtonImage}
+                        />
+                    </NavigationButton>
 
-              <NavigationButton
-                f="1"
-                onPress={this._goToPage.bind(this, 'Imprint')}
-                style={styles.imprintButton}>
-                <Image style={styles.imprintButtonImage} source={imprintButton}></Image>
-              </NavigationButton>
+                    <NavigationButton
+                        onPress={this.goToImprint}
+                        style={styles.imprintButton}
+                    >
+                        <Image
+                            source={imprintButton}
+                            style={styles.imprintButtonImage}
+                        />
+                    </NavigationButton>
+                </View>
+
+                <View style={styles.spacer} />
+
+                <View style={[styles.buttonRow, styles.bottomButtons]}>
+                    <NavigationButton
+                        onPress={this.goToStory}
+                    >
+                        <Image source={storyButton} />
+                    </NavigationButton>
+
+                    <NavigationButton
+                        onPress={this.goToGame}
+                    >
+                        <Image source={gameButton} />
+                    </NavigationButton>
+                </View>
             </View>
-
-            <View style={styles.spacer}></View>
-
-            <View style={[styles.buttonRow, styles.bottomButtons]}>
-              <NavigationButton
-                onPress={this._goToPage.bind(this, 'Story')}>
-                <Image source={storyButton}></Image>
-              </NavigationButton>
-
-              <NavigationButton
-                onPress={this._goToPage.bind(this, 'Game')}>
-                <Image source={gameButton}></Image>
-              </NavigationButton>
-            </View>
-          </View>
         </Image>
     )
   }

@@ -7,35 +7,29 @@ import {
   ScrollView,
   Dimensions,
   TouchableWithoutFeedback,
-  TouchableHighlight,
 } from 'react-native'
 
+import colors from '../colors'
+import update from 'immutability-helper';
 import { Alert } from 'react-native'
-
 import Sound from 'react-native-sound';
 
 import email from '../api/email'
-
 import EmailDialog from './EmailDialog'
-
-const window = Dimensions.get('window')
-
-import update from 'immutability-helper';
-
 import NavigationMenu from './NavigationMenu'
 import GameObject from './GameObject'
-
-import colors from '../colors'
 
 import gameObjects from '../assets/game_objects/'
 
 import dividerImage from '../assets/game/game_line.png'
 
+const window = Dimensions.get('window')
+
 class Game extends Component {
   static propTypes = {
-    toggleSound: React.PropTypes.func.isRequired,
     navigator: React.PropTypes.object.isRequired,
     soundOn: React.PropTypes.bool.isRequired,
+    toggleSound: React.PropTypes.func.isRequired,
   }
 
   constructor() {
@@ -53,9 +47,7 @@ class Game extends Component {
     }
 
     this.instanceCounter = 0
-
     this.instanceCreated = false
-
     this.panResponders = []
 
     const panResponderStartHandler = () => true
@@ -133,7 +125,36 @@ class Game extends Component {
     }
   }
 
-  _goToMenu() {
+  componentDidMount() {
+    this.bg = new Sound('main_sound.mp3', Sound.MAIN_BUNDLE, () => {
+      if (!this.props.soundOn) {
+        this.bg.setVolume(0)
+      }
+      this.bg.setNumberOfLoops(-1)
+      this.bg.play()
+    })
+  }
+
+  componentWillReceiveProps(newProps) {
+    this.setState({
+      soundOn: newProps.soundOn,
+    })
+    if (!newProps.soundOn) {
+      this.bg.setVolume(0)
+    } else {
+      this.bg.setVolume(1)
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.closeAllMenus) {
+      this.setState({
+        closeAllMenus: false,
+      })
+    }
+  }
+
+  _goToMenu = () => {
     this.bg.pause()
     this.props.navigator.resetTo({ id: 'MainMenu' })
   }
@@ -269,135 +290,120 @@ class Game extends Component {
     })
   }
 
-  componentDidMount() {
-    this.bg = new Sound('main_sound.mp3', Sound.MAIN_BUNDLE, () => {
-      if (!this.props.soundOn) {
-        this.bg.setVolume(0)
-      }
-      this.bg.setNumberOfLoops(-1)
-      this.bg.play()
-    })
-  }
-
-  componentWillReceiveProps(newProps) {
-    this.setState({
-      soundOn: newProps.soundOn,
-    })
-    if (!newProps.soundOn) {
-      this.bg.setVolume(0)
-    } else {
-      this.bg.setVolume(1)
-    }
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.closeAllMenus) {
-      this.setState({
-        closeAllMenus: false,
-      })
-    }
-  }
+  setRef = component => this._playArea = component
 
   render() {
     const renderGameObjects = gameObjects.map((gameObject, i) => {
       return (
-        <View
-          style={styles.placeholder}
-          {...this.panResponders[i].panHandlers}>
-            <Image style={{ width: 120 }} resizeMode={Image.resizeMode.contain} source={gameObject.image} />
-        </View>
+          <View
+              key={gameObject.gid}
+              style={styles.placeholder}
+              {...this.panResponders[i].panHandlers}
+          >
+              <Image
+                  resizeMode={Image.resizeMode.contain}
+                  source={gameObject.image}
+                  style={{ width: 120 }}
+              />
+          </View>
       )
     })
 
     const renderGameObjectInstances = this.state.gameObjectInstances.map((gameObject, i) => {
         if (gameObject.beingCreated) return
-        return (<GameObject
-          gameObjectId={gameObject.gameObjectId}
-          key={gameObject.id}
-          index={i}
-          gameObjects={gameObjects}
-          {...gameObject}
-          constrainObject={this._constrainObject}
-          closeAllMenus={this._closeAllMenus}
-          shouldCloseMenu={this.state.closeAllMenus}
-          allowOpen={this._allowOpen}
-          sendToFront={this._sendToFront}
-          sendToBack={this._sendToBack}
-          deleteObject={this._deleteObject}
-          moveObject={this._moveObject}
-          soundOn={this.state.soundOn}
-          />)
+        return (
+            <GameObject
+                allowOpen={this._allowOpen}
+                closeAllMenus={this._closeAllMenus}
+                constrainObject={this._constrainObject}
+                deleteObject={this._deleteObject}
+                index={i}
+                {...gameObject}
+                gameObjectId={gameObject.gameObjectId}
+                gameObjects={gameObjects}
+                key={gameObject.id}
+                moveObject={this._moveObject}
+                sendToBack={this._sendToBack}
+                sendToFront={this._sendToFront}
+                shouldCloseMenu={this.state.closeAllMenus}
+                soundOn={this.state.soundOn}
+            />
+        )
     })
 
     const renderCurrentGameObject = this.state.gameObjectInstances.map((gameObject, i) => {
       if (gameObject.beingCreated) {
-        return (<GameObject
-          gameObjectId={gameObject.gameObjectId}
-          key={gameObject.id}
-          index={i}
-          gameObjects={gameObjects}
-          {...gameObject}
-          constrainObject={this._constrainObject}
-          closeAllMenus={this._closeAllMenus}
-          shouldCloseMenu={this.state.closeAllMenus}
-          allowOpen={this._allowOpen}
-          sendToFront={this._sendToFront}
-          sendToBack={this._sendToBack}
-          deleteObject={this._deleteObject}
-          moveObject={this._moveObject}
-          soundOn={this.state.soundOn}
-          />)
+        return (
+            <GameObject
+                allowOpen={this._allowOpen}
+                closeAllMenus={this._closeAllMenus}
+                constrainObject={this._constrainObject}
+                deleteObject={this._deleteObject}
+                index={i}
+                {...gameObject}
+                gameObjectId={gameObject.gameObjectId}
+                gameObjects={gameObjects}
+                key={gameObject.id}
+                moveObject={this._moveObject}
+                sendToBack={this._sendToBack}
+                sendToFront={this._sendToFront}
+                shouldCloseMenu={this.state.closeAllMenus}
+                soundOn={this.state.soundOn}
+            />
+        )
       }
     })
 
     const objectBeingCreated = renderCurrentGameObject ? (
-      <View style={styles.creatingPlayArea}>
-        {renderCurrentGameObject}
-      </View>
+        <View style={styles.creatingPlayArea}>
+            {renderCurrentGameObject}
+        </View>
     ) : null
 
     const sendEmailDialog = this.state.sendDialogOpen ? (
-      <EmailDialog
-        sendEmail={this._sendEmail}
-        cancelDialog={this._cancelEmailDialog} />)
+        <EmailDialog
+            cancelDialog={this._cancelEmailDialog}
+            sendEmail={this._sendEmail}
+        />)
       : null
 
     return (
-      <View style={styles.gameContainer}>
-        {sendEmailDialog}
+        <View style={styles.gameContainer}>
+            {sendEmailDialog}
 
-        {objectBeingCreated}
+            {objectBeingCreated}
 
-        <View style={styles.objectMenu}>
-          <ScrollView scrollEnabled={this.state.scrollEnabled}>
-            {renderGameObjects}
-          </ScrollView>
-        </View>
-        <View style={styles.divider}>
-          <Image
-            style={styles.dividerImage}
-            resizeMode={Image.resizeMode.contain}
-            source={dividerImage}>
-          </Image>
-        </View>
-        <TouchableWithoutFeedback onPress={this._closeAllMenus}>
-        {/* <TouchableHighlight onPress={this._closeAllMenus}> */}
-          <View style={styles.playArea}>
-            <View ref={(component) => { this._playArea = component }} style={styles.playArea}>
-              {renderGameObjectInstances}
+            <View style={styles.objectMenu}>
+                <ScrollView scrollEnabled={this.state.scrollEnabled}>
+                    {renderGameObjects}
+                </ScrollView>
             </View>
-            <View style={styles.navBar}>
-              <NavigationMenu
-                full
-                toggleSound={this.props.toggleSound}
-                soundOn={this.props.soundOn}
-                showMailDialog={this._openEmailDialog}
-                goToMenu={this._goToMenu.bind(this)} />
+            <View style={styles.divider}>
+                <Image
+                    resizeMode={Image.resizeMode.contain}
+                    source={dividerImage}
+                    style={styles.dividerImage}
+                />
             </View>
-          </View>
-        {/* </TouchableHighlight> */}
-        </TouchableWithoutFeedback>
-      </View>
+            <TouchableWithoutFeedback onPress={this._closeAllMenus}>
+                <View style={styles.playArea}>
+                    <View ref={this.setRef}
+                        style={styles.playArea}
+                    >
+                        {renderGameObjectInstances}
+                    </View>
+                    <View style={styles.navBar}>
+                        <NavigationMenu
+                            full
+                            goToMenu={this._goToMenu}
+                            showMailDialog={this._openEmailDialog}
+                            soundOn={this.props.soundOn}
+                            toggleSound={this.props.toggleSound}
+                        />
+                    </View>
+                </View>
+            </TouchableWithoutFeedback>
+        </View>
     )
   }
 }
@@ -413,7 +419,7 @@ const styles = StyleSheet.create({
   gameContainer: {
     flex: 1,
     flexDirection: 'row',
-    backgroundColor: 'white',
+    backgroundColor: colors.background,
   },
   objectMenu: {
     zIndex: 10,
@@ -427,14 +433,10 @@ const styles = StyleSheet.create({
     position: 'absolute',
     zIndex: 100,
     marginLeft: 165,
-    // width: window.width,
-    // height: window.height,
-    // backgroundColor: 'yellow'
   },
   playArea: {
     flex: 1,
-    backgroundColor: 'white',
-    // backgroundColor: 'blue'
+    backgroundColor: colors.background,
   },
   divider: {
     flex: 1,

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import {
   StyleSheet,
 } from 'react-native'
@@ -7,26 +7,30 @@ import Video from 'react-native-video'
 import loadingVideo from '../assets/loadingVideo.mp4'
 
 class SplashScreen extends Component {
-  render() {
-    return (
-      <Video
-        style={styles.backgroundVideo}
-        ref={(ref) => {
-          this.player = ref
-        }}
-        muted
-        repeat={true}
-        source={loadingVideo}
-        resizeMode="cover"
-      />
-    )
-  }
+    static propTypes = {
+        hideSplashScreen: PropTypes.func.isRequired,
+    }
 
-  componentDidMount() {
-    setTimeout(() => {
-      this.props.hideSplashScreen()
-    }, 5000)
-  }
+    componentDidMount() {
+      setTimeout(() => {
+        this.props.hideSplashScreen()
+      }, 5000)
+    }
+
+    assignRef = ref => this.player = ref
+
+    render() {
+        return (
+            <Video
+                muted
+                ref={this.assignRef}
+                repeat
+                resizeMode="cover"
+                source={loadingVideo}
+                style={styles.backgroundVideo}
+            />
+        )
+    }
 }
 
 const styles = StyleSheet.create({

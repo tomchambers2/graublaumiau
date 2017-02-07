@@ -1,4 +1,4 @@
-console.disableYellowBox = true;
+console.disableYellowBox = true // eslint-disable-line no-console
 
 import React, { Component } from 'react'
 import {
@@ -6,7 +6,6 @@ import {
   Navigator,
   StatusBar,
   StyleSheet,
-  Text,
 } from 'react-native'
 
 import SplashScreen from './SplashScreen'
@@ -20,7 +19,7 @@ class GrauBlauMiau extends Component {
     super()
     this.state = {
       soundOn: true,
-      splashScreenDisplayed: true,
+      splashScreenDisplayed: false,
     }
   }
 
@@ -33,7 +32,8 @@ class GrauBlauMiau extends Component {
   _renderScene = (route, navigator) => {
     if (!this.state.splashScreenDisplayed) {
       return (<SplashScreen
-        hideSplashScreen={this._hideSplashScreen}></SplashScreen>)
+          hideSplashScreen={this._hideSplashScreen}
+              />)
     }
 
     const props = {
@@ -41,10 +41,10 @@ class GrauBlauMiau extends Component {
       soundOn: this.state.soundOn,
       toggleSound: this._toggleSound,
     }
-    if (route.id === 'MainMenu') return <MainMenu {...props}></MainMenu>
-    if (route.id === 'Story') return <Story {...props}></Story>
-    if (route.id === 'Game') return <Game {...props}></Game>
-    if (route.id === 'Imprint') return <Imprint {...props}></Imprint>
+    if (route.id === 'MainMenu') return <MainMenu {...props} />
+    if (route.id === 'Story') return <Story {...props} />
+    if (route.id === 'Game') return <Game {...props} />
+    if (route.id === 'Imprint') return <Imprint {...props} />
   }
 
   _toggleSound = () => {
@@ -55,17 +55,16 @@ class GrauBlauMiau extends Component {
 
   render() {
     return (
-      <View style={styles.wrapper}>
-        <StatusBar hidden />
-        <Navigator
-          initialRoute={{
+        <View style={styles.wrapper}>
+            <StatusBar hidden />
+            <Navigator
+                initialRoute={{
             id: 'MainMenu',
           }}
-          renderScene={this._renderScene}
-          style={styles.wrapper}>
-        </Navigator>
-        {/* <Text style={styles.text}>hello world</Text> */}
-      </View>
+                renderScene={this._renderScene}
+                style={styles.wrapper}
+            />
+        </View>
     )
   }
 }
@@ -73,9 +72,6 @@ class GrauBlauMiau extends Component {
 export default GrauBlauMiau
 
 const styles = StyleSheet.create({
-  text: {
-    fontSize: 100,
-  },
   wrapper: {
     flex: 1,
   },

@@ -1,8 +1,7 @@
-import React, { Component } from 'react'
+import React, { PropTypes } from 'react'
 import {
   View,
   StyleSheet,
-  Animated,
   Image,
   Dimensions,
 } from 'react-native'
@@ -16,27 +15,37 @@ import dialogCancel from '../assets/navigation/warning_no.png'
 
 const window = Dimensions.get('window')
 
-class MenuDialog extends Component {
-  render() {
+const MenuDialog = ({ game, goToMenu, cancelDialog }) => {
     return (
-      <View
-        style={[styles.menuDialogContainer, this.props.game && styles.gameShift]}>
-        <Image
-          style={styles.menuDialog}
-          source={dialogBackground}>
-          <Image source={dialogText} />
-          <View style={styles.buttonRow}>
-            <NavigationButton onPress={this.props.goToMenu}>
-              <Image source={dialogConfirm}></Image>
-            </NavigationButton>
-            <NavigationButton onPress={this.props.cancelDialog}>
-              <Image source={dialogCancel}></Image>
-            </NavigationButton>
-          </View>
-        </Image>
-      </View>
+        <View
+            style={[styles.menuDialogContainer, game && styles.gameShift]}
+        >
+            <Image
+                source={dialogBackground}
+                style={styles.menuDialog}
+            >
+                <Image source={dialogText} />
+                <View style={styles.buttonRow}>
+                    <NavigationButton onPress={goToMenu}>
+                        <Image source={dialogConfirm} />
+                    </NavigationButton>
+                    <NavigationButton onPress={cancelDialog}>
+                        <Image source={dialogCancel} />
+                    </NavigationButton>
+                </View>
+            </Image>
+        </View>
     )
-  }
+}
+
+MenuDialog.propTypes = {
+    game: PropTypes.bool,
+    goToMenu: PropTypes.func.isRequired,
+    cancelDialog: PropTypes.func.isRequired,
+}
+
+MenuDialog.defaultProps = {
+    game: false,
 }
 
 const styles = StyleSheet.create({

@@ -5,12 +5,8 @@ import {
   TouchableHighlight,
   StyleSheet,
   PanResponder,
-  Text,
   Animated,
-  ScrollView,
 } from 'react-native'
-
-import ImageSequence from 'react-native-image-sequence';
 
 import ZoomableImage from './ZoomableImage'
 import NavigationButton from './NavigationButton'
@@ -24,15 +20,28 @@ import Sound from 'react-native-sound';
 
 class Game extends Component {
   static propTypes = {
-    // id: PropTypes.number.isRequired,
-    // gameObjectId: PropTypes.number.isRequired,
-    // x: PropTypes.number.isRequired,
-    // y: PropTypes.number.isRequired,
+    allowOpen: PropTypes.bool,
+    closeAllMenus: PropTypes.func.isRequired,
+    constrainObject: PropTypes.func.isRequired,
+    data: PropTypes.object.isRequired,
+    deleteObject: PropTypes.func.isRequired,
+    sendToFront: PropTypes.func.isRequired,
+    sendToBack: PropTypes.func.isRequired,
+    gameObjects: PropTypes.array.isRequired,
+    index: PropTypes.number.isRequired,
+    moveObject: PropTypes.func.isRequired,
+    soundOn: PropTypes.bool.isRequired,
+    gameObjectId: PropTypes.number.isRequired,
+    x: PropTypes.number.isRequired,
+    y: PropTypes.number.isRequired,
+  }
+
+  static defaultProps = {
+      allowOpen: true,
   }
 
   constructor() {
     super()
-
 
     this.lastMovement = {
       x: 0,
@@ -48,18 +57,15 @@ class Game extends Component {
         if (evt.nativeEvent.touches.length > 1) {
           return false
         }
-        console.log('stealing hit touch')
         return true
       },
       onMoveShouldSetPanResponder: (evt) => {
         if (evt.nativeEvent.touches.length > 1) {
           return false
         }
-        console.log('stealing move touch')
         return true
       },
       onPanResponderGrant: () => {
-        console.log("HIT OBJECT")
         this.props.allowOpen()
         this.wasLongPresssed = false
         if (!this.state.menuOpen) {
@@ -103,31 +109,6 @@ class Game extends Component {
     }
   }
 
-  _resize() {
-
-  }
-
-  _deleteSelf = () => {
-    console.log('delete self')
-    this.props.deleteObject(this.props.index)
-  }
-
-  _toggleMenu = () => {
-    this.setState({
-      menuOpen: !this.state.menuOpen,
-    })
-  }
-
-  _sendToFront = () => {
-    this.props.sendToFront(this.props.index)
-    this._toggleMenu()
-  }
-
-  _sendToBack = () => {
-    this.props.sendToBack(this.props.index)
-    this._toggleMenu()
-  }
-
   componentWillMount() {
     this.setState({
       top: new Animated.Value(this.props.y),
@@ -138,33 +119,11 @@ class Game extends Component {
     this.gameObjectImage = this.gameObject.image
 
     this.sound = new Sound(this.props.data.soundName, Sound.MAIN_BUNDLE, (err) => {
-      console.log(err)
     })
-  }
-
-  _playAnimation = () => {
-    this.setState({
-      disabled: false,
-    })
-
-    if (this.props.soundOn) {
-      this.sound.play()
-    }
-
-    setTimeout(() => {
-      this.setState({
-        disabled: true,
-      })
-
-      setTimeout(() => {
-        this._playAnimation()
-      }, 12000)
-    }, 3000)
   }
 
   componentWillReceiveProps(newProps) {
     if (newProps.shouldCloseMenu) {
-      console.log('do close')
       this.setState({
         menuOpen: false,
       })
@@ -191,50 +150,104 @@ class Game extends Component {
     }
   }
 
+  _resize() {
+
+  }
+
+  _deleteSelf = () => {
+    this.props.deleteObject(this.props.index)
+  }
+
+  _toggleMenu = () => {
+    this.setState({
+      menuOpen: !this.state.menuOpen,
+    })
+  }
+
+  _sendToFront = () => {
+    this.props.sendToFront(this.props.index)
+    this._toggleMenu()
+  }
+
+  _sendToBack = () => {
+    this.props.sendToBack(this.props.index)
+    this._toggleMenu()
+  }
+
+  _playAnimation = () => {
+    this.setState({
+      disabled: false,
+    })
+
+    if (this.props.soundOn) {
+      this.sound.play()
+    }
+
+    setTimeout(() => {
+      this.setState({
+        disabled: true,
+      })
+
+      setTimeout(() => {
+        this._playAnimation()
+      }, 12000)
+    }, 3000)
+  }
+
   render() {
     const menu = this.state.menuOpen ? (
-      <TouchableHighlight onPress={this._toggleMenu}
-        style={[styles.menuContainer, { width: this.state.width, height: this.state.height }]}>
-          <View>
-            <Image source={menuBackground} style={styles.menuInner}>
-              <NavigationButton style={styles.icon} onPress={this._sendToFront}>
-                <Image source={upIcon}></Image>
-              </NavigationButton>
-              <NavigationButton style={styles.delete} onPress={this._deleteSelf}>
-                <Image source={deleteIcon}></Image>
-              </NavigationButton>
-              <NavigationButton style={styles.icon} onPress={this._sendToBack}>
-                <Image source={downIcon}></Image>
-              </NavigationButton>
-            </Image>
-          </View>
-      </TouchableHighlight>
+        <TouchableHighlight onPress={this._toggleMenu}
+            style={[styles.menuContainer, { width: this.state.width, height: this.state.height }]}
+        >
+            <View>
+                <Image source={menuBackground}
+                    style={styles.menuInner}
+                >
+                    <NavigationButton
+                        onPress={this._sendToFront}
+                        style={styles.icon}
+                    >
+                        <Image source={upIcon} />
+                    </NavigationButton>
+                    <NavigationButton
+                        onPress={this._deleteSelf}
+                        style={styles.delete}
+                    >
+                        <Image source={deleteIcon} />
+                    </NavigationButton>
+                    <NavigationButton
+                        onPress={this._sendToBack}
+                        style={styles.icon}
+                    >
+                        <Image source={downIcon} />
+                    </NavigationButton>
+                </Image>
+            </View>
+        </TouchableHighlight>
     ) : null
 
     return (
-      <Animated.View
-        style={[ styles.gameObject, { top: this.state.top, left: this.state.left, width: this.state.width, height: this.state.height } ]}>
-        {menu}
-        <View {...this.panResponder.panHandlers}>
-          <ZoomableImage
-            source={this.gameObject.image}
-            sequence={this.gameObject.sequence}
-            sequencePaused={this.state.disabled}
-            sequenceDisabled={!this.init}
-            // was this.props.dragging
-            imageWidth={200}
-            imageHeight={300}
-            style={[styles.inner, { width: this.state.width, height: this.state.height }]} />
-        </View>
-      </Animated.View>
+        <Animated.View
+            style={[ styles.gameObject, { top: this.state.top, left: this.state.left, width: this.state.width, height: this.state.height } ]}
+        >
+            {menu}
+            <View {...this.panResponder.panHandlers}>
+                <ZoomableImage
+                    imageHeight={300}
+                    imageWidth={200}
+                    sequence={this.gameObject.sequence}
+                    sequenceDisabled={!this.init}
+                    sequencePaused={this.state.disabled}
+                    source={this.gameObject.image}
+                    style={[styles.inner, { width: this.state.width, height: this.state.height }]}
+                />
+            </View>
+        </Animated.View>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  inner: {
-    // backgroundColor: 'green'
-  },
   icon: {
     marginTop: 18,
     marginLeft: 12,
@@ -245,7 +258,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    // backgroundColor: 'blue'
   },
   delete: {
     marginTop: 18,
@@ -253,7 +265,6 @@ const styles = StyleSheet.create({
   },
   gameObject: {
     position: 'absolute',
-    // backgroundColor: 'yellow'
   },
 })
 

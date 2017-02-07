@@ -1,5 +1,4 @@
 import miloWalking from '../png_test/Milo_walking_00000.png'
-import miloWalking_animation from './milo_walking_animation.gif'
 
 const gameObjects = [
   {

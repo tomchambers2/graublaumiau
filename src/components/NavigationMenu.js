@@ -24,8 +24,13 @@ class NavigationMenu extends Component {
     toggleSound: PropTypes.func.isRequired,
     soundOn: PropTypes.bool.isRequired,
     goToMenu: PropTypes.func.isRequired,
-    showMailDialog: PropTypes.func.isRequired,
+    showMailDialog: PropTypes.func,
     full: PropTypes.bool,
+  }
+
+  static defaultProps = {
+      showMailDialog: null,
+      full: false,
   }
 
   constructor() {
@@ -36,14 +41,14 @@ class NavigationMenu extends Component {
     }
   }
 
+  componentWillMount() {
+    this._slideValue = new Animated.Value(0)
+  }
+
   _toggleMenu = () => {
     this.setState({
       menuOpen: !this.state.menuOpen,
     })
-  }
-
-  _openMailDialog() {
-
   }
 
   _openMenuDialog = () => {
@@ -58,60 +63,67 @@ class NavigationMenu extends Component {
     })
   }
 
-  componentWillMount() {
-    this._slideValue = new Animated.Value(0)
-  }
-
   render() {
     const menuBackgroundOpen = this.props.full ? menuBackgroundOpenLarge : menuBackgroundOpenSmall
     const menuBackgroundSelected = this.state.menuOpen ? menuBackgroundOpen : menuBackgroundClosed
     const soundToggleIcon = this.props.soundOn ? soundOnIcon : soundOffIcon
-    const mailButton = (
-    <NavigationButton style={styles.mailIcon} onPress={this.props.showMailDialog}>
-      <Image source={mailIcon} />
-    </NavigationButton>
+    const mailButton = this.props.showMailDialog && (
+        <NavigationButton
+            onPress={this.props.showMailDialog}
+            style={styles.mailIcon}
+        >
+            <Image source={mailIcon} />
+        </NavigationButton>
     )
     const menuIcons = (
-      <View style={styles.innerMenu}>
-        <NavigationButton onPress={this.props.toggleSound} style={styles.soundToggleIcon}>
-          <Image source={soundToggleIcon} />
-        </NavigationButton>
-        {this.props.full && mailButton}
-        <NavigationButton onPress={this._openMenuDialog} style={styles.menuIcon}>
-          <Image source={menuIcon} />
-        </NavigationButton>
-      </View>
+        <View style={styles.innerMenu}>
+            <NavigationButton
+                onPress={this.props.toggleSound}
+                style={styles.soundToggleIcon}
+            >
+                <Image source={soundToggleIcon} />
+            </NavigationButton>
+            {mailButton}
+            <NavigationButton
+                onPress={this._openMenuDialog}
+                style={styles.menuIcon}
+            >
+                <Image source={menuIcon} />
+            </NavigationButton>
+        </View>
     )
 
     const menuOpenIcons = this.state.menuOpen ? menuIcons : null
     const menuDialogContent = (
-      <MenuDialog
-        game={this.props.full}
-        goToMenu={this.props.goToMenu}
-        cancelDialog={this._cancelMenuDialog}
+        <MenuDialog
+            cancelDialog={this._cancelMenuDialog}
+            game={this.props.full}
+            goToMenu={this.props.goToMenu}
         />
     )
     const closeDialog = this.state.menuDialogOpen ? menuDialogContent : null
 
     return (
-      <View>
-        {closeDialog}
-        <View style={styles.menuContainer}>
-          <View style={styles.absolute}>
-            <Image source={menuBackgroundSelected}>
-              <View style={styles.menuBackground}>
-                <NavigationButton onPress={this._toggleMenu}>
-                  <Image
-                    style={styles.hamburger}
-                    source={hamburger}>
-                  </Image>
-                </NavigationButton>
-                {menuOpenIcons}
-              </View>
-            </Image>
-          </View>
+        <View>
+            {closeDialog}
+            <View style={styles.menuContainer}>
+                <View style={styles.absolute}>
+                    <Image source={menuBackgroundSelected}>
+                        <View style={styles.menuBackground}>
+                            <NavigationButton
+                                onPress={this._toggleMenu}
+                            >
+                                <Image
+                                    source={hamburger}
+                                    style={styles.hamburger}
+                                />
+                            </NavigationButton>
+                            {menuOpenIcons}
+                        </View>
+                    </Image>
+                </View>
+            </View>
         </View>
-      </View>
     )
   }
 }
