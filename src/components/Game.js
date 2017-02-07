@@ -6,6 +6,7 @@ import {
   Image,
   ScrollView,
   Dimensions,
+  TouchableWithoutFeedback,
 } from 'react-native'
 
 import { Alert } from 'react-native'
@@ -59,6 +60,7 @@ class Game extends Component {
     const panResponderStartHandler = () => true
     const panResponderGrantHandler = (gameObjectIndex) => {
       return (event) => {
+        this._closeAllMenus()
         event.persist()
         this.objectPressTimer = setTimeout(() => {
           this.instanceCreated = true
@@ -334,19 +336,21 @@ class Game extends Component {
             source={dividerImage}>
           </Image>
         </View>
-        <View style={styles.playArea}>
-          <View ref={(component) => { this._playArea = component }} style={styles.playArea}>
-            {renderGameObjectInstances}
+        <TouchableWithoutFeedback onPress={this._closeAllMenus}>
+          <View style={styles.playArea}>
+            <View ref={(component) => { this._playArea = component }} style={styles.playArea}>
+              {renderGameObjectInstances}
+            </View>
+            <View style={styles.navBar}>
+              <NavigationMenu
+                full
+                toggleSound={this.props.toggleSound}
+                soundOn={this.props.soundOn}
+                showMailDialog={this._openEmailDialog}
+                goToMenu={this._goToMenu.bind(this)} />
+            </View>
           </View>
-          <View style={styles.navBar}>
-            <NavigationMenu
-              full
-              toggleSound={this.props.toggleSound}
-              soundOn={this.props.soundOn}
-              showMailDialog={this._openEmailDialog}
-              goToMenu={this._goToMenu.bind(this)} />
-          </View>
-        </View>
+        </TouchableWithoutFeedback>
       </View>
     )
   }
