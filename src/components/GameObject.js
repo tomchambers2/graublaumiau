@@ -20,6 +20,8 @@ import upIcon from '../assets/game/up.png'
 import deleteIcon from '../assets/game/delete.png'
 import downIcon from '../assets/game/down.png'
 
+import Sound from 'react-native-sound';
+
 class Game extends Component {
   static propTypes = {
     // id: PropTypes.number.isRequired,
@@ -50,10 +52,12 @@ class Game extends Component {
       onPanResponderGrant: () => {
         this.props.closeAllMenus()
         this.wasLongPresssed = false
-        this.objectPressTimer = setTimeout(() => {
-          this.wasLongPresssed = true
-          this._toggleMenu()
-        }, 400)
+        if (!this.state.menuOpen) {
+          this.objectPressTimer = setTimeout(() => {
+            this.wasLongPresssed = true
+            this._toggleMenu()
+          }, 400)          
+        }
         this.dragging = true
       },
       onPanResponderMove: (e, gestureState) => {
@@ -118,6 +122,11 @@ class Game extends Component {
 
     this.gameObject = this.props.gameObjects.find((gameObject) => gameObject.gid === this.props.gameObjectId)
     this.gameObjectImage = this.gameObject.image
+
+    console.log('data', this.props.data.soundName)
+    this.sound = new Sound(this.props.data.soundName, Sound.MAIN_BUNDLE, (err) => {
+      console.log(err)
+    })
   }
 
   _playAnimation = () => {
@@ -125,7 +134,10 @@ class Game extends Component {
       disabled: false,
     })
 
-    //play sound here
+    console.log('play sound')
+    if (this.props.soundOn) {
+      this.sound.play()
+    }
 
     setTimeout(() => {
       this.setState({

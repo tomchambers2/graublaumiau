@@ -1,5 +1,5 @@
-import React, {Component, PropTypes} from 'react';
-import { Text, View, PanResponder, Image } from 'react-native';
+import React, {Component} from 'react';
+import { View, PanResponder, Image } from 'react-native';
 
 import ImageSequence from 'react-native-image-sequence';
 
@@ -234,9 +234,4 @@ class ZoomableImage extends Component {
 
 }
 
-// ZoomableImage.propTypes = {
-//   imageWidth: PropTypes.number.isRequired,
-//   imageHeight: PropTypes.number.isRequired,
-//   source: PropTypes.object.isRequired,
-// };
 export default ZoomableImage;

@@ -10,7 +10,7 @@ const gameObjects = [
       height: 300,
     },
     isAnimation: true,
-    soundName: 'samp2.mp3',
+    soundName: 'samp2.wav',
     sequence: [
       require('../png_test/Milo_walking_00000.png'),
       require('../png_test/Milo_walking_00001.png'),

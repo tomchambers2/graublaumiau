@@ -252,6 +252,9 @@ class Game extends Component {
   }
 
   componentWillReceiveProps(newProps) {
+    this.setState({
+      soundOn: newProps.soundOn,
+    })
     if (!newProps.soundOn) {
       this.bg.setVolume(0)
     } else {
@@ -283,6 +286,7 @@ class Game extends Component {
           sendToBack={this._sendToBack}
           deleteObject={this._deleteObject}
           moveObject={this._moveObject}
+          soundOn={this.state.soundOn}
           />)
     })
 
