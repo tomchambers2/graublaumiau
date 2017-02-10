@@ -18,6 +18,8 @@ module.exports = {
       "react/forbid-component-props": 0,
       "react/forbid-prop-types": 0,
       "react/sort-prop-types": 0,
+      "react/jsx-sort-props": 0,
+      "react/jsx-indent": 0,
       "react/jsx-handler-names": 0,
       "react/no-set-state": 0,
       "react/jsx-filename-extension": 0,
