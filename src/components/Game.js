@@ -117,6 +117,7 @@ class Game extends Component {
       const index = this.state.gameObjectInstances.length - 1
       this._constrainObject(index)
       this._cancelBeingCreated()
+    //   this._stopDragging()
     }
 
     for (var i = 0; i < gameObjects.length; i++) {
@@ -182,16 +183,16 @@ class Game extends Component {
     return [x, y]
   }
 
-  _stopDragging = (index) => {
-    const data = this.state.gameObjectInstances
-    const updatedData = update(data[index], { dragging: { $set: false } })
-    const newData = update(data, {
-      $splice: [[index, 1, updatedData]],
-    })
-    this.setState({
-      gameObjectInstances: newData,
-    })
-  }
+  // _stopDragging = (index) => {
+  //   const data = this.state.gameObjectInstances
+  //   const updatedData = update(data[index], { dragging: { $set: false } })
+  //   const newData = update(data, {
+  //     $splice: [[index, 1, updatedData]],
+  //   })
+  //   this.setState({
+  //     gameObjectInstances: newData,
+  //   })
+  // }
 
   _cancelBeingCreated = () => {
     const index = this.state.gameObjectInstances.length - 1
@@ -297,6 +298,7 @@ class Game extends Component {
   setRef = component => this._playArea = component
 
   render() {
+      console.log("RENDER GAME")
     const renderGameObjects = gameObjects.map((gameObject, i) => {
       return (
           <View
@@ -315,6 +317,7 @@ class Game extends Component {
 
     const renderGameObjectInstances = this.state.gameObjectInstances.map((gameObject, i) => {
         if (gameObject.beingCreated) return
+        console.log('render creating:false')
         return (
             <GameObject
                 allowOpen={this._allowOpen}
@@ -337,6 +340,7 @@ class Game extends Component {
 
     const renderCurrentGameObject = this.state.gameObjectInstances.map((gameObject, i) => {
       if (gameObject.beingCreated) {
+         console.log('render creating:true')
         return (
             <GameObject
                 allowOpen={this._allowOpen}
@@ -374,9 +378,6 @@ class Game extends Component {
     return (
         <View style={styles.gameContainer}>
             {sendEmailDialog}
-
-            {objectBeingCreated}
-
             <View style={styles.objectMenu}>
                 <ScrollView scrollEnabled={this.state.scrollEnabled}>
                     {renderGameObjects}
@@ -389,6 +390,9 @@ class Game extends Component {
                     style={styles.dividerImage}
                 />
             </View>
+
+            {objectBeingCreated}
+
             <TouchableWithoutFeedback onPress={this._closeAllMenus}>
                 <View style={styles.playArea}>
                     <View ref={this.setRef}

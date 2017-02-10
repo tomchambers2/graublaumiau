@@ -14,12 +14,14 @@ import Story from './Story'
 import Game from './Game'
 import Imprint from './Imprint'
 
+const override = 'Game'
+
 class GrauBlauMiau extends Component {
   constructor() {
     super()
     this.state = {
       soundOn: true,
-      splashScreenDisplayed: false,
+      splashScreenDisplayed: override || false,
     }
   }
 
@@ -59,7 +61,7 @@ class GrauBlauMiau extends Component {
             <StatusBar hidden />
             <Navigator
                 initialRoute={{
-            id: 'MainMenu',
+                    id: override || 'Story',
           }}
                 renderScene={this._renderScene}
                 style={styles.wrapper}
