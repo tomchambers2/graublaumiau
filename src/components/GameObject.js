@@ -196,7 +196,9 @@ class Game extends Component {
 
   render() {
     const menu = this.state.menuOpen ? (
-        <TouchableHighlight onPress={this._toggleMenu}
+        <TouchableHighlight
+            onPress={this._toggleMenu}
+            underlayColor='transparent'
             style={[styles.menuContainer, { width: this.state.width, height: this.state.height }]}
         >
             <View>
