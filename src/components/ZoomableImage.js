@@ -79,43 +79,62 @@ class ZoomableImage extends Component {
             top: 0,
             left: 0,
         }
+
+        this.lastMovement = {
+            x: 0,
+            y: 0,
+        }
     }
 
     componentWillMount() {
       this._panResponder = PanResponder.create({
-          onStartShouldSetPanResponder: (evt, gestureState) => {
-            if (evt.nativeEvent.touches.length > 1) {
-              return true
-            }
-          },
-          // onStartShouldSetPanResponderCapture: (evt, gestureState) => true,
-          onMoveShouldSetPanResponder: (evt, gestureState) => {
-            if (evt.nativeEvent.touches.length > 1) {
-              return true
-            }
-          },
-          // onMoveShouldSetPanResponderCapture: (evt, gestureState) => true,
+          onStartShouldSetPanResponder: (evt, gestureState) => true,
           onPanResponderGrant: (evt, gestureState) => {
+              this.props.allowOpen()
+              this.wasLongPresssed = false
+              this.objectPressTimer = setTimeout(() => {
+                  this.wasLongPresssed = true
+                  this.props.toggleMenu()
+              }, 400)
+
+              this.props.turnOnDragging()
           },
           onPanResponderMove: (evt, gestureState) => {
+              clearTimeout(this.objectPressTimer)
+
               let touches = evt.nativeEvent.touches;
-              if (touches.length == 2) {
-                  this.processPinch(touches[0].pageX, touches[0].pageY,
-                      touches[1].pageX, touches[1].pageY);
+              if (touches.length == 1) {
+                  this.props.moveObject(this.props.index, gestureState.dx - this.lastMovement.x, gestureState.dy - this.lastMovement.y)
+                  this.lastMovement = {
+                      x: gestureState.dx,
+                      y: gestureState.dy,
+                  }
+              } else if (touches.length == 2) {
+                  this.processPinch(touches[0].pageX, touches[0].pageY, touches[1].pageX, touches[1].pageY);
               }
           },
-
-          onPanResponderTerminationRequest: (evt, gestureState) => {
-          },
           onPanResponderRelease: (evt, gestureState) => {
+              clearTimeout(this.objectPressTimer)
+
+              if (!this.wasLongPresssed) {
+                  this.props.closeAllMenus()
+              }
+              this.props.turnOffDragging()
+
               this.setState({
                   isZooming: false,
                   isMoving: false,
               });
+
+            this.props.constrainObject(this.props.index)
+            this.lastMovement = {
+              x: 0,
+              y: 0,
+            }
           },
-          onPanResponderTerminate: (evt, gestureState) => {
-            return true
-          },
+
+          onPanResponderTerminationRequest: (evt, gestureState) => {},
+          onPanResponderTerminate: (evt, gestureState) => true,
           onShouldBlockNativeResponder: (evt, gestureState) => true,
       });
     }

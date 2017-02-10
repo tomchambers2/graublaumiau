@@ -56,54 +56,54 @@ class Game extends Component {
 
         this.lastShouldCloseMenu = false
 
-        this.panResponder = PanResponder.create({
-            onStartShouldSetPanResponderCapture: (evt) => {
-                if (evt.nativeEvent.touches.length > 1) {
-                    return false
-                }
-                return true
-            },
-            onMoveShouldSetPanResponder: (evt) => {
-                if (evt.nativeEvent.touches.length > 1) {
-                    return false
-                }
-                return true
-            },
-            onPanResponderGrant: () => {
-                this.props.allowOpen()
-                this.wasLongPresssed = false
-                if (!this.state.menuOpen) {
-                    this.objectPressTimer = setTimeout(() => {
-                        this.wasLongPresssed = true
-                        this._toggleMenu()
-                    }, 400)
-                }
-                this.dragging = true
-            },
-            onPanResponderMove: (e, gestureState) => {
-                clearTimeout(this.objectPressTimer)
-                this.props.moveObject(this.props.index, gestureState.dx - this.lastMovement.x, gestureState.dy - this.lastMovement.y)
-                this.lastMovement = {
-                    x: gestureState.dx,
-                    y: gestureState.dy,
-                }
-            },
-            onPanResponderRelease: () => {
-                if (!this.wasLongPresssed) {
-                    this.props.closeAllMenus()
-                }
-                clearTimeout(this.objectPressTimer)
-                this.setState({
-                    dragging: false,
-                })
-                this.dragging = false
-                this.props.constrainObject(this.props.index)
-                this.lastMovement = {
-                    x: 0,
-                    y: 0,
-                }
-            },
-        })
+        // this.panResponder = PanResponder.create({
+        //     onStartShouldSetPanResponderCapture: (evt) => {
+        //         if (evt.nativeEvent.touches.length > 1) {
+        //             return false
+        //         }
+        //         return true
+        //     },
+        //     onMoveShouldSetPanResponder: (evt) => {
+        //         if (evt.nativeEvent.touches.length > 1) {
+        //             return false
+        //         }
+        //         return true
+        //     },
+        //     onPanResponderGrant: () => {
+        //         this.props.allowOpen()
+        //         this.wasLongPresssed = false
+        //         if (!this.state.menuOpen) {
+        //             this.objectPressTimer = setTimeout(() => {
+        //                 this.wasLongPresssed = true
+        //                 this._toggleMenu()
+        //             }, 400)
+        //         }
+        //         this.dragging = true
+        //     },
+        //     onPanResponderMove: (e, gestureState) => {
+        //         clearTimeout(this.objectPressTimer)
+        //         this.props.moveObject(this.props.index, gestureState.dx - this.lastMovement.x, gestureState.dy - this.lastMovement.y)
+        //         this.lastMovement = {
+        //             x: gestureState.dx,
+        //             y: gestureState.dy,
+        //         }
+        //     },
+        //     onPanResponderRelease: () => {
+        //         if (!this.wasLongPresssed) {
+        //             this.props.closeAllMenus()
+        //         }
+        //         clearTimeout(this.objectPressTimer)
+        //         this.setState({
+        //             dragging: false,
+        //         })
+        //         this.dragging = false
+        //         this.props.constrainObject(this.props.index)
+        //         this.lastMovement = {
+        //             x: 0,
+        //             y: 0,
+        //         }
+        //     },
+        // })
 
         this.state = {
             menuOpen: false,
@@ -114,7 +114,6 @@ class Game extends Component {
     }
 
     componentWillMount() {
-
         if (!this.props.beingCreated) {
             this.dragging = false
             this.init = true
@@ -135,10 +134,6 @@ class Game extends Component {
         })
     }
 
-    componentWillUnmount() {
-        clearTimeout(this.animationTimer)
-    }
-
     componentWillReceiveProps(newProps) {
         if (newProps.shouldCloseMenu) {
             this.setState({
@@ -146,14 +141,6 @@ class Game extends Component {
             })
             this.lastShouldCloseMenu = true
         }
-
-        // if (!this.init && !newProps.beingCreated) {
-        //     this.dragging = false
-        //     this.init = true
-        //     setTimeout(() => {
-        //         this._playAnimation()
-        //     }, ANIMATION_DELAY_AFTER_DROP)
-        // }
 
         if (this.dragging) {
             this.state.top.setValue(newProps.y)
@@ -170,11 +157,26 @@ class Game extends Component {
         }
     }
 
+    componentWillUnmount() {
+        clearTimeout(this.animationTimer)
+    }
+
+    _turnOnDragging = () => {
+        this.dragging = true
+    }
+
+    _turnOffDragging = () => {
+        this.dragging = false
+    }
+
     _deleteSelf = () => {
         this.props.deleteObject(this.props.index)
     }
 
     _toggleMenu = () => {
+        if (this.state.menuOpen) {
+            this.props.closeAllMenus()
+        }
         this.setState({
             menuOpen: !this.state.menuOpen,
         })
@@ -217,73 +219,81 @@ class Game extends Component {
                 underlayColor='transparent'
                 style={[styles.menuContainer, { width: this.state.width, height: this.state.height }]}
             >
-                    <View>
-                        <Image source={menuBackground}
-                            style={styles.menuInner}
-                        >
-                                <NavigationButton
-                                    onPress={this._sendToFront}
-                                    style={styles.icon}
-                                >
-                                        <Image source={upIcon} />
-                                    </NavigationButton>
-                                    <NavigationButton
-                                        onPress={this._deleteSelf}
-                                        style={styles.delete}
-                                    >
-                                            <Image source={deleteIcon} />
-                                        </NavigationButton>
-                                        <NavigationButton
-                                            onPress={this._sendToBack}
-                                            style={styles.icon}
-                                        >
-                                                <Image source={downIcon} />
-                                            </NavigationButton>
-                                        </Image>
-                                    </View>
-                                </TouchableHighlight>
-                            ) : null
+            <View>
+                <Image source={menuBackground}
+                    style={styles.menuInner}
+                >
+                    <NavigationButton
+                        onPress={this._sendToFront}
+                        style={styles.icon}
+                    >
+                    <Image source={upIcon} />
+                    </NavigationButton>
+                    <NavigationButton
+                        onPress={this._deleteSelf}
+                        style={styles.delete}
+                    >
+                        <Image source={deleteIcon} />
+                    </NavigationButton>
+                    <NavigationButton
+                        onPress={this._sendToBack}
+                        style={styles.icon}
+                    >
+                        <Image source={downIcon} />
+                    </NavigationButton>
+                    </Image>
+                    </View>
+                </TouchableHighlight>
+                ) : null
 
-                            return (
-                                <Animated.View
-                                    style={[ styles.gameObject, { top: this.state.top, left: this.state.left, width: this.state.width, height: this.state.height } ]}
-                                >
-                                        {menu}
-                                        <View {...this.panResponder.panHandlers}>
-                                            <ZoomableImage
-                                                imageHeight={300}
-                                                imageWidth={200}
-                                                sequence={this.gameObject.sequence}
-                                                sequenceDisabled={!this.init}
-                                                sequencePaused={this.state.disabled}
-                                                source={this.gameObject.image}
-                                                style={[styles.inner, { width: this.state.width, height: this.state.height }]}
-                                            />
-                                        </View>
-                                    </Animated.View>
-                                )
-                            }
-                        }
+                return (
+                    <Animated.View
+                        style={[ styles.gameObject, { top: this.state.top, left: this.state.left, width: this.state.width, height: this.state.height } ]}
+                    >
+                            {menu}
+                            {/* <View {...this.panResponder.panHandlers}> */}
+                                <ZoomableImage
+                                    imageHeight={300}
+                                    imageWidth={200}
+                                    allowOpen={this.props.allowOpen}
+                                    toggleMenu={this._toggleMenu}
+                                    closeAllMenus={this.props.closeAllMenus}
+                                    turnOnDragging={this._turnOnDragging}
+                                    turnOffDragging={this._turnOffDragging}
+                                    constrainObject={this.props.constrainObject}
+                                    index={this.props.index}
+                                    moveObject={this.props.moveObject}
+                                    sequence={this.gameObject.sequence}
+                                    sequenceDisabled={!this.init}
+                                    sequencePaused={this.state.disabled}
+                                    source={this.gameObject.image}
+                                    style={[styles.inner, { width: this.state.width, height: this.state.height }]}
+                                />
+                            {/* </View> */}
+                        </Animated.View>
+                    )
+                }
+            }
 
-                        const styles = StyleSheet.create({
-                            icon: {
-                                marginTop: 18,
-                                marginLeft: 12,
-                            },
-                            menuContainer: {
-                                position: 'absolute',
-                                zIndex: 10,
-                                flex: 1,
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                            },
-                            delete: {
-                                marginTop: 18,
-                                marginLeft: 14,
-                            },
-                            gameObject: {
-                                position: 'absolute',
-                            },
-                        })
+    const styles = StyleSheet.create({
+        icon: {
+            marginTop: 18,
+            marginLeft: 12,
+        },
+        menuContainer: {
+            position: 'absolute',
+            zIndex: 10,
+            flex: 1,
+            alignItems: 'center',
+            justifyContent: 'center',
+        },
+        delete: {
+            marginTop: 18,
+            marginLeft: 14,
+        },
+        gameObject: {
+            position: 'absolute',
+        },
+    })
 
-                        export default Game
+    export default Game

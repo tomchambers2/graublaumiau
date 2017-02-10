@@ -14,7 +14,7 @@ import Story from './Story'
 import Game from './Game'
 import Imprint from './Imprint'
 
-const override = null
+const override = 'Game'
 
 class GrauBlauMiau extends Component {
   constructor() {
@@ -61,7 +61,7 @@ class GrauBlauMiau extends Component {
             <StatusBar hidden />
             <Navigator
                 initialRoute={{
-                    id: override || 'Story',
+                    id: override || 'MainMenu',
           }}
                 renderScene={this._renderScene}
                 style={styles.wrapper}

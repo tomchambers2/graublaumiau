@@ -117,7 +117,6 @@ class Game extends Component {
       const index = this.state.gameObjectInstances.length - 1
       this._constrainObject(index)
       this._cancelBeingCreated()
-    //   this._stopDragging()
     }
 
     for (var i = 0; i < gameObjects.length; i++) {
@@ -183,17 +182,6 @@ class Game extends Component {
     return [x, y]
   }
 
-  // _stopDragging = (index) => {
-  //   const data = this.state.gameObjectInstances
-  //   const updatedData = update(data[index], { dragging: { $set: false } })
-  //   const newData = update(data, {
-  //     $splice: [[index, 1, updatedData]],
-  //   })
-  //   this.setState({
-  //     gameObjectInstances: newData,
-  //   })
-  // }
-
   _cancelBeingCreated = () => {
     const index = this.state.gameObjectInstances.length - 1
     const data = this.state.gameObjectInstances
@@ -210,6 +198,7 @@ class Game extends Component {
   }
 
   _constrainObject = (index) => {
+      console.log('do constrain', index)
     const data = this.state.gameObjectInstances
     let {x, y, width, height} = data[index]
     let [constrainedX, constrainedY] = this._constrainToGrid(x, y, { width, height })
@@ -217,6 +206,7 @@ class Game extends Component {
     const newData = update(data, {
       $splice: [[index, 1, updatedData]],
     })
+    console.log(data[index], newData[index])
     this.setState({
       gameObjectInstances: newData,
     })
