@@ -115,8 +115,7 @@ class Game extends Component {
         scrollEnabled: true,
       })
       const index = this.state.gameObjectInstances.length - 1
-      this._constrainObject(index)
-      this._cancelBeingCreated()
+      this._constrainObject(index, true)
     }
 
     for (var i = 0; i < gameObjects.length; i++) {
@@ -182,31 +181,20 @@ class Game extends Component {
     return [x, y]
   }
 
-  _cancelBeingCreated = () => {
-    const index = this.state.gameObjectInstances.length - 1
-    const data = this.state.gameObjectInstances
-    const updatedProperties = {
-      beingCreated: { $set: false },
-    }
-    const updatedData = update(data[index], updatedProperties)
-    const newData = update(data, {
-      $splice: [[index, 1, updatedData]],
-    })
-    this.setState({
-      gameObjectInstances: newData,
-    })
-  }
-
   _constrainObject = (index) => {
-      console.log('do constrain', index)
     const data = this.state.gameObjectInstances
     let {x, y, width, height} = data[index]
     let [constrainedX, constrainedY] = this._constrainToGrid(x, y, { width, height })
-    const updatedData = update(data[index], { x: { $set: constrainedX }, y: { $set: constrainedY }, dragging: { $set: false } })
+    const updatedData = update(data[index],
+        {
+            x: { $set: constrainedX },
+            y: { $set: constrainedY },
+            dragging: { $set: false },
+            beingCreated: { $set: false },
+        })
     const newData = update(data, {
       $splice: [[index, 1, updatedData]],
     })
-    console.log(data[index], newData[index])
     this.setState({
       gameObjectInstances: newData,
     })
