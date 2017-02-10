@@ -32,7 +32,7 @@ const email = {
           },
         }, (error, event) => {
             if(error === 'not_available') {
-              Alert.alert('Error', 'Your mail client is not setup, you must do this to send email');
+              Alert.alert('Stopp!', 'Um Bilder zu versenden, muss das Ipad Mailprogramm eingerichtet sein.');
             } else if (error) {
               Alert.alert('Error', 'Unknown error occurred while attempting to send email')
             } else {
