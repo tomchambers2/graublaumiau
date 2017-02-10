@@ -298,7 +298,6 @@ class Game extends Component {
   setRef = component => this._playArea = component
 
   render() {
-      console.log("RENDER GAME")
     const renderGameObjects = gameObjects.map((gameObject, i) => {
       return (
           <View
@@ -317,7 +316,6 @@ class Game extends Component {
 
     const renderGameObjectInstances = this.state.gameObjectInstances.map((gameObject, i) => {
         if (gameObject.beingCreated) return
-        console.log('render creating:false')
         return (
             <GameObject
                 allowOpen={this._allowOpen}
@@ -340,7 +338,6 @@ class Game extends Component {
 
     const renderCurrentGameObject = this.state.gameObjectInstances.map((gameObject, i) => {
       if (gameObject.beingCreated) {
-         console.log('render creating:true')
         return (
             <GameObject
                 allowOpen={this._allowOpen}

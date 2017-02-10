@@ -114,12 +114,11 @@ class Game extends Component {
     }
 
     componentWillMount() {
-        console.log("JUST MOUNTED", 'created?',this.props.beingCreated)
 
         if (!this.props.beingCreated) {
             this.dragging = false
             this.init = true
-            setTimeout(() => {
+            this.animationTimer = setTimeout(() => {
                 this._playAnimation()
             }, ANIMATION_DELAY_AFTER_DROP)
         }
@@ -136,8 +135,11 @@ class Game extends Component {
         })
     }
 
+    componentWillUnmount() {
+        clearTimeout(this.animationTimer)
+    }
+
     componentWillReceiveProps(newProps) {
-        console.log('get newprops', newProps)
         if (newProps.shouldCloseMenu) {
             this.setState({
                 menuOpen: false,
@@ -197,12 +199,12 @@ class Game extends Component {
             this.sound.play()
         }
 
-        setTimeout(() => {
+        this.animationTimer = setTimeout(() => {
             this.setState({
                 disabled: true,
             })
 
-            setTimeout(() => {
+            this.animationTimer = setTimeout(() => {
                 this._playAnimation()
             }, TOTAL_SEQUENCE_LENGTH - ANIMATION_LENGTH)
         }, ANIMATION_LENGTH)
