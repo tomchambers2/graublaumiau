@@ -167,6 +167,7 @@ class Story extends Component {
                 page: this.state.page - 1,
             })
             this._updateBackgroundSound(this.state.page - 1)
+            this._fadeInText()
         }
     }
 
@@ -177,6 +178,7 @@ class Story extends Component {
             })
             const newPage = this.state.page + 1
             this._updateBackgroundSound(newPage)
+            this._fadeInText()
         } else {
             this._goToMenu()
         }
@@ -205,6 +207,7 @@ class Story extends Component {
     }
 
     _fadeInText() {
+        this.state._textFade.setValue(0)
         Animated.timing(this.state._textFade, {
             toValue: 1,
             duration: TEXT_FADE_TIME,
@@ -320,84 +323,88 @@ class Story extends Component {
         }
     }
 
-                const styles = StyleSheet.create({
-                    endButton: {
-                        width: 94,
-                        height: 51,
-                    },
-                    clickArea: {
-                        position: 'absolute',
-                        zIndex: 100,
-                        backgroundColor: 'yellow',
-                    },
-                    spacer: {
-                        flex: 1,
-                    },
-                    mainWrapper: {
-                        flex: 1,
-                    },
-                    backgroundVideo: {
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        bottom: 0,
-                        right: 0,
-                    },
-                    interactionContainer: {
-                        flex: 1,
-                    },
-                    menuAndContent: {
-                        flexGrow: 1,
-                        flexDirection: 'row',
-                    },
-                    topMenu: {
-                        paddingLeft: 30,
-                        paddingTop: 20,
-                        paddingRight: 30,
-                        position: 'relative',
-                        zIndex: 10,
-                    },
-                    textBox: {
-                        position: 'absolute',
-                        left: 0,
-                        right: 0,
-                        bottom: 0,
-                        top: 0,
+    const ipadPro = window.width >= 2732
+    const sideMargin = ipadPro ? 30 : 15
+    const topMargin = ipadPro ? 20 : 10
 
-                        width: window.width,
-                        height: window.height,
+    const styles = StyleSheet.create({
+        endButton: {
+            width: 94,
+            height: 51,
+        },
+        clickArea: {
+            position: 'absolute',
+            zIndex: 100,
+            backgroundColor: 'yellow',
+        },
+        spacer: {
+            flex: 1,
+        },
+        mainWrapper: {
+            flex: 1,
+        },
+        backgroundVideo: {
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            bottom: 0,
+            right: 0,
+        },
+        interactionContainer: {
+            flex: 1,
+        },
+        menuAndContent: {
+            flexGrow: 1,
+            flexDirection: 'row',
+        },
+        topMenu: {
+            paddingLeft: sideMargin,
+            paddingTop: topMargin,
+            paddingRight: 30,
+            position: 'relative',
+            zIndex: 10,
+        },
+        textBox: {
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            bottom: 0,
+            top: 0,
 
-                        // width: 1366,
-                        // height: 1024,
+            width: window.width,
+            height: window.height,
 
-                        // width: 1024,
-                        // height: 768,
+            // width: 1366,
+            // height: 1024,
+
+            // width: 1024,
+            // height: 768,
 
 
-                        // backgroundColor: 'yellow'
-                    },
-                    navigationBar: {
-                        flexDirection: 'row',
-                        justifyContent: 'space-between',
-                        paddingLeft: 30,
-                        paddingRight: 30,
-                        paddingBottom: 20,
-                    },
-                    navigateLeftImage: {
-                        width: 49,
-                        height: 49,
-                    },
-                    navigateRightImage: {
-                        width: 49,
-                        height: 49,
-                    },
-                    playToggleImage: {
-                        width: 49,
-                        height: 49,
-                    },
-                    playButton: {
-                        marginTop: 18,
-                    },
-                })
+            // backgroundColor: 'yellow'
+        },
+        navigationBar: {
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            paddingLeft: sideMargin,
+            paddingRight: sideMargin,
+            paddingBottom: 20,
+        },
+        navigateLeftImage: {
+            width: 49,
+            height: 49,
+        },
+        navigateRightImage: {
+            width: 49,
+            height: 49,
+        },
+        playToggleImage: {
+            width: 49,
+            height: 49,
+        },
+        playButton: {
+            marginTop: 18,
+        },
+    })
 
                 export default Story

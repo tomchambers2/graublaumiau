@@ -52,6 +52,8 @@
 		F6B6EC801E38FF4200C190F7 /* 7_Kauz_Vorschau.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F6B6EC7F1E38FF4200C190F7 /* 7_Kauz_Vorschau.mp4 */; };
 		F6B6ECBF1E39124C00C190F7 /* LoadVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B6ECBD1E39124C00C190F7 /* LoadVideo.swift */; };
 		F6B6ECC21E39135000C190F7 /* LoadVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6B6ECC11E39135000C190F7 /* LoadVideoView.xib */; };
+		F6E1A3921E4DE4F30036DD47 /* story_background_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6E1A3901E4DE4F30036DD47 /* story_background_1.mp3 */; };
+		F6E1A3931E4DE4F30036DD47 /* story_background_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6E1A3911E4DE4F30036DD47 /* story_background_2.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -237,6 +239,48 @@
 			remoteGlobalIDString = C75D3D4D1D36714700B6F44B;
 			remoteInfo = RCTImageSequence;
 		};
+		F6E1A3AE1E4DE4F30036DD47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3D3C059A1DE3340900C268FA;
+			remoteInfo = yoga;
+		};
+		F6E1A3B01E4DE4F30036DD47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3D3C06751DE3340C00C268FA;
+			remoteInfo = "yoga-tvOS";
+		};
+		F6E1A3B21E4DE4F30036DD47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3D3CD9251DE5FBEC00167DC4;
+			remoteInfo = cxxreact;
+		};
+		F6E1A3B41E4DE4F30036DD47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3D3CD9321DE5FBEE00167DC4;
+			remoteInfo = "cxxreact-tvOS";
+		};
+		F6E1A3B61E4DE4F30036DD47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3D3CD90B1DE5FBD600167DC4;
+			remoteInfo = jschelpers;
+		};
+		F6E1A3B81E4DE4F30036DD47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3D3CD9181DE5FBD800167DC4;
+			remoteInfo = "jschelpers-tvOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -295,6 +339,8 @@
 		F6B6EC7F1E38FF4200C190F7 /* 7_Kauz_Vorschau.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 7_Kauz_Vorschau.mp4; sourceTree = "<group>"; };
 		F6B6ECBD1E39124C00C190F7 /* LoadVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadVideo.swift; path = Grau3/LoadVideo.swift; sourceTree = "<group>"; };
 		F6B6ECC11E39135000C190F7 /* LoadVideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoadVideoView.xib; path = Grau3/LoadVideoView.xib; sourceTree = "<group>"; };
+		F6E1A3901E4DE4F30036DD47 /* story_background_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = story_background_1.mp3; sourceTree = "<group>"; };
+		F6E1A3911E4DE4F30036DD47 /* story_background_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = story_background_2.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -441,6 +487,12 @@
 			children = (
 				146834041AC3E56700842450 /* libReact.a */,
 				F62892431E2A456F00081545 /* libReact-tvOS.a */,
+				F6E1A3AF1E4DE4F30036DD47 /* libyoga.a */,
+				F6E1A3B11E4DE4F30036DD47 /* libyoga.a */,
+				F6E1A3B31E4DE4F30036DD47 /* libcxxreact.a */,
+				F6E1A3B51E4DE4F30036DD47 /* libcxxreact.a */,
+				F6E1A3B71E4DE4F30036DD47 /* libjschelpers.a */,
+				F6E1A3B91E4DE4F30036DD47 /* libjschelpers.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -518,6 +570,8 @@
 				F62892701E2B879900081545 /* main_sound.mp3 */,
 				F62892721E2BBB9800081545 /* clap-808.wav */,
 				F62892741E2BC2D100081545 /* samp2.wav */,
+				F6E1A3901E4DE4F30036DD47 /* story_background_1.mp3 */,
+				F6E1A3911E4DE4F30036DD47 /* story_background_2.mp3 */,
 				F628926E1E2A4AEA00081545 /* reader1.mp3 */,
 				F62892761E2C1DA000081545 /* narration-3.mp3 */,
 				F62892771E2C1DA000081545 /* narration-2.mp3 */,
@@ -865,7 +919,7 @@
 		F62892431E2A456F00081545 /* libReact-tvOS.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = "libReact-tvOS.a";
+			path = libReact.a;
 			remoteRef = F62892421E2A456F00081545 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -904,6 +958,48 @@
 			remoteRef = F6DFC8401E3FD372001C2270 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		F6E1A3AF1E4DE4F30036DD47 /* libyoga.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libyoga.a;
+			remoteRef = F6E1A3AE1E4DE4F30036DD47 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F6E1A3B11E4DE4F30036DD47 /* libyoga.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libyoga.a;
+			remoteRef = F6E1A3B01E4DE4F30036DD47 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F6E1A3B31E4DE4F30036DD47 /* libcxxreact.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libcxxreact.a;
+			remoteRef = F6E1A3B21E4DE4F30036DD47 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F6E1A3B51E4DE4F30036DD47 /* libcxxreact.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libcxxreact.a;
+			remoteRef = F6E1A3B41E4DE4F30036DD47 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F6E1A3B71E4DE4F30036DD47 /* libjschelpers.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libjschelpers.a;
+			remoteRef = F6E1A3B61E4DE4F30036DD47 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F6E1A3B91E4DE4F30036DD47 /* libjschelpers.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libjschelpers.a;
+			remoteRef = F6E1A3B81E4DE4F30036DD47 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -918,10 +1014,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6E1A3931E4DE4F30036DD47 /* story_background_2.mp3 in Resources */,
 				F62892581E2A47E000081545 /* bg1.mp3 in Resources */,
 				F6B6ECC21E39135000C190F7 /* LoadVideoView.xib in Resources */,
 				F628927B1E2C1DA000081545 /* narration-2.mp3 in Resources */,
 				F628927C1E2C1DA000081545 /* narration-0.mp3 in Resources */,
+				F6E1A3921E4DE4F30036DD47 /* story_background_1.mp3 in Resources */,
 				F6B6EC731E38EFD700C190F7 /* loader.png in Resources */,
 				F628926F1E2A4AEA00081545 /* reader1.mp3 in Resources */,
 				F628927D1E2C1DA000081545 /* narration-1.mp3 in Resources */,
