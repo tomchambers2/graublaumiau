@@ -16,7 +16,7 @@ import Story from './Story'
 import Game from './Game'
 import Imprint from './Imprint'
 
-const override = 'Game'
+const override = null
 
 class GrauBlauMiau extends Component {
   constructor() {
