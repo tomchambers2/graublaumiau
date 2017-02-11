@@ -12,7 +12,6 @@ import {
 import colors from '../colors'
 import update from 'immutability-helper';
 import { Alert } from 'react-native'
-import Sound from 'react-native-sound';
 
 import email from '../api/email'
 import EmailDialog from './EmailDialog'
@@ -128,25 +127,10 @@ class Game extends Component {
     }
   }
 
-  componentDidMount() {
-    this.bg = new Sound('main_sound.mp3', Sound.MAIN_BUNDLE, () => {
-      if (!this.props.soundOn) {
-        this.bg.setVolume(0)
-      }
-      this.bg.setNumberOfLoops(-1)
-      this.bg.play()
-    })
-  }
-
   componentWillReceiveProps(newProps) {
     this.setState({
       soundOn: newProps.soundOn,
     })
-    if (!newProps.soundOn) {
-      this.bg.setVolume(0)
-    } else {
-      this.bg.setVolume(1)
-    }
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -158,7 +142,6 @@ class Game extends Component {
   }
 
   _goToMenu = () => {
-    this.bg.pause()
     this.props.navigator.resetTo({ id: 'MainMenu' })
   }
 

@@ -78,6 +78,7 @@ class Story extends Component {
         navigator: PropTypes.object.isRequired,
         soundOn: PropTypes.bool.isRequired,
         toggleSound: PropTypes.func.isRequired,
+        pauseBackgroundSound: PropTypes.func.isRequired,
     }
 
     constructor() {
@@ -93,6 +94,8 @@ class Story extends Component {
     }
 
     componentDidMount() {
+        this.props.pauseBackgroundSound()
+
         this.backgroundSound = sounds[soundFilenames[0]]
         this.narration = startingNarration
 

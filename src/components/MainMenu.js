@@ -14,8 +14,6 @@ import gameButton from '../assets/menu/game.png'
 
 import NavigationButton from './NavigationButton'
 
-import Sound from 'react-native-sound';
-
 import globalStyles from '../globalStyles'
 
 class MainMenu extends Component {
@@ -23,6 +21,7 @@ class MainMenu extends Component {
     navigator: PropTypes.object.isRequired,
     soundOn: PropTypes.bool.isRequired,
     toggleSound: PropTypes.func.isRequired,
+    playBackgroundSound: PropTypes.func.isRequired,
   }
 
   constructor(props) {
@@ -30,21 +29,7 @@ class MainMenu extends Component {
   }
 
   componentDidMount() {
-    this.bg = new Sound('main_sound.mp3', Sound.MAIN_BUNDLE, () => {
-      if (!this.props.soundOn) {
-        this.bg.setVolume(0)
-      }
-      this.bg.setNumberOfLoops(-1)
-      this.bg.play()
-    })
-  }
-
-  componentWillReceiveProps(newProps) {
-    if (!newProps.soundOn) {
-      this.bg.setVolume(0)
-    } else {
-      this.bg.setVolume(1)
-    }
+    this.props.playBackgroundSound()
   }
 
   goToPage = (id) => {
@@ -52,7 +37,6 @@ class MainMenu extends Component {
         const route = {
             id,
         }
-        this.bg.pause();
         this.props.navigator.push(route);
     }
   }

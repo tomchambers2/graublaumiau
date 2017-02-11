@@ -8,19 +8,22 @@ import {
   StyleSheet,
 } from 'react-native'
 
+import BackgroundSound from './BackgroundSound'
+
 import SplashScreen from './SplashScreen'
 import MainMenu from './MainMenu'
 import Story from './Story'
 import Game from './Game'
 import Imprint from './Imprint'
 
-const override = 'Game'
+const override = null
 
 class GrauBlauMiau extends Component {
   constructor() {
     super()
     this.state = {
       soundOn: true,
+      backgroundSoundPlaying: false,
       splashScreenDisplayed: override || false,
     }
   }
@@ -42,6 +45,8 @@ class GrauBlauMiau extends Component {
       navigator,
       soundOn: this.state.soundOn,
       toggleSound: this._toggleSound,
+      playBackgroundSound: this._playBackgroundSound,
+      pauseBackgroundSound: this._pauseBackgroundSound,
     }
     if (route.id === 'MainMenu') return <MainMenu {...props} />
     if (route.id === 'Story') return <Story {...props} />
@@ -55,14 +60,30 @@ class GrauBlauMiau extends Component {
     })
   }
 
+  _pauseBackgroundSound = () => {
+        this.setState({
+            backgroundSoundPlaying: false,
+        })
+  }
+
+  _playBackgroundSound = () => {
+        this.setState({
+            backgroundSoundPlaying: true,
+        })
+  }
+
   render() {
     return (
         <View style={styles.wrapper}>
             <StatusBar hidden />
+            <BackgroundSound
+                playing={this.state.backgroundSoundPlaying}
+                soundOn={this.state.soundOn}
+            />
             <Navigator
                 initialRoute={{
                     id: override || 'MainMenu',
-          }}
+                }}
                 renderScene={this._renderScene}
                 style={styles.wrapper}
             />
