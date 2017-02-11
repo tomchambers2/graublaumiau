@@ -7,6 +7,7 @@ import {
   ScrollView,
   Dimensions,
   TouchableWithoutFeedback,
+  Text,
 } from 'react-native'
 
 import colors from '../colors'
@@ -51,7 +52,6 @@ class Game extends Component {
 
     this.instanceCounter = 0
     this.instanceCreated = false
-    this.panResponders = []
 
     const panResponderStartHandler = () => true
     const panResponderGrantHandler = (gameObjectIndex) => {
@@ -75,7 +75,7 @@ class Game extends Component {
           const newGameObject = {
             id: this.instanceCounter,
             beingCreated: true,
-            gameObjectId: 0,
+            gameObjectId: gameObjectIndex,
             x: x - 300,
             y: y - 100,
             width: gameObjects[gameObjectIndex].size.width,
@@ -117,10 +117,12 @@ class Game extends Component {
       this._constrainObject(index, true)
     }
 
+    this.panResponders = []
+
     for (var i = 0; i < gameObjects.length; i++) {
-      this.panResponders[i] = PanResponder.create({
+      this.panResponders[gameObjects[i].gid] = PanResponder.create({
         onStartShouldSetPanResponder: panResponderStartHandler,
-        onPanResponderGrant: panResponderGrantHandler(i),
+        onPanResponderGrant: panResponderGrantHandler(gameObjects[i].gid),
         onPanResponderMove: panResponderMoveHandler,
         onPanResponderRelease: panResponderReleaseHandler,
       })
@@ -263,14 +265,15 @@ class Game extends Component {
       return (
           <View
               key={gameObject.gid}
-              style={styles.placeholder}
-              {...this.panResponders[i].panHandlers}
+              style={[styles.placeholder, {height: (120 / gameObject.size.width) * gameObject.size.height}]}
+              {...this.panResponders[gameObject.gid].panHandlers}
           >
               <Image
                   resizeMode={Image.resizeMode.contain}
                   source={gameObject.image}
-                  style={{ width: 120 }}
-              />
+                  style={{ width: 120, height: (120 / gameObject.size.width) * gameObject.size.height }}
+              >
+</Image>
           </View>
       )
     })
@@ -416,7 +419,7 @@ const styles = StyleSheet.create({
     marginTop: 15,
     marginBottom: 15,
     width: 120,
-    height: 150,
+    // height: 150,
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',

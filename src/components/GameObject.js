@@ -4,7 +4,6 @@ import {
     Image,
     TouchableHighlight,
     StyleSheet,
-    PanResponder,
     Animated,
 } from 'react-native'
 
@@ -56,55 +55,6 @@ class Game extends Component {
 
         this.lastShouldCloseMenu = false
 
-        // this.panResponder = PanResponder.create({
-        //     onStartShouldSetPanResponderCapture: (evt) => {
-        //         if (evt.nativeEvent.touches.length > 1) {
-        //             return false
-        //         }
-        //         return true
-        //     },
-        //     onMoveShouldSetPanResponder: (evt) => {
-        //         if (evt.nativeEvent.touches.length > 1) {
-        //             return false
-        //         }
-        //         return true
-        //     },
-        //     onPanResponderGrant: () => {
-        //         this.props.allowOpen()
-        //         this.wasLongPresssed = false
-        //         if (!this.state.menuOpen) {
-        //             this.objectPressTimer = setTimeout(() => {
-        //                 this.wasLongPresssed = true
-        //                 this._toggleMenu()
-        //             }, 400)
-        //         }
-        //         this.dragging = true
-        //     },
-        //     onPanResponderMove: (e, gestureState) => {
-        //         clearTimeout(this.objectPressTimer)
-        //         this.props.moveObject(this.props.index, gestureState.dx - this.lastMovement.x, gestureState.dy - this.lastMovement.y)
-        //         this.lastMovement = {
-        //             x: gestureState.dx,
-        //             y: gestureState.dy,
-        //         }
-        //     },
-        //     onPanResponderRelease: () => {
-        //         if (!this.wasLongPresssed) {
-        //             this.props.closeAllMenus()
-        //         }
-        //         clearTimeout(this.objectPressTimer)
-        //         this.setState({
-        //             dragging: false,
-        //         })
-        //         this.dragging = false
-        //         this.props.constrainObject(this.props.index)
-        //         this.lastMovement = {
-        //             x: 0,
-        //             y: 0,
-        //         }
-        //     },
-        // })
-
         this.state = {
             menuOpen: false,
             width: 201,
@@ -114,14 +64,6 @@ class Game extends Component {
     }
 
     componentWillMount() {
-        if (!this.props.beingCreated) {
-            this.dragging = false
-            this.init = true
-            this.animationTimer = setTimeout(() => {
-                this._playAnimation()
-            }, ANIMATION_DELAY_AFTER_DROP)
-        }
-
         this.setState({
             top: new Animated.Value(this.props.y),
             left: new Animated.Value(this.props.x),
@@ -129,6 +71,19 @@ class Game extends Component {
 
         this.gameObject = this.props.gameObjects.find((gameObject) => gameObject.gid === this.props.gameObjectId)
         this.gameObjectImage = this.gameObject.image
+
+        if (!this.props.beingCreated) {
+            this.dragging = false
+
+            if (this.gameObject.sequence && this.gameObject.sequence.length) {
+                this.init = true
+                this.animationTimer = setTimeout(() => {
+                    this._playAnimation()
+                }, ANIMATION_DELAY_AFTER_DROP)
+            }
+
+        }
+
 
         this.sound = new Sound(this.props.data.soundName, Sound.MAIN_BUNDLE, (err) => {
         })
