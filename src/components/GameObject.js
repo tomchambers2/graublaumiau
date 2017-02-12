@@ -84,7 +84,6 @@ class Game extends Component {
 
         }
 
-
         this.sound = new Sound(this.props.data.soundName, Sound.MAIN_BUNDLE, (err) => {
         })
     }

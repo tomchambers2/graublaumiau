@@ -233,14 +233,6 @@ class ZoomableImage extends Component {
         const sequenceOpacity = this.props.sequencePaused ? 0 : 1
         const imageOpacity = this.props.sequencePaused ? 1 : 0
 
-        let sequence = (
-            <ImageSequence
-                images={this.props.sequence}
-                resizeMode={Image.resizeMode.contain}
-                style={[settings, { opacity: sequenceOpacity }]}
-            />
-        )
-
         const image = (
             <Image
                 source={this.props.source}
@@ -248,7 +240,13 @@ class ZoomableImage extends Component {
             />
         )
 
-        sequence = this.props.sequence && !this.props.sequenceDisabled ? sequence : null
+        const sequence = this.props.sequence && !this.props.sequenceDisabled ? (
+            <ImageSequence
+                images={this.props.sequence}
+                resizeMode={Image.resizeMode.contain}
+                style={[settings, { opacity: sequenceOpacity }]}
+            />
+        ) : null
 
         return (
             <View

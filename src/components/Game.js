@@ -54,7 +54,7 @@ class Game extends Component {
     this.instanceCreated = false
 
     const panResponderStartHandler = () => true
-    const panResponderGrantHandler = (gameObjectIndex) => {
+    const panResponderGrantHandler = (index, gameObjectId) => {
       return (event) => {
         this._closeAllMenus()
         event.persist()
@@ -75,13 +75,13 @@ class Game extends Component {
           const newGameObject = {
             id: this.instanceCounter,
             beingCreated: true,
-            gameObjectId: gameObjectIndex,
+            gameObjectId: gameObjectId,
             x: x - 300,
             y: y - 100,
-            width: gameObjects[gameObjectIndex].size.width,
-            height: gameObjects[gameObjectIndex].size.height,
+            width: gameObjects[index].size.width,
+            height: gameObjects[index].size.height,
             dragging: true,
-            data: gameObjects[gameObjectIndex],
+            data: gameObjects[index],
           }
           this.setState({
             gameObjectInstances: this.state.gameObjectInstances.concat(newGameObject),
@@ -122,7 +122,7 @@ class Game extends Component {
     for (var i = 0; i < gameObjects.length; i++) {
       this.panResponders[gameObjects[i].gid] = PanResponder.create({
         onStartShouldSetPanResponder: panResponderStartHandler,
-        onPanResponderGrant: panResponderGrantHandler(gameObjects[i].gid),
+        onPanResponderGrant: panResponderGrantHandler(i, gameObjects[i].gid),
         onPanResponderMove: panResponderMoveHandler,
         onPanResponderRelease: panResponderReleaseHandler,
       })
