@@ -23,7 +23,7 @@ const email = {
         RNMail.mail({
           subject: 'Ein Bild für Sie',
           recipients: [],
-          ccRecipients: ['post@alicekolb.ch'],
+          bccRecipients: ['post@alicekolb.ch'],
           body: body,
           attachment: {
             path: uri,  // The absolute path of the file from which to read data.
