@@ -37,7 +37,6 @@
 		BEBEC851BB200785069B15A2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B1F9CF6859B10F204224A22 /* QuartzCore.framework */; };
 		D92AF6CC9B9B4ECA4445A759 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 543C49D6FAACE25E80FC9690 /* AssetsLibrary.framework */; };
 		EFD9FDCA6F1C47B31EBB3EED /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDA62BFB59A632D69C5B8EA /* SystemConfiguration.framework */; };
-		F62892751E2BC2D100081545 /* samp2.wav in Resources */ = {isa = PBXBuildFile; fileRef = F62892741E2BC2D100081545 /* samp2.wav */; };
 		F62892811E2CF00B00081545 /* loading-2048.gif in Resources */ = {isa = PBXBuildFile; fileRef = F62892801E2CF00B00081545 /* loading-2048.gif */; };
 		F62892851E2CF67800081545 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F62892841E2CF67800081545 /* LaunchScreen.storyboard */; };
 		F6A97E891E2D214300C0372F /* libRNMail.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6A97E841E2D212E00C0372F /* libRNMail.a */; };
@@ -373,7 +372,6 @@
 		CB0835FC0EF849BEA7B1253F /* RNFS.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFS.xcodeproj; path = "../node_modules/react-native-fs/RNFS.xcodeproj"; sourceTree = "<group>"; };
 		DCDA62BFB59A632D69C5B8EA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		ED6C88AD56B07764F07A3A4E /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BuddyBuildSDK.framework; sourceTree = "<group>"; };
-		F62892741E2BC2D100081545 /* samp2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = samp2.wav; sourceTree = "<group>"; };
 		F62892801E2CF00B00081545 /* loading-2048.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "loading-2048.gif"; sourceTree = "<group>"; };
 		F62892841E2CF67800081545 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Grau3/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F6A97E6A1E2D212E00C0372F /* RNMail.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNMail.xcodeproj; path = "../node_modules/react-native-mail/RNMail.xcodeproj"; sourceTree = "<group>"; };
@@ -666,7 +664,6 @@
 				F6B4E7F21E525C8700494AE3 /* icon_dog.png */,
 				F6B4E7F31E525C8700494AE3 /* dog.png */,
 				F6B4E7F41E525C8700494AE3 /* dog@2x.png */,
-				F62892741E2BC2D100081545 /* samp2.wav */,
 				13B07FAE1A68108700A75B9A /* Grau3 */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* Grau3Tests */,
@@ -1236,7 +1233,6 @@
 				F6F291751E53258F0037A2D2 /* mhmmm2.mp3 in Resources */,
 				F6B4E7FC1E53016000494AE3 /* story-background-sound-2.mp3 in Resources */,
 				F6B4E8141E5309E400494AE3 /* narration-13.mp3 in Resources */,
-				F62892751E2BC2D100081545 /* samp2.wav in Resources */,
 				F6F291791E53258F0037A2D2 /* hmmm2.mp3 in Resources */,
 				F6F2918F1E53258F0037A2D2 /* ambulanz.mp3 in Resources */,
 				F6F2918E1E53258F0037A2D2 /* auto-hupen.mp3 in Resources */,
