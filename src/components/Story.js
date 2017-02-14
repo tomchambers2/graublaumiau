@@ -93,6 +93,8 @@ class Story extends Component {
             totalPages: 17,
             currentBackgroundSound: soundFilenames[0],
         }
+
+        this.playingSounds = {}
     }
 
     componentDidMount() {
@@ -236,8 +238,13 @@ class Story extends Component {
 
     _playSoundClip = (soundName) => {
         return () => {
+            if (this.playingSounds[soundName]) return
             const sound = new Sound(soundName, Sound.MAIN_BUNDLE, (error) => {
-                sound.play()
+                this.playingSounds[soundName] = true
+                sound.play(() => {
+                    console.log('done')
+                    this.playingSounds[soundName] = false
+                })
             })
         }
     }
@@ -253,10 +260,12 @@ class Story extends Component {
             return (
                 <TouchableHighlight
                     key={area.key}
+                    underlayColor="rgba(255,255,255,0)"
                     onPress={this._playSoundClip(area.soundName)}
                     style={[styles.clickArea, { width, height, top, left }]}
                 >
-                    <Text>{area.soundName}</Text>
+                    <View></View>
+                    {/* <Text>{area.soundName}</Text> */}
                 </TouchableHighlight>
             )
             })
