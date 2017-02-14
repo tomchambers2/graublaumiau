@@ -6,7 +6,19 @@ var gameObjects = []
 var gidCounter = 0
 
 var timers = {}
-timers.beine = { play: 3, pause: 3 }
+timers.baum = { play: 3, minPause: 10, maxPause: 20 }
+timers.beine = { play: 3, minPause: 10, maxPause: 20 }
+timers.feuer = { play: 3, minPause: 10, maxPause: 20 }
+timers.fleck_greune = { play: 3, minPause: 10, maxPause: 20 }
+timers.milo_walking = { play: 3, minPause: 10, maxPause: 20 }
+timers.pflanze = { play: 3, minPause: 10, maxPause: 20 }
+timers.pflanze_bluete = { play: 3, minPause: 10, maxPause: 20 }
+timers.wabber = { play: 3, minPause: 10, maxPause: 20 }
+
+timers.punkte = { play: 3, pause: 0 }
+timers.katze_still = { play: 3, pause: 7 }
+timers.katze_aufstehen = { play: 3, pause: 20 }
+
 
 fs.readdir('./images', (err, files) => {
     if (err) return console.error(err)
@@ -44,8 +56,10 @@ fs.readdir('./images', (err, files) => {
             gid: gidCounter,
             name: name,
             soundName: '',
-            playTime: timers[name] && timers[name].play || 3,
-            pauseTime: timers[name] && timers[name].pause || 7,
+            playTime: timers[name] && timers[name].play,
+            pauseTime: timers[name] && timers[name].pause,
+            minPause: timers[name] && timers[name].minPause,
+            maxPause: timers[name] && timers[name].maxPause,
         }
         gidCounter++
 
