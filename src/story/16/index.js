@@ -9,7 +9,7 @@ const page = {
           top: 2,
           width: 17,
           height: 15,
-          soundName: 'page17-rauch.mp3',
+          soundName: 'rauch.mp3',
       },
       {
           key: 1,

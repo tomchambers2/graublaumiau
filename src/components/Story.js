@@ -244,7 +244,6 @@ class Story extends Component {
             const sound = new Sound(soundName, Sound.MAIN_BUNDLE, (error) => {
                 this.playingSounds[soundName] = true
                 sound.play(() => {
-                    console.log('done')
                     this.playingSounds[soundName] = false
                 })
             })
@@ -266,7 +265,7 @@ class Story extends Component {
                     onPress={this._playSoundClip(area.soundName)}
                     style={[styles.clickArea, { width, height, top, left }]}
                 >
-                    <View></View>
+                    <View/>
                     {/* <Text>{area.soundName}</Text> */}
                 </TouchableHighlight>
             )

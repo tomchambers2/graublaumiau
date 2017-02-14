@@ -9,7 +9,7 @@ const page = {
           top: 31,
           width: 24,
           height: 12,
-          soundName: 'fleck-elektro-2.mp3',
+          soundName: 'fleck1.mp3',
       },
       {
           key: 1,
