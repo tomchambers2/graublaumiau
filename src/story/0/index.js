@@ -1,9 +1,7 @@
 import video from './video-0.mp4'
-import text from './text.png'
 
 const page = {
     video,
-    text,
     clickMap: [
         {
             key: 0,
