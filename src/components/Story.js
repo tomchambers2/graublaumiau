@@ -350,8 +350,8 @@ const styles = StyleSheet.create({
     clickArea: {
         position: 'absolute',
         zIndex: 100,
-        opacity: 0.5,
-        backgroundColor: 'yellow',
+        // opacity: 0.5,
+        // backgroundColor: 'yellow',
     },
     spacer: {
         flex: 1,
