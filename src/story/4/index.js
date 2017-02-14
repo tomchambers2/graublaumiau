@@ -4,6 +4,7 @@ const page = {
   video,
   clickMap: [
       {
+          key: 0,
           left: 53,
           top: 20,
           width: 13,
@@ -11,6 +12,7 @@ const page = {
           soundName: 'mhmmm1.mp3',
       },
       {
+          key: 1,
           left: 69,
           top: 17,
           width: 20,
@@ -18,6 +20,7 @@ const page = {
           soundName: 'oooch1.mp3',
       },
       {
+          key: 2,
           left: 91,
           top: 22,
           width: 8,
@@ -25,6 +28,7 @@ const page = {
           soundName: 'shaker2.mp3',
       },
       {
+          key: 3,
           left: 71,
           top: 39,
           width: 18,

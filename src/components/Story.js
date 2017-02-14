@@ -252,7 +252,7 @@ class Story extends Component {
             const height = (area.height / 100) * window.height
             return (
                 <TouchableHighlight
-                    key={area.soundName}
+                    key={area.key}
                     onPress={this._playSoundClip(area.soundName)}
                     style={[styles.clickArea, { width, height, top, left }]}
                 >
@@ -350,6 +350,7 @@ const styles = StyleSheet.create({
     clickArea: {
         position: 'absolute',
         zIndex: 100,
+        opacity: 0.5,
         backgroundColor: 'yellow',
     },
     spacer: {

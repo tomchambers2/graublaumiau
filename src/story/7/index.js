@@ -4,6 +4,7 @@ const page = {
   video,
   clickMap: [
       {
+          key: 0,
           left: 15,
           top: 31,
           width: 24,
@@ -11,6 +12,7 @@ const page = {
           soundName: 'fleck-elektro-2.mp3',
       },
       {
+          key: 1,
           left: 41,
           top: 13,
           width: 23,
@@ -18,6 +20,7 @@ const page = {
           soundName: 'blubber.mp3',
       },
       {
+          key: 2,
           left: 76,
           top: 20,
           width: 23,
@@ -25,6 +28,7 @@ const page = {
           soundName: 'fleck3.mp3',
       },
       {
+          key: 3,
           left: 1,
           top: 61,
           width: 18,
@@ -32,6 +36,7 @@ const page = {
           soundName: 'fleck2.mp3',
       },
       {
+          key: 4,
           left: 23,
           top: 70,
           width: 23,
@@ -39,6 +44,7 @@ const page = {
           soundName: 'schritte.mp3',
       },
       {
+          key: 5,
           left: 54,
           top: 69,
           width: 23,

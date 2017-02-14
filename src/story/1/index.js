@@ -6,6 +6,7 @@ const page = {
   text,
   clickMap: [
       {
+          key: 0,
           left: 8,
           top: 4,
           width: 15,
@@ -13,6 +14,7 @@ const page = {
           soundName: 'hmmm2.mp3',
       },
       {
+          key: 1,
           left: 16,
           top: 63,
           width: 17,
@@ -20,6 +22,7 @@ const page = {
           soundName: 'rauch.mp3',
       },
       {
+          key: 2,
           left: 36,
           top: 73,
           width: 13,
@@ -27,6 +30,7 @@ const page = {
           soundName: 'katze3.mp3',
       },
       {
+          key: 3,
           left: 70,
           top: 63,
           width: 18,
