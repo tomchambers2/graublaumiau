@@ -7,6 +7,7 @@ import {
   ScrollView,
   Dimensions,
   TouchableWithoutFeedback,
+  Text,
 } from 'react-native'
 
 import colors from '../colors'
@@ -261,17 +262,23 @@ class Game extends Component {
 
   render() {
     const renderGameObjects = gameObjects.map((gameObject, i) => {
+        const ratio = (120 / gameObject.size.width)
+        const height = ratio > 1 ? gameObject.size.height : ratio * gameObject.size.height
       return (
           <View
               key={gameObject.gid}
-              style={[styles.placeholder, {height: (120 / gameObject.size.width) * gameObject.size.height}]}
+              style={[styles.placeholder, {height: height }]}
               {...this.panResponders[gameObject.gid].panHandlers}
           >
               <Image
                   resizeMode={Image.resizeMode.contain}
                   source={gameObject.icon}
-                  style={{ width: 120, height: (120 / gameObject.size.width) * gameObject.size.height }}
-              />
+                  style={{ width: 120, height }}
+              >
+                  {/* <Text>height: {height}</Text>
+                <Text>width: {gameObject.size.width}</Text>
+                  <Text>ratio: {(120 / gameObject.size.width)}</Text> */}
+              </Image>
           </View>
       )
     })
@@ -421,5 +428,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+
+    // backgroundColor: 'yellow',
   },
 })
