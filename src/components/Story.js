@@ -201,6 +201,7 @@ class Story extends Component {
             if (soundFilenames[1] !== this.state.currentBackgroundSound) {
                 this.backgroundSound.pause()
                 this.backgroundSound = sounds[soundFilenames[1]]
+                this.backgroundSound.setNumberOfLoops(-1);
                 this.backgroundSound.play()
                 this.setState({
                     currentBackgroundSound: soundFilenames[1],
@@ -210,6 +211,7 @@ class Story extends Component {
             if (soundFilenames[0] !== this.state.currentBackgroundSound) {
                 this.backgroundSound.pause()
                 this.backgroundSound = sounds[soundFilenames[0]]
+                this.backgroundSound.setNumberOfLoops(-1);
                 this.backgroundSound.play()
                 this.setState({
                     currentBackgroundSound: soundFilenames[0],
