@@ -4,9 +4,11 @@ import android.app.Application;
 import android.util.Log;
 
 import com.facebook.react.ReactApplication;
+import com.brentvatne.react.ReactVideoPackage;
+import com.chirag.RNMail.RNMail;
+import com.rnfs.RNFSPackage;
 import dk.madslee.imageSequence.RCTImageSequencePackage;
 import fr.greweb.reactnativeviewshot.RNViewShotPackage;
-import com.brentvatne.react.ReactVideoPackage;
 import com.zmxv.RNSound.RNSoundPackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
@@ -29,9 +31,11 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new ReactVideoPackage(),
+            new RNMail(),
+            new RNFSPackage(),
             new RCTImageSequencePackage(),
             new RNViewShotPackage(),
-            new ReactVideoPackage(),
             new RNSoundPackage()
       );
     }

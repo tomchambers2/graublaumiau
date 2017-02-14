@@ -11,6 +11,7 @@
     "immutability-helper": "2.1.1",
     "react": "15.4.0-rc.4",
     "react-native": "0.41.1",
+    "react-native-fs": "^2.1.0-rc.1",
     "react-native-image-sequence": "^0.1.8",
     "react-native-mail": "3.0.1",
     "react-native-sound": "github:veddermatic/react-native-sound",

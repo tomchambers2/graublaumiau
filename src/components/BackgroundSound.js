@@ -9,7 +9,7 @@ class BackgroundSound extends Component {
     }
 
     componentDidMount() {
-        this.bg = new Sound('main_sound.mp3', Sound.MAIN_BUNDLE, () => {
+        this.bg = new Sound('main-background-sound.mp3', Sound.MAIN_BUNDLE, () => {
           if (!this.props.soundOn) {
             this.bg.setVolume(0)
           }

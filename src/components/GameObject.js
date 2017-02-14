@@ -57,20 +57,23 @@ class Game extends Component {
 
         this.state = {
             menuOpen: false,
-            width: 201,
-            height: 300,
+            width: null,
+            height: null,
             disabled: true,
         }
     }
 
     componentWillMount() {
-        this.setState({
-            top: new Animated.Value(this.props.y),
-            left: new Animated.Value(this.props.x),
-        })
 
         this.gameObject = this.props.gameObjects.find((gameObject) => gameObject.gid === this.props.gameObjectId)
         this.gameObjectImage = this.gameObject.image
+
+        this.setState({
+            top: new Animated.Value(this.props.y),
+            left: new Animated.Value(this.props.x),
+            width: this.gameObject.size.width,
+            height: this.gameObject.size.height,
+        })
 
         if (!this.props.beingCreated) {
             this.dragging = false
@@ -205,25 +208,23 @@ class Game extends Component {
                         style={[ styles.gameObject, { top: this.state.top, left: this.state.left, width: this.state.width, height: this.state.height } ]}
                     >
                             {menu}
-                            {/* <View {...this.panResponder.panHandlers}> */}
-                                <ZoomableImage
-                                    imageHeight={300}
-                                    imageWidth={200}
-                                    allowOpen={this.props.allowOpen}
-                                    toggleMenu={this._toggleMenu}
-                                    closeAllMenus={this.props.closeAllMenus}
-                                    turnOnDragging={this._turnOnDragging}
-                                    turnOffDragging={this._turnOffDragging}
-                                    constrainObject={this.props.constrainObject}
-                                    index={this.props.index}
-                                    moveObject={this.props.moveObject}
-                                    sequence={this.gameObject.sequence}
-                                    sequenceDisabled={!this.init}
-                                    sequencePaused={this.state.disabled}
-                                    source={this.gameObject.image}
-                                    style={[styles.inner, { width: this.state.width, height: this.state.height }]}
-                                />
-                            {/* </View> */}
+                            <ZoomableImage
+                                imageHeight={this.gameObject.size.height}
+                                imageWidth={this.gameObject.size.width}
+                                allowOpen={this.props.allowOpen}
+                                toggleMenu={this._toggleMenu}
+                                closeAllMenus={this.props.closeAllMenus}
+                                turnOnDragging={this._turnOnDragging}
+                                turnOffDragging={this._turnOffDragging}
+                                constrainObject={this.props.constrainObject}
+                                index={this.props.index}
+                                moveObject={this.props.moveObject}
+                                sequence={this.gameObject.sequence}
+                                sequenceDisabled={!this.init}
+                                sequencePaused={this.state.disabled}
+                                source={this.gameObject.image}
+                                style={[styles.inner, { width: this.state.width, height: this.state.height }]}
+                            />
                         </Animated.View>
                     )
                 }

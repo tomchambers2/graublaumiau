@@ -126,9 +126,11 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-video')
+    compile project(':react-native-mail')
+    compile project(':react-native-fs')
     compile project(':react-native-image-sequence')
     compile project(':react-native-view-shot')
-    compile project(':react-native-video')
     compile project(':react-native-sound')
     compile fileTree(dir: "libs", include: ["*.jar"])
     compile "com.android.support:appcompat-v7:23.0.1"

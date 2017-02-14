@@ -7,7 +7,6 @@ import {
   ScrollView,
   Dimensions,
   TouchableWithoutFeedback,
-  Text,
 } from 'react-native'
 
 import colors from '../colors'
@@ -270,10 +269,9 @@ class Game extends Component {
           >
               <Image
                   resizeMode={Image.resizeMode.contain}
-                  source={gameObject.image}
+                  source={gameObject.icon}
                   style={{ width: 120, height: (120 / gameObject.size.width) * gameObject.size.height }}
-              >
-</Image>
+              />
           </View>
       )
     })

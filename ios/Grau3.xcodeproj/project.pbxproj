@@ -23,11 +23,12 @@
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		1820D91AD4EC481FB599815E /* libRNSound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A21F64DF953E4105806388CC /* libRNSound.a */; };
+		18B9E8A21DE64EECA50373FF /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD145C3622B54126AF1F42FF /* libRCTVideo.a */; };
 		201B672076A77544A7E48B32 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF00242B9F7A07B6D66D1A7D /* CoreText.framework */; };
 		30E7C69D930E725E155B474B /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B355F442FF84F218BE8E8552 /* CoreTelephony.framework */; };
 		5E1681E824CA4413B3B2606E /* libRCTImageSequence.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6089B0C4A765424FA1A10096 /* libRCTImageSequence.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
-		620844FBD87344029E41C531 /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 632C0EA3751248FA93CA4385 /* libRCTVideo.a */; };
+		6227FD4633A44DEDA50E9F0F /* libRNFS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E224A12DEF4C078FFE299E /* libRNFS.a */; };
 		750C9950CC171A12B22173C3 /* BuddyBuildSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED6C88AD56B07764F07A3A4E /* BuddyBuildSDK.framework */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		95E92088D308A2E7BF6CEEC4 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A55ACCA03365931084D87989 /* CoreMedia.framework */; };
@@ -41,19 +42,36 @@
 		F62892711E2B879900081545 /* main_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F62892701E2B879900081545 /* main_sound.mp3 */; };
 		F62892731E2BBB9800081545 /* clap-808.wav in Resources */ = {isa = PBXBuildFile; fileRef = F62892721E2BBB9800081545 /* clap-808.wav */; };
 		F62892751E2BC2D100081545 /* samp2.wav in Resources */ = {isa = PBXBuildFile; fileRef = F62892741E2BC2D100081545 /* samp2.wav */; };
-		F628927A1E2C1DA000081545 /* narration-3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F62892761E2C1DA000081545 /* narration-3.mp3 */; };
-		F628927B1E2C1DA000081545 /* narration-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F62892771E2C1DA000081545 /* narration-2.mp3 */; };
-		F628927C1E2C1DA000081545 /* narration-0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F62892781E2C1DA000081545 /* narration-0.mp3 */; };
-		F628927D1E2C1DA000081545 /* narration-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F62892791E2C1DA000081545 /* narration-1.mp3 */; };
 		F62892811E2CF00B00081545 /* loading-2048.gif in Resources */ = {isa = PBXBuildFile; fileRef = F62892801E2CF00B00081545 /* loading-2048.gif */; };
 		F62892851E2CF67800081545 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F62892841E2CF67800081545 /* LaunchScreen.storyboard */; };
 		F6A97E891E2D214300C0372F /* libRNMail.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6A97E841E2D212E00C0372F /* libRNMail.a */; };
+		F6B4E7F51E525C8700494AE3 /* icon_dog.png in Resources */ = {isa = PBXBuildFile; fileRef = F6B4E7F21E525C8700494AE3 /* icon_dog.png */; };
+		F6B4E7F61E525C8700494AE3 /* dog.png in Resources */ = {isa = PBXBuildFile; fileRef = F6B4E7F31E525C8700494AE3 /* dog.png */; };
+		F6B4E7F71E525C8700494AE3 /* dog@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F6B4E7F41E525C8700494AE3 /* dog@2x.png */; };
+		F6B4E7FC1E53016000494AE3 /* story-background-sound-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6B4E7F91E53016000494AE3 /* story-background-sound-2.mp3 */; };
+		F6B4E7FD1E53016000494AE3 /* main-background-sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6B4E7FA1E53016000494AE3 /* main-background-sound.mp3 */; };
+		F6B4E7FF1E5308FE00494AE3 /* narration-title.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6B4E7FE1E5308FE00494AE3 /* narration-title.mp3 */; };
+		F6B4E8111E5309E400494AE3 /* narration-16.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6B4E8001E5309E400494AE3 /* narration-16.mp3 */; };
+		F6B4E8121E5309E400494AE3 /* narration-15.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6B4E8011E5309E400494AE3 /* narration-15.mp3 */; };
+		F6B4E8131E5309E400494AE3 /* narration-14.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6B4E8021E5309E400494AE3 /* narration-14.mp3 */; };
+		F6B4E8141E5309E400494AE3 /* narration-13.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6B4E8031E5309E400494AE3 /* narration-13.mp3 */; };
+		F6B4E8151E5309E400494AE3 /* narration-12.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6B4E8041E5309E400494AE3 /* narration-12.mp3 */; };
+		F6B4E8161E5309E400494AE3 /* narration-11.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6B4E8051E5309E400494AE3 /* narration-11.mp3 */; };
+		F6B4E8171E5309E400494AE3 /* narration-10.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6B4E8061E5309E400494AE3 /* narration-10.mp3 */; };
+		F6B4E8181E5309E400494AE3 /* narration-9.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6B4E8071E5309E400494AE3 /* narration-9.mp3 */; };
+		F6B4E8191E5309E400494AE3 /* narration-8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6B4E8081E5309E400494AE3 /* narration-8.mp3 */; };
+		F6B4E81A1E5309E400494AE3 /* narration-7.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6B4E8091E5309E400494AE3 /* narration-7.mp3 */; };
+		F6B4E81B1E5309E400494AE3 /* narration-6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6B4E80A1E5309E400494AE3 /* narration-6.mp3 */; };
+		F6B4E81C1E5309E400494AE3 /* narration-5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6B4E80B1E5309E400494AE3 /* narration-5.mp3 */; };
+		F6B4E81D1E5309E400494AE3 /* narration-4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6B4E80C1E5309E400494AE3 /* narration-4.mp3 */; };
+		F6B4E81E1E5309E400494AE3 /* narration-3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6B4E80D1E5309E400494AE3 /* narration-3.mp3 */; };
+		F6B4E81F1E5309E400494AE3 /* narration-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6B4E80E1E5309E400494AE3 /* narration-2.mp3 */; };
+		F6B4E8201E5309E400494AE3 /* narration-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6B4E80F1E5309E400494AE3 /* narration-1.mp3 */; };
+		F6B4E8211E5309E400494AE3 /* narration-0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6B4E8101E5309E400494AE3 /* narration-0.mp3 */; };
 		F6B6EC731E38EFD700C190F7 /* loader.png in Resources */ = {isa = PBXBuildFile; fileRef = F6B6EC721E38EFD700C190F7 /* loader.png */; };
 		F6B6EC801E38FF4200C190F7 /* 7_Kauz_Vorschau.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F6B6EC7F1E38FF4200C190F7 /* 7_Kauz_Vorschau.mp4 */; };
 		F6B6ECBF1E39124C00C190F7 /* LoadVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B6ECBD1E39124C00C190F7 /* LoadVideo.swift */; };
 		F6B6ECC21E39135000C190F7 /* LoadVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6B6ECC11E39135000C190F7 /* LoadVideoView.xib */; };
-		F6E1A3921E4DE4F30036DD47 /* story_background_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6E1A3901E4DE4F30036DD47 /* story_background_1.mp3 */; };
-		F6E1A3931E4DE4F30036DD47 /* story_background_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6E1A3911E4DE4F30036DD47 /* story_background_2.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,13 +201,6 @@
 			remoteGlobalIDString = 2D2A287B1D9B048500D4039D;
 			remoteInfo = "RCTText-tvOS";
 		};
-		F628923A1E2A456F00081545 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D6B6C21E81694005A12DD420 /* RCTVideo.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = RCTVideo;
-		};
 		F628923E1E2A456F00081545 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */;
@@ -231,6 +242,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 46FEDE8A1AFF192F00D3261C;
 			remoteInfo = RNMailTests;
+		};
+		F6B4E7EC1E52346C00494AE3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CB0835FC0EF849BEA7B1253F /* RNFS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F12AFB9B1ADAF8F800E0535D;
+			remoteInfo = RNFS;
 		};
 		F6DFC8401E3FD372001C2270 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -281,6 +299,13 @@
 			remoteGlobalIDString = 3D3CD9181DE5FBD800167DC4;
 			remoteInfo = "jschelpers-tvOS";
 		};
+		F6F291401E5313640037A2D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A7DA7E88E64E4294A50340BA /* RCTVideo.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RCTVideo;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -304,11 +329,11 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		2FEC0A30DD234B73954F37F8 /* RCTImageSequence.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTImageSequence.xcodeproj; path = "../node_modules/react-native-image-sequence/ios/RCTImageSequence.xcodeproj"; sourceTree = "<group>"; };
 		3068557CC3B44F2885CB090F /* libRNViewShot.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNViewShot.a; sourceTree = "<group>"; };
+		49E224A12DEF4C078FFE299E /* libRNFS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFS.a; sourceTree = "<group>"; };
 		4F9422E536B341DBDDB09772 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		543C49D6FAACE25E80FC9690 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		6089B0C4A765424FA1A10096 /* libRCTImageSequence.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTImageSequence.a; sourceTree = "<group>"; };
-		632C0EA3751248FA93CA4385 /* libRCTVideo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTVideo.a; sourceTree = "<group>"; };
 		6530CD3953E5434790AAE50F /* RNSound.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSound.xcodeproj; path = "../node_modules/react-native-sound/RNSound.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		7B1F9CF6859B10F204224A22 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -316,10 +341,12 @@
 		95298036B23A05CE4367B6DF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A21F64DF953E4105806388CC /* libRNSound.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSound.a; sourceTree = "<group>"; };
 		A55ACCA03365931084D87989 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		A7DA7E88E64E4294A50340BA /* RCTVideo.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTVideo.xcodeproj; path = "../node_modules/react-native-video/ios/RCTVideo.xcodeproj"; sourceTree = "<group>"; };
+		AD145C3622B54126AF1F42FF /* libRCTVideo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTVideo.a; sourceTree = "<group>"; };
 		B07E064B64974C998598D032 /* RNViewShot.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNViewShot.xcodeproj; path = "../node_modules/react-native-view-shot/ios/RNViewShot.xcodeproj"; sourceTree = "<group>"; };
 		B355F442FF84F218BE8E8552 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		BF00242B9F7A07B6D66D1A7D /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
-		D6B6C21E81694005A12DD420 /* RCTVideo.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTVideo.xcodeproj; path = "../node_modules/react-native-video/RCTVideo.xcodeproj"; sourceTree = "<group>"; };
+		CB0835FC0EF849BEA7B1253F /* RNFS.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFS.xcodeproj; path = "../node_modules/react-native-fs/RNFS.xcodeproj"; sourceTree = "<group>"; };
 		DCDA62BFB59A632D69C5B8EA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		ED6C88AD56B07764F07A3A4E /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BuddyBuildSDK.framework; sourceTree = "<group>"; };
 		F62892571E2A47E000081545 /* bg1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bg1.mp3; sourceTree = "<group>"; };
@@ -327,20 +354,37 @@
 		F62892701E2B879900081545 /* main_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = main_sound.mp3; sourceTree = "<group>"; };
 		F62892721E2BBB9800081545 /* clap-808.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "clap-808.wav"; sourceTree = "<group>"; };
 		F62892741E2BC2D100081545 /* samp2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = samp2.wav; sourceTree = "<group>"; };
-		F62892761E2C1DA000081545 /* narration-3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "narration-3.mp3"; sourceTree = "<group>"; };
-		F62892771E2C1DA000081545 /* narration-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "narration-2.mp3"; sourceTree = "<group>"; };
-		F62892781E2C1DA000081545 /* narration-0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "narration-0.mp3"; sourceTree = "<group>"; };
-		F62892791E2C1DA000081545 /* narration-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "narration-1.mp3"; sourceTree = "<group>"; };
 		F62892801E2CF00B00081545 /* loading-2048.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "loading-2048.gif"; sourceTree = "<group>"; };
 		F62892841E2CF67800081545 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Grau3/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F6A97E6A1E2D212E00C0372F /* RNMail.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNMail.xcodeproj; path = "../node_modules/react-native-mail/RNMail.xcodeproj"; sourceTree = "<group>"; };
+		F6B4E7F21E525C8700494AE3 /* icon_dog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_dog.png; path = ../src/assets/game_objects/images/icon_dog.png; sourceTree = "<group>"; };
+		F6B4E7F31E525C8700494AE3 /* dog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dog.png; path = ../src/assets/game_objects/images/dog.png; sourceTree = "<group>"; };
+		F6B4E7F41E525C8700494AE3 /* dog@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dog@2x.png"; path = "../src/assets/game_objects/images/dog@2x.png"; sourceTree = "<group>"; };
+		F6B4E7F91E53016000494AE3 /* story-background-sound-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "story-background-sound-2.mp3"; path = "../src/assets/sounds/background/story-background-sound-2.mp3"; sourceTree = "<group>"; };
+		F6B4E7FA1E53016000494AE3 /* main-background-sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "main-background-sound.mp3"; path = "../src/assets/sounds/background/main-background-sound.mp3"; sourceTree = "<group>"; };
+		F6B4E7FE1E5308FE00494AE3 /* narration-title.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "narration-title.mp3"; path = "../src/assets/sounds/narration/narration-title.mp3"; sourceTree = "<group>"; };
+		F6B4E8001E5309E400494AE3 /* narration-16.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "narration-16.mp3"; path = "../src/assets/sounds/narration/narration-16.mp3"; sourceTree = "<group>"; };
+		F6B4E8011E5309E400494AE3 /* narration-15.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "narration-15.mp3"; path = "../src/assets/sounds/narration/narration-15.mp3"; sourceTree = "<group>"; };
+		F6B4E8021E5309E400494AE3 /* narration-14.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "narration-14.mp3"; path = "../src/assets/sounds/narration/narration-14.mp3"; sourceTree = "<group>"; };
+		F6B4E8031E5309E400494AE3 /* narration-13.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "narration-13.mp3"; path = "../src/assets/sounds/narration/narration-13.mp3"; sourceTree = "<group>"; };
+		F6B4E8041E5309E400494AE3 /* narration-12.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "narration-12.mp3"; path = "../src/assets/sounds/narration/narration-12.mp3"; sourceTree = "<group>"; };
+		F6B4E8051E5309E400494AE3 /* narration-11.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "narration-11.mp3"; path = "../src/assets/sounds/narration/narration-11.mp3"; sourceTree = "<group>"; };
+		F6B4E8061E5309E400494AE3 /* narration-10.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "narration-10.mp3"; path = "../src/assets/sounds/narration/narration-10.mp3"; sourceTree = "<group>"; };
+		F6B4E8071E5309E400494AE3 /* narration-9.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "narration-9.mp3"; path = "../src/assets/sounds/narration/narration-9.mp3"; sourceTree = "<group>"; };
+		F6B4E8081E5309E400494AE3 /* narration-8.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "narration-8.mp3"; path = "../src/assets/sounds/narration/narration-8.mp3"; sourceTree = "<group>"; };
+		F6B4E8091E5309E400494AE3 /* narration-7.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "narration-7.mp3"; path = "../src/assets/sounds/narration/narration-7.mp3"; sourceTree = "<group>"; };
+		F6B4E80A1E5309E400494AE3 /* narration-6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "narration-6.mp3"; path = "../src/assets/sounds/narration/narration-6.mp3"; sourceTree = "<group>"; };
+		F6B4E80B1E5309E400494AE3 /* narration-5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "narration-5.mp3"; path = "../src/assets/sounds/narration/narration-5.mp3"; sourceTree = "<group>"; };
+		F6B4E80C1E5309E400494AE3 /* narration-4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "narration-4.mp3"; path = "../src/assets/sounds/narration/narration-4.mp3"; sourceTree = "<group>"; };
+		F6B4E80D1E5309E400494AE3 /* narration-3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "narration-3.mp3"; path = "../src/assets/sounds/narration/narration-3.mp3"; sourceTree = "<group>"; };
+		F6B4E80E1E5309E400494AE3 /* narration-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "narration-2.mp3"; path = "../src/assets/sounds/narration/narration-2.mp3"; sourceTree = "<group>"; };
+		F6B4E80F1E5309E400494AE3 /* narration-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "narration-1.mp3"; path = "../src/assets/sounds/narration/narration-1.mp3"; sourceTree = "<group>"; };
+		F6B4E8101E5309E400494AE3 /* narration-0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "narration-0.mp3"; path = "../src/assets/sounds/narration/narration-0.mp3"; sourceTree = "<group>"; };
 		F6B6EC721E38EFD700C190F7 /* loader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loader.png; sourceTree = "<group>"; };
 		F6B6EC7C1E38FD8300C190F7 /* Grau3-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Grau3-Bridging-Header.h"; sourceTree = "<group>"; };
 		F6B6EC7F1E38FF4200C190F7 /* 7_Kauz_Vorschau.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 7_Kauz_Vorschau.mp4; sourceTree = "<group>"; };
 		F6B6ECBD1E39124C00C190F7 /* LoadVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadVideo.swift; path = Grau3/LoadVideo.swift; sourceTree = "<group>"; };
 		F6B6ECC11E39135000C190F7 /* LoadVideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoadVideoView.xib; path = Grau3/LoadVideoView.xib; sourceTree = "<group>"; };
-		F6E1A3901E4DE4F30036DD47 /* story_background_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = story_background_1.mp3; sourceTree = "<group>"; };
-		F6E1A3911E4DE4F30036DD47 /* story_background_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = story_background_2.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -369,7 +413,6 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				1820D91AD4EC481FB599815E /* libRNSound.a in Frameworks */,
-				620844FBD87344029E41C531 /* libRCTVideo.a in Frameworks */,
 				BC2019177FF84F4CB02027C1 /* libRNViewShot.a in Frameworks */,
 				5E1681E824CA4413B3B2606E /* libRCTImageSequence.a in Frameworks */,
 				750C9950CC171A12B22173C3 /* BuddyBuildSDK.framework in Frameworks */,
@@ -381,6 +424,8 @@
 				120C2198A3C910BA7E7C3302 /* AVFoundation.framework in Frameworks */,
 				95E92088D308A2E7BF6CEEC4 /* CoreMedia.framework in Frameworks */,
 				9AEFF0D978FB9B5A3EAAF598 /* CoreVideo.framework in Frameworks */,
+				6227FD4633A44DEDA50E9F0F /* libRNFS.a in Frameworks */,
+				18B9E8A21DE64EECA50373FF /* libRCTVideo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,7 +531,7 @@
 			isa = PBXGroup;
 			children = (
 				146834041AC3E56700842450 /* libReact.a */,
-				F62892431E2A456F00081545 /* libReact-tvOS.a */,
+				F62892431E2A456F00081545 /* libReact.a */,
 				F6E1A3AF1E4DE4F30036DD47 /* libyoga.a */,
 				F6E1A3B11E4DE4F30036DD47 /* libyoga.a */,
 				F6E1A3B31E4DE4F30036DD47 /* libcxxreact.a */,
@@ -547,9 +592,10 @@
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				6530CD3953E5434790AAE50F /* RNSound.xcodeproj */,
-				D6B6C21E81694005A12DD420 /* RCTVideo.xcodeproj */,
 				B07E064B64974C998598D032 /* RNViewShot.xcodeproj */,
 				2FEC0A30DD234B73954F37F8 /* RCTImageSequence.xcodeproj */,
+				CB0835FC0EF849BEA7B1253F /* RNFS.xcodeproj */,
+				A7DA7E88E64E4294A50340BA /* RCTVideo.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -566,17 +612,34 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				F6B4E8001E5309E400494AE3 /* narration-16.mp3 */,
+				F6B4E8011E5309E400494AE3 /* narration-15.mp3 */,
+				F6B4E8021E5309E400494AE3 /* narration-14.mp3 */,
+				F6B4E8031E5309E400494AE3 /* narration-13.mp3 */,
+				F6B4E8041E5309E400494AE3 /* narration-12.mp3 */,
+				F6B4E8051E5309E400494AE3 /* narration-11.mp3 */,
+				F6B4E8061E5309E400494AE3 /* narration-10.mp3 */,
+				F6B4E8071E5309E400494AE3 /* narration-9.mp3 */,
+				F6B4E8081E5309E400494AE3 /* narration-8.mp3 */,
+				F6B4E8091E5309E400494AE3 /* narration-7.mp3 */,
+				F6B4E80A1E5309E400494AE3 /* narration-6.mp3 */,
+				F6B4E80B1E5309E400494AE3 /* narration-5.mp3 */,
+				F6B4E80C1E5309E400494AE3 /* narration-4.mp3 */,
+				F6B4E80D1E5309E400494AE3 /* narration-3.mp3 */,
+				F6B4E80E1E5309E400494AE3 /* narration-2.mp3 */,
+				F6B4E80F1E5309E400494AE3 /* narration-1.mp3 */,
+				F6B4E8101E5309E400494AE3 /* narration-0.mp3 */,
+				F6B4E7FE1E5308FE00494AE3 /* narration-title.mp3 */,
+				F6B4E7F91E53016000494AE3 /* story-background-sound-2.mp3 */,
+				F6B4E7FA1E53016000494AE3 /* main-background-sound.mp3 */,
 				F6B6EC721E38EFD700C190F7 /* loader.png */,
+				F6B4E7F21E525C8700494AE3 /* icon_dog.png */,
+				F6B4E7F31E525C8700494AE3 /* dog.png */,
+				F6B4E7F41E525C8700494AE3 /* dog@2x.png */,
 				F62892701E2B879900081545 /* main_sound.mp3 */,
 				F62892721E2BBB9800081545 /* clap-808.wav */,
 				F62892741E2BC2D100081545 /* samp2.wav */,
-				F6E1A3901E4DE4F30036DD47 /* story_background_1.mp3 */,
-				F6E1A3911E4DE4F30036DD47 /* story_background_2.mp3 */,
 				F628926E1E2A4AEA00081545 /* reader1.mp3 */,
-				F62892761E2C1DA000081545 /* narration-3.mp3 */,
-				F62892771E2C1DA000081545 /* narration-2.mp3 */,
-				F62892781E2C1DA000081545 /* narration-0.mp3 */,
-				F62892791E2C1DA000081545 /* narration-1.mp3 */,
 				F62892571E2A47E000081545 /* bg1.mp3 */,
 				F6B6EC7F1E38FF4200C190F7 /* 7_Kauz_Vorschau.mp4 */,
 				13B07FAE1A68108700A75B9A /* Grau3 */,
@@ -594,14 +657,6 @@
 			children = (
 				13B07F961A680F5B00A75B9A /* Grau3.app */,
 				00E356EE1AD99517003FC87E /* Grau3Tests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		F628921A1E2A456F00081545 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				F628923B1E2A456F00081545 /* libRCTVideo.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -631,10 +686,26 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		F6B4E7CF1E52346C00494AE3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F6B4E7ED1E52346C00494AE3 /* libRNFS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		F6DFC8371E3FD372001C2270 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				F6DFC8411E3FD372001C2270 /* libRCTImageSequence.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F6F2912D1E5313640037A2D2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F6F291411E5313640037A2D2 /* libRCTVideo.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -750,8 +821,8 @@
 					ProjectRef = 00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */;
 				},
 				{
-					ProductGroup = F628921A1E2A456F00081545 /* Products */;
-					ProjectRef = D6B6C21E81694005A12DD420 /* RCTVideo.xcodeproj */;
+					ProductGroup = F6F2912D1E5313640037A2D2 /* Products */;
+					ProjectRef = A7DA7E88E64E4294A50340BA /* RCTVideo.xcodeproj */;
 				},
 				{
 					ProductGroup = 139FDEE71B06529A00C62182 /* Products */;
@@ -760,6 +831,10 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = F6B4E7CF1E52346C00494AE3 /* Products */;
+					ProjectRef = CB0835FC0EF849BEA7B1253F /* RNFS.xcodeproj */;
 				},
 				{
 					ProductGroup = F6A97E6B1E2D212E00C0372F /* Products */;
@@ -902,13 +977,6 @@
 			remoteRef = F62892361E2A456F00081545 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		F628923B1E2A456F00081545 /* libRCTVideo.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRCTVideo.a;
-			remoteRef = F628923A1E2A456F00081545 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		F628923F1E2A456F00081545 /* libRCTWebSocket-tvOS.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -916,7 +984,7 @@
 			remoteRef = F628923E1E2A456F00081545 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		F62892431E2A456F00081545 /* libReact-tvOS.a */ = {
+		F62892431E2A456F00081545 /* libReact.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libReact.a;
@@ -949,6 +1017,13 @@
 			fileType = wrapper.cfbundle;
 			path = RNMailTests.xctest;
 			remoteRef = F6A97E851E2D212E00C0372F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F6B4E7ED1E52346C00494AE3 /* libRNFS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNFS.a;
+			remoteRef = F6B4E7EC1E52346C00494AE3 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		F6DFC8411E3FD372001C2270 /* libRCTImageSequence.a */ = {
@@ -1000,6 +1075,13 @@
 			remoteRef = F6E1A3B81E4DE4F30036DD47 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		F6F291411E5313640037A2D2 /* libRCTVideo.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTVideo.a;
+			remoteRef = F6F291401E5313640037A2D2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1014,23 +1096,40 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6E1A3931E4DE4F30036DD47 /* story_background_2.mp3 in Resources */,
+				F6B4E8151E5309E400494AE3 /* narration-12.mp3 in Resources */,
+				F6B4E81C1E5309E400494AE3 /* narration-5.mp3 in Resources */,
+				F6B4E7FD1E53016000494AE3 /* main-background-sound.mp3 in Resources */,
+				F6B4E8171E5309E400494AE3 /* narration-10.mp3 in Resources */,
+				F6B4E8201E5309E400494AE3 /* narration-1.mp3 in Resources */,
+				F6B4E7F51E525C8700494AE3 /* icon_dog.png in Resources */,
+				F6B4E8131E5309E400494AE3 /* narration-14.mp3 in Resources */,
 				F62892581E2A47E000081545 /* bg1.mp3 in Resources */,
 				F6B6ECC21E39135000C190F7 /* LoadVideoView.xib in Resources */,
-				F628927B1E2C1DA000081545 /* narration-2.mp3 in Resources */,
-				F628927C1E2C1DA000081545 /* narration-0.mp3 in Resources */,
-				F6E1A3921E4DE4F30036DD47 /* story_background_1.mp3 in Resources */,
+				F6B4E7F71E525C8700494AE3 /* dog@2x.png in Resources */,
+				F6B4E8191E5309E400494AE3 /* narration-8.mp3 in Resources */,
+				F6B4E8181E5309E400494AE3 /* narration-9.mp3 in Resources */,
+				F6B4E8211E5309E400494AE3 /* narration-0.mp3 in Resources */,
+				F6B4E81A1E5309E400494AE3 /* narration-7.mp3 in Resources */,
 				F6B6EC731E38EFD700C190F7 /* loader.png in Resources */,
 				F628926F1E2A4AEA00081545 /* reader1.mp3 in Resources */,
-				F628927D1E2C1DA000081545 /* narration-1.mp3 in Resources */,
+				F6B4E8161E5309E400494AE3 /* narration-11.mp3 in Resources */,
+				F6B4E7FF1E5308FE00494AE3 /* narration-title.mp3 in Resources */,
+				F6B4E8111E5309E400494AE3 /* narration-16.mp3 in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				F62892851E2CF67800081545 /* LaunchScreen.storyboard in Resources */,
-				F628927A1E2C1DA000081545 /* narration-3.mp3 in Resources */,
+				F6B4E81E1E5309E400494AE3 /* narration-3.mp3 in Resources */,
 				F62892731E2BBB9800081545 /* clap-808.wav in Resources */,
+				F6B4E7FC1E53016000494AE3 /* story-background-sound-2.mp3 in Resources */,
+				F6B4E8141E5309E400494AE3 /* narration-13.mp3 in Resources */,
 				F62892751E2BC2D100081545 /* samp2.wav in Resources */,
 				F6B6EC801E38FF4200C190F7 /* 7_Kauz_Vorschau.mp4 in Resources */,
+				F6B4E7F61E525C8700494AE3 /* dog.png in Resources */,
+				F6B4E81F1E5309E400494AE3 /* narration-2.mp3 in Resources */,
 				F62892711E2B879900081545 /* main_sound.mp3 in Resources */,
 				F62892811E2CF00B00081545 /* loading-2048.gif in Resources */,
+				F6B4E81B1E5309E400494AE3 /* narration-6.mp3 in Resources */,
+				F6B4E81D1E5309E400494AE3 /* narration-4.mp3 in Resources */,
+				F6B4E8121E5309E400494AE3 /* narration-15.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1098,7 +1197,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Grau3.app/Grau3";
@@ -1116,7 +1214,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1223,6 +1320,8 @@
 					"$(SRCROOT)/../node_modules/react-native-video",
 					"$(SRCROOT)/../node_modules/react-native-view-shot/ios",
 					"$(SRCROOT)/../node_modules/react-native-image-sequence/ios/RCTImageSequence",
+					"$(SRCROOT)/../node_modules/react-native-fs/**",
+					"$(SRCROOT)/../node_modules/react-native-video/ios",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1268,6 +1367,8 @@
 					"$(SRCROOT)/../node_modules/react-native-video",
 					"$(SRCROOT)/../node_modules/react-native-view-shot/ios",
 					"$(SRCROOT)/../node_modules/react-native-image-sequence/ios/RCTImageSequence",
+					"$(SRCROOT)/../node_modules/react-native-fs/**",
+					"$(SRCROOT)/../node_modules/react-native-video/ios",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;

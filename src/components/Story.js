@@ -16,49 +16,51 @@ import page0 from '../story/0'
 import page1 from '../story/1'
 import page2 from '../story/2'
 import page3 from '../story/3'
-// import page4 from '../story/4'
-// import page5 from '../story/5'
-// import page6 from '../story/6'
-// import page7 from '../story/7'
-// import page8 from '../story/8'
-// import page9 from '../story/9'
-// import page10 from '../story/10'
-// import page11 from '../story/11'
-// import page12 from '../story/12'
-// import page13 from '../story/13'
-// import page14 from '../story/14'
-// import page15 from '../story/15'
-// import page16 from '../story/16'
+import page4 from '../story/4'
+import page5 from '../story/5'
+import page6 from '../story/6'
+import page7 from '../story/7'
+import page8 from '../story/8'
+import page9 from '../story/9'
+import page10 from '../story/10'
+import page11 from '../story/11'
+import page12 from '../story/12'
+import page13 from '../story/13'
+import page14 from '../story/14'
+import page15 from '../story/15'
+import page16 from '../story/16'
 
 const pages = {
     0: page0,
     1: page1,
     2: page2,
     3: page3,
-    // 4: page4,
-    // 5: page5,
-    // 6: page6,
-    // 7: page7,
-    // 8: page8,
-    // 9: page9,
-    // 10: page10,
-    // 11: page11,
-    // 12: page12,
-    // 13: page13,
-    // 14: page14,
-    // 15: page15,
-    // 16: page16,
+    4: page4,
+    5: page5,
+    6: page6,
+    7: page7,
+    8: page8,
+    9: page9,
+    10: page10,
+    11: page11,
+    12: page12,
+    13: page13,
+    14: page14,
+    15: page15,
+    16: page16,
 }
 
 const startingNarration = new Sound('narration-0.mp3', Sound.MAIN_BUNDLE)
-const soundFilenames = ['story_background_1.mp3', 'story_background_2.mp3']
+const soundFilenames = ['main-background-sound.mp3', 'story-background-sound-2.mp3']
+
+const titleSound = new Sound('narration-title.mp3', Sound.MAIN_BUNDLE)
 
 const sounds = {}
 sounds[soundFilenames[0]] = new Sound(soundFilenames[0], Sound.MAIN_BUNDLE)
 sounds[soundFilenames[1]] = new Sound(soundFilenames[1], Sound.MAIN_BUNDLE)
 
 const TEXT_FADE_TIME = 1000
-const BACKGROUND_SOUND_CHANGE_PAGE = 2
+const BACKGROUND_SOUND_CHANGE_PAGE = 8
 
 import NavigationMenu from './NavigationMenu'
 import NavigationButton from './NavigationButton'
@@ -99,6 +101,7 @@ class Story extends Component {
         this.backgroundSound = sounds[soundFilenames[0]]
         this.narration = startingNarration
 
+        this._playTitle()
         this._startSound()
         this._fadeInText()
     }
@@ -134,6 +137,10 @@ class Story extends Component {
         if (options.reset) {
             this.narration.setCurrentTime(0)
         }
+    }
+
+    _playTitle() {
+        titleSound.play()
     }
 
     _playNarration() {

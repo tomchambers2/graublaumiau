@@ -4,13 +4,15 @@ import { takeSnapshot } from 'react-native-view-shot'
 import { NativeModules } from "react-native";
 const { RNMail } = NativeModules;
 
-const body = `Hallo!
-Ich habe dieses Bild mit der App "grau blau miau" erstellt.
-
-Auf Milos Blog werden alle Bilder hochgeladen www.graublaumiau.ch. Du kannst die Emailadresse im Feld "CC" aber auch löschen, dann wird das Bild nur an deine Emailadresse versendet.
-
-Grüsse
-von`
+const body = `Schreibe hier eine Nachricht für Deine Postkarte.<br>
+<br>
+<i>Information<br>
+Diese Postkarte wurde mit der App «grau blau miau» erstellt.<br>
+<br>
+Auf der Seite «www.graublaumiau.ch» werden alle Postkarten gesammelt und hochgeladen.<br>
+Die Emailadresse im Feld «Blindkopie» kann auch gelöscht werden, dann erreicht Deine Postkarte nur die Emailadresse im Feld «An».<br>
+<br>
+www.graublaumiau.ch</i><br>`
 
 const email = {
   send(componentRef, callback) {
@@ -21,10 +23,11 @@ const email = {
     .then(
       uri => {
         RNMail.mail({
-          subject: 'Ein Bild für Sie',
-          recipients: [],
+          subject: 'Postkarte von «grau blau miau»',
+          recipients: ['beispiel@beispiel.ch'],
           bccRecipients: ['post@alicekolb.ch'],
           body: body,
+          isHTML: true,
           attachment: {
             path: uri,  // The absolute path of the file from which to read data.
             type: 'jpg',   // Mime Type: jpg, png, doc, ppt, html, pdf
@@ -32,11 +35,12 @@ const email = {
           },
         }, (error, event) => {
             if(error === 'not_available') {
-              Alert.alert('Stopp!', 'Um Bilder zu versenden, muss das Ipad Mailprogramm eingerichtet sein.');
+              Alert.alert('Stopp!', 'Um Postkarten zu versenden, muss Dein Ipad Mailprogramm eingerichtet sein.');
             } else if (error) {
-              Alert.alert('Error', 'Unknown error occurred while attempting to send email')
+              Alert.alert('Hoppla!', 'Ein unbekannter Fehler ist aufgetreten. Deine Postkarte kann nur versendet werdet, wenn das Emailprogramm konfiguriert ist.')
             } else {
-              Alert.alert('Mail sent', 'Your picture has been sent!')
+                // success message
+              Alert.alert('Geschafft!', 'Deine Postkarte wurde versendet!')
             }
             callback()
         })
