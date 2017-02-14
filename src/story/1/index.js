@@ -6,7 +6,7 @@ const page = {
       {
           key: 0,
           left: 8,
-          top: 4,
+          top: 8,
           width: 15,
           height: 23,
           soundName: 'hmmm2.mp3',
