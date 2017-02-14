@@ -263,7 +263,7 @@ class Game extends Component {
   render() {
     const renderGameObjects = gameObjects.map((gameObject, i) => {
         const ratio = (120 / gameObject.size.width)
-        const height = ratio > 1 ? gameObject.size.height : ratio * gameObject.size.height
+        const height = ratio > 1 ? 278 : ratio * gameObject.size.height
       return (
           <View
               key={gameObject.gid}
