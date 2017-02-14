@@ -18,8 +18,6 @@ import downIcon from '../assets/game/down.png'
 import Sound from 'react-native-sound';
 
 const ANIMATION_DELAY_AFTER_DROP = 1000
-const ANIMATION_LENGTH = 3000
-const TOTAL_SEQUENCE_LENGTH = 15000
 
 class Game extends Component {
     static propTypes = {
@@ -79,6 +77,8 @@ class Game extends Component {
             this.dragging = false
 
             if (this.gameObject.sequence && this.gameObject.sequence.length) {
+
+
                 this.init = true
                 this.animationTimer = setTimeout(() => {
                     this._playAnimation()
@@ -163,10 +163,19 @@ class Game extends Component {
                 disabled: true,
             })
 
+            let pauseTime
+            if (!this.gameObject.pauseTime) {
+                const min = this.gameObject.minPause
+                const max = this.gameObject.maxPause
+                pauseTime = Math.round(Math.random() * (max-min)+min)
+            } else {
+                pauseTime = this.gameObject.pauseTime
+            }
+
             this.animationTimer = setTimeout(() => {
                 this._playAnimation()
-            }, TOTAL_SEQUENCE_LENGTH - ANIMATION_LENGTH)
-        }, ANIMATION_LENGTH)
+            }, pauseTime)
+        }, this.gameObject.playTime)
     }
 
     render() {
