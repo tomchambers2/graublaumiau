@@ -243,15 +243,20 @@ class Story extends Component {
     }
 
     renderClickMaps() {
-        if (!this.state.page.clickMap) return
+        if (!pages[this.state.page].clickMap) return
         return pages[this.state.page].clickMap.map((area) => {
+            const top = (area.top / 100) * window.height
+            const left = (area.left / 100) * window.width
+
+            const width = (area.width / 100) * window.width
+            const height = (area.height / 100) * window.height
             return (
                 <TouchableHighlight
                     key={area.soundName}
                     onPress={this._playSoundClip(area.soundName)}
-                    style={[styles.clickArea, { width: area.width, height: area.height, top: area.top, right: area.right }]}
+                    style={[styles.clickArea, { width, height, top, left }]}
                 >
-                    <Text>{'clickable area'}</Text>
+                    <Text>{area.soundName}</Text>
                 </TouchableHighlight>
             )
             })

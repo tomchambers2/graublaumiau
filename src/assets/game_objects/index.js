@@ -7,7 +7,7 @@ console.log(this.pixelDensity)
 
 const images = {
     dog: {
-        file: { uri: 'dog.png' },
+        file: { uri: 'dog' },
         icon: { uri: 'icon_dog' },
     },
 }
@@ -30,7 +30,7 @@ let counter = 0
 for (let i = 0; i < stills.length; i++) {
     const name = stills[i]
 
-    Image.getSize('dog@2x.png', (width, height) => {
+    Image.getSize('dog.png', (width, height) => {
         gameObjects.push({
             gid: counter,
             image: images[name].file,
