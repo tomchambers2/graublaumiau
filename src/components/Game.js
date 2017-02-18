@@ -1,3 +1,15 @@
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+  while (0 !== currentIndex) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
+}
+
 import React, { Component } from 'react';
 import {
   View,
@@ -19,7 +31,9 @@ import EmailDialog from './EmailDialog'
 import NavigationMenu from './NavigationMenu'
 import GameObject from './GameObject'
 
-import gameObjects from '../assets/game_objects/'
+import unshuffledGameObjects from '../assets/game_objects/'
+
+const gameObjects = shuffle(unshuffledGameObjects)
 
 import dividerImage from '../assets/game/game_line.png'
 
@@ -275,9 +289,7 @@ class Game extends Component {
                   source={gameObject.icon}
                   style={{ width: 120, height }}
               >
-                  {/* <Text>height: {height}</Text>
-                <Text>width: {gameObject.size.width}</Text>
-                  <Text>ratio: {(120 / gameObject.size.width)}</Text> */}
+                  {/* <Text>anim: {!!gameObject.sequence && 'yes'}</Text> */}
               </Image>
           </View>
       )

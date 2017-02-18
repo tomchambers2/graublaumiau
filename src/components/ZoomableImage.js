@@ -243,6 +243,7 @@ class ZoomableImage extends Component {
         const sequence = this.props.sequence && !this.props.sequenceDisabled ? (
             <ImageSequence
                 images={this.props.sequence}
+                framesPerSecond={25}
                 resizeMode={Image.resizeMode.contain}
                 style={[settings, { opacity: sequenceOpacity }]}
             />

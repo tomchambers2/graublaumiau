@@ -6,18 +6,17 @@ var gameObjects = []
 var gidCounter = 0
 
 var timers = {}
-timers.baum = { play: 3, minPause: 10, maxPause: 20 }
-timers.beine = { play: 3, minPause: 10, maxPause: 20 }
-timers.feuer = { play: 3, minPause: 10, maxPause: 20 }
-timers.fleck_greune = { play: 3, minPause: 10, maxPause: 20 }
-timers.milo_walking = { play: 3, minPause: 10, maxPause: 20 }
-timers.pflanze = { play: 3, minPause: 10, maxPause: 20 }
-timers.pflanze_bluete = { play: 3, minPause: 10, maxPause: 20 }
-timers.wabber = { play: 3, minPause: 10, maxPause: 20 }
-
-timers.punkte = { play: 3, pause: 0 }
-timers.katze_still = { play: 3, pause: 7 }
-timers.katze_aufstehen = { play: 3, pause: 20 }
+timers.baum_animation = { play: 3.5, pause: 10 }
+timers.beine_animation = { play: 3, pause: 15 }
+timers.feuer_animation = { play: 2.08, pause: 10 }
+timers.fleck_greun_animation = { play: 3.36, pause: 15 }
+timers.milo_walking_animation = { play: 3, pause: 10 }
+timers.pflanze_animation = { play: 8.64, pause: 15 }
+timers.pflanze_bluete_animation = { play: 6.12, pause: 10 }
+timers.wabber_animation = { play: 9.72, pause: 15 }
+timers.punkte_animation = { play: 1.64, pause: 0 }
+timers.katze_still_animation = { play: 2.4, pause: 8 }
+timers.katze_aufstehen_animation = { play: 2.04, pause: 8 }
 
 
 fs.readdir('./images', (err, files) => {
@@ -30,6 +29,13 @@ fs.readdir('./images', (err, files) => {
         var trimmedName = name.split('.')[0]
 
         var size = sizeOf('./images/' + name);
+
+        fs.access('./images/icon_' + name, (err) => {
+          if (err) {
+            console.log(err)
+            process.exit()
+          }
+        })
 
         gameObjects.push({
             gid: gidCounter,
@@ -56,10 +62,10 @@ fs.readdir('./images', (err, files) => {
             gid: gidCounter,
             name: name,
             soundName: '',
-            playTime: timers[name] && timers[name].play,
-            pauseTime: timers[name] && timers[name].pause,
-            minPause: timers[name] && timers[name].minPause,
-            maxPause: timers[name] && timers[name].maxPause,
+            playTime: timers[name] && timers[name].play * 1000,
+            pauseTime: timers[name] && timers[name].pause * 1000,
+            minPause: timers[name] && timers[name].minPause * 1000,
+            maxPause: timers[name] && timers[name].maxPause * 1000,
         }
         gidCounter++
 
@@ -85,6 +91,12 @@ fs.readdir('./images', (err, files) => {
                 return "require('./images/" + name + "/" + image + "')"
             })
 
+            fs.access('./images/icon_' + name + '.png', (err) => {
+              if (err) {
+                console.log(err)
+                process.exit()
+              }
+            })
             animation.icon = "require('./images/icon_" + name + ".png')"
 
             animation.sequence = convertedSequence
