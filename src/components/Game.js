@@ -277,20 +277,17 @@ class Game extends Component {
 
   render() {
     const renderGameObjects = gameObjects.map((gameObject, i) => {
-        const ratio = (120 / gameObject.size.width)
-        const height = ratio > 1 ? 278 : ratio * gameObject.size.height
       return (
           <View
               key={gameObject.gid}
-              style={[styles.placeholder, {height: height }]}
+              style={styles.placeholder}
               {...this.panResponders[gameObject.gid].panHandlers}
           >
               <Image
                   resizeMode={Image.resizeMode.contain}
                   source={gameObject.icon}
-                  style={{ width: 120, height }}
+                  style={{ width: 120 }}
               >
-                  {/* <Text>anim: {!!gameObject.sequence && 'yes'}</Text> */}
               </Image>
           </View>
       )
