@@ -39,13 +39,27 @@ class NavigationMenu extends Component {
       menuOpen: false,
       menuDialogOpen: false,
     }
+
+    this.lastShouldCloseMenu = false
   }
 
   componentWillMount() {
     this._slideValue = new Animated.Value(0)
   }
 
+  componentWillReceiveProps(newProps) {
+    if (newProps.shouldCloseMenu) {
+        this.setState({
+            menuOpen: false,
+        })
+        this.lastShouldCloseMenu = true
+    }
+  }
+
   _toggleMenu = () => {
+    if (!this.state.menuOpen) {
+      this.props.allowOpen && this.props.allowOpen()
+    }
     this.setState({
       menuOpen: !this.state.menuOpen,
     })

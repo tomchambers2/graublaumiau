@@ -257,6 +257,7 @@ class Game extends Component {
   _cancelEmailDialog = () => {
     this.setState({
       sendDialogOpen: false,
+      closeAllMenus: true,
     })
   }
 
@@ -381,6 +382,8 @@ class Game extends Component {
                     <View style={styles.navBar}>
                         <NavigationMenu
                             full
+                            allowOpen={this._allowOpen}
+                            shouldCloseMenu={this.state.closeAllMenus}
                             goToMenu={this._goToMenu}
                             showMailDialog={this._openEmailDialog}
                             soundOn={this.props.soundOn}
