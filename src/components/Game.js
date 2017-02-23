@@ -425,6 +425,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
   },
   divider: {
+    zIndex: 10,
     flex: 1,
     maxWidth: 26,
     marginLeft: -12,
