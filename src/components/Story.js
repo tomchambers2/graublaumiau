@@ -250,8 +250,14 @@ class Story extends Component {
         }
     }
 
+    _toggleOverlay = () => {
+      this.setState({
+        overlayDisabled: !this.state.overlayDisabled,
+      })
+    }
+
     renderClickMaps() {
-        if (!pages[this.state.page].clickMap) return
+        if (!pages[this.state.page].clickMap || this.state.overlayDisabled) return
         return pages[this.state.page].clickMap.map((area) => {
             const top = (area.top / 100) * window.height
             const left = (area.left / 100) * window.width
@@ -302,6 +308,7 @@ class Story extends Component {
                             <View style={styles.topMenu}>
                                 <NavigationMenu
                                     goToMenu={this._goToMenu}
+                                    toggleOverlay={this._toggleOverlay}
                                     soundOn={this.props.soundOn}
                                     style={styles.menu}
                                     toggleSound={this._toggleSound}
@@ -359,7 +366,7 @@ const styles = StyleSheet.create({
     },
     clickArea: {
         position: 'absolute',
-        zIndex: 100,
+        zIndex: 10,
         // opacity: 0.5,
         // backgroundColor: 'yellow',
     },
@@ -378,6 +385,12 @@ const styles = StyleSheet.create({
     },
     interactionContainer: {
         flex: 1,
+        // position: 'absolute',
+        // top: 0,
+        // right: 0,
+        // bottom: 0,
+        // left: 0,
+        // zIndex: 300,
     },
     menuAndContent: {
         flexGrow: 1,

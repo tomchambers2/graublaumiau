@@ -55,12 +55,14 @@ class NavigationMenu extends Component {
     this.setState({
       menuDialogOpen: true,
     })
+    this.props.toggleOverlay && this.props.toggleOverlay()
   }
 
   _cancelMenuDialog = () => {
     this.setState({
       menuDialogOpen: false,
     })
+    this.props.toggleOverlay && this.props.toggleOverlay()
   }
 
   render() {
@@ -140,7 +142,7 @@ const styles = StyleSheet.create({
   },
   menuContainer: {
     height: 49,
-    zIndex: 50,
+    zIndex: 200,
     position: 'relative',
   },
   absolute: {
