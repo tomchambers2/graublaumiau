@@ -411,7 +411,7 @@ const styles = StyleSheet.create({
     zIndex: 10,
     width: 150,
     maxWidth: 150,
-    backgroundColor: colors.objectMenu,
+    backgroundColor: 'white',
     flex: 1,
     alignItems: 'center',
   },
