@@ -6,6 +6,7 @@ const { RNMail } = NativeModules;
 
 const body = `Schreibe hier eine Nachricht für Deine Postkarte.<br>
 <br>
+<hr>
 <i>Information<br>
 Diese Postkarte wurde mit der App «grau blau miau» erstellt.<br>
 <br>

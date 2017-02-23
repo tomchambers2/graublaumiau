@@ -62,7 +62,13 @@ class NavigationMenu extends Component {
     this.setState({
       menuDialogOpen: false,
     })
+    this._toggleMenu()
     this.props.toggleOverlay && this.props.toggleOverlay()
+  }
+
+  _toggleSound = () => {
+    this._toggleMenu()
+    this.props.toggleSound()
   }
 
   render() {
@@ -80,7 +86,7 @@ class NavigationMenu extends Component {
     const menuIcons = (
         <View style={styles.innerMenu}>
             <NavigationButton
-                onPress={this.props.toggleSound}
+                onPress={this._toggleSound}
                 style={styles.soundToggleIcon}
             >
                 <Image source={soundToggleIcon} />
