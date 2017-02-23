@@ -30,8 +30,14 @@ function maxOffset(offset, windowDimension, imageDimension) {
 }
 
 function calcOffsetByZoom(width, height, imageWidth, imageHeight, zoom) {
-    let xDiff = imageWidth * zoom - width;
-    let yDiff = imageHeight * zoom - height;
+  let xDiff, yDiff
+  if (zoom < 1) {
+    xDiff = imageWidth * zoom - width;
+    yDiff = imageHeight * zoom - height;
+  } else {
+    xDiff = imageWidth * zoom - width;
+    yDiff = imageHeight * zoom - height;
+  }
     return {
         left: -xDiff/2,
         top: -yDiff/2,
@@ -171,8 +177,10 @@ class ZoomableImage extends Component {
                 zoom: zoom,
                 // left: 0,
                 // top: 0,
-                left: left > 0 ? 0 : maxOffset(left, this.state.width, this.props.imageWidth * zoom),
-                top: top > 0 ? 0 : maxOffset(top, this.state.height, this.props.imageHeight * zoom),
+                // left: left > 0 ? 0 : maxOffset(left, this.state.width, this.props.imageWidth * zoom),
+                // top: top > 0 ? 0 : maxOffset(top, this.state.height, this.props.imageHeight * zoom),
+                left: left,
+                top: top,
             });
         }
     }
@@ -217,7 +225,7 @@ class ZoomableImage extends Component {
             height: layout.height,
             zoom: zoom,
             offsetTop: offsetTop,
-            minZoom: zoom,
+            minZoom: zoom * 0.25,
         });
     }
 
