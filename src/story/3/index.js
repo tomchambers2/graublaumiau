@@ -17,7 +17,7 @@ const page = {
           top: 6,
           width: 41,
           height: 31,
-          soundName: 'rauch.mp3',
+          soundName: 'schrill2.mp3',
       },
       {
           key: 2,

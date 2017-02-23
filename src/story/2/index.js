@@ -17,7 +17,7 @@ const page = {
           top: 8,
           width: 10,
           height: 15,
-          soundName: 'rauch.mp3',
+          soundName: 'aeeech.mp3',
       },
       {
           key: 2,
