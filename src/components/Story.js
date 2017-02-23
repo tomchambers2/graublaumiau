@@ -53,7 +53,7 @@ const pages = {
 const startingNarration = new Sound('narration-0.mp3', Sound.MAIN_BUNDLE)
 const soundFilenames = ['main-background-sound.mp3', 'story-background-sound-2.mp3']
 
-const titleSound = new Sound('narration-title.mp3', Sound.MAIN_BUNDLE)
+// const titleSound = new Sound('narration-title.mp3', Sound.MAIN_BUNDLE)
 
 const sounds = {}
 sounds[soundFilenames[0]] = new Sound(soundFilenames[0], Sound.MAIN_BUNDLE)
@@ -103,7 +103,7 @@ class Story extends Component {
         this.backgroundSound = sounds[soundFilenames[0]]
         this.narration = startingNarration
 
-        this._playTitle()
+        // this._playTitle()
         this._startSound()
         this._fadeInText()
     }
@@ -141,9 +141,9 @@ class Story extends Component {
         }
     }
 
-    _playTitle() {
-        titleSound.play()
-    }
+    // _playTitle() {
+    //     titleSound.play()
+    // }
 
     _playNarration() {
         if (!this.props.soundOn) this.props.toggleSound()
