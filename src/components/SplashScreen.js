@@ -12,7 +12,6 @@ class SplashScreen extends Component {
     }
 
     componentDidMount() {
-console.log('do ply now')
       setTimeout(() => {
         this.props.hideSplashScreen()
       }, 5000)
