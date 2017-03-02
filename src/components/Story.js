@@ -94,6 +94,8 @@ class Story extends Component {
             currentBackgroundSound: soundFilenames[0],
         }
 
+        this.allSounds = []
+
         this.playingSounds = {}
     }
 
@@ -129,6 +131,13 @@ class Story extends Component {
     componentWillUnmount() {
         this.backgroundSound.pause()
         this._pauseNarration({ reset: true })
+    }
+
+    _stopAllClickable() {
+      for (const key in this.allSounds) {
+        this.allSounds[key].pause()
+        this.playingSounds[key] = false
+      }
     }
 
     _pauseNarration(options={}) {
@@ -172,6 +181,7 @@ class Story extends Component {
     }
 
     _navigateLeft = () => {
+        this._stopAllClickable()
         if (this.state.page === 0) {
             this._goToMenu()
         } else {
@@ -184,6 +194,7 @@ class Story extends Component {
     }
 
     _navigateRight = () => {
+        this._stopAllClickable()
         if ((this.state.page + 1) < this.state.totalPages) {
             this.setState({
                 page: this.state.page + 1,
@@ -247,6 +258,7 @@ class Story extends Component {
                     this.playingSounds[soundName] = false
                 })
             })
+            this.allSounds[soundName] = sound
         }
     }
 
