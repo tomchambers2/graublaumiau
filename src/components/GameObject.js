@@ -116,7 +116,8 @@ class Game extends Component {
     }
 
     componentWillUnmount() {
-        clearTimeout(this.animationTimer)
+      this.sound.pause()
+      clearTimeout(this.animationTimer)
     }
 
     _turnOnDragging = () => {
