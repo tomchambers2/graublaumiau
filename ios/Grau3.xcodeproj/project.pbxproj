@@ -61,6 +61,17 @@
 		F6AD31F41E685F9800D6B70C /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F6AD31DF1E685F9800D6B70C /* Icon@2x.png */; };
 		F6AD31F51E685F9800D6B70C /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = F6AD31E01E685F9800D6B70C /* iTunesArtwork */; };
 		F6AD31F61E685F9800D6B70C /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = F6AD31E11E685F9800D6B70C /* iTunesArtwork@2x */; };
+		F6AD32031E6885B600D6B70C /* baum.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6AD31F81E6885B600D6B70C /* baum.mp3 */; };
+		F6AD32041E6885B600D6B70C /* beine.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6AD31F91E6885B600D6B70C /* beine.mp3 */; };
+		F6AD32051E6885B600D6B70C /* feuer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6AD31FA1E6885B600D6B70C /* feuer.mp3 */; };
+		F6AD32061E6885B600D6B70C /* fleck-gruen.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6AD31FB1E6885B600D6B70C /* fleck-gruen.mp3 */; };
+		F6AD32071E6885B600D6B70C /* katze-aufstehen.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6AD31FC1E6885B600D6B70C /* katze-aufstehen.mp3 */; };
+		F6AD32081E6885B600D6B70C /* katze-still.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6AD31FD1E6885B600D6B70C /* katze-still.mp3 */; };
+		F6AD32091E6885B600D6B70C /* milo-walking.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6AD31FE1E6885B600D6B70C /* milo-walking.mp3 */; };
+		F6AD320A1E6885B600D6B70C /* pflanze-bluete.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6AD31FF1E6885B600D6B70C /* pflanze-bluete.mp3 */; };
+		F6AD320B1E6885B600D6B70C /* pflanze.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6AD32001E6885B600D6B70C /* pflanze.mp3 */; };
+		F6AD320C1E6885B600D6B70C /* punkte.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6AD32011E6885B600D6B70C /* punkte.mp3 */; };
+		F6AD320D1E6885B600D6B70C /* wabber.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6AD32021E6885B600D6B70C /* wabber.mp3 */; };
 		F6B4E7FC1E53016000494AE3 /* story-background-sound-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6B4E7F91E53016000494AE3 /* story-background-sound-2.mp3 */; };
 		F6B4E7FD1E53016000494AE3 /* main-background-sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6B4E7FA1E53016000494AE3 /* main-background-sound.mp3 */; };
 		F6B4E7FF1E5308FE00494AE3 /* narration-title.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F6B4E7FE1E5308FE00494AE3 /* narration-title.mp3 */; };
@@ -414,6 +425,17 @@
 		F6AD31DF1E685F9800D6B70C /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		F6AD31E01E685F9800D6B70C /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		F6AD31E11E685F9800D6B70C /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
+		F6AD31F81E6885B600D6B70C /* baum.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = baum.mp3; sourceTree = "<group>"; };
+		F6AD31F91E6885B600D6B70C /* beine.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beine.mp3; sourceTree = "<group>"; };
+		F6AD31FA1E6885B600D6B70C /* feuer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = feuer.mp3; sourceTree = "<group>"; };
+		F6AD31FB1E6885B600D6B70C /* fleck-gruen.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fleck-gruen.mp3"; sourceTree = "<group>"; };
+		F6AD31FC1E6885B600D6B70C /* katze-aufstehen.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "katze-aufstehen.mp3"; sourceTree = "<group>"; };
+		F6AD31FD1E6885B600D6B70C /* katze-still.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "katze-still.mp3"; sourceTree = "<group>"; };
+		F6AD31FE1E6885B600D6B70C /* milo-walking.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "milo-walking.mp3"; sourceTree = "<group>"; };
+		F6AD31FF1E6885B600D6B70C /* pflanze-bluete.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "pflanze-bluete.mp3"; sourceTree = "<group>"; };
+		F6AD32001E6885B600D6B70C /* pflanze.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pflanze.mp3; sourceTree = "<group>"; };
+		F6AD32011E6885B600D6B70C /* punkte.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = punkte.mp3; sourceTree = "<group>"; };
+		F6AD32021E6885B600D6B70C /* wabber.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wabber.mp3; sourceTree = "<group>"; };
 		F6B4E7F91E53016000494AE3 /* story-background-sound-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "story-background-sound-2.mp3"; path = "../src/assets/sounds/background/story-background-sound-2.mp3"; sourceTree = "<group>"; };
 		F6B4E7FA1E53016000494AE3 /* main-background-sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "main-background-sound.mp3"; path = "../src/assets/sounds/background/main-background-sound.mp3"; sourceTree = "<group>"; };
 		F6B4E7FE1E5308FE00494AE3 /* narration-title.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "narration-title.mp3"; path = "../src/assets/sounds/narration/narration-title.mp3"; sourceTree = "<group>"; };
@@ -695,6 +717,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				F6AD31F71E6885B600D6B70C /* game-sounds */,
 				F6F291531E53255B0037A2D2 /* clickable-sounds */,
 				F6F291511E53217B0037A2D2 /* narration */,
 				F6F291521E5321830037A2D2 /* background-sound */,
@@ -768,6 +791,25 @@
 				F6AD31E11E685F9800D6B70C /* iTunesArtwork@2x */,
 			);
 			path = icons;
+			sourceTree = "<group>";
+		};
+		F6AD31F71E6885B600D6B70C /* game-sounds */ = {
+			isa = PBXGroup;
+			children = (
+				F6AD31F81E6885B600D6B70C /* baum.mp3 */,
+				F6AD31F91E6885B600D6B70C /* beine.mp3 */,
+				F6AD31FA1E6885B600D6B70C /* feuer.mp3 */,
+				F6AD31FB1E6885B600D6B70C /* fleck-gruen.mp3 */,
+				F6AD31FC1E6885B600D6B70C /* katze-aufstehen.mp3 */,
+				F6AD31FD1E6885B600D6B70C /* katze-still.mp3 */,
+				F6AD31FE1E6885B600D6B70C /* milo-walking.mp3 */,
+				F6AD31FF1E6885B600D6B70C /* pflanze-bluete.mp3 */,
+				F6AD32001E6885B600D6B70C /* pflanze.mp3 */,
+				F6AD32011E6885B600D6B70C /* punkte.mp3 */,
+				F6AD32021E6885B600D6B70C /* wabber.mp3 */,
+			);
+			name = "game-sounds";
+			path = "../src/assets/sounds/game-sounds";
 			sourceTree = "<group>";
 		};
 		F6B4E7CF1E52346C00494AE3 /* Products */ = {
@@ -1251,6 +1293,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6AD32071E6885B600D6B70C /* katze-aufstehen.mp3 in Resources */,
 				F6AD31E41E685F9800D6B70C /* Icon-60@3x.png in Resources */,
 				F6B4E8151E5309E400494AE3 /* narration-12.mp3 in Resources */,
 				F6F291871E53258F0037A2D2 /* katze2.mp3 in Resources */,
@@ -1267,10 +1310,14 @@
 				F6AD31EA1E685F9800D6B70C /* Icon-iPadPro@2x.png in Resources */,
 				F6F291861E53258F0037A2D2 /* blinzeln.mp3 in Resources */,
 				F6AD31F61E685F9800D6B70C /* iTunesArtwork@2x in Resources */,
+				F6AD32061E6885B600D6B70C /* fleck-gruen.mp3 in Resources */,
 				F6B4E8201E5309E400494AE3 /* narration-1.mp3 in Resources */,
 				F6F291741E53258F0037A2D2 /* mhmmm3.mp3 in Resources */,
 				F6F291731E53258F0037A2D2 /* oooch2.mp3 in Resources */,
+				F6AD320B1E6885B600D6B70C /* pflanze.mp3 in Resources */,
+				F6AD32081E6885B600D6B70C /* katze-still.mp3 in Resources */,
 				F6F2918A1E53258F0037A2D2 /* katze3.mp3 in Resources */,
+				F6AD32041E6885B600D6B70C /* beine.mp3 in Resources */,
 				F6B4E8131E5309E400494AE3 /* narration-14.mp3 in Resources */,
 				F6B6ECC21E39135000C190F7 /* LoadVideoView.xib in Resources */,
 				F6AD31E21E685F9800D6B70C /* Icon-60.png in Resources */,
@@ -1284,12 +1331,14 @@
 				F6F2917E1E53258F0037A2D2 /* jogger.mp3 in Resources */,
 				F6B4E8181E5309E400494AE3 /* narration-9.mp3 in Resources */,
 				F6B4E8211E5309E400494AE3 /* narration-0.mp3 in Resources */,
+				F6AD320C1E6885B600D6B70C /* punkte.mp3 in Resources */,
 				F6F291841E53258F0037A2D2 /* fleck2.mp3 in Resources */,
 				F6B4E81A1E5309E400494AE3 /* narration-7.mp3 in Resources */,
 				F6F2918B1E53258F0037A2D2 /* katze1.mp3 in Resources */,
 				F6F291821E53258F0037A2D2 /* blubber.mp3 in Resources */,
 				F6F291801E53258F0037A2D2 /* shaker1.mp3 in Resources */,
 				F6AD31F31E685F9800D6B70C /* Icon.png in Resources */,
+				F6AD32091E6885B600D6B70C /* milo-walking.mp3 in Resources */,
 				F6AD31F01E685F9800D6B70C /* Icon-Spotlight-40.png in Resources */,
 				F6B4E8161E5309E400494AE3 /* narration-11.mp3 in Resources */,
 				F6B4E7FF1E5308FE00494AE3 /* narration-title.mp3 in Resources */,
@@ -1306,9 +1355,12 @@
 				F6B4E81E1E5309E400494AE3 /* narration-3.mp3 in Resources */,
 				F6F2917D1E53258F0037A2D2 /* schiff.mp3 in Resources */,
 				F6F291751E53258F0037A2D2 /* mhmmm2.mp3 in Resources */,
+				F6AD32031E6885B600D6B70C /* baum.mp3 in Resources */,
 				F6B4E7FC1E53016000494AE3 /* story-background-sound-2.mp3 in Resources */,
 				F6B4E8141E5309E400494AE3 /* narration-13.mp3 in Resources */,
+				F6AD320D1E6885B600D6B70C /* wabber.mp3 in Resources */,
 				F6AD31E51E685F9800D6B70C /* Icon-72.png in Resources */,
+				F6AD32051E6885B600D6B70C /* feuer.mp3 in Resources */,
 				F6F291791E53258F0037A2D2 /* hmmm2.mp3 in Resources */,
 				F6AD31F11E685F9800D6B70C /* Icon-Spotlight-40@2x.png in Resources */,
 				F6F2918F1E53258F0037A2D2 /* ambulanz.mp3 in Resources */,
@@ -1323,6 +1375,7 @@
 				F62892811E2CF00B00081545 /* loading-2048.gif in Resources */,
 				F6F291811E53258F0037A2D2 /* schritte.mp3 in Resources */,
 				F6B4E81B1E5309E400494AE3 /* narration-6.mp3 in Resources */,
+				F6AD320A1E6885B600D6B70C /* pflanze-bluete.mp3 in Resources */,
 				F6B4E81D1E5309E400494AE3 /* narration-4.mp3 in Resources */,
 				F6F291831E53258F0037A2D2 /* fleck3.mp3 in Resources */,
 				F6B4E8121E5309E400494AE3 /* narration-15.mp3 in Resources */,

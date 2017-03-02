@@ -77,18 +77,19 @@ class Game extends Component {
             this.dragging = false
 
             if (this.gameObject.sequence && this.gameObject.sequence.length) {
-
-
                 this.init = true
                 this.animationTimer = setTimeout(() => {
                     this._playAnimation()
                 }, ANIMATION_DELAY_AFTER_DROP)
             }
-
         }
 
-        this.sound = new Sound(this.props.data.soundName, Sound.MAIN_BUNDLE, (err) => {
-        })
+        if (this.props.data.soundName) {
+          this.sound = new Sound(this.props.data.soundName, Sound.MAIN_BUNDLE, (err) => {
+            console.log('looking for', this.props.data.soundName)
+            console.log(err)
+          })
+        }
     }
 
     componentWillReceiveProps(newProps) {
@@ -154,7 +155,7 @@ class Game extends Component {
             disabled: false,
         })
 
-        if (this.props.soundOn) {
+        if (this.props.soundOn && this.props.data.soundName) {
             this.sound.play()
         }
 
