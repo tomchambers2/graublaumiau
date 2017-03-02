@@ -19,7 +19,6 @@ import {
   ScrollView,
   Dimensions,
   TouchableWithoutFeedback,
-  Text,
 } from 'react-native'
 
 import colors from '../colors'
@@ -77,12 +76,19 @@ class Game extends Component {
           const x = event.nativeEvent.pageX
           const y = event.nativeEvent.pageY
 
-          let animationsCount = 0;
+          let totalScore = 0
+          ANIMATION_SCORE = 0.8
+          STATIC_SCORE = 0.5
           for (var i = 0; i < this.state.gameObjectInstances.length; i++) {
-            if (this.state.gameObjectInstances[i].data.isAnimation) animationsCount++
+            if (this.state.gameObjectInstances[i].data.isAnimation) {
+              totalScore += ANIMATION_SCORE
+            } else {
+              totalScore += STATIC_SCORE
+            }
           }
-          if (animationsCount >= 9) {
-            Alert.alert('Stopp!', 'Die Anzahl bewegter Bilder ist beschränkt auf maximal 9 Animationen.')
+          if (totalScore >= 10) {
+            Alert.alert('Stopp!', 'Maximum images reached.')
+            // Alert.alert('Stopp!', 'Die Anzahl bewegter Bilder ist beschränkt auf maximal 9 Animationen.')
             return
           }
 

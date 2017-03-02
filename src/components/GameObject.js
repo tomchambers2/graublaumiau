@@ -86,8 +86,6 @@ class Game extends Component {
 
         if (this.props.data.soundName) {
           this.sound = new Sound(this.props.data.soundName, Sound.MAIN_BUNDLE, (err) => {
-            console.log('looking for', this.props.data.soundName)
-            console.log(err)
           })
         }
     }
@@ -116,7 +114,9 @@ class Game extends Component {
     }
 
     componentWillUnmount() {
-      this.sound.pause()
+      if (this.sound) {
+        this.sound.pause()
+      }
       clearTimeout(this.animationTimer)
     }
 
@@ -156,7 +156,7 @@ class Game extends Component {
             disabled: false,
         })
 
-        if (this.props.soundOn && this.props.data.soundName) {
+        if (this.props.soundOn && this.sound) {
             this.sound.play()
         }
 
