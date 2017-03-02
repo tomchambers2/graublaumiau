@@ -884,7 +884,7 @@ export default [
   {
     "gid": 82,
     "name": "feuer_animation",
-    "soundName": "",
+    "soundName": "feuer.mp3",
     "playTime": 2080,
     "pauseTime": 10000,
     "minPause": null,
@@ -913,9 +913,48 @@ export default [
     "image": require('./images/feuer_animation/feuer-0.png')
   },
   {
+    "gid": 83,
+    "name": "fleck_gruen_animation",
+    "soundName": "fleck-gruen.mp3",
+    "playTime": 3360,
+    "pauseTime": 15000,
+    "minPause": null,
+    "maxPause": null,
+    "size": {
+      "width": 224,
+      "height": 500,
+      "type": "png"
+    },
+    "icon": require('./images/icon_fleck_gruen_animation.png'),
+    "sequence": [
+      require('./images/fleck_gruen_animation/fleck-gruen-0.png'),
+      require('./images/fleck_gruen_animation/fleck-gruen-1.png'),
+      require('./images/fleck_gruen_animation/fleck-gruen-2.png'),
+      require('./images/fleck_gruen_animation/fleck-gruen-3.png'),
+      require('./images/fleck_gruen_animation/fleck-gruen-4.png'),
+      require('./images/fleck_gruen_animation/fleck-gruen-5.png'),
+      require('./images/fleck_gruen_animation/fleck-gruen-6.png'),
+      require('./images/fleck_gruen_animation/fleck-gruen-7.png'),
+      require('./images/fleck_gruen_animation/fleck-gruen-8.png'),
+      require('./images/fleck_gruen_animation/fleck-gruen-9.png'),
+      require('./images/fleck_gruen_animation/fleck-gruen-10.png'),
+      require('./images/fleck_gruen_animation/fleck-gruen-11.png'),
+      require('./images/fleck_gruen_animation/fleck-gruen-12.png'),
+      require('./images/fleck_gruen_animation/fleck-gruen-13.png'),
+      require('./images/fleck_gruen_animation/fleck-gruen-14.png'),
+      require('./images/fleck_gruen_animation/fleck-gruen-15.png'),
+      require('./images/fleck_gruen_animation/fleck-gruen-16.png'),
+      require('./images/fleck_gruen_animation/fleck-gruen-17.png'),
+      require('./images/fleck_gruen_animation/fleck-gruen-18.png'),
+      require('./images/fleck_gruen_animation/fleck-gruen-19.png')
+    ],
+    "sequenceLength": 20,
+    "image": require('./images/fleck_gruen_animation/fleck-gruen-0.png')
+  },
+  {
     "gid": 80,
     "name": "baum_animation",
-    "soundName": "",
+    "soundName": "baum.mp3",
     "playTime": 3500,
     "pauseTime": 10000,
     "minPause": null,
@@ -975,44 +1014,9 @@ export default [
     "image": require('./images/baum_animation/baum-0.png')
   },
   {
-    "gid": 83,
-    "name": "fleck_gruen_animation",
-    "soundName": "",
-    "size": {
-      "width": 224,
-      "height": 500,
-      "type": "png"
-    },
-    "icon": require('./images/icon_fleck_gruen_animation.png'),
-    "sequence": [
-      require('./images/fleck_gruen_animation/fleck-gruen-0.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-1.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-2.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-3.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-4.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-5.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-6.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-7.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-8.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-9.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-10.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-11.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-12.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-13.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-14.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-15.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-16.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-17.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-18.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-19.png')
-    ],
-    "sequenceLength": 20,
-    "image": require('./images/fleck_gruen_animation/fleck-gruen-0.png')
-  },
-  {
     "gid": 84,
     "name": "katze_aufstehen_animation",
-    "soundName": "",
+    "soundName": "katze-aufstehen.mp3",
     "playTime": 2040,
     "pauseTime": 8000,
     "minPause": null,
@@ -1081,7 +1085,7 @@ export default [
   {
     "gid": 85,
     "name": "katze_still_animation",
-    "soundName": "",
+    "soundName": "katze-still.mp3",
     "playTime": 2400,
     "pauseTime": 8000,
     "minPause": null,
@@ -1159,7 +1163,7 @@ export default [
   {
     "gid": 81,
     "name": "beine_animation",
-    "soundName": "",
+    "soundName": "beine.mp3",
     "playTime": 3000,
     "pauseTime": 15000,
     "minPause": null,
@@ -1252,7 +1256,7 @@ export default [
   {
     "gid": 86,
     "name": "milo_walking_animation",
-    "soundName": "",
+    "soundName": "milo-walking.mp3",
     "playTime": 3000,
     "pauseTime": 10000,
     "minPause": null,
@@ -1295,7 +1299,7 @@ export default [
   {
     "gid": 89,
     "name": "punkte_animation",
-    "soundName": "",
+    "soundName": "punkte.mp3",
     "playTime": 1640,
     "pauseTime": 0,
     "minPause": null,
@@ -1354,7 +1358,7 @@ export default [
   {
     "gid": 87,
     "name": "pflanze_animation",
-    "soundName": "",
+    "soundName": "pflanze.mp3",
     "playTime": 8640,
     "pauseTime": 15000,
     "minPause": null,
@@ -1444,7 +1448,6 @@ export default [
   {
     "gid": 88,
     "name": "pflanze_bluete_animation",
-    "soundName": "",
     "playTime": 6120,
     "pauseTime": 10000,
     "minPause": null,
@@ -1513,7 +1516,7 @@ export default [
   {
     "gid": 90,
     "name": "wabber_animation",
-    "soundName": "",
+    "soundName": "wabber.mp3",
     "playTime": 9720,
     "pauseTime": 15000,
     "minPause": null,
