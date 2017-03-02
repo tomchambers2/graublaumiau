@@ -17,7 +17,7 @@ import downIcon from '../assets/game/down.png'
 
 import Sound from 'react-native-sound';
 
-const ANIMATION_DELAY_AFTER_DROP = 1000
+const ANIMATION_DELAY_AFTER_DROP = 0
 
 class Game extends Component {
     static propTypes = {
