@@ -361,7 +361,7 @@ class Game extends Component {
         <View style={styles.gameContainer}>
             {sendEmailDialog}
             <View style={styles.objectMenu}>
-                <ScrollView scrollEnabled={this.state.scrollEnabled}>
+                <ScrollView style={styles.scroller} scrollEnabled={this.state.scrollEnabled}>
                     {renderGameObjects}
                 </ScrollView>
             </View>
@@ -420,6 +420,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     flex: 1,
     alignItems: 'center',
+  },
+  scroller: {
+    // backgroundColor: 'yellow',
+    width: 150,
+    paddingLeft: 15,
   },
   creatingPlayArea: {
     position: 'absolute',
