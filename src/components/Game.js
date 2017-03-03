@@ -128,13 +128,18 @@ class Game extends Component {
       }
     }
     const panResponderReleaseHandler = () => {
+      if (!this.instanceCreated) {
+        console.log('tap longer!')
+        Alert.alert('Hilfe', 'Lange gedrückt halten')
+      } else {
+        const index = this.state.gameObjectInstances.length - 1
+        this._constrainObject(index, true)
+      }
       this.instanceCreated = false
       clearTimeout(this.objectPressTimer)
       this.setState({
         scrollEnabled: true,
       })
-      const index = this.state.gameObjectInstances.length - 1
-      this._constrainObject(index, true)
     }
 
     this.panResponders = []
