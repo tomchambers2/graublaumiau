@@ -51,7 +51,7 @@ const pages = {
 }
 
 const startingNarration = new Sound('narration-0.mp3', Sound.MAIN_BUNDLE)
-const soundFilenames = ['main-background-sound.mp3', 'story-background-sound-2.mp3']
+const soundFilenames = ['story-background-sound-2.mp3', 'main-background-sound.mp3']
 
 // const titleSound = new Sound('narration-title.mp3', Sound.MAIN_BUNDLE)
 
