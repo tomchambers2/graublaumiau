@@ -87,7 +87,7 @@ class Game extends Component {
             }
           }
           if (totalScore >= 10) {
-            Alert.alert('Stopp!', 'Maximum images reached.')
+            Alert.alert('Stopp!', 'Die maximale Anzahl Bilder ist erreicht.')
             // Alert.alert('Stopp!', 'Die Anzahl bewegter Bilder ist beschränkt auf maximal 9 Animationen.')
             return
           }
