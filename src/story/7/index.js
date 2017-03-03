@@ -33,7 +33,7 @@ const page = {
           top: 61,
           width: 18,
           height: 23,
-          soundName: 'fleck2.mp3',
+          soundName: 'punkte.mp3',
       },
       {
           key: 4,

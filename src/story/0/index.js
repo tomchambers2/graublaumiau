@@ -9,7 +9,7 @@ const page = {
             top: 2,
             width: 10,
             height: 12,
-            soundName: 'katze1.mp3',
+            soundName: 'katze-still.mp3',
         },
         {
             key: 1,
@@ -17,7 +17,7 @@ const page = {
             top: 7,
             width: 10,
             height: 15,
-            soundName: 'rauch.mp3',
+            soundName: 'feuer.mp3',
         },
         {
             key: 2,
@@ -25,7 +25,7 @@ const page = {
             top: 25,
             width: 10,
             height: 12,
-            soundName: 'rauch.mp3',
+            soundName: 'feuer.mp3',
         },
         {
             key: 3,
@@ -49,7 +49,7 @@ const page = {
             top: 33,
             width: 8,
             height: 23,
-            soundName: 'rauch.mp3',
+            soundName: 'feuer.mp3',
         },
         {
             key: 6,
@@ -65,7 +65,7 @@ const page = {
             top: 47,
             width: 10,
             height: 22,
-            soundName: 'rauch.mp3',
+            soundName: 'feuer.mp3',
         },
     ],
 }

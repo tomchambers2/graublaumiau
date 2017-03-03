@@ -283,8 +283,9 @@ class Story extends Component {
                     onPress={this._playSoundClip(area.soundName)}
                     style={[styles.clickArea, { width, height, top, left }]}
                 >
-                    <View/>
-                    {/* <Text>{area.soundName}</Text> */}
+                    <View>
+                    {/* <Text>{area.key}</Text> */}
+                  </View>
                 </TouchableHighlight>
             )
             })

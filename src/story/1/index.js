@@ -33,7 +33,7 @@ const page = {
           top: 63,
           width: 18,
           height: 19,
-          soundName: 'rauch.mp3',
+          soundName: 'feuer.mp3',
       },
   ]
 }

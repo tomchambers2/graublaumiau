@@ -25,7 +25,7 @@ const page = {
           top: 83,
           width: 35,
           height: 12,
-          soundName: 'blinzeln.mp3',
+          soundName: 'katze-still.mp3',
       },
   ],
 }
