@@ -17,7 +17,7 @@ import downIcon from '../assets/game/down.png'
 
 import Sound from 'react-native-sound';
 
-const ANIMATION_DELAY_AFTER_DROP = 0
+const ANIMATION_DELAY_AFTER_DROP = 1000
 
 class Game extends Component {
     static propTypes = {
@@ -79,8 +79,9 @@ class Game extends Component {
             if (this.gameObject.sequence && this.gameObject.sequence.length) {
                 this.init = true
                 this.animationTimer = setTimeout(() => {
+                  console.log('animation starts now after', this.gameObject.playTime, ANIMATION_DELAY_AFTER_DROP)
                     this._playAnimation()
-                }, ANIMATION_DELAY_AFTER_DROP)
+                }, this.gameObject.playTime || ANIMATION_DELAY_AFTER_DROP)
             }
         }
 
