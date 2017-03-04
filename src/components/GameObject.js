@@ -79,6 +79,7 @@ class Game extends Component {
             if (this.gameObject.sequence && this.gameObject.sequence.length) {
                 this.init = true
                 this.animationTimer = setTimeout(() => {
+                  console.log('did pause', this.gameObject.playTime)
                     this._playAnimation()
                 }, this.gameObject.playTime || ANIMATION_DELAY_AFTER_DROP)
             }
