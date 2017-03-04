@@ -80,12 +80,13 @@ class Game extends Component {
           ANIMATION_SCORE = 5
           STATIC_SCORE = 0.5
           for (var i = 0; i < this.state.gameObjectInstances.length; i++) {
-            if (this.state.gameObjectInstances[i].data.isAnimation) {
+            if (this.state.gameObjectInstances[i].data.sequence) {
               totalScore += ANIMATION_SCORE
             } else {
               totalScore += STATIC_SCORE
             }
           }
+          console.log('total after new object added: ', totalScore)
           if (totalScore >= 10) {
             Alert.alert('Stopp!', 'Die maximale Anzahl Bilder ist erreicht.')
             // Alert.alert('Stopp!', 'Die Anzahl bewegter Bilder ist beschränkt auf maximal 9 Animationen.')
