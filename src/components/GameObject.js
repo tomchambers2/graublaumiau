@@ -69,8 +69,8 @@ class Game extends Component {
         this.setState({
             top: new Animated.Value(this.props.y),
             left: new Animated.Value(this.props.x),
-            width: this.gameObject.size.width,
-            height: this.gameObject.size.height,
+            width: this.gameObject.size.width * (this.gameObject.initialZoom || 0.9),
+            height: this.gameObject.size.height * (this.gameObject.initialZoom || 0.9),
         })
 
         if (!this.props.beingCreated) {
@@ -260,6 +260,7 @@ class Game extends Component {
         },
         gameObject: {
             position: 'absolute',
+            // backgroundColor: 'yellow',
         },
     })
 
