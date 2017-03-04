@@ -179,15 +179,15 @@ class Game extends Component {
   _constrainToGrid(x, y, shapeDimensions) {
     const keepInMargin = 80
     const minX = -10 - shapeDimensions.width + keepInMargin
-    const maxX = shapeDimensions.width + 165 - keepInMargin
+    const maxX = window.width - 165 - keepInMargin
 
     const minY = -shapeDimensions.height + keepInMargin
-    const maxY = keepInMargin
+    const maxY = window.height - keepInMargin
 
     if (x < minX) x = minX
-    if (x + maxX > window.width) x = window.width - maxX
+    if (x > maxX) x = maxX
     if (y < minY) y = minY
-    if (y + maxY > window.height) y = window.height - maxY
+    if (y > maxY) y = maxY
     return [x, y]
   }
 

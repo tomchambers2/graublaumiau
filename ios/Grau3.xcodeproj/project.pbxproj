@@ -39,6 +39,8 @@
 		EFD9FDCA6F1C47B31EBB3EED /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDA62BFB59A632D69C5B8EA /* SystemConfiguration.framework */; };
 		F62892811E2CF00B00081545 /* loading-2048.gif in Resources */ = {isa = PBXBuildFile; fileRef = F62892801E2CF00B00081545 /* loading-2048.gif */; };
 		F62892851E2CF67800081545 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F62892841E2CF67800081545 /* LaunchScreen.storyboard */; };
+		F643E6461E698C6F00A59918 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F643E6441E698C6F00A59918 /* Fabric.framework */; };
+		F643E6471E698C6F00A59918 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F643E6451E698C6F00A59918 /* Crashlytics.framework */; };
 		F6A97E891E2D214300C0372F /* libRNMail.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6A97E841E2D212E00C0372F /* libRNMail.a */; };
 		F6AD31E21E685F9800D6B70C /* Icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = F6AD31CD1E685F9800D6B70C /* Icon-60.png */; };
 		F6AD31E31E685F9800D6B70C /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F6AD31CE1E685F9800D6B70C /* Icon-60@2x.png */; };
@@ -403,6 +405,8 @@
 		ED6C88AD56B07764F07A3A4E /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BuddyBuildSDK.framework; sourceTree = "<group>"; };
 		F62892801E2CF00B00081545 /* loading-2048.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "loading-2048.gif"; sourceTree = "<group>"; };
 		F62892841E2CF67800081545 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Grau3/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F643E6441E698C6F00A59918 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		F643E6451E698C6F00A59918 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		F6A97E6A1E2D212E00C0372F /* RNMail.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNMail.xcodeproj; path = "../node_modules/react-native-mail/RNMail.xcodeproj"; sourceTree = "<group>"; };
 		F6AD31CD1E685F9800D6B70C /* Icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60.png"; sourceTree = "<group>"; };
 		F6AD31CE1E685F9800D6B70C /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
@@ -509,6 +513,8 @@
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
+				F643E6461E698C6F00A59918 /* Fabric.framework in Frameworks */,
+				F643E6471E698C6F00A59918 /* Crashlytics.framework in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
@@ -725,6 +731,8 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* Grau3Tests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
+				F643E6441E698C6F00A59918 /* Fabric.framework */,
+				F643E6451E698C6F00A59918 /* Crashlytics.framework */,
 				35EF01B140A9A042B7046975 /* Frameworks */,
 			);
 			indentWidth = 2;
@@ -936,6 +944,7 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				F643E6231E698B9600A59918 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1399,6 +1408,19 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/packager/react-native-xcode.sh";
 		};
+		F643E6231E698B9600A59918 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run a7ea10e058a5e79ec08b1211d710419af957006b 7dc428053d173e438ccbb8b502f826cbeffb7fc57932419dd89ad0435557258a";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1490,6 +1512,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.GrauBlauMiau;
 				PRODUCT_NAME = Grau3;
 				SWIFT_OBJC_BRIDGING_HEADER = "Grau3-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1518,6 +1541,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.GrauBlauMiau;
 				PRODUCT_NAME = Grau3;
 				SWIFT_OBJC_BRIDGING_HEADER = "Grau3-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
