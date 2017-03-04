@@ -219,7 +219,9 @@ class ZoomableImage extends Component {
             (layout.height - this.props.imageHeight * zoom) / 2
             : 0;
 
-        zoom = 0.9
+            console.log('using zoom?', this.props.initialZoom)
+
+        zoom = this.props.initialZoom || 0.9
 
         this.setState({
             layoutKnown: true,

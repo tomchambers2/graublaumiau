@@ -220,6 +220,7 @@ class Game extends Component {
                     >
                             {menu}
                             <ZoomableImage
+                                initialZoom={this.gameObject.initialZoom}
                                 imageHeight={this.gameObject.size.height}
                                 imageWidth={this.gameObject.size.width}
                                 allowOpen={this.props.allowOpen}

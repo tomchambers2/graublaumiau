@@ -32,6 +32,18 @@ var sounds = {
   wabber_animation: 'wabber.mp3',
 }
 
+var initialZoom = {
+  kugel: 0.6,
+  kugel1: 0.6,
+  kugel2: 0.6,
+  kugel3: 0.6,
+  dog: 0.5,
+  vogel: 0.6,
+  schiff: 0.6,
+  loch: 0.6,
+  miau3: 0.6,
+}
+
 
 fs.readdir('./images', (err, files) => {
     if (err) return console.error(err)
@@ -55,6 +67,7 @@ fs.readdir('./images', (err, files) => {
             gid: gidCounter,
             name: trimmedName,
             size,
+            initialZoom: initialZoom[trimmedName],
             image: "require('./images/" + name + "')",
             icon: "require('./images/icon_" + name + "')",
         })
@@ -76,6 +89,7 @@ fs.readdir('./images', (err, files) => {
             gid: gidCounter,
             name: name,
             soundName: sounds[name],
+            initialZoom: initialZoom[name],
             playTime: timers[name] && timers[name].play * 1000,
             pauseTime: timers[name] && timers[name].pause * 1000,
             minPause: timers[name] && timers[name].minPause * 1000,
