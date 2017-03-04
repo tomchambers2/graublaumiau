@@ -87,7 +87,7 @@ class Game extends Component {
             }
           }
           console.log('total after new object added: ', totalScore)
-          if (totalScore >= 10) {
+          if (totalScore >= 14) {
             Alert.alert('Stopp!', 'Die maximale Anzahl Bilder ist erreicht.')
             // Alert.alert('Stopp!', 'Die Anzahl bewegter Bilder ist beschränkt auf maximal 9 Animationen.')
             return
