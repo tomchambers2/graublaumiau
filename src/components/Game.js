@@ -77,7 +77,7 @@ class Game extends Component {
           const y = event.nativeEvent.pageY
 
           let totalScore = 0
-          ANIMATION_SCORE = 5
+          ANIMATION_SCORE = 3
           STATIC_SCORE = 0.5
           for (var i = 0; i < this.state.gameObjectInstances.length; i++) {
             if (this.state.gameObjectInstances[i].data.sequence) {
