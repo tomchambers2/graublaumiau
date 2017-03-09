@@ -42,6 +42,8 @@ var initialZoom = {
   schiff: 0.6,
   loch: 0.6,
   miau3: 0.6,
+  stein: 0.8,
+  stein1: 0.8,
 }
 
 

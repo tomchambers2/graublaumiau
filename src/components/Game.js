@@ -131,7 +131,7 @@ class Game extends Component {
     const panResponderReleaseHandler = () => {
       if (!this.instanceCreated) {
         console.log('tap longer!')
-        Alert.alert('Hilfe', 'Lange gedrückt halten')
+        Alert.alert('Hinweis', 'Lange gedrückt halten')
       } else {
         const index = this.state.gameObjectInstances.length - 1
         this._constrainObject(index, true)
