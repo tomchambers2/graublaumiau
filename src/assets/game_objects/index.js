@@ -2,7 +2,7 @@ import {Image} from 'react-native'
 
 export default [
   {
-    "gid": 0,
+    "gid": 11,
     "name": "Bubble",
     "size": {
       "width": 266,
@@ -13,7 +13,7 @@ export default [
     "icon": require('./images/icon_Bubble.png')
   },
   {
-    "gid": 1,
+    "gid": 12,
     "name": "Bubble1",
     "size": {
       "width": 253,
@@ -24,7 +24,7 @@ export default [
     "icon": require('./images/icon_Bubble1.png')
   },
   {
-    "gid": 2,
+    "gid": 13,
     "name": "Bubble_rosa",
     "size": {
       "width": 266,
@@ -35,7 +35,7 @@ export default [
     "icon": require('./images/icon_Bubble_rosa.png')
   },
   {
-    "gid": 3,
+    "gid": 14,
     "name": "Dornen",
     "size": {
       "width": 419,
@@ -46,7 +46,7 @@ export default [
     "icon": require('./images/icon_Dornen.png')
   },
   {
-    "gid": 4,
+    "gid": 15,
     "name": "Mauer",
     "size": {
       "width": 337,
@@ -57,7 +57,7 @@ export default [
     "icon": require('./images/icon_Mauer.png')
   },
   {
-    "gid": 5,
+    "gid": 16,
     "name": "Mauer1",
     "size": {
       "width": 337,
@@ -68,7 +68,7 @@ export default [
     "icon": require('./images/icon_Mauer1.png')
   },
   {
-    "gid": 6,
+    "gid": 17,
     "name": "Milo",
     "size": {
       "width": 160,
@@ -79,7 +79,7 @@ export default [
     "icon": require('./images/icon_Milo.png')
   },
   {
-    "gid": 7,
+    "gid": 18,
     "name": "Milo1",
     "size": {
       "width": 187,
@@ -90,7 +90,7 @@ export default [
     "icon": require('./images/icon_Milo1.png')
   },
   {
-    "gid": 8,
+    "gid": 19,
     "name": "Riss",
     "size": {
       "width": 342,
@@ -101,7 +101,7 @@ export default [
     "icon": require('./images/icon_Riss.png')
   },
   {
-    "gid": 9,
+    "gid": 20,
     "name": "Strich",
     "size": {
       "width": 38,
@@ -112,7 +112,7 @@ export default [
     "icon": require('./images/icon_Strich.png')
   },
   {
-    "gid": 10,
+    "gid": 21,
     "name": "auto",
     "size": {
       "width": 854,
@@ -123,7 +123,7 @@ export default [
     "icon": require('./images/icon_auto.png')
   },
   {
-    "gid": 11,
+    "gid": 22,
     "name": "baum",
     "size": {
       "width": 813,
@@ -134,7 +134,7 @@ export default [
     "icon": require('./images/icon_baum.png')
   },
   {
-    "gid": 12,
+    "gid": 23,
     "name": "baum2",
     "size": {
       "width": 282,
@@ -145,7 +145,7 @@ export default [
     "icon": require('./images/icon_baum2.png')
   },
   {
-    "gid": 13,
+    "gid": 24,
     "name": "boden",
     "size": {
       "width": 1200,
@@ -156,7 +156,7 @@ export default [
     "icon": require('./images/icon_boden.png')
   },
   {
-    "gid": 14,
+    "gid": 25,
     "name": "boden1",
     "size": {
       "width": 942,
@@ -167,7 +167,7 @@ export default [
     "icon": require('./images/icon_boden1.png')
   },
   {
-    "gid": 15,
+    "gid": 26,
     "name": "boden3",
     "size": {
       "width": 955,
@@ -178,7 +178,7 @@ export default [
     "icon": require('./images/icon_boden3.png')
   },
   {
-    "gid": 16,
+    "gid": 27,
     "name": "boden4",
     "size": {
       "width": 1109,
@@ -189,7 +189,7 @@ export default [
     "icon": require('./images/icon_boden4.png')
   },
   {
-    "gid": 17,
+    "gid": 28,
     "name": "boden5",
     "size": {
       "width": 1886,
@@ -200,7 +200,7 @@ export default [
     "icon": require('./images/icon_boden5.png')
   },
   {
-    "gid": 18,
+    "gid": 29,
     "name": "boden6",
     "size": {
       "width": 2473,
@@ -211,7 +211,7 @@ export default [
     "icon": require('./images/icon_boden6.png')
   },
   {
-    "gid": 19,
+    "gid": 30,
     "name": "boden7",
     "size": {
       "width": 1015,
@@ -222,7 +222,7 @@ export default [
     "icon": require('./images/icon_boden7.png')
   },
   {
-    "gid": 20,
+    "gid": 31,
     "name": "bubble2",
     "size": {
       "width": 477,
@@ -233,7 +233,7 @@ export default [
     "icon": require('./images/icon_bubble2.png')
   },
   {
-    "gid": 21,
+    "gid": 32,
     "name": "dog",
     "size": {
       "width": 565,
@@ -245,7 +245,7 @@ export default [
     "icon": require('./images/icon_dog.png')
   },
   {
-    "gid": 22,
+    "gid": 33,
     "name": "feuer",
     "size": {
       "width": 262,
@@ -256,7 +256,7 @@ export default [
     "icon": require('./images/icon_feuer.png')
   },
   {
-    "gid": 23,
+    "gid": 34,
     "name": "fingerprint1",
     "size": {
       "width": 566,
@@ -267,7 +267,7 @@ export default [
     "icon": require('./images/icon_fingerprint1.png')
   },
   {
-    "gid": 24,
+    "gid": 35,
     "name": "fingerprint1_rosa",
     "size": {
       "width": 566,
@@ -278,7 +278,7 @@ export default [
     "icon": require('./images/icon_fingerprint1_rosa.png')
   },
   {
-    "gid": 25,
+    "gid": 36,
     "name": "fingerprint2",
     "size": {
       "width": 376,
@@ -289,7 +289,7 @@ export default [
     "icon": require('./images/icon_fingerprint2.png')
   },
   {
-    "gid": 26,
+    "gid": 37,
     "name": "fingerprint3",
     "size": {
       "width": 487,
@@ -300,7 +300,7 @@ export default [
     "icon": require('./images/icon_fingerprint3.png')
   },
   {
-    "gid": 27,
+    "gid": 38,
     "name": "fingerprint3_grau",
     "size": {
       "width": 487,
@@ -311,7 +311,7 @@ export default [
     "icon": require('./images/icon_fingerprint3_grau.png')
   },
   {
-    "gid": 28,
+    "gid": 39,
     "name": "fingerprint4",
     "size": {
       "width": 491,
@@ -322,7 +322,7 @@ export default [
     "icon": require('./images/icon_fingerprint4.png')
   },
   {
-    "gid": 29,
+    "gid": 40,
     "name": "fleck1",
     "size": {
       "width": 361,
@@ -333,7 +333,7 @@ export default [
     "icon": require('./images/icon_fleck1.png')
   },
   {
-    "gid": 30,
+    "gid": 41,
     "name": "fleck2",
     "size": {
       "width": 381,
@@ -344,7 +344,7 @@ export default [
     "icon": require('./images/icon_fleck2.png')
   },
   {
-    "gid": 31,
+    "gid": 42,
     "name": "fleck3",
     "size": {
       "width": 936,
@@ -355,7 +355,7 @@ export default [
     "icon": require('./images/icon_fleck3.png')
   },
   {
-    "gid": 32,
+    "gid": 43,
     "name": "fleck4",
     "size": {
       "width": 281,
@@ -366,7 +366,7 @@ export default [
     "icon": require('./images/icon_fleck4.png')
   },
   {
-    "gid": 33,
+    "gid": 44,
     "name": "fleck5",
     "size": {
       "width": 353,
@@ -377,7 +377,7 @@ export default [
     "icon": require('./images/icon_fleck5.png')
   },
   {
-    "gid": 34,
+    "gid": 45,
     "name": "fleck6",
     "size": {
       "width": 381,
@@ -388,7 +388,7 @@ export default [
     "icon": require('./images/icon_fleck6.png')
   },
   {
-    "gid": 35,
+    "gid": 46,
     "name": "fleck7",
     "size": {
       "width": 444,
@@ -399,7 +399,7 @@ export default [
     "icon": require('./images/icon_fleck7.png')
   },
   {
-    "gid": 36,
+    "gid": 47,
     "name": "fleck8",
     "size": {
       "width": 936,
@@ -410,7 +410,7 @@ export default [
     "icon": require('./images/icon_fleck8.png')
   },
   {
-    "gid": 37,
+    "gid": 48,
     "name": "glace",
     "size": {
       "width": 205,
@@ -421,7 +421,7 @@ export default [
     "icon": require('./images/icon_glace.png')
   },
   {
-    "gid": 38,
+    "gid": 49,
     "name": "grosi",
     "size": {
       "width": 660,
@@ -432,7 +432,7 @@ export default [
     "icon": require('./images/icon_grosi.png')
   },
   {
-    "gid": 39,
+    "gid": 50,
     "name": "haus",
     "size": {
       "width": 342,
@@ -443,7 +443,7 @@ export default [
     "icon": require('./images/icon_haus.png')
   },
   {
-    "gid": 40,
+    "gid": 51,
     "name": "haus1",
     "size": {
       "width": 301,
@@ -454,7 +454,7 @@ export default [
     "icon": require('./images/icon_haus1.png')
   },
   {
-    "gid": 41,
+    "gid": 52,
     "name": "haus10",
     "size": {
       "width": 247,
@@ -465,7 +465,7 @@ export default [
     "icon": require('./images/icon_haus10.png')
   },
   {
-    "gid": 42,
+    "gid": 53,
     "name": "haus2",
     "size": {
       "width": 479,
@@ -476,7 +476,7 @@ export default [
     "icon": require('./images/icon_haus2.png')
   },
   {
-    "gid": 43,
+    "gid": 54,
     "name": "haus3",
     "size": {
       "width": 296,
@@ -487,7 +487,7 @@ export default [
     "icon": require('./images/icon_haus3.png')
   },
   {
-    "gid": 44,
+    "gid": 55,
     "name": "haus4",
     "size": {
       "width": 341,
@@ -498,7 +498,7 @@ export default [
     "icon": require('./images/icon_haus4.png')
   },
   {
-    "gid": 45,
+    "gid": 56,
     "name": "haus5",
     "size": {
       "width": 234,
@@ -509,7 +509,7 @@ export default [
     "icon": require('./images/icon_haus5.png')
   },
   {
-    "gid": 46,
+    "gid": 57,
     "name": "haus6",
     "size": {
       "width": 219,
@@ -520,7 +520,7 @@ export default [
     "icon": require('./images/icon_haus6.png')
   },
   {
-    "gid": 47,
+    "gid": 58,
     "name": "haus7",
     "size": {
       "width": 396,
@@ -531,7 +531,7 @@ export default [
     "icon": require('./images/icon_haus7.png')
   },
   {
-    "gid": 48,
+    "gid": 59,
     "name": "haus8",
     "size": {
       "width": 345,
@@ -542,7 +542,7 @@ export default [
     "icon": require('./images/icon_haus8.png')
   },
   {
-    "gid": 49,
+    "gid": 60,
     "name": "haus9",
     "size": {
       "width": 423,
@@ -553,7 +553,7 @@ export default [
     "icon": require('./images/icon_haus9.png')
   },
   {
-    "gid": 50,
+    "gid": 61,
     "name": "hausteil",
     "size": {
       "width": 779,
@@ -564,7 +564,7 @@ export default [
     "icon": require('./images/icon_hausteil.png')
   },
   {
-    "gid": 51,
+    "gid": 62,
     "name": "jogger",
     "size": {
       "width": 360,
@@ -575,7 +575,7 @@ export default [
     "icon": require('./images/icon_jogger.png')
   },
   {
-    "gid": 52,
+    "gid": 63,
     "name": "kauz",
     "size": {
       "width": 299,
@@ -586,7 +586,7 @@ export default [
     "icon": require('./images/icon_kauz.png')
   },
   {
-    "gid": 53,
+    "gid": 64,
     "name": "kugel",
     "size": {
       "width": 519,
@@ -598,7 +598,7 @@ export default [
     "icon": require('./images/icon_kugel.png')
   },
   {
-    "gid": 54,
+    "gid": 65,
     "name": "kugel1",
     "size": {
       "width": 514,
@@ -610,7 +610,7 @@ export default [
     "icon": require('./images/icon_kugel1.png')
   },
   {
-    "gid": 55,
+    "gid": 66,
     "name": "kugel2",
     "size": {
       "width": 514,
@@ -622,7 +622,7 @@ export default [
     "icon": require('./images/icon_kugel2.png')
   },
   {
-    "gid": 56,
+    "gid": 67,
     "name": "kugel3",
     "size": {
       "width": 513,
@@ -634,7 +634,7 @@ export default [
     "icon": require('./images/icon_kugel3.png')
   },
   {
-    "gid": 57,
+    "gid": 68,
     "name": "loch",
     "size": {
       "width": 1543,
@@ -646,7 +646,7 @@ export default [
     "icon": require('./images/icon_loch.png')
   },
   {
-    "gid": 58,
+    "gid": 69,
     "name": "miau3",
     "size": {
       "width": 668,
@@ -658,7 +658,7 @@ export default [
     "icon": require('./images/icon_miau3.png')
   },
   {
-    "gid": 59,
+    "gid": 70,
     "name": "pflanze",
     "size": {
       "width": 391,
@@ -669,7 +669,7 @@ export default [
     "icon": require('./images/icon_pflanze.png')
   },
   {
-    "gid": 60,
+    "gid": 71,
     "name": "pflanze1",
     "size": {
       "width": 218,
@@ -680,7 +680,7 @@ export default [
     "icon": require('./images/icon_pflanze1.png')
   },
   {
-    "gid": 61,
+    "gid": 72,
     "name": "pflanze2",
     "size": {
       "width": 477,
@@ -691,7 +691,7 @@ export default [
     "icon": require('./images/icon_pflanze2.png')
   },
   {
-    "gid": 62,
+    "gid": 73,
     "name": "pflanze2_rosa",
     "size": {
       "width": 477,
@@ -702,7 +702,7 @@ export default [
     "icon": require('./images/icon_pflanze2_rosa.png')
   },
   {
-    "gid": 63,
+    "gid": 74,
     "name": "pflanze3",
     "size": {
       "width": 235,
@@ -713,7 +713,7 @@ export default [
     "icon": require('./images/icon_pflanze3.png')
   },
   {
-    "gid": 64,
+    "gid": 75,
     "name": "pflanze3_grau",
     "size": {
       "width": 235,
@@ -724,7 +724,7 @@ export default [
     "icon": require('./images/icon_pflanze3_grau.png')
   },
   {
-    "gid": 65,
+    "gid": 76,
     "name": "pflanze4",
     "size": {
       "width": 166,
@@ -735,7 +735,7 @@ export default [
     "icon": require('./images/icon_pflanze4.png')
   },
   {
-    "gid": 66,
+    "gid": 77,
     "name": "pflanze5",
     "size": {
       "width": 504,
@@ -746,7 +746,7 @@ export default [
     "icon": require('./images/icon_pflanze5.png')
   },
   {
-    "gid": 67,
+    "gid": 78,
     "name": "pflanze7",
     "size": {
       "width": 511,
@@ -757,7 +757,7 @@ export default [
     "icon": require('./images/icon_pflanze7.png')
   },
   {
-    "gid": 68,
+    "gid": 79,
     "name": "pflanze7_rosa",
     "size": {
       "width": 511,
@@ -768,7 +768,7 @@ export default [
     "icon": require('./images/icon_pflanze7_rosa.png')
   },
   {
-    "gid": 69,
+    "gid": 80,
     "name": "rauch",
     "size": {
       "width": 366,
@@ -779,7 +779,7 @@ export default [
     "icon": require('./images/icon_rauch.png')
   },
   {
-    "gid": 70,
+    "gid": 81,
     "name": "roof",
     "size": {
       "width": 822,
@@ -790,7 +790,7 @@ export default [
     "icon": require('./images/icon_roof.png')
   },
   {
-    "gid": 71,
+    "gid": 82,
     "name": "schiff",
     "size": {
       "width": 966,
@@ -802,7 +802,7 @@ export default [
     "icon": require('./images/icon_schiff.png')
   },
   {
-    "gid": 72,
+    "gid": 83,
     "name": "stein",
     "size": {
       "width": 1047,
@@ -814,7 +814,7 @@ export default [
     "icon": require('./images/icon_stein.png')
   },
   {
-    "gid": 73,
+    "gid": 84,
     "name": "stein1",
     "size": {
       "width": 1190,
@@ -826,7 +826,7 @@ export default [
     "icon": require('./images/icon_stein1.png')
   },
   {
-    "gid": 74,
+    "gid": 85,
     "name": "tanz",
     "size": {
       "width": 267,
@@ -837,7 +837,7 @@ export default [
     "icon": require('./images/icon_tanz.png')
   },
   {
-    "gid": 75,
+    "gid": 86,
     "name": "tanz1",
     "size": {
       "width": 246,
@@ -848,7 +848,7 @@ export default [
     "icon": require('./images/icon_tanz1.png')
   },
   {
-    "gid": 76,
+    "gid": 87,
     "name": "vogel",
     "size": {
       "width": 931,
@@ -860,7 +860,7 @@ export default [
     "icon": require('./images/icon_vogel.png')
   },
   {
-    "gid": 77,
+    "gid": 88,
     "name": "wolke",
     "size": {
       "width": 751,
@@ -871,7 +871,7 @@ export default [
     "icon": require('./images/icon_wolke.png')
   },
   {
-    "gid": 78,
+    "gid": 89,
     "name": "wolke1",
     "size": {
       "width": 1377,
@@ -882,7 +882,7 @@ export default [
     "icon": require('./images/icon_wolke1.png')
   },
   {
-    "gid": 79,
+    "gid": 90,
     "name": "wolke2",
     "size": {
       "width": 897,
@@ -893,10 +893,59 @@ export default [
     "icon": require('./images/icon_wolke2.png')
   },
   {
-    "gid": 80,
+    "gid": 2,
+    "name": "feuer_animation",
+    "soundName": "feuer.mp3",
+    "playTime": 1990,
+    "pauseTime": 10000,
+    "minPause": null,
+    "maxPause": null,
+    "size": {
+      "width": 257,
+      "height": 500,
+      "type": "png"
+    },
+    "icon": require('./images/icon_feuer_animation.png'),
+    "sequence": [
+      require('./images/feuer_animation/feuer-0.png'),
+      require('./images/feuer_animation/feuer-1.png'),
+      require('./images/feuer_animation/feuer-2.png'),
+      require('./images/feuer_animation/feuer-3.png'),
+      require('./images/feuer_animation/feuer-4.png'),
+      require('./images/feuer_animation/feuer-5.png')
+    ],
+    "sequenceLength": 6,
+    "image": require('./images/feuer_animation/feuer-0.png')
+  },
+  {
+    "gid": 3,
+    "name": "fleck_gruen_animation",
+    "soundName": "fleck-gruen.mp3",
+    "playTime": 1660,
+    "pauseTime": 15000,
+    "minPause": null,
+    "maxPause": null,
+    "size": {
+      "width": 224,
+      "height": 500,
+      "type": "png"
+    },
+    "icon": require('./images/icon_fleck_gruen_animation.png'),
+    "sequence": [
+      require('./images/fleck_gruen_animation/fleck-gruen-0.png'),
+      require('./images/fleck_gruen_animation/fleck-gruen-1.png'),
+      require('./images/fleck_gruen_animation/fleck-gruen-2.png'),
+      require('./images/fleck_gruen_animation/fleck-gruen-3.png'),
+      require('./images/fleck_gruen_animation/fleck-gruen-4.png')
+    ],
+    "sequenceLength": 5,
+    "image": require('./images/fleck_gruen_animation/fleck-gruen-0.png')
+  },
+  {
+    "gid": 0,
     "name": "baum_animation",
     "soundName": "baum.mp3",
-    "playTime": 3500,
+    "playTime": 3660,
     "pauseTime": 10000,
     "minPause": null,
     "maxPause": null,
@@ -928,37 +977,16 @@ export default [
       require('./images/baum_animation/baum-18.png'),
       require('./images/baum_animation/baum-19.png'),
       require('./images/baum_animation/baum-20.png'),
-      require('./images/baum_animation/baum-21.png'),
-      require('./images/baum_animation/baum-22.png'),
-      require('./images/baum_animation/baum-23.png'),
-      require('./images/baum_animation/baum-24.png'),
-      require('./images/baum_animation/baum-25.png'),
-      require('./images/baum_animation/baum-26.png'),
-      require('./images/baum_animation/baum-27.png'),
-      require('./images/baum_animation/baum-28.png'),
-      require('./images/baum_animation/baum-29.png'),
-      require('./images/baum_animation/baum-30.png'),
-      require('./images/baum_animation/baum-31.png'),
-      require('./images/baum_animation/baum-32.png'),
-      require('./images/baum_animation/baum-33.png'),
-      require('./images/baum_animation/baum-34.png'),
-      require('./images/baum_animation/baum-35.png'),
-      require('./images/baum_animation/baum-36.png'),
-      require('./images/baum_animation/baum-37.png'),
-      require('./images/baum_animation/baum-38.png'),
-      require('./images/baum_animation/baum-39.png'),
-      require('./images/baum_animation/baum-40.png'),
-      require('./images/baum_animation/baum-41.png'),
-      require('./images/baum_animation/baum-42.png')
+      require('./images/baum_animation/baum-21.png')
     ],
-    "sequenceLength": 43,
+    "sequenceLength": 22,
     "image": require('./images/baum_animation/baum-0.png')
   },
   {
-    "gid": 81,
+    "gid": 1,
     "name": "beine_animation",
     "soundName": "beine.mp3",
-    "playTime": 3000,
+    "playTime": 1830,
     "pauseTime": 15000,
     "minPause": null,
     "maxPause": null,
@@ -990,213 +1018,96 @@ export default [
       require('./images/beine_animation/beine-18.png'),
       require('./images/beine_animation/beine-19.png'),
       require('./images/beine_animation/beine-20.png'),
-      require('./images/beine_animation/beine-21.png'),
-      require('./images/beine_animation/beine-22.png'),
-      require('./images/beine_animation/beine-23.png'),
-      require('./images/beine_animation/beine-24.png'),
-      require('./images/beine_animation/beine-25.png'),
-      require('./images/beine_animation/beine-26.png'),
-      require('./images/beine_animation/beine-27.png'),
-      require('./images/beine_animation/beine-28.png'),
-      require('./images/beine_animation/beine-29.png'),
-      require('./images/beine_animation/beine-30.png'),
-      require('./images/beine_animation/beine-31.png'),
-      require('./images/beine_animation/beine-32.png'),
-      require('./images/beine_animation/beine-33.png'),
-      require('./images/beine_animation/beine-34.png'),
-      require('./images/beine_animation/beine-35.png'),
-      require('./images/beine_animation/beine-36.png'),
-      require('./images/beine_animation/beine-37.png'),
-      require('./images/beine_animation/beine-38.png'),
-      require('./images/beine_animation/beine-39.png'),
-      require('./images/beine_animation/beine-40.png'),
-      require('./images/beine_animation/beine-41.png'),
-      require('./images/beine_animation/beine-42.png'),
-      require('./images/beine_animation/beine-43.png'),
-      require('./images/beine_animation/beine-44.png'),
-      require('./images/beine_animation/beine-45.png'),
-      require('./images/beine_animation/beine-46.png'),
-      require('./images/beine_animation/beine-47.png'),
-      require('./images/beine_animation/beine-48.png'),
-      require('./images/beine_animation/beine-49.png'),
-      require('./images/beine_animation/beine-50.png'),
-      require('./images/beine_animation/beine-51.png'),
-      require('./images/beine_animation/beine-52.png'),
-      require('./images/beine_animation/beine-53.png'),
-      require('./images/beine_animation/beine-54.png'),
-      require('./images/beine_animation/beine-55.png'),
-      require('./images/beine_animation/beine-56.png'),
-      require('./images/beine_animation/beine-57.png'),
-      require('./images/beine_animation/beine-58.png'),
-      require('./images/beine_animation/beine-59.png'),
-      require('./images/beine_animation/beine-60.png'),
-      require('./images/beine_animation/beine-61.png'),
-      require('./images/beine_animation/beine-62.png'),
-      require('./images/beine_animation/beine-63.png'),
-      require('./images/beine_animation/beine-64.png'),
-      require('./images/beine_animation/beine-65.png'),
-      require('./images/beine_animation/beine-66.png'),
-      require('./images/beine_animation/beine-67.png'),
-      require('./images/beine_animation/beine-68.png'),
-      require('./images/beine_animation/beine-69.png'),
-      require('./images/beine_animation/beine-70.png'),
-      require('./images/beine_animation/beine-71.png'),
-      require('./images/beine_animation/beine-72.png'),
-      require('./images/beine_animation/beine-73.png')
+      require('./images/beine_animation/beine-21.png')
     ],
-    "sequenceLength": 74,
+    "sequenceLength": 22,
     "image": require('./images/beine_animation/beine-0.png')
   },
   {
-    "gid": 82,
-    "name": "feuer_animation",
-    "soundName": "feuer.mp3",
-    "playTime": 2080,
+    "gid": 6,
+    "name": "milo_walking_animation",
+    "soundName": "milo-walking.mp3",
+    "playTime": 2990,
     "pauseTime": 10000,
     "minPause": null,
     "maxPause": null,
     "size": {
-      "width": 13,
-      "height": 24,
+      "width": 334,
+      "height": 500,
       "type": "png"
     },
-    "icon": require('./images/icon_feuer_animation.png'),
+    "icon": require('./images/icon_milo_walking_animation.png'),
     "sequence": [
-      require('./images/feuer_animation/feuer-0.png'),
-      require('./images/feuer_animation/feuer-1.png'),
-      require('./images/feuer_animation/feuer-2.png'),
-      require('./images/feuer_animation/feuer-3.png'),
-      require('./images/feuer_animation/feuer-4.png'),
-      require('./images/feuer_animation/feuer-5.png'),
-      require('./images/feuer_animation/feuer-6.png'),
-      require('./images/feuer_animation/feuer-7.png'),
-      require('./images/feuer_animation/feuer-8.png'),
-      require('./images/feuer_animation/feuer-9.png'),
-      require('./images/feuer_animation/feuer-10.png'),
-      require('./images/feuer_animation/feuer-11.png')
+      require('./images/milo_walking_animation/milo-walking-0.png'),
+      require('./images/milo_walking_animation/milo-walking-1.png'),
+      require('./images/milo_walking_animation/milo-walking-2.png'),
+      require('./images/milo_walking_animation/milo-walking-3.png'),
+      require('./images/milo_walking_animation/milo-walking-4.png'),
+      require('./images/milo_walking_animation/milo-walking-5.png'),
+      require('./images/milo_walking_animation/milo-walking-6.png'),
+      require('./images/milo_walking_animation/milo-walking-7.png'),
+      require('./images/milo_walking_animation/milo-walking-8.png'),
+      require('./images/milo_walking_animation/milo-walking-9.png'),
+      require('./images/milo_walking_animation/milo-walking-10.png'),
+      require('./images/milo_walking_animation/milo-walking-11.png')
     ],
     "sequenceLength": 12,
-    "image": require('./images/feuer_animation/feuer-0.png')
+    "image": require('./images/milo_walking_animation/milo-walking-0.png')
   },
   {
-    "gid": 83,
-    "name": "fleck_gruen_animation",
-    "soundName": "fleck-gruen.mp3",
-    "playTime": 3360,
-    "pauseTime": 15000,
+    "gid": 8,
+    "name": "pflanze_bluete_animation",
+    "playTime": 6240,
+    "pauseTime": 10000,
     "minPause": null,
     "maxPause": null,
     "size": {
-      "width": 11,
-      "height": 24,
+      "width": 375,
+      "height": 500,
       "type": "png"
     },
-    "icon": require('./images/icon_fleck_gruen_animation.png'),
+    "icon": require('./images/icon_pflanze_bluete_animation.png'),
     "sequence": [
-      require('./images/fleck_gruen_animation/fleck-gruen-0.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-1.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-2.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-3.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-4.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-5.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-6.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-7.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-8.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-9.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-10.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-11.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-12.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-13.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-14.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-15.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-16.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-17.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-18.png'),
-      require('./images/fleck_gruen_animation/fleck-gruen-19.png')
+      require('./images/pflanze_bluete_animation/pflanze-bluete-0.png'),
+      require('./images/pflanze_bluete_animation/pflanze-bluete-1.png'),
+      require('./images/pflanze_bluete_animation/pflanze-bluete-2.png'),
+      require('./images/pflanze_bluete_animation/pflanze-bluete-3.png'),
+      require('./images/pflanze_bluete_animation/pflanze-bluete-4.png'),
+      require('./images/pflanze_bluete_animation/pflanze-bluete-5.png'),
+      require('./images/pflanze_bluete_animation/pflanze-bluete-6.png'),
+      require('./images/pflanze_bluete_animation/pflanze-bluete-7.png'),
+      require('./images/pflanze_bluete_animation/pflanze-bluete-8.png'),
+      require('./images/pflanze_bluete_animation/pflanze-bluete-9.png'),
+      require('./images/pflanze_bluete_animation/pflanze-bluete-10.png'),
+      require('./images/pflanze_bluete_animation/pflanze-bluete-11.png'),
+      require('./images/pflanze_bluete_animation/pflanze-bluete-12.png'),
+      require('./images/pflanze_bluete_animation/pflanze-bluete-13.png'),
+      require('./images/pflanze_bluete_animation/pflanze-bluete-14.png'),
+      require('./images/pflanze_bluete_animation/pflanze-bluete-15.png'),
+      require('./images/pflanze_bluete_animation/pflanze-bluete-16.png'),
+      require('./images/pflanze_bluete_animation/pflanze-bluete-17.png'),
+      require('./images/pflanze_bluete_animation/pflanze-bluete-18.png'),
+      require('./images/pflanze_bluete_animation/pflanze-bluete-19.png'),
+      require('./images/pflanze_bluete_animation/pflanze-bluete-20.png'),
+      require('./images/pflanze_bluete_animation/pflanze-bluete-21.png'),
+      require('./images/pflanze_bluete_animation/pflanze-bluete-22.png'),
+      require('./images/pflanze_bluete_animation/pflanze-bluete-23.png'),
+      require('./images/pflanze_bluete_animation/pflanze-bluete-24.png')
     ],
-    "sequenceLength": 20,
-    "image": require('./images/fleck_gruen_animation/fleck-gruen-0.png')
+    "sequenceLength": 25,
+    "image": require('./images/pflanze_bluete_animation/pflanze-bluete-0.png')
   },
   {
-    "gid": 84,
-    "name": "katze_aufstehen_animation",
-    "soundName": "katze-aufstehen.mp3",
-    "playTime": 2040,
-    "pauseTime": 8000,
-    "minPause": null,
-    "maxPause": null,
-    "size": {
-      "width": 77,
-      "height": 60,
-      "type": "png"
-    },
-    "icon": require('./images/icon_katze_aufstehen_animation.png'),
-    "sequence": [
-      require('./images/katze_aufstehen_animation/katze-aufstehen-0.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-1.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-2.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-3.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-4.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-5.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-6.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-7.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-8.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-9.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-10.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-11.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-12.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-13.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-14.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-15.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-16.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-17.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-18.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-19.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-20.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-21.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-22.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-23.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-24.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-25.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-26.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-27.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-28.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-29.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-30.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-31.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-32.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-33.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-34.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-35.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-36.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-37.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-38.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-39.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-40.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-41.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-42.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-43.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-44.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-45.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-46.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-47.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-48.png'),
-      require('./images/katze_aufstehen_animation/katze-aufstehen-49.png')
-    ],
-    "sequenceLength": 50,
-    "image": require('./images/katze_aufstehen_animation/katze-aufstehen-0.png')
-  },
-  {
-    "gid": 85,
+    "gid": 5,
     "name": "katze_still_animation",
     "soundName": "katze-still.mp3",
-    "playTime": 2400,
+    "playTime": 1740,
     "pauseTime": 8000,
     "minPause": null,
     "maxPause": null,
     "size": {
-      "width": 373,
-      "height": 650,
+      "width": 179,
+      "height": 312,
       "type": "png"
     },
     "icon": require('./images/icon_katze_still_animation.png'),
@@ -1221,103 +1132,22 @@ export default [
       require('./images/katze_still_animation/katze-still-17.png'),
       require('./images/katze_still_animation/katze-still-18.png'),
       require('./images/katze_still_animation/katze-still-19.png'),
-      require('./images/katze_still_animation/katze-still-20.png'),
-      require('./images/katze_still_animation/katze-still-21.png'),
-      require('./images/katze_still_animation/katze-still-22.png'),
-      require('./images/katze_still_animation/katze-still-23.png'),
-      require('./images/katze_still_animation/katze-still-24.png'),
-      require('./images/katze_still_animation/katze-still-25.png'),
-      require('./images/katze_still_animation/katze-still-26.png'),
-      require('./images/katze_still_animation/katze-still-27.png'),
-      require('./images/katze_still_animation/katze-still-28.png'),
-      require('./images/katze_still_animation/katze-still-29.png'),
-      require('./images/katze_still_animation/katze-still-30.png'),
-      require('./images/katze_still_animation/katze-still-31.png'),
-      require('./images/katze_still_animation/katze-still-32.png'),
-      require('./images/katze_still_animation/katze-still-33.png'),
-      require('./images/katze_still_animation/katze-still-34.png'),
-      require('./images/katze_still_animation/katze-still-35.png'),
-      require('./images/katze_still_animation/katze-still-36.png'),
-      require('./images/katze_still_animation/katze-still-37.png'),
-      require('./images/katze_still_animation/katze-still-38.png'),
-      require('./images/katze_still_animation/katze-still-39.png'),
-      require('./images/katze_still_animation/katze-still-40.png'),
-      require('./images/katze_still_animation/katze-still-41.png'),
-      require('./images/katze_still_animation/katze-still-42.png'),
-      require('./images/katze_still_animation/katze-still-43.png'),
-      require('./images/katze_still_animation/katze-still-44.png'),
-      require('./images/katze_still_animation/katze-still-45.png'),
-      require('./images/katze_still_animation/katze-still-46.png'),
-      require('./images/katze_still_animation/katze-still-47.png'),
-      require('./images/katze_still_animation/katze-still-48.png'),
-      require('./images/katze_still_animation/katze-still-49.png'),
-      require('./images/katze_still_animation/katze-still-50.png'),
-      require('./images/katze_still_animation/katze-still-51.png'),
-      require('./images/katze_still_animation/katze-still-52.png'),
-      require('./images/katze_still_animation/katze-still-53.png'),
-      require('./images/katze_still_animation/katze-still-54.png'),
-      require('./images/katze_still_animation/katze-still-55.png'),
-      require('./images/katze_still_animation/katze-still-56.png'),
-      require('./images/katze_still_animation/katze-still-57.png'),
-      require('./images/katze_still_animation/katze-still-58.png')
+      require('./images/katze_still_animation/katze-still-20.png')
     ],
-    "sequenceLength": 59,
+    "sequenceLength": 21,
     "image": require('./images/katze_still_animation/katze-still-0.png')
   },
   {
-    "gid": 86,
-    "name": "milo_walking_animation",
-    "soundName": "milo-walking.mp3",
-    "playTime": 3000,
-    "pauseTime": 10000,
-    "minPause": null,
-    "maxPause": null,
-    "size": {
-      "width": 36,
-      "height": 53,
-      "type": "png"
-    },
-    "icon": require('./images/icon_milo_walking_animation.png'),
-    "sequence": [
-      require('./images/milo_walking_animation/milo-walking-0.png'),
-      require('./images/milo_walking_animation/milo-walking-1.png'),
-      require('./images/milo_walking_animation/milo-walking-2.png'),
-      require('./images/milo_walking_animation/milo-walking-3.png'),
-      require('./images/milo_walking_animation/milo-walking-4.png'),
-      require('./images/milo_walking_animation/milo-walking-5.png'),
-      require('./images/milo_walking_animation/milo-walking-6.png'),
-      require('./images/milo_walking_animation/milo-walking-7.png'),
-      require('./images/milo_walking_animation/milo-walking-8.png'),
-      require('./images/milo_walking_animation/milo-walking-9.png'),
-      require('./images/milo_walking_animation/milo-walking-10.png'),
-      require('./images/milo_walking_animation/milo-walking-11.png'),
-      require('./images/milo_walking_animation/milo-walking-12.png'),
-      require('./images/milo_walking_animation/milo-walking-13.png'),
-      require('./images/milo_walking_animation/milo-walking-14.png'),
-      require('./images/milo_walking_animation/milo-walking-15.png'),
-      require('./images/milo_walking_animation/milo-walking-16.png'),
-      require('./images/milo_walking_animation/milo-walking-17.png'),
-      require('./images/milo_walking_animation/milo-walking-18.png'),
-      require('./images/milo_walking_animation/milo-walking-19.png'),
-      require('./images/milo_walking_animation/milo-walking-20.png'),
-      require('./images/milo_walking_animation/milo-walking-21.png'),
-      require('./images/milo_walking_animation/milo-walking-22.png'),
-      require('./images/milo_walking_animation/milo-walking-23.png')
-    ],
-    "sequenceLength": 24,
-    "image": require('./images/milo_walking_animation/milo-walking-0.png')
-  },
-  {
-    "gid": 87,
+    "gid": 7,
     "name": "pflanze_animation",
     "soundName": "pflanze.mp3",
-    "playTime": 8640,
+    "playTime": 8990,
     "pauseTime": 15000,
     "minPause": null,
     "maxPause": null,
     "size": {
-      "width": 59,
-      "height": 59,
+      "width": 498,
+      "height": 500,
       "type": "png"
     },
     "icon": require('./images/icon_pflanze_animation.png'),
@@ -1357,125 +1187,66 @@ export default [
       require('./images/pflanze_animation/pflanze-32.png'),
       require('./images/pflanze_animation/pflanze-33.png'),
       require('./images/pflanze_animation/pflanze-34.png'),
-      require('./images/pflanze_animation/pflanze-35.png'),
-      require('./images/pflanze_animation/pflanze-36.png'),
-      require('./images/pflanze_animation/pflanze-37.png'),
-      require('./images/pflanze_animation/pflanze-38.png'),
-      require('./images/pflanze_animation/pflanze-39.png'),
-      require('./images/pflanze_animation/pflanze-40.png'),
-      require('./images/pflanze_animation/pflanze-41.png'),
-      require('./images/pflanze_animation/pflanze-42.png'),
-      require('./images/pflanze_animation/pflanze-43.png'),
-      require('./images/pflanze_animation/pflanze-44.png'),
-      require('./images/pflanze_animation/pflanze-45.png'),
-      require('./images/pflanze_animation/pflanze-46.png'),
-      require('./images/pflanze_animation/pflanze-47.png'),
-      require('./images/pflanze_animation/pflanze-48.png'),
-      require('./images/pflanze_animation/pflanze-49.png'),
-      require('./images/pflanze_animation/pflanze-50.png'),
-      require('./images/pflanze_animation/pflanze-51.png'),
-      require('./images/pflanze_animation/pflanze-52.png'),
-      require('./images/pflanze_animation/pflanze-53.png'),
-      require('./images/pflanze_animation/pflanze-54.png'),
-      require('./images/pflanze_animation/pflanze-55.png'),
-      require('./images/pflanze_animation/pflanze-56.png'),
-      require('./images/pflanze_animation/pflanze-57.png'),
-      require('./images/pflanze_animation/pflanze-58.png'),
-      require('./images/pflanze_animation/pflanze-59.png'),
-      require('./images/pflanze_animation/pflanze-60.png'),
-      require('./images/pflanze_animation/pflanze-61.png'),
-      require('./images/pflanze_animation/pflanze-62.png'),
-      require('./images/pflanze_animation/pflanze-63.png'),
-      require('./images/pflanze_animation/pflanze-64.png'),
-      require('./images/pflanze_animation/pflanze-65.png'),
-      require('./images/pflanze_animation/pflanze-66.png'),
-      require('./images/pflanze_animation/pflanze-67.png'),
-      require('./images/pflanze_animation/pflanze-68.png'),
-      require('./images/pflanze_animation/pflanze-69.png'),
-      require('./images/pflanze_animation/pflanze-70.png')
+      require('./images/pflanze_animation/pflanze-35.png')
     ],
-    "sequenceLength": 71,
+    "sequenceLength": 36,
     "image": require('./images/pflanze_animation/pflanze-0.png')
   },
   {
-    "gid": 88,
-    "name": "pflanze_bluete_animation",
-    "playTime": 6120,
-    "pauseTime": 10000,
+    "gid": 4,
+    "name": "katze_aufstehen_animation",
+    "soundName": "katze-aufstehen.mp3",
+    "playTime": 2080,
+    "pauseTime": 8000,
     "minPause": null,
     "maxPause": null,
     "size": {
-      "width": 235,
-      "height": 313,
+      "width": 648,
+      "height": 500,
       "type": "png"
     },
-    "icon": require('./images/icon_pflanze_bluete_animation.png'),
+    "icon": require('./images/icon_katze_aufstehen_animation.png'),
     "sequence": [
-      require('./images/pflanze_bluete_animation/pflanze-bluete-0.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-1.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-2.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-3.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-4.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-5.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-6.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-7.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-8.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-9.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-10.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-11.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-12.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-13.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-14.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-15.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-16.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-17.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-18.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-19.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-20.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-21.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-22.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-23.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-24.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-25.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-26.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-27.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-28.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-29.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-30.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-31.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-32.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-33.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-34.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-35.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-36.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-37.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-38.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-39.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-40.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-41.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-42.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-43.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-44.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-45.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-46.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-47.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-48.png'),
-      require('./images/pflanze_bluete_animation/pflanze-bluete-49.png')
+      require('./images/katze_aufstehen_animation/katze-aufstehen-0.png'),
+      require('./images/katze_aufstehen_animation/katze-aufstehen-1.png'),
+      require('./images/katze_aufstehen_animation/katze-aufstehen-2.png'),
+      require('./images/katze_aufstehen_animation/katze-aufstehen-3.png'),
+      require('./images/katze_aufstehen_animation/katze-aufstehen-4.png'),
+      require('./images/katze_aufstehen_animation/katze-aufstehen-5.png'),
+      require('./images/katze_aufstehen_animation/katze-aufstehen-6.png'),
+      require('./images/katze_aufstehen_animation/katze-aufstehen-7.png'),
+      require('./images/katze_aufstehen_animation/katze-aufstehen-8.png'),
+      require('./images/katze_aufstehen_animation/katze-aufstehen-9.png'),
+      require('./images/katze_aufstehen_animation/katze-aufstehen-10.png'),
+      require('./images/katze_aufstehen_animation/katze-aufstehen-11.png'),
+      require('./images/katze_aufstehen_animation/katze-aufstehen-12.png'),
+      require('./images/katze_aufstehen_animation/katze-aufstehen-13.png'),
+      require('./images/katze_aufstehen_animation/katze-aufstehen-14.png'),
+      require('./images/katze_aufstehen_animation/katze-aufstehen-15.png'),
+      require('./images/katze_aufstehen_animation/katze-aufstehen-16.png'),
+      require('./images/katze_aufstehen_animation/katze-aufstehen-17.png'),
+      require('./images/katze_aufstehen_animation/katze-aufstehen-18.png'),
+      require('./images/katze_aufstehen_animation/katze-aufstehen-19.png'),
+      require('./images/katze_aufstehen_animation/katze-aufstehen-20.png'),
+      require('./images/katze_aufstehen_animation/katze-aufstehen-21.png'),
+      require('./images/katze_aufstehen_animation/katze-aufstehen-22.png'),
+      require('./images/katze_aufstehen_animation/katze-aufstehen-23.png'),
+      require('./images/katze_aufstehen_animation/katze-aufstehen-24.png')
     ],
-    "sequenceLength": 50,
-    "image": require('./images/pflanze_bluete_animation/pflanze-bluete-0.png')
+    "sequenceLength": 25,
+    "image": require('./images/katze_aufstehen_animation/katze-aufstehen-0.png')
   },
   {
-    "gid": 89,
+    "gid": 9,
     "name": "punkte_animation",
     "soundName": "punkte.mp3",
-    "playTime": 1640,
+    "playTime": 1660,
     "pauseTime": 0,
     "minPause": null,
     "maxPause": null,
     "size": {
-      "width": 454,
-      "height": 286,
+      "width": 794,
+      "height": 500,
       "type": "png"
     },
     "icon": require('./images/icon_punkte_animation.png'),
@@ -1499,42 +1270,22 @@ export default [
       require('./images/punkte_animation/punkte-16.png'),
       require('./images/punkte_animation/punkte-17.png'),
       require('./images/punkte_animation/punkte-18.png'),
-      require('./images/punkte_animation/punkte-19.png'),
-      require('./images/punkte_animation/punkte-20.png'),
-      require('./images/punkte_animation/punkte-21.png'),
-      require('./images/punkte_animation/punkte-22.png'),
-      require('./images/punkte_animation/punkte-23.png'),
-      require('./images/punkte_animation/punkte-24.png'),
-      require('./images/punkte_animation/punkte-25.png'),
-      require('./images/punkte_animation/punkte-26.png'),
-      require('./images/punkte_animation/punkte-27.png'),
-      require('./images/punkte_animation/punkte-28.png'),
-      require('./images/punkte_animation/punkte-29.png'),
-      require('./images/punkte_animation/punkte-30.png'),
-      require('./images/punkte_animation/punkte-31.png'),
-      require('./images/punkte_animation/punkte-32.png'),
-      require('./images/punkte_animation/punkte-33.png'),
-      require('./images/punkte_animation/punkte-34.png'),
-      require('./images/punkte_animation/punkte-35.png'),
-      require('./images/punkte_animation/punkte-36.png'),
-      require('./images/punkte_animation/punkte-37.png'),
-      require('./images/punkte_animation/punkte-38.png'),
-      require('./images/punkte_animation/punkte-39.png')
+      require('./images/punkte_animation/punkte-19.png')
     ],
-    "sequenceLength": 40,
+    "sequenceLength": 20,
     "image": require('./images/punkte_animation/punkte-0.png')
   },
   {
-    "gid": 90,
+    "gid": 10,
     "name": "wabber_animation",
     "soundName": "wabber.mp3",
-    "playTime": 9720,
+    "playTime": 4990,
     "pauseTime": 15000,
     "minPause": null,
     "maxPause": null,
     "size": {
-      "width": 480,
-      "height": 236,
+      "width": 1015,
+      "height": 500,
       "type": "png"
     },
     "icon": require('./images/icon_wabber_animation.png'),
@@ -1558,69 +1309,9 @@ export default [
       require('./images/wabber_animation/wabber-16.png'),
       require('./images/wabber_animation/wabber-17.png'),
       require('./images/wabber_animation/wabber-18.png'),
-      require('./images/wabber_animation/wabber-19.png'),
-      require('./images/wabber_animation/wabber-20.png'),
-      require('./images/wabber_animation/wabber-21.png'),
-      require('./images/wabber_animation/wabber-22.png'),
-      require('./images/wabber_animation/wabber-23.png'),
-      require('./images/wabber_animation/wabber-24.png'),
-      require('./images/wabber_animation/wabber-25.png'),
-      require('./images/wabber_animation/wabber-26.png'),
-      require('./images/wabber_animation/wabber-27.png'),
-      require('./images/wabber_animation/wabber-28.png'),
-      require('./images/wabber_animation/wabber-29.png'),
-      require('./images/wabber_animation/wabber-30.png'),
-      require('./images/wabber_animation/wabber-31.png'),
-      require('./images/wabber_animation/wabber-32.png'),
-      require('./images/wabber_animation/wabber-33.png'),
-      require('./images/wabber_animation/wabber-34.png'),
-      require('./images/wabber_animation/wabber-35.png'),
-      require('./images/wabber_animation/wabber-36.png'),
-      require('./images/wabber_animation/wabber-37.png'),
-      require('./images/wabber_animation/wabber-38.png'),
-      require('./images/wabber_animation/wabber-39.png'),
-      require('./images/wabber_animation/wabber-40.png'),
-      require('./images/wabber_animation/wabber-41.png'),
-      require('./images/wabber_animation/wabber-42.png'),
-      require('./images/wabber_animation/wabber-43.png'),
-      require('./images/wabber_animation/wabber-44.png'),
-      require('./images/wabber_animation/wabber-45.png'),
-      require('./images/wabber_animation/wabber-46.png'),
-      require('./images/wabber_animation/wabber-47.png'),
-      require('./images/wabber_animation/wabber-48.png'),
-      require('./images/wabber_animation/wabber-49.png'),
-      require('./images/wabber_animation/wabber-50.png'),
-      require('./images/wabber_animation/wabber-51.png'),
-      require('./images/wabber_animation/wabber-52.png'),
-      require('./images/wabber_animation/wabber-53.png'),
-      require('./images/wabber_animation/wabber-54.png'),
-      require('./images/wabber_animation/wabber-55.png'),
-      require('./images/wabber_animation/wabber-56.png'),
-      require('./images/wabber_animation/wabber-57.png'),
-      require('./images/wabber_animation/wabber-58.png'),
-      require('./images/wabber_animation/wabber-59.png'),
-      require('./images/wabber_animation/wabber-60.png'),
-      require('./images/wabber_animation/wabber-61.png'),
-      require('./images/wabber_animation/wabber-62.png'),
-      require('./images/wabber_animation/wabber-63.png'),
-      require('./images/wabber_animation/wabber-64.png'),
-      require('./images/wabber_animation/wabber-65.png'),
-      require('./images/wabber_animation/wabber-66.png'),
-      require('./images/wabber_animation/wabber-67.png'),
-      require('./images/wabber_animation/wabber-68.png'),
-      require('./images/wabber_animation/wabber-69.png'),
-      require('./images/wabber_animation/wabber-70.png'),
-      require('./images/wabber_animation/wabber-71.png'),
-      require('./images/wabber_animation/wabber-72.png'),
-      require('./images/wabber_animation/wabber-73.png'),
-      require('./images/wabber_animation/wabber-74.png'),
-      require('./images/wabber_animation/wabber-75.png'),
-      require('./images/wabber_animation/wabber-76.png'),
-      require('./images/wabber_animation/wabber-77.png'),
-      require('./images/wabber_animation/wabber-78.png'),
-      require('./images/wabber_animation/wabber-79.png')
+      require('./images/wabber_animation/wabber-19.png')
     ],
-    "sequenceLength": 80,
+    "sequenceLength": 20,
     "image": require('./images/wabber_animation/wabber-0.png')
   }
 ]

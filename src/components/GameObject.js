@@ -158,6 +158,7 @@ class Game extends Component {
         })
 
         if (this.props.soundOn && this.sound) {
+          console.log('play')
             this.sound.play()
         }
 

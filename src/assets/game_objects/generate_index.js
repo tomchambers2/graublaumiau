@@ -6,17 +6,17 @@ var gameObjects = []
 var gidCounter = 0
 
 var timers = {}
-timers.baum_animation = { play: 3.5, pause: 10 }
-timers.beine_animation = { play: 3, pause: 15 }
-timers.feuer_animation = { play: 2.08, pause: 10 }
-timers.fleck_gruen_animation = { play: 3.36, pause: 15 }
-timers.katze_aufstehen_animation = { play: 2.04, pause: 8 }
-timers.katze_still_animation = { play: 2.4, pause: 8 }
-timers.milo_walking_animation = { play: 3, pause: 10 }
-timers.pflanze_animation = { play: 8.64, pause: 15 }
-timers.pflanze_bluete_animation = { play: 6.12, pause: 10 }
-timers.punkte_animation = { play: 1.64, pause: 0 }
-timers.wabber_animation = { play: 9.72, pause: 15 }
+timers.baum_animation = { play: 3.66, pause: 10 }
+timers.beine_animation = { play: 1.83, pause: 15 }
+timers.feuer_animation = { play: 1.99, pause: 10 }
+timers.fleck_gruen_animation = { play: 1.66, pause: 15 }
+timers.katze_aufstehen_animation = { play: 2.08, pause: 8 }
+timers.katze_still_animation = { play: 1.74, pause: 8 }
+timers.milo_walking_animation = { play: 2.99, pause: 10 }
+timers.pflanze_animation = { play: 8.99, pause: 15 }
+timers.pflanze_bluete_animation = { play: 6.24, pause: 10 }
+timers.punkte_animation = { play: 1.66, pause: 0 }
+timers.wabber_animation = { play: 4.99, pause: 15 }
 
 var sounds = {
   baum_animation: 'baum.mp3',
