@@ -14,7 +14,7 @@ class SplashScreen extends Component {
     componentDidMount() {
       setTimeout(() => {
         this.props.hideSplashScreen()
-      }, 5000)
+      }, 6500)
     }
 
     assignRef = ref => this.player = ref
@@ -24,7 +24,7 @@ class SplashScreen extends Component {
             <Video
                 muted
                 ref={this.assignRef}
-                repeat
+                repeat={true}
                 resizeMode="cover"
                 source={loadingVideo}
                 style={styles.backgroundVideo}
