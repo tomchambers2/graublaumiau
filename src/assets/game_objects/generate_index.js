@@ -42,9 +42,18 @@ var initialZoom = {
   schiff: 0.6,
   loch: 0.6,
   miau3: 0.6,
-  stein: 0.8,
-  stein1: 0.8,
+  stein: 0.4,
+  stein1: 0.4,
+  fingerprint1_rosa: 0.5,
+  fingerprint1: 0.5,
+  fingerprint2: 0.5,
+  fingerprint3_grau: 0.5,
+  fingerprint3: 0.5,
+  fingerprint4: 0.5,
+  tanz1: 0.75,
 }
+
+const defaultInitialZoom = 0.75
 
 
 fs.readdir('./images', (err, files) => {
@@ -69,7 +78,7 @@ fs.readdir('./images', (err, files) => {
             gid: gidCounter,
             name: trimmedName,
             size,
-            initialZoom: initialZoom[trimmedName],
+            initialZoom: initialZoom[trimmedName] || defaultInitialZoom,
             image: "require('./images/" + name + "')",
             icon: "require('./images/icon_" + name + "')",
         })
