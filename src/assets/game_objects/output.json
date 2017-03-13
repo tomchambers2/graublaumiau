@@ -1091,10 +1091,41 @@
     "image": require('./images/fleck_gruen_animation/fleck-gruen-0.png')
   },
   {
+    "gid": 86,
+    "name": "milo_walking_animation",
+    "soundName": "milo-walking.mp3",
+    "playTime": 2990,
+    "pauseTime": 10000,
+    "minPause": null,
+    "maxPause": null,
+    "size": {
+      "width": 334,
+      "height": 500,
+      "type": "png"
+    },
+    "icon": require('./images/icon_milo_walking_animation.png'),
+    "sequence": [
+      require('./images/milo_walking_animation/milo-walking-0.png'),
+      require('./images/milo_walking_animation/milo-walking-1.png'),
+      require('./images/milo_walking_animation/milo-walking-2.png'),
+      require('./images/milo_walking_animation/milo-walking-3.png'),
+      require('./images/milo_walking_animation/milo-walking-4.png'),
+      require('./images/milo_walking_animation/milo-walking-5.png'),
+      require('./images/milo_walking_animation/milo-walking-6.png'),
+      require('./images/milo_walking_animation/milo-walking-7.png'),
+      require('./images/milo_walking_animation/milo-walking-8.png'),
+      require('./images/milo_walking_animation/milo-walking-9.png'),
+      require('./images/milo_walking_animation/milo-walking-10.png'),
+      require('./images/milo_walking_animation/milo-walking-11.png')
+    ],
+    "sequenceLength": 12,
+    "image": require('./images/milo_walking_animation/milo-walking-0.png')
+  },
+  {
     "gid": 84,
     "name": "katze_aufstehen_animation",
     "soundName": "katze-aufstehen.mp3",
-    "playTime": 2080,
+    "playTime": 2000,
     "pauseTime": 8000,
     "minPause": null,
     "maxPause": null,
@@ -1175,76 +1206,6 @@
     "image": require('./images/katze_still_animation/katze-still-0.png')
   },
   {
-    "gid": 86,
-    "name": "milo_walking_animation",
-    "soundName": "milo-walking.mp3",
-    "playTime": 2990,
-    "pauseTime": 10000,
-    "minPause": null,
-    "maxPause": null,
-    "size": {
-      "width": 334,
-      "height": 500,
-      "type": "png"
-    },
-    "icon": require('./images/icon_milo_walking_animation.png'),
-    "sequence": [
-      require('./images/milo_walking_animation/milo-walking-0.png'),
-      require('./images/milo_walking_animation/milo-walking-1.png'),
-      require('./images/milo_walking_animation/milo-walking-2.png'),
-      require('./images/milo_walking_animation/milo-walking-3.png'),
-      require('./images/milo_walking_animation/milo-walking-4.png'),
-      require('./images/milo_walking_animation/milo-walking-5.png'),
-      require('./images/milo_walking_animation/milo-walking-6.png'),
-      require('./images/milo_walking_animation/milo-walking-7.png'),
-      require('./images/milo_walking_animation/milo-walking-8.png'),
-      require('./images/milo_walking_animation/milo-walking-9.png'),
-      require('./images/milo_walking_animation/milo-walking-10.png'),
-      require('./images/milo_walking_animation/milo-walking-11.png')
-    ],
-    "sequenceLength": 12,
-    "image": require('./images/milo_walking_animation/milo-walking-0.png')
-  },
-  {
-    "gid": 89,
-    "name": "punkte_animation",
-    "soundName": "punkte.mp3",
-    "playTime": 1660,
-    "pauseTime": 0,
-    "minPause": null,
-    "maxPause": null,
-    "size": {
-      "width": 794,
-      "height": 500,
-      "type": "png"
-    },
-    "icon": require('./images/icon_punkte_animation.png'),
-    "sequence": [
-      require('./images/punkte_animation/punkte-0.png'),
-      require('./images/punkte_animation/punkte-1.png'),
-      require('./images/punkte_animation/punkte-2.png'),
-      require('./images/punkte_animation/punkte-3.png'),
-      require('./images/punkte_animation/punkte-4.png'),
-      require('./images/punkte_animation/punkte-5.png'),
-      require('./images/punkte_animation/punkte-6.png'),
-      require('./images/punkte_animation/punkte-7.png'),
-      require('./images/punkte_animation/punkte-8.png'),
-      require('./images/punkte_animation/punkte-9.png'),
-      require('./images/punkte_animation/punkte-10.png'),
-      require('./images/punkte_animation/punkte-11.png'),
-      require('./images/punkte_animation/punkte-12.png'),
-      require('./images/punkte_animation/punkte-13.png'),
-      require('./images/punkte_animation/punkte-14.png'),
-      require('./images/punkte_animation/punkte-15.png'),
-      require('./images/punkte_animation/punkte-16.png'),
-      require('./images/punkte_animation/punkte-17.png'),
-      require('./images/punkte_animation/punkte-18.png'),
-      require('./images/punkte_animation/punkte-19.png')
-    ],
-    "sequenceLength": 20,
-    "image": require('./images/punkte_animation/punkte-0.png')
-  },
-  {
     "gid": 87,
     "name": "pflanze_animation",
     "soundName": "pflanze.mp3",
@@ -1298,6 +1259,45 @@
     ],
     "sequenceLength": 36,
     "image": require('./images/pflanze_animation/pflanze-0.png')
+  },
+  {
+    "gid": 89,
+    "name": "punkte_animation",
+    "soundName": "punkte.mp3",
+    "playTime": 1660,
+    "pauseTime": 0,
+    "minPause": null,
+    "maxPause": null,
+    "size": {
+      "width": 794,
+      "height": 500,
+      "type": "png"
+    },
+    "icon": require('./images/icon_punkte_animation.png'),
+    "sequence": [
+      require('./images/punkte_animation/punkte-0.png'),
+      require('./images/punkte_animation/punkte-1.png'),
+      require('./images/punkte_animation/punkte-2.png'),
+      require('./images/punkte_animation/punkte-3.png'),
+      require('./images/punkte_animation/punkte-4.png'),
+      require('./images/punkte_animation/punkte-5.png'),
+      require('./images/punkte_animation/punkte-6.png'),
+      require('./images/punkte_animation/punkte-7.png'),
+      require('./images/punkte_animation/punkte-8.png'),
+      require('./images/punkte_animation/punkte-9.png'),
+      require('./images/punkte_animation/punkte-10.png'),
+      require('./images/punkte_animation/punkte-11.png'),
+      require('./images/punkte_animation/punkte-12.png'),
+      require('./images/punkte_animation/punkte-13.png'),
+      require('./images/punkte_animation/punkte-14.png'),
+      require('./images/punkte_animation/punkte-15.png'),
+      require('./images/punkte_animation/punkte-16.png'),
+      require('./images/punkte_animation/punkte-17.png'),
+      require('./images/punkte_animation/punkte-18.png'),
+      require('./images/punkte_animation/punkte-19.png')
+    ],
+    "sequenceLength": 20,
+    "image": require('./images/punkte_animation/punkte-0.png')
   },
   {
     "gid": 88,

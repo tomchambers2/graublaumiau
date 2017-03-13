@@ -58,6 +58,7 @@ class Game extends Component {
             width: null,
             height: null,
             disabled: true,
+            // disabled: false, // on to see anim load
         }
     }
 
@@ -79,9 +80,8 @@ class Game extends Component {
             if (this.gameObject.sequence && this.gameObject.sequence.length) {
                 this.init = true
                 this.animationTimer = setTimeout(() => {
-                  console.log('did pause', this.gameObject.playTime)
                     this._playAnimation()
-                }, this.gameObject.playTime || ANIMATION_DELAY_AFTER_DROP)
+                }, this.gameObject.playTime + 1000 || ANIMATION_DELAY_AFTER_DROP)
             }
         }
 
@@ -167,18 +167,9 @@ class Game extends Component {
                 disabled: true,
             })
 
-            let pauseTime
-            if (!this.gameObject.pauseTime) {
-                const min = this.gameObject.minPause
-                const max = this.gameObject.maxPause
-                pauseTime = Math.round(Math.random() * (max-min)+min)
-            } else {
-                pauseTime = this.gameObject.pauseTime
-            }
-
             this.animationTimer = setTimeout(() => {
                 this._playAnimation()
-            }, pauseTime)
+            }, this.gameObject.pauseTime)
         }, this.gameObject.playTime)
     }
 

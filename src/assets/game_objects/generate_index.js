@@ -10,7 +10,7 @@ timers.baum_animation = { play: 3.66, pause: 10 }
 timers.beine_animation = { play: 1.83, pause: 15 }
 timers.feuer_animation = { play: 1.99, pause: 10 }
 timers.fleck_gruen_animation = { play: 1.66, pause: 15 }
-timers.katze_aufstehen_animation = { play: 2.08, pause: 8 }
+timers.katze_aufstehen_animation = { play: 2, pause: 8 }
 timers.katze_still_animation = { play: 1.74, pause: 8 }
 timers.milo_walking_animation = { play: 2.99, pause: 10 }
 timers.pflanze_animation = { play: 8.99, pause: 15 }
@@ -50,7 +50,7 @@ var initialZoom = {
   fingerprint3_grau: 0.5,
   fingerprint3: 0.5,
   fingerprint4: 0.5,
-  tanz1: 0.75,
+  grosi: 0.6,
 }
 
 const defaultInitialZoom = 0.75
