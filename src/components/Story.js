@@ -213,7 +213,11 @@ class Story extends Component {
                 this.backgroundSound.pause()
                 this.backgroundSound = sounds[soundFilenames[1]]
                 this.backgroundSound.setNumberOfLoops(-1);
-                if (!this.props.soundOn) this.backgroundSound.setVolume(0)
+                if (!this.props.soundOn) {
+                  this.backgroundSound.setVolume(0)
+                } else {
+                  this.backgroundSound.setVolume(1)
+                }
                 this.backgroundSound.play()
                 this.setState({
                     currentBackgroundSound: soundFilenames[1],
@@ -224,7 +228,11 @@ class Story extends Component {
                 this.backgroundSound.pause()
                 this.backgroundSound = sounds[soundFilenames[0]]
                 this.backgroundSound.setNumberOfLoops(-1);
-                if (!this.props.soundOn) this.backgroundSound.setVolume(0)
+                if (!this.props.soundOn) {
+                  this.backgroundSound.setVolume(0)
+                } else {
+                    this.backgroundSound.setVolume(1)
+                }
                 this.backgroundSound.play()
                 this.setState({
                     currentBackgroundSound: soundFilenames[0],
