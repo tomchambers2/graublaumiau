@@ -26,7 +26,7 @@ const email = {
         RNMail.mail({
           subject: 'Postkarte von «grau blau miau»',
           recipients: ['beispiel@beispiel.ch'],
-          bccRecipients: ['postkarte@alicekolb.ch'],
+          bccRecipients: ['postkarte@graublaumiau.ch'],
           body: body,
           isHTML: true,
           attachment: {
